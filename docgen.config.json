@@ -1,0 +1,10 @@
+{
+	"input": ["src/*.md", "lib/*.d.ts"],
+	"samples": ["src/*.sample.{ts,tsx}"],
+	"refFolder": "ref",
+	"output": {
+		"markdown": {
+			"path": "docs"
+		}
+	}
+}
