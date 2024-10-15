@@ -13,7 +13,9 @@ export default (
 		<column align="start" spacing={8}>
 			<label>Default split view, with separator</label>
 			<cell style={outerCellStyle}>
-				<SidebarSplitView separator={{ vertical: true, lineThickness: 1 }}>
+				<SidebarSplitView
+					styles={{ separator: { vertical: true, lineThickness: 1 } }}
+				>
 					<cell>
 						<label>Sidebar</label>
 					</cell>
@@ -28,7 +30,7 @@ export default (
 		<column align="start" spacing={8}>
 			<label>With sidebar shadow</label>
 			<cell style={outerCellStyle}>
-				<SidebarSplitView sidebarEffect={ui.effect.SHADOW}>
+				<SidebarSplitView styles={{ sidebarEffect: ui.effect.SHADOW }}>
 					<cell>
 						<label>Sidebar</label>
 					</cell>
@@ -44,11 +46,13 @@ export default (
 			<label>With content shadow, min/max width</label>
 			<cell style={outerCellStyle}>
 				<SidebarSplitView
-					contentEffect={ui.effect.SHADOW}
-					sidebarWidth={200}
-					sidebarMinWidth={100}
-					sidebarMaxWidth={300}
-					separator={{ vertical: true, lineThickness: 1 }}
+					styles={{
+						contentEffect: ui.effect.SHADOW,
+						sidebarWidth: 200,
+						sidebarMinWidth: 100,
+						sidebarMaxWidth: 300,
+						separator: { vertical: true, lineThickness: 1 },
+					}}
 				>
 					<cell>
 						<label>Sidebar</label>
@@ -61,11 +65,13 @@ export default (
 			<cell style={outerCellStyle}>
 				<SidebarSplitView
 					reverse
-					contentEffect={ui.effect.SHADOW}
-					sidebarWidth={200}
-					sidebarMinWidth={100}
-					sidebarMaxWidth={300}
-					separator={{ vertical: true, lineThickness: 1 }}
+					styles={{
+						contentEffect: ui.effect.SHADOW,
+						sidebarWidth: 200,
+						sidebarMinWidth: 100,
+						sidebarMaxWidth: 300,
+						separator: { vertical: true, lineThickness: 1 },
+					}}
 				>
 					<cell>
 						<label>Sidebar</label>
@@ -94,7 +100,7 @@ export default (
 					name="ListDetailSample"
 					showContent={$activity.bind("showContent")}
 					showSidebar={$activity.bind("showSidebar")}
-					separator={{ vertical: true, lineThickness: 1 }}
+					styles={{ separator: { vertical: true, lineThickness: 1 } }}
 				>
 					<cell>
 						<label>List</label>

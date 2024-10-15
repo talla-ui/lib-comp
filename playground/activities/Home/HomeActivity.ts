@@ -17,7 +17,7 @@ export class HomeActivity extends Activity {
 			mode: "screen",
 			background: ui.color.BACKGROUND.alpha(0.75),
 		};
-		let mode = app.settings.read({
+		let mode = app.localData.read("settings", {
 			colorScheme: { value: { match: ["light", "dark"] as const } },
 		})[0]?.colorScheme;
 		if (mode) this.setMode(mode);
@@ -48,12 +48,12 @@ export class HomeActivity extends Activity {
 
 	onLightMode() {
 		this.setMode("light");
-		app.settings.write({ colorScheme: "light" });
+		app.localData.write("settings", { colorScheme: "light" });
 	}
 
 	onDarkMode() {
 		this.setMode("dark");
-		app.settings.write({ colorScheme: "dark" });
+		app.localData.write("settings", { colorScheme: "dark" });
 	}
 
 	setMode(mode: "light" | "dark") {

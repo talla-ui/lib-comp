@@ -105,9 +105,10 @@ export class SidebarSplitView extends ViewComposite.define({
 
 	protected beforeRender() {
 		if (this.name) {
-			let r = app.settings.read({ SidebarSplitView: { record: {} } });
-			let w: any = r[0]?.SidebarSplitView[this.name];
-			if (w) this.styles.sidebarWidth = w;
+			let [r, _err] = app.localData.read("SidebarSplitView_" + this.name, {
+				width: {},
+			});
+			if (r?.width) this.styles.sidebarWidth = r.width as any;
 		}
 		this.setWidth(this.styles.sidebarWidth);
 	}
@@ -130,11 +131,15 @@ export class SidebarSplitView extends ViewComposite.define({
 	setWidth(width: string | number) {
 		let cell1 = (this.body as UICell).findViewContent(UICell)[0] as UICell;
 		cell1.style = { width: 10, minWidth: width, grow: 1, shrink: 0 };
-		if (this.name) {
-			let r = app.settings.read({ SidebarSplitView: { record: {} } });
-			let widths = r[0]?.SidebarSplitView || {};
-			widths[this.name] = width;
-			app.settings.write({ SidebarSplitView: widths });
-		}
+
+		// persist width if name is set
+		if (!this.name) return;
+		if (this._throttle) clearTimeout(this._throttle);
+		this._throttle = setTimeout(() => {
+			this._throttle = undefined;
+			app.localData.write("SidebarSplitView_" + this.name, { width });
+		}, 500);
 	}
+
+	private _throttle?: any;
 }
