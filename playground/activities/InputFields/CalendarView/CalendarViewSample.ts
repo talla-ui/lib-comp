@@ -11,7 +11,7 @@ export class CalendarViewSample extends Activity {
 	constructor() {
 		super();
 		this.title = "CalendarView";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext().set(
 			"date1",
 			new Date(YYYY, MM - 1, DD + 7)

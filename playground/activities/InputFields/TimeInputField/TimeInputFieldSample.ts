@@ -6,7 +6,7 @@ export class TimeInputFieldSample extends Activity {
 	constructor() {
 		super();
 		this.title = "TimeInputField";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext().set("datetime", new Date());
 	}
 

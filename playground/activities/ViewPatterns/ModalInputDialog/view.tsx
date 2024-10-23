@@ -68,7 +68,7 @@ class MyFormDialog extends ModalInputDialog {
 	protected createView() {
 		// switch to full-screen on narrow devices
 		if (!app.renderer?.viewport.col2) {
-			this.renderOptions = { place: { mode: "page" } };
+			this.setRenderMode("page");
 		}
 		return dialog.create();
 	}

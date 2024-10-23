@@ -63,7 +63,7 @@ export default (
 						<HomeCard
 							color={$list.bind("item.color")}
 							title={$list.string("item.title")}
-							numSamples={$list.number("item.samples.length")}
+							numSamples={$list.number("item.samples.count")}
 							page={$list.bind("item.navigationPageId")}
 						/>
 					</animate>

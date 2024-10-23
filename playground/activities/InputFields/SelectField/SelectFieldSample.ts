@@ -8,7 +8,7 @@ export class SelectFieldSample extends Activity {
 	constructor() {
 		super();
 		this.title = "SelectField";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext().set("select1", true);
 	}
 

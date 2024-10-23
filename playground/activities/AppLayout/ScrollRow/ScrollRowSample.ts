@@ -7,7 +7,7 @@ export class ScrollRowSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ScrollRow";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

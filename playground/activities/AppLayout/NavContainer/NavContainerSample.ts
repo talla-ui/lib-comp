@@ -6,7 +6,7 @@ export class NavContainerSample extends Activity {
 	constructor() {
 		super();
 		this.title = "NavContainer";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

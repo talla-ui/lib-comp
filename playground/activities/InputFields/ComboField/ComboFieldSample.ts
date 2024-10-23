@@ -7,7 +7,7 @@ export class ComboFieldSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ComboField";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext();
 	}
 

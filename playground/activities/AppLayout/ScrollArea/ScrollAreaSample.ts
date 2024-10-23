@@ -6,7 +6,7 @@ export class ScrollAreaSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ScrollArea";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

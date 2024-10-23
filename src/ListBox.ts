@@ -122,7 +122,7 @@ export class ListBox extends ViewComposite.define({
 						allowFocus: true,
 						style: this.styles.listCellStyle,
 						onFocusIn: "+ItemFocused",
-						onClick: "+ItemClick",
+						onClick: "+ItemSelected",
 						onEnterKeyPress: "+ItemSelected",
 						onSpacebarPress: "+ItemSelected",
 						onArrowDownKeyPress: "FocusNext",
@@ -190,11 +190,6 @@ export class ListBox extends ViewComposite.define({
 			this._deselect();
 			this._selectByController(e.findDelegate(UIListView.ItemControllerView));
 		}
-		return true;
-	}
-
-	protected onItemClick(e: ViewEvent) {
-		e.source.emit("ItemSelected");
 		return true;
 	}
 

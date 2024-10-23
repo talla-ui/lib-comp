@@ -45,12 +45,8 @@ export class SourceCodeActivity extends Activity {
 	code: string;
 
 	protected createView() {
-		this.renderOptions = {
-			place: {
-				mode: app.renderer?.viewport.col3 ? "modal" : "screen",
-				shade: true,
-			},
-		};
+		let isWide = app.renderer?.viewport.col3;
+		this.setRenderMode(isWide ? "modal" : "screen", { shade: true });
 		return screen.create();
 	}
 

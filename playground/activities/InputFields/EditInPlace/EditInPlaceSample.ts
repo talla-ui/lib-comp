@@ -6,7 +6,7 @@ export class EditInPlaceSample extends Activity {
 	constructor() {
 		super();
 		this.title = "EditInPlace";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext({
 			quantity: { number: { positive: true } },
 			overhead: { number: { positive: true } },

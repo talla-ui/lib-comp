@@ -6,7 +6,7 @@ export class ScrollPaneSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ScrollPane";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

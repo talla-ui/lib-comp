@@ -11,7 +11,7 @@ export class FormEntrySample extends Activity {
 	constructor() {
 		super();
 		this.title = "FormEntry";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext({
 			fullName: {
 				string: { required: true, err: "This field is required" },

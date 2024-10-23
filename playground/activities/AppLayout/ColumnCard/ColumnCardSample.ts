@@ -7,7 +7,7 @@ export class ColumnCardSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ColumnCard";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

@@ -11,7 +11,7 @@ export class PropertyEditorSample extends Activity {
 	constructor() {
 		super();
 		this.title = "PropertyEditor";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

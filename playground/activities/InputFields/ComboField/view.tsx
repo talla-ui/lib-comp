@@ -73,7 +73,7 @@ export default (
 						onChange="SetComboValue"
 						onBackspaceKeyPress="+CloseOverlay"
 						onEnterKeyPress="+CloseOverlay"
-						onItemClick="+CloseOverlay"
+						onItemSelected="+CloseOverlay"
 						items={$activity.list("countryOptions")}
 						styles={_comboListBoxStyles}
 					/>

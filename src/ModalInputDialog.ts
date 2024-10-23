@@ -19,7 +19,7 @@ export class ModalInputDialog extends Activity {
 	/** Creates a new modal input dialog, should be overridden to initialize the form context */
 	constructor() {
 		super();
-		this.renderOptions = { dialog: true };
+		this.setRenderMode("dialog");
 	}
 
 	/** An empty form context without validation rules, should be initialized by the constructor */

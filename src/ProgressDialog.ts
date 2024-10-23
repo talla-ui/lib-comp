@@ -105,7 +105,7 @@ export class ProgressDialog extends Activity {
 	cancelled = false;
 
 	protected createView() {
-		this.renderOptions = { dialog: true };
+		this.setRenderMode("dialog");
 		return view.create();
 	}
 

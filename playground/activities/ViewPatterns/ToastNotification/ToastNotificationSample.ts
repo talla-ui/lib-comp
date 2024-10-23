@@ -6,7 +6,7 @@ export class ToastNotificationSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ToastNotification";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

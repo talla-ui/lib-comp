@@ -11,7 +11,7 @@ export class CalendarSelectFieldSample extends Activity {
 	constructor() {
 		super();
 		this.title = "CalendarSelectField";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext().set(
 			"date1",
 			new Date(YYYY, MM - 1, DD + 7)

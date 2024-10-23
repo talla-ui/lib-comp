@@ -6,7 +6,7 @@ export class ButtonSwitchSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ButtonSwitch";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext();
 	}
 

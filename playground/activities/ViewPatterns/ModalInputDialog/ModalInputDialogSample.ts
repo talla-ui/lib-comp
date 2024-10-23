@@ -6,7 +6,7 @@ export class ModalInputDialogSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ModalInputDialog";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext()
 			.set("email", "test@example.com")
 			.set("message", "Hello");

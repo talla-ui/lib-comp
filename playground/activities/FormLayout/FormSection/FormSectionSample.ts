@@ -7,7 +7,7 @@ export class FormSectionSample extends Activity {
 	constructor() {
 		super();
 		this.title = "FormSection";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 		this.formContext = new FormContext();
 	}
 

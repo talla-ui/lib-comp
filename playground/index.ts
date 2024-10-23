@@ -49,9 +49,7 @@ Binding.debugHandler = (a) => {
 };
 
 app.addActivity(new HomeActivity());
-
-// TODO: should this be added from the home activity? Then don't need to use singleton here.
-app.addActivity(InputFieldsActivity.instance);
-app.addActivity(FormLayoutActivity.instance);
-app.addActivity(AppLayoutActivity.instance);
-app.addActivity(ViewPatternsActivity.instance);
+app.addActivity(new InputFieldsActivity());
+app.addActivity(new FormLayoutActivity());
+app.addActivity(new AppLayoutActivity());
+app.addActivity(new ViewPatternsActivity());

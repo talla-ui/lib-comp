@@ -1,9 +1,5 @@
 import { Activity, app, ui } from "talla-ui";
 import screen from "./screen";
-import { InputFieldsActivity } from "../InputFields/InputFieldsActivity";
-import { ViewPatternsActivity } from "../ViewPatterns/ViewPatternsActivity";
-import { FormLayoutActivity } from "../FormLayout/FormLayoutActivity";
-import { AppLayoutActivity } from "../AppLayout/AppLayoutActivity.";
 
 const GITHUB_URL = "https://github.com/talla-ui";
 const WEBSITE_URL = "https://talla-ui.dev";
@@ -13,10 +9,9 @@ export class HomeActivity extends Activity {
 		super();
 		this.navigationPageId = "";
 		this.title = "Playground";
-		this.renderOptions.place = {
-			mode: "screen",
+		this.setRenderMode("screen", {
 			background: ui.color.BACKGROUND.alpha(0.75),
-		};
+		});
 		let mode = app.localData.read("settings", {
 			colorScheme: { value: { match: ["light", "dark"] as const } },
 		})[0]?.colorScheme;
@@ -26,17 +21,16 @@ export class HomeActivity extends Activity {
 		}
 	}
 
-	categories = [
-		InputFieldsActivity.instance,
-		FormLayoutActivity.instance,
-		AppLayoutActivity.instance,
-		ViewPatternsActivity.instance,
-	];
+	categories: Activity[] = [];
 
 	nActivation = 0;
 	firstActivation = true;
 
 	mode: "light" | "dark" = "dark";
+
+	protected async beforeActiveAsync() {
+		this.categories = [...app.activities].filter((a) => a !== this);
+	}
 
 	createView() {
 		return screen.create();

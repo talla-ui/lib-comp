@@ -9,7 +9,7 @@ import icons from "~/icons/icons";
 
 const dateInputLocale_FR = DateInputLocale.init({
 	// for text field order:
-	dateFormat: "DMY" as const,
+	dateFormat: "DMY",
 	dateSeparator: "-",
 	// week starts on monday:
 	weekStart: 1,

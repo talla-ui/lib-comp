@@ -6,7 +6,7 @@ export class EmptyStateViewSample extends Activity {
 	constructor() {
 		super();
 		this.title = "EmptyStateView";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	sourceCode = code;

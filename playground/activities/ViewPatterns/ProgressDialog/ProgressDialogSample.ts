@@ -6,7 +6,7 @@ export class ProgressDialogSample extends Activity {
 	constructor() {
 		super();
 		this.title = "ProgressDialog";
-		this.renderOptions = {};
+		this.setRenderMode("none");
 	}
 
 	protected async afterActiveAsync() {
