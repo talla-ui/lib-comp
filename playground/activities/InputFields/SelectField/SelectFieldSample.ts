@@ -9,7 +9,7 @@ export class SelectFieldSample extends Activity {
 		super();
 		this.title = "SelectField";
 		this.setRenderMode("none");
-		this.formContext = new FormContext().set("select1", true);
+		this.formContext = new FormContext({}, { select1: true });
 	}
 
 	sourceCode = code;

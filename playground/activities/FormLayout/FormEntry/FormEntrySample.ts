@@ -14,10 +14,10 @@ export class FormEntrySample extends Activity {
 		this.setRenderMode("none");
 		this.formContext = new FormContext({
 			fullName: {
-				string: { required: true, err: "This field is required" },
+				isString: { required: true, err: "This field is required" },
 			},
 			age: {
-				number: {
+				isNumber: {
 					integer: true,
 					positive: true,
 					err: "Must be a valid number",

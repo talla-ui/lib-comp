@@ -8,7 +8,7 @@ export class ListBoxSample extends Activity {
 		super();
 		this.title = "ListBox";
 		this.setRenderMode("none");
-		this.formContext = new FormContext().set("country", "BE");
+		this.formContext = new FormContext({}, { country: "BE" });
 	}
 
 	sourceCode = code;

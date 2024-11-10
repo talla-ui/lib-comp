@@ -7,9 +7,13 @@ export class ModalInputDialogSample extends Activity {
 		super();
 		this.title = "ModalInputDialog";
 		this.setRenderMode("none");
-		this.formContext = new FormContext()
-			.set("email", "test@example.com")
-			.set("message", "Hello");
+		this.formContext = new FormContext(
+			{},
+			{
+				email: "test@example.com",
+				message: "Hello",
+			}
+		);
 	}
 
 	sourceCode = code;

@@ -7,12 +7,13 @@ export class EditInPlaceSample extends Activity {
 		super();
 		this.title = "EditInPlace";
 		this.setRenderMode("none");
-		this.formContext = new FormContext({
-			quantity: { number: { positive: true } },
-			overhead: { number: { positive: true } },
-		})
-			.set("quantity", 0)
-			.set("overhead", 10);
+		this.formContext = new FormContext(
+			{
+				quantity: { isNumber: { positive: true } },
+				overhead: { isNumber: { positive: true } },
+			},
+			{ quantity: 0, overhead: 10 }
+		);
 		this.formContext!.listen(() => {
 			let values = this.formContext!.validate();
 			if (values) {

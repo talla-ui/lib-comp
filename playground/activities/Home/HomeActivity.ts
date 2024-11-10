@@ -13,7 +13,7 @@ export class HomeActivity extends Activity {
 			background: ui.color.BACKGROUND.alpha(0.75),
 		});
 		let mode = app.localData.read("settings", {
-			colorScheme: { value: { match: ["light", "dark"] as const } },
+			colorScheme: { isValue: { match: ["light", "dark"] as const } },
 		})[0]?.colorScheme;
 		if (mode) this.setMode(mode);
 		else if (window.matchMedia("(prefers-color-scheme: light)").matches) {

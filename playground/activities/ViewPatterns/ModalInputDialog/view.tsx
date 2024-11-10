@@ -58,8 +58,10 @@ class MyFormDialog extends ModalInputDialog {
 		// initialize form context with validation rules
 		this.formContext = new FormContext(
 			{
-				email: { string: { match: /\w@\w/, err: "Invalid email" } },
-				message: { string: { min: { length: 1 }, err: "Message is required" } },
+				email: { isString: { match: /\w@\w/, err: "Invalid email" } },
+				message: {
+					isString: { min: { length: 1 }, err: "Message is required" },
+				},
 			},
 			{ email, message }
 		);
