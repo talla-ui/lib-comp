@@ -30,7 +30,6 @@ export class EditInPlaceStyles extends ConfigOptions {
 		borderRadius: 0,
 		borderThickness: 0,
 		padding: { x: 8, y: 4 },
-		lineHeight: 1.4,
 		css: { outlineOffset: "-2px" },
 	});
 }
