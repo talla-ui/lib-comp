@@ -21,6 +21,8 @@ Objects of this type are passed to [TableList](TableList.md) as the `styles` pre
     Fixed height, for scrollable tables.
 - [<!--{ref:property}-->rowHeight](TableListStyles_rowHeight.md) \
     Row height, defaults to 40.
+- [<!--{ref:property}-->rowInset](TableListStyles_rowInset.md) \
+    Row padding, defaults to 8.
 - [<!--{ref:property}-->containerStyle](TableListStyles_containerStyle.md) \
     Cell style for the container cell.
 - [<!--{ref:property}-->rowSeparator](TableListStyles_rowSeparator.md) \

@@ -37,10 +37,9 @@ export class HeaderPaneStyles extends ConfigOptions {
 	minHeight: string | number = 0;
 
 	/** Style for the title label */
-	titleStyle = ui.style.LABEL.extend({
+	titleStyle: ui.LabelStyle = ui.style.LABEL.extend({
 		bold: true,
 		fontSize: 16,
-		lineHeight: 1.2,
 	});
 
 	/** Height of the header, defaults to 48 */

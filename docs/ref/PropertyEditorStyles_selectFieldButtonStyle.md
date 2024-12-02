@@ -4,7 +4,7 @@
 
 > Style for select field buttons, defaults to borderless design to match text input fields.
 
-<pre class="docgen_signature">selectFieldButtonStyle: UIStyle.Type&lt;UIButton.StyleType&gt;;</pre>
+<pre class="docgen_signature">selectFieldButtonStyle: ui.ButtonStyle;</pre>
 
 ## Related
 

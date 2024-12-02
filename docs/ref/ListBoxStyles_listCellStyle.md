@@ -4,7 +4,7 @@
 
 > The style applied to each list cell.
 
-<pre class="docgen_signature">listCellStyle: UIStyle.Type&lt;UICell.StyleType&gt;;</pre>
+<pre class="docgen_signature">listCellStyle: ui.CellStyle;</pre>
 
 ## Related
 

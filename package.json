@@ -20,6 +20,7 @@
 		"prebuild": "npm run clean",
 		"build": "tsc && docgen",
 		"test": "run-tests-esbuild playground/index.test.ts",
+		"check-playground": "tsc -p ./playground/tsconfig.json",
 		"prepublishOnly": "tsc"
 	},
 	"files": [

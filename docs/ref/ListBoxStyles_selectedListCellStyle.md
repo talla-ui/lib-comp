@@ -4,7 +4,7 @@
 
 > The style applied to the selected list cell.
 
-<pre class="docgen_signature">selectedListCellStyle: UIStyle.Type&lt;UICell.StyleType&gt;;</pre>
+<pre class="docgen_signature">selectedListCellStyle: ui.CellStyle;</pre>
 
 ## Related
 

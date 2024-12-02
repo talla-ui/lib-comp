@@ -15,7 +15,7 @@ import icons from "~/icons/icons";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8} layout={{ clip: true }}>
+		<column align="start" spacing={16} layout={{ clip: true }}>
 			<label>Plain nav row</label>
 			<NavRow>
 				<PageNavButton pageId="input">Input fields</PageNavButton>
@@ -32,7 +32,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Tab nav row, in scroll row</label>
 			<ScrollRow padding={{ y: 8 }}>
 				<TabNavRow>
@@ -46,7 +46,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Plain nav column</label>
 			<NavColumn>
 				<PageNavButton pageId="input">Input fields</PageNavButton>
@@ -57,7 +57,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Sidebar nav column, with icons</label>
 			<SidebarNavColumn>
 				<PageNavButton icon={icons.calendar} pageId="input">
@@ -76,7 +76,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>List nav column in card, with chevrons</label>
 			<ColumnCard>
 				<row padding={{ start: 16, end: 4, y: 8 }}>

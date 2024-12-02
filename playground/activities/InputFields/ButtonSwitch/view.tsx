@@ -31,7 +31,7 @@ const _customButtonSwitchStyles = ButtonSwitchStyles.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Plain ButtonSwitch</label>
 			<row>
 				<ButtonSwitch
@@ -47,7 +47,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With icons</label>
 			<row>
 				<ButtonSwitch
@@ -62,7 +62,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Custom style</label>
 			<row>
 				<ButtonSwitch
@@ -79,7 +79,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Bound to form field</label>
 			<row>
 				<ButtonSwitch

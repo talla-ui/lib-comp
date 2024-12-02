@@ -4,7 +4,7 @@
 
 > Style for the date and month input fields.
 
-<pre class="docgen_signature">textFieldStyle: UIStyle.Type&lt;UITextField.StyleType&gt;;</pre>
+<pre class="docgen_signature">textFieldStyle: ui.TextFieldStyle;</pre>
 
 ## Related
 

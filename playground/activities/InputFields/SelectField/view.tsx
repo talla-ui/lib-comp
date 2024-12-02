@@ -5,7 +5,7 @@ import icons from "~/icons/icons";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Plain SelectField</label>
 			<row>
 				<SelectField
@@ -20,7 +20,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With icons</label>
 			<row>
 				<SelectField
@@ -34,7 +34,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With custom styles</label>
 			<row>
 				<SelectField
@@ -56,14 +56,14 @@ export default (
 		</column>
 
 		<row layout={{ wrapContent: true }} spacing={0}>
-			<column align="start" spacing={8} padding={{ end: 16 }}>
+			<column align="start" spacing={16} padding={{ end: 16 }}>
 				<label>Just-in-time options</label>
 				<row>
 					<SelectField label="Select..." onBeforeSelect="OpenJITSelect" />
 				</row>
 				<separator margin={16} />
 			</column>
-			<column align="start" spacing={8} padding={{ end: 16 }}>
+			<column align="start" spacing={16} padding={{ end: 16 }}>
 				<label>Bound options</label>
 				<row>
 					<SelectField
@@ -74,7 +74,7 @@ export default (
 				</row>
 				<separator margin={16} />
 			</column>
-			<column align="start" spacing={8} padding={{ end: 16 }}>
+			<column align="start" spacing={16} padding={{ end: 16 }}>
 				<label>Many options</label>
 				<row>
 					<SelectField
@@ -86,7 +86,7 @@ export default (
 			</column>
 		</row>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Bound to form field</label>
 			<row>
 				<SelectField
@@ -104,7 +104,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Read-only</label>
 			<row>
 				<SelectField

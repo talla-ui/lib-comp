@@ -45,7 +45,7 @@ export class CalendarViewStyles extends ConfigOptions {
 	static default = new CalendarViewStyles();
 
 	/** Style for the grid buttons (dates) */
-	gridButtonStyle = ui.style.BUTTON_ICON.extend(
+	gridButtonStyle: ui.ButtonStyle = ui.style.BUTTON_ICON.extend(
 		{
 			fontSize: 12,
 			fontWeight: "normal",
@@ -60,29 +60,30 @@ export class CalendarViewStyles extends ConfigOptions {
 	);
 
 	/** Style for pre-selected grid buttons (date range) */
-	gridPreselectedButtonStyle = this.gridButtonStyle.override({
+	gridPreselectedButtonStyle = ui.style(this.gridButtonStyle, {
 		background: ui.color.PRIMARY_BG.alpha(0.2),
 	});
 
 	/** Style for dimmed grid buttons (outside of month) */
-	gridDimButtonStyle = this.gridButtonStyle.override({ opacity: 0.1 });
+	gridDimButtonStyle = ui.style(this.gridButtonStyle, { opacity: 0.2 });
 
 	/** Style for the current day's grid button */
-	gridTodayButtonStyle = this.gridButtonStyle.override({
+	gridTodayButtonStyle = ui.style(this.gridButtonStyle, {
 		bold: true,
 		underline: true,
 	});
 
 	/** Style for weekday headings */
-	dayHeadingStyle = ui.style.LABEL.extend({
+	dayHeadingStyle: ui.LabelStyle = ui.style.LABEL.extend({
 		fontSize: 12,
 		bold: true,
 		width: 32,
+		padding: { y: 6 },
 		textAlign: "center",
 	});
 
 	/** Style for the year input field */
-	yearInputStyle = ui.style.TEXTFIELD.extend({
+	yearInputStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend({
 		textAlign: "center",
 		fontSize: 18,
 		bold: true,
@@ -93,7 +94,7 @@ export class CalendarViewStyles extends ConfigOptions {
 	});
 
 	/** Style for month buttons */
-	monthButtonStyle = ui.style.BUTTON_PLAIN.extend({
+	monthButtonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend({
 		fontSize: 12,
 		minWidth: 0,
 		width: 74,

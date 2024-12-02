@@ -16,7 +16,7 @@ export class ColumnCardStyles extends ConfigOptions {
 	static default = new ColumnCardStyles();
 
 	/** The padding applied to non-container elements within the card */
-	contentPadding: UIComponent.Offsets = { x: 16, y: 8 };
+	contentPadding: UIComponent.Offsets = { x: 16, y: 12 };
 
 	/** The separator style between card elements */
 	separator: UIContainer.SeparatorOptions = {
@@ -28,7 +28,7 @@ export class ColumnCardStyles extends ConfigOptions {
 	effect = ui.effect.SHADOW;
 
 	/** The base style for the column card container */
-	containerStyle = ui.style.CELL_BG.extend({
+	containerStyle: ui.CellStyle = ui.style.CELL_BG.extend({
 		borderRadius: 16,
 		maxWidth: "100%",
 		grow: 0,

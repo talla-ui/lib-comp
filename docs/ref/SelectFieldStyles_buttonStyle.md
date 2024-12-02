@@ -4,7 +4,7 @@
 
 > The style applied to the dropdown button.
 
-<pre class="docgen_signature">buttonStyle: UIStyle.Type&lt;UIButton.StyleType&gt;;</pre>
+<pre class="docgen_signature">buttonStyle: ui.ButtonStyle;</pre>
 
 ## Related
 

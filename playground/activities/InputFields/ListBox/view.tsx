@@ -6,7 +6,7 @@ import icons from "~/icons/icons";
 const _customListBoxStyle = ListBoxStyles.init({
 	rowHeight: 38,
 	iconSize: 20,
-	containerStyle: ListBoxStyles.default.containerStyle.extend({
+	containerStyle: ui.style(ListBoxStyles.default.containerStyle, {
 		borderRadius: 8,
 		borderThickness: 2,
 		borderColor: ui.color.TEXT,
@@ -15,7 +15,7 @@ const _customListBoxStyle = ListBoxStyles.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Plain ListBox</label>
 			<ListBox
 				items={[
@@ -27,7 +27,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With value and decorations</label>
 			<ListBox
 				value="day"
@@ -43,7 +43,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Select on focus (arrow keys to select)</label>
 			<ListBox
 				formField="country"

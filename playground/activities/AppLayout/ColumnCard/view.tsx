@@ -11,7 +11,7 @@ import {
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Column card with labels</label>
 			<ColumnCard>
 				<label bold>Card</label>
@@ -22,7 +22,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Cards in wrapping row list</label>
 			<list items={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}>
 				<ColumnCard width={100} margin={{ bottom: 8, end: 8 }}>
@@ -33,20 +33,43 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Cards in scroll row</label>
 			<ScrollRow margin={-16} padding={16}>
 				<list items={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}>
 					<ColumnCard width={100} minHeight={100}>
 						<label>Card %[item]</label>
 					</ColumnCard>
-					<row />
+					<row spacing={16} padding={{ end: 16 }} />
 				</list>
 			</ScrollRow>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
+			<label>Card with alternative container style</label>
+			<ColumnCard
+				width={280}
+				styles={{
+					containerStyle: ui.style.CELL.extend({
+						background: ui.color.BACKGROUND.contrast(-0.1),
+						borderRadius: 8,
+					}),
+					effect: undefined,
+				}}
+			>
+				<cell style={{ minHeight: 200 }}>
+					<image url="https://picsum.photos/280/200" width="100%" />
+				</cell>
+				<column padding={16} align="start">
+					<label bold>A different kind of card</label>
+					<label>With container style</label>
+				</column>
+			</ColumnCard>
+			<separator margin={16} />
+		</column>
+
+		<column align="start" spacing={16}>
 			<label>Cards with containers and view composites</label>
 
 			<ColumnCard>
@@ -82,9 +105,13 @@ export default (
 				</row>
 				<TableList
 					items={$activity.list("countries")}
-					styles={{ rowSeparator: { lineThickness: 1 }, scrollHeight: 160 }}
+					styles={{
+						rowInset: 16,
+						rowSeparator: { lineThickness: 1 },
+						scrollHeight: 180,
+					}}
 				>
-					<TableRow inset={16} widths={[, 40]}>
+					<TableRow widths={[, 40]}>
 						<label>%[item.label]</label>
 						<label width="100%" style={{ textAlign: "end" }}>
 							%[item.value]

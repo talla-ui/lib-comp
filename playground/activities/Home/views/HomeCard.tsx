@@ -7,7 +7,7 @@ import {
 	ViewComposite,
 	ViewEvent,
 } from "talla-ui";
-import { ColumnCard, ColumnCardStyles } from "@talla-ui/lib-comp";
+import { ColumnCard } from "@talla-ui/lib-comp";
 
 const _cardTitleStyle = ui.style.LABEL.extend({
 	fontSize: 18,
@@ -19,8 +19,8 @@ const _cardTitleStyleNarrow = ui.style.LABEL.extend({
 	bold: true,
 });
 
-const _cardDescriptionStyle = ui.style.LABEL_SMALL.extend({
-	padding: 0,
+const _cardDescriptionStyle = ui.style.LABEL.extend({
+	fontSize: 12,
 	opacity: 0.75,
 });
 
@@ -37,8 +37,10 @@ export default class extends ViewComposite.define({
 				margin={8}
 				styles={{
 					effect: ui.effect.ELEVATE,
-					containerStyle: ColumnCardStyles.default.containerStyle.extend(
+					containerStyle: ui.style.CELL_BG.extend(
 						{
+							borderRadius: 16,
+							grow: 0,
 							background: this.color,
 							textColor: this.color.text(),
 							css: { cursor: "pointer", transition: "all 0.2s ease" },
@@ -50,7 +52,7 @@ export default class extends ViewComposite.define({
 					),
 				}}
 			>
-				<column align="start" padding={{ x: 12, y: 4 }}>
+				<column align="start" padding={12}>
 					<label
 						style={$viewport
 							.bind("col2")

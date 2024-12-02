@@ -31,19 +31,19 @@ export class ListBoxStyles extends ConfigOptions {
 	iconSize?: number;
 
 	/** The style applied to each list cell */
-	listCellStyle = ui.style.CELL.extend({
+	listCellStyle: ui.CellStyle = ui.style.CELL.extend({
 		css: { outlineOffset: "-2px" },
 	});
 
 	/** The style applied to the selected list cell */
-	selectedListCellStyle = ui.style.CELL.extend({
+	selectedListCellStyle: ui.CellStyle = ui.style.CELL.extend({
 		background: ui.color.PRIMARY_BG,
 		textColor: ui.color.PRIMARY.text(),
 		css: { outlineOffset: "-2px" },
 	});
 
 	/** The style applied to the outer container */
-	containerStyle = ui.style.CELL.extend({
+	containerStyle: ui.CellStyle = ui.style.CELL.extend({
 		background: ui.color.BACKGROUND,
 		borderRadius: 4,
 		borderColor: ui.color.TEXT.alpha(0.25),
@@ -113,9 +113,7 @@ export class ListBox extends ViewComposite.define({
 				name: this.name,
 			},
 			ui.list(
-				{
-					items: $view.list("items"),
-				},
+				{ items: $view.list("items") },
 				ui.cell(
 					{
 						accessibleRole: "option",
@@ -129,7 +127,10 @@ export class ListBox extends ViewComposite.define({
 						onArrowUpKeyPress: "FocusPrevious",
 					},
 					ui.row(
-						{ height: this.styles.rowHeight, padding: this.styles.rowInset },
+						{
+							height: this.styles.rowHeight,
+							padding: this.styles.rowInset,
+						},
 						ui.label({
 							text: $list.string("item.label"),
 							icon: $list.bind("item.icon"),

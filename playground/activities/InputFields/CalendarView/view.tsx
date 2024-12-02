@@ -26,7 +26,7 @@ const calendarViewLocale_FR = CalendarViewLocale.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Default CalendarView</label>
 			<row>
 				<CalendarView />
@@ -34,7 +34,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Bound form field, with preselected week</label>
 			<CalendarView
 				formField="date1"
@@ -44,7 +44,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Bound form field, range from today</label>
 			<CalendarView
 				formField="date1"
@@ -54,7 +54,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Localized 🇫🇷</label>
 			<CalendarView locale={calendarViewLocale_FR} />
 			<separator margin={16} />

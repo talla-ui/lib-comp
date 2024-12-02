@@ -4,7 +4,7 @@ import { PropertyEditor } from "@talla-ui/lib-comp";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Full width, 50/50</label>
 			<PropertyEditor
 				widths={["50%"]}
@@ -25,7 +25,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Limited width, readonly</label>
 			<column width={320}>
 				<PropertyEditor

@@ -4,7 +4,7 @@
 
 > The style applied to the label.
 
-<pre class="docgen_signature">labelStyle: UIStyle.Type&lt;UILabel.StyleType&gt;;</pre>
+<pre class="docgen_signature">labelStyle: ui.LabelStyle;</pre>
 
 ## Related
 

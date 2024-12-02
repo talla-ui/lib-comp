@@ -11,7 +11,7 @@ const outerCellStyle = ui.style.CELL.extend({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Scroll pane with fixed header (default)</label>
 			<cell style={outerCellStyle}>
 				<ScrollPane title="Title">
@@ -25,7 +25,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Dynamic header, back button, toolbar</label>
 			<cell style={outerCellStyle}>
 				<ScrollPane title="Title" headerMode="dynamic" navigateBack>
@@ -51,7 +51,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Fixed header with menu button</label>
 			<cell style={outerCellStyle}>
 				<ScrollPane

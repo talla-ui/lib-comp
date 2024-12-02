@@ -34,7 +34,7 @@ const dateInputLocale_FR = DateInputLocale.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Default TimeInputField (24h)</label>
 			<row>
 				<TimeInputField value={new Date()} />
@@ -42,7 +42,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Date and time bound to form field, 12h</label>
 			<row layout={{ wrapContent: true }}>
 				<DateInputField formField="datetime" icon={icons.calendar} />
@@ -56,7 +56,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Localized 🇫🇷</label>
 			<row>
 				<DateInputField formField="datetime" locale={dateInputLocale_FR} />

@@ -31,7 +31,11 @@ export class ScrollPaneStyles extends HeaderPaneStyles {
 	static default = new ScrollPaneStyles();
 
 	/** Style for the page title */
-	pageTitleStyle = ui.style.LABEL_TITLE;
+	pageTitleStyle: ui.LabelStyle = ui.style.LABEL.extend({
+		fontSize: 20,
+		bold: true,
+	});
+
 	/** Maximum width of the inner content */
 	maxInnerWidth = 1024;
 	/** Threshold at which the dynamic header mode changes appearance, defaults to 24 */

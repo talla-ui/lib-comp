@@ -4,7 +4,7 @@
 
 > Style for pre-selected grid buttons (date range).
 
-<pre class="docgen_signature">gridPreselectedButtonStyle: UIStyle.StyleOverrides&lt;UIButton.StyleType&gt;;</pre>
+<pre class="docgen_signature">gridPreselectedButtonStyle: UIStyle.TypeOrOverrides&lt;UIButton.StyleType&gt;;</pre>
 
 ## Related
 

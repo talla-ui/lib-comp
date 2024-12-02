@@ -4,7 +4,7 @@
 
 > Style for weekday headings.
 
-<pre class="docgen_signature">dayHeadingStyle: UIStyle.Type&lt;UILabel.StyleType&gt;;</pre>
+<pre class="docgen_signature">dayHeadingStyle: ui.LabelStyle;</pre>
 
 ## Related
 

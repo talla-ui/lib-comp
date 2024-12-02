@@ -1,10 +1,10 @@
 [class ComboFieldStyles](ComboFieldStyles.md)
 
-# containerStyle
+# overlayEffect
 
-> The style applied to the outer container.
+> The effect applied to the overlay container when shown.
 
-<pre class="docgen_signature">containerStyle: ui.CellStyle;</pre>
+<pre class="docgen_signature">overlayEffect: RenderContext.OutputEffect&lt;<b>unknown</b>&gt;;</pre>
 
 ## Related
 

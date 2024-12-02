@@ -30,7 +30,7 @@ export class SelectFieldStyles extends ConfigOptions {
 	menuOffset?: number;
 
 	/** The style applied to the dropdown button */
-	buttonStyle = ui.style.BUTTON_PLAIN.extend(
+	buttonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend(
 		{
 			borderRadius: 6,
 			minWidth: 240,

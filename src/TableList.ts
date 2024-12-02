@@ -27,6 +27,9 @@ export class TableListStyles extends ConfigOptions {
 	/** Row height, defaults to 40 */
 	rowHeight = 40;
 
+	/** Row padding, defaults to 8 */
+	rowInset = 8;
+
 	/** Cell style for the container cell */
 	containerStyle?: ui.CellStyle = { grow: 0 };
 
@@ -113,8 +116,8 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 		hidden: false,
 		/** True if the row is currently selected */
 		selected: false,
-		/** Style for the containing cell; default includes horizontal padding only */
-		style: ui.style.CELL.extend({ padding: { x: 8 } }),
+		/** Style for the containing cell */
+		style: undefined as ui.CellStyle | undefined,
 	}
 ) {
 	protected beforeRender() {
@@ -144,6 +147,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 					.else(undefined),
 				layout: { axis: "horizontal", gravity: "center" },
 				style: this.style,
+				padding: $view.bind("styles.rowInset"),
 				accessibleRole: "row",
 			},
 			...content.map((c, i) =>
@@ -169,7 +173,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
  * A table header row composite can be used as the first content preset of a {@link TableList}, to display a header above all table rows.
  */
 export class TableHeader extends TableRow {
-	style = ui.style.CELL.extend({
+	style: ui.CellStyle = ui.style.CELL.extend({
 		background: ui.color.BACKGROUND.contrast(-0.1),
 		grow: 0,
 		borderColor: ui.color.SEPARATOR,

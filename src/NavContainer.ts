@@ -28,10 +28,10 @@ export class NavContainerStyles extends ConfigOptions {
 	separator?: UIContainer.SeparatorOptions;
 
 	/** Cell style for the outer container */
-	containerStyle = ui.style.CELL.extend({ grow: 0 });
+	containerStyle: ui.CellStyle = ui.style.CELL.extend({ grow: 0 });
 
 	/** Button style for contained navigation buttons */
-	navButtonStyle = ui.style.BUTTON_PLAIN.extend(
+	navButtonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend(
 		{
 			textAlign: "start",
 		},
@@ -96,7 +96,7 @@ export class SidebarNavColumn extends NavColumn {
 	/** Predefined sidebar styles */
 	styles = NavContainerStyles.init({
 		containerStyle: ui.style.CELL,
-		navButtonStyle: NavContainerStyles.defaults.navButtonStyle.extend({
+		navButtonStyle: ui.style(NavContainerStyles.defaults.navButtonStyle, {
 			width: "100%",
 		}),
 	});

@@ -140,19 +140,16 @@ export class ToastNotification extends ViewComposite.define({
 							align: "start",
 							distribute: "center",
 							width: "100%",
-							spacing: 4,
 							padding: { x: 16, y: 8 },
 						},
 						ui.label({
 							bold: true,
 							wrap: true,
-							style: ui.style.LABEL_CLOSE,
 							hidden: !this.content.title,
 							text: this.content.title,
 						}),
 						ui.label({
 							wrap: true,
-							style: ui.style.LABEL_CLOSE,
 							text: this.content.message,
 						})
 					),
@@ -166,7 +163,7 @@ export class ToastNotification extends ViewComposite.define({
 						hidden: !this.content.buttonLabel,
 					}),
 					ui.button({
-						style: ui.style.BUTTON_ICON.extend({ opacity: 0.5 }),
+						style: ui.style.BUTTON_ICON.override({ opacity: 0.5 }),
 						icon: ui.icon.CLOSE,
 						iconSize: 16,
 						onPress: "Dismiss",

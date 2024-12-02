@@ -4,7 +4,7 @@ import { TableHeader, TableList, TableRow } from "@talla-ui/lib-comp";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Default table with header, equal columns</label>
 			<TableList items={[1, 2, 3, 4]}>
 				<TableHeader>
@@ -21,7 +21,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Scrolling table with styles</label>
 			<TableList
 				items={$activity.list("countries")}
@@ -34,6 +34,7 @@ export default (
 					scrollHeight: 200,
 					rowHeight: 48,
 					rowSeparator: { lineThickness: 1 },
+					rowInset: 16,
 				}}
 			>
 				<TableHeader widths={[60]}>
@@ -54,7 +55,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Selectable list</label>
 			<TableList
 				items={$activity.list("selectable")}

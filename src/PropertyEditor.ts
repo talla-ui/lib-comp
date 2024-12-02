@@ -58,20 +58,25 @@ export class PropertyEditorStyles extends ConfigOptions {
 	toggleType: UIToggle["type"] = "checkbox";
 
 	/** Style for select field buttons, defaults to borderless design to match text input fields */
-	selectFieldButtonStyle = SelectFieldStyles.default.buttonStyle.extend(
+	selectFieldButtonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend(
 		{
 			width: "100%",
 			minWidth: 0,
 			height: "100%",
+			padding: { x: 8, y: 4 },
+			fontWeight: "normal",
+			textAlign: "start",
 			lineBreakMode: "normal",
 			borderRadius: 0,
 			borderThickness: 2,
+			background: ui.color.BACKGROUND,
 			borderColor: ui.color.CLEAR,
 		},
 		{
 			[UIStyle.STATE_HOVERED]: true,
 			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_FOCUSED]: false,
+			background: ui.color.BACKGROUND,
 			borderColor: ui.color.CLEAR,
 		},
 		{
@@ -86,7 +91,7 @@ export class PropertyEditorStyles extends ConfigOptions {
 	);
 
 	/** Style for action cells (containing a label and button), including focus state */
-	actionCellStyle = ui.style.CELL.extend(
+	actionCellStyle: ui.CellStyle = ui.style.CELL.extend(
 		{
 			padding: { start: 8 },
 			borderThickness: 2,

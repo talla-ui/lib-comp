@@ -24,14 +24,17 @@ export class EmptyStateViewStyles extends ConfigOptions {
 	iconColor = ui.color.TEXT.alpha(0.3);
 
 	/** Cell style for the outer container */
-	constainerStyle = ui.style.CELL.extend({ minHeight: 240 });
+	constainerStyle: ui.CellStyle = ui.style.CELL.extend({ minHeight: 240 });
 	/** Style for the title label */
-	titleStyle = ui.style.LABEL.extend({ bold: true, fontSize: 18 });
+	titleStyle: ui.LabelStyle = ui.style.LABEL.extend({
+		bold: true,
+		fontSize: 18,
+		padding: 8,
+	});
 	/** Style for the help text label */
-	helpTextStyle = ui.style.LABEL.extend({
+	helpTextStyle: ui.LabelStyle = ui.style.LABEL.extend({
 		textAlign: "center",
 		opacity: 0.5,
-		padding: 0,
 		lineBreakMode: "pre-wrap",
 	});
 }

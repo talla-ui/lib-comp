@@ -4,7 +4,7 @@
 
 > Style for the page title.
 
-<pre class="docgen_signature">pageTitleStyle: UIStyle.Type&lt;UILabel.StyleType&gt;;</pre>
+<pre class="docgen_signature">pageTitleStyle: ui.LabelStyle;</pre>
 
 ## Related
 

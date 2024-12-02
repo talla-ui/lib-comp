@@ -42,25 +42,25 @@ export async function openAdvanced() {
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Non-cancelable indeterminate progress dialog</label>
 			<button onClick="OpenIndeterminate">Start</button>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Advanced dialog with progress bar, cancelable</label>
 			<button onClick="OpenAdvanced">Load widgets</button>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Default progress bar</label>
 			<ProgressBar progress={$activity.bind("progress")} />
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Styled progress bar</label>
 			<ProgressBar
 				styles={{

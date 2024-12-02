@@ -4,7 +4,7 @@
 
 > Style for dimmed grid buttons (outside of month).
 
-<pre class="docgen_signature">gridDimButtonStyle: UIStyle.StyleOverrides&lt;UIButton.StyleType&gt;;</pre>
+<pre class="docgen_signature">gridDimButtonStyle: UIStyle.TypeOrOverrides&lt;UIButton.StyleType&gt;;</pre>
 
 ## Related
 

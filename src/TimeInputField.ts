@@ -32,7 +32,7 @@ export class TimeInputFieldStyles extends ConfigOptions {
 	ampmPlaceholder = "AM";
 
 	/** Style for the hour and minute input fields */
-	textFieldStyle = ui.style.TEXTFIELD.extend(
+	textFieldStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend(
 		{
 			borderThickness: 0,
 			height: 26,
@@ -55,7 +55,7 @@ export class TimeInputFieldStyles extends ConfigOptions {
 	ampmTextFieldWidth = 28;
 
 	/** Style for the container cell that groups the text fields */
-	containerStyle = ui.style.CELL.extend({
+	containerStyle: ui.CellStyle = ui.style.CELL.extend({
 		height: 38,
 		borderColor: ui.color.TEXT.alpha(0.2),
 		borderThickness: 1,
@@ -141,7 +141,7 @@ export class TimeInputField extends ViewComposite.define({
 					hidden: $view.not("icon"),
 					icon: $view.bind("icon"),
 					iconSize: this.styles.iconSize,
-					style: { padding: { end: 4 } },
+					padding: { end: 4 },
 					onClick: "RequestFocusNext",
 				}),
 				ui.textField({

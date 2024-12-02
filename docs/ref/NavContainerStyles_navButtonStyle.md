@@ -4,7 +4,7 @@
 
 > Button style for contained navigation buttons.
 
-<pre class="docgen_signature">navButtonStyle: UIStyle.Type&lt;UIButton.StyleType&gt;;</pre>
+<pre class="docgen_signature">navButtonStyle: ui.ButtonStyle;</pre>
 
 ## Related
 

@@ -18,18 +18,19 @@ export class EditInPlaceStyles extends ConfigOptions {
 	static default = new EditInPlaceStyles();
 
 	/** The style applied to the label */
-	labelStyle = ui.style.LABEL.extend({
+	labelStyle: ui.LabelStyle = ui.style.LABEL.extend({
 		padding: { x: 8, y: 4 },
 		css: { cursor: "pointer" },
 	});
 
 	/** The style applied to the text field */
-	textFieldStyle = ui.style.TEXTFIELD.extend({
+	textFieldStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend({
 		maxWidth: "100%",
 		width: "100%",
 		borderRadius: 0,
 		borderThickness: 0,
 		padding: { x: 8, y: 4 },
+		lineHeight: 1.4,
 		css: { outlineOffset: "-2px" },
 	});
 }

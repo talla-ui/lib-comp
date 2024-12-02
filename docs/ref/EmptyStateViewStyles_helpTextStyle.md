@@ -4,7 +4,7 @@
 
 > Style for the help text label.
 
-<pre class="docgen_signature">helpTextStyle: UIStyle.Type&lt;UILabel.StyleType&gt;;</pre>
+<pre class="docgen_signature">helpTextStyle: ui.LabelStyle;</pre>
 
 ## Related
 

@@ -42,7 +42,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 	yearPlaceholder = "____";
 
 	/** Style for the date and month input fields */
-	textFieldStyle = ui.style.TEXTFIELD.extend(
+	textFieldStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend(
 		{
 			borderThickness: 0,
 			height: 26,
@@ -65,7 +65,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 	yearTextFieldWidth = 46;
 
 	/** Style for the container cell that groups the text fields */
-	containerStyle = ui.style.CELL.extend({
+	containerStyle: ui.CellStyle = ui.style.CELL.extend({
 		height: 38,
 		borderColor: ui.color.TEXT.alpha(0.2),
 		borderThickness: 1,
@@ -74,7 +74,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 	});
 
 	/** Style for the calendar dropdown chevron button, defaults to a default icon button */
-	calendarButtonStyle = ui.style.BUTTON_ICON;
+	calendarButtonStyle: ui.ButtonStyle = ui.style.BUTTON_ICON;
 }
 
 /**
@@ -203,7 +203,7 @@ export class DateInputField extends ViewComposite.define({
 					hidden: $view.not("icon"),
 					icon: $view.bind("icon"),
 					iconSize: this.styles.iconSize,
-					style: { padding: { end: 4 } },
+					padding: { end: 4 },
 					onClick: "OpenCalendar",
 				}),
 				dmyFields[0]!,

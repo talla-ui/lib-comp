@@ -19,7 +19,9 @@ const dialog = (
 	>
 		<cell effect={ui.effect("DragModal")}>
 			<row padding={16}>
-				<label title>Compose</label>
+				<label fontSize={16} bold>
+					Compose
+				</label>
 				<spacer />
 				<button
 					icon={ui.icon.CLOSE}
@@ -98,7 +100,7 @@ export async function openDialog(data: { email: string; message: string }) {
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Simple input dialog</label>
 			<FormEntry label="Initial email">
 				<textfield formField="email" type="email" />

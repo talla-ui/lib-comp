@@ -24,4 +24,4 @@ This class is used to define the view content of each row in a [TableList](Table
 - [<!--{ref:property}-->selected](TableRow_base_selected.md) \
     True if the row is currently selected.
 - [<!--{ref:property}-->style](TableRow_base_style.md) \
-    Style for the containing cell; default includes horizontal padding only.
+    Style for the containing cell.

@@ -91,7 +91,7 @@ export const toasts = {
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Theme default notifications</label>
 			<row layout={{ wrapContent: true }}>
 				<button onClick="ShowToast" value="simple" label="Simple" />
@@ -103,7 +103,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Custom color</label>
 			<row layout={{ wrapContent: true }}>
 				<button onClick="ShowToast" value="success" label="Success" />
@@ -112,7 +112,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Position</label>
 			<row layout={{ wrapContent: true }}>
 				<button onClick="ShowToast" value="start" label="Start" />

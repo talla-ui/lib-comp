@@ -10,17 +10,17 @@ const outerCellStyle = ui.style.CELL.extend({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Default header pane</label>
 			<cell style={outerCellStyle}>
 				<HeaderPane title="Title">
-					<label>Content goes here</label>
+					<label padding={32}>Content goes here</label>
 				</HeaderPane>
 			</cell>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Without backdrop, with menu and toolbar</label>
 			<cell style={outerCellStyle}>
 				<HeaderPane title="Title" showMenu backdrop={false}>
@@ -28,13 +28,13 @@ export default (
 						<button style={ui.style.BUTTON_SMALL}>button</button>
 						<button style={ui.style.BUTTON_ICON} icon={ui.icon.CHEVRON_NEXT} />
 					</HeaderPaneToolbar>
-					<label>Content goes here</label>
+					<label padding={32}>Content goes here</label>
 				</HeaderPane>
 			</cell>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With styles</label>
 			<cell style={outerCellStyle}>
 				<HeaderPane
@@ -52,7 +52,7 @@ export default (
 					}}
 				>
 					<cell padding={32}>
-						<label>Content goes here</label>
+						<label padding={16}>Content goes here</label>
 						<toggle state onChange="ToggleHeader">
 							Show header
 						</toggle>

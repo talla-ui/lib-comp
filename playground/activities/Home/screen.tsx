@@ -12,7 +12,7 @@ export default (
 			title="Playground"
 			headerMode="dynamic"
 			styles={{
-				pageTitleStyle: ui.style.LABEL_TITLE.extend({ fontSize: 32 }),
+				pageTitleStyle: { fontSize: 32, fontWeight: 800 },
 				scrollThreshold: 32,
 				headerHeight: 64,
 				maxInnerWidth: 800,
@@ -39,7 +39,9 @@ export default (
 			<spacer height={$viewport.boolean("row3").select(64, 24)} />
 
 			<row height={64}>
-				<label style={{ fontSize: 18 }}>Links</label>
+				<label fontSize={16} bold>
+					Links
+				</label>
 			</row>
 			<ScrollRow>
 				<button icon={icons.world} chevron="next" onPress="GoGitHub">
@@ -52,7 +54,9 @@ export default (
 			<separator margin={16} />
 
 			<row height={64}>
-				<label style={{ fontSize: 18 }}>Categories</label>
+				<label fontSize={16} bold>
+					Categories
+				</label>
 			</row>
 			<cell margin={{ x: -8 }} layout={{ clip: false }}>
 				<list

@@ -30,13 +30,13 @@ const view = ui.cell(
 			text: $activity.string("title"),
 			bold: true,
 			wrap: true,
-			style: { padding: 0, textAlign: "center" },
+			style: { textAlign: "center" },
 		}),
 		ui.label({
 			text: $activity.string("progressText"),
 			dim: true,
 			wrap: true,
-			style: { padding: 0, tabularNums: true, textAlign: "center" },
+			style: { tabularNums: true, textAlign: "center" },
 			accessibleRole: "status",
 		}),
 		ui.conditional(

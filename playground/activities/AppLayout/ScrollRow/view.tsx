@@ -28,7 +28,7 @@ export default (
 		</cell>
 		<separator margin={32} />
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With cards (using negative margin)</label>
 			<ScrollRow margin={-16} padding={16}>
 				<list items={$activity.list("countries")}>

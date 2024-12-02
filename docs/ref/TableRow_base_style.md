@@ -2,9 +2,9 @@
 
 # style
 
-> Style for the containing cell; default includes horizontal padding only.
+> Style for the containing cell.
 
-<pre class="docgen_signature">style: UIStyle.Type&lt;UICell.StyleType&gt;;</pre>
+<pre class="docgen_signature">style: ui.CellStyle | <b>undefined</b>;</pre>
 
 ## Related
 

@@ -29,7 +29,7 @@ export class ProgressBarStyles extends ConfigOptions {
 	borderRadius = 8;
 
 	/** Cell style for the outer container */
-	containerStyle = ui.style.CELL;
+	containerStyle: ui.CellStyle = ui.style.CELL;
 }
 
 /**

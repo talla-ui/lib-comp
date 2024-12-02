@@ -4,11 +4,13 @@ import { ColumnCard, ScrollArea } from "@talla-ui/lib-comp";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Fixed size scroll area</label>
 			<ScrollArea height={200} width={300}>
 				<column align="start">
-					<label title>Content area</label>
+					<label fontSize={16} bold>
+						Content area
+					</label>
 					<label wrap>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
 						facilisis metus ac facilisis lacinia. In tincidunt tincidunt risus,
@@ -34,7 +36,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With styles (outer cell)</label>
 			<ScrollArea height={200} cellStyle={ui.style.CELL_BG}>
 				<list items={Array.from({ length: 40 }, (_, i) => i + 1)}>

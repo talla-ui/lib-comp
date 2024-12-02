@@ -4,7 +4,7 @@ import { FormEntry, SelectField } from "@talla-ui/lib-comp";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Form entry with text field</label>
 			<FormEntry label="Text field">
 				<textfield placeholder="Text" width="100%" />
@@ -12,7 +12,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With help text</label>
 			<FormEntry label="Text field" helpText="* Required">
 				<textfield placeholder="Text" width="100%" />
@@ -26,7 +26,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8} accessibleRole="form">
+		<column align="start" spacing={16} accessibleRole="form">
 			<label>With form context and error message binding</label>
 			<FormEntry label="Full name" errorFormField="fullName">
 				<textfield formField="fullName" width="100%" />
@@ -40,7 +40,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With select field</label>
 			<FormEntry label="Category">
 				<SelectField

@@ -18,6 +18,7 @@ export default ViewComposite.define({}, (_, ...content) => (
 					onPress="ViewCode"
 				/>
 			</HeaderPaneToolbar>
+			<spacer height={16} />
 			{...content}
 		</ScrollPane>
 	</animate>

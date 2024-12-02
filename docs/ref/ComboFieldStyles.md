@@ -29,3 +29,5 @@ Objects of this type are passed to [ComboField](ComboField.md) as the `styles` p
     The style applied to the text field.
 - [<!--{ref:property}-->overlayContainerStyle](ComboFieldStyles_overlayContainerStyle.md) \
     The style applied to the overlay container.
+- [<!--{ref:property}-->overlayEffect](ComboFieldStyles_overlayEffect.md) \
+    The effect applied to the overlay container when shown.

@@ -3,14 +3,14 @@ import SamplePane from "~/views/SamplePane";
 import { ComboField, ListBox, ListBoxStyles } from "@talla-ui/lib-comp";
 
 const _comboListBoxStyles = ListBoxStyles.init({
-	containerStyle: ui.style.CELL_BG.extend({
+	containerStyle: ui.style.CELL.extend({
 		borderRadius: 4,
 		padding: { y: 4 },
 	}),
-	selectedListCellStyle: ListBoxStyles.default.selectedListCellStyle.extend({
+	selectedListCellStyle: ui.style(ListBoxStyles.default.selectedListCellStyle, {
 		css: { cursor: "pointer" },
 	}),
-	listCellStyle: ListBoxStyles.default.listCellStyle.extend({
+	listCellStyle: ui.style.CELL.extend({
 		[UIStyle.STATE_HOVERED]: true,
 		background: ui.color.PRIMARY_BG,
 		textColor: ui.color.PRIMARY_BG.text(),
@@ -20,7 +20,7 @@ const _comboListBoxStyles = ListBoxStyles.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Empty ComboField (does nothing)</label>
 			<row>
 				<ComboField value="Text" />
@@ -28,7 +28,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>ComboField with cell popup and clear</label>
 			<row>
 				<ComboField
@@ -36,9 +36,11 @@ export default (
 					placeholder="Enter text..."
 					openOnFocus
 					showClearButton
+					width={400}
+					styles={{ overlayEffect: undefined }}
 				>
 					<cell padding={16}>
-						<label>Hello, world!</label>
+						<label padding={16}>Hello, world!</label>
 						<button
 							onClick="SetComboValue"
 							onRelease="CloseOverlay"
@@ -53,7 +55,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>ComboField with options list</label>
 			<label bold>Selected: {$formContext.string("values.country")}</label>
 			<row>

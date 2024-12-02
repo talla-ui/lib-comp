@@ -27,13 +27,13 @@ const calendarViewLocale_FR = CalendarViewLocale.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Default CalendarSelectField (depends on i18n)</label>
 			<CalendarSelectField value={new Date()} />
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>With custom format string</label>
 			<CalendarSelectField
 				value={new Date()}
@@ -42,7 +42,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Bound to form field, with icon</label>
 			<CalendarSelectField
 				formField={"date1"}
@@ -54,7 +54,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={8}>
+		<column align="start" spacing={16}>
 			<label>Localized calendar 🇫🇷</label>
 			<CalendarSelectField formField={"date1"} locale={calendarViewLocale_FR} />
 			<separator margin={16} />

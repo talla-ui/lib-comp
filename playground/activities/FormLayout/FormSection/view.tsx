@@ -12,7 +12,7 @@ import icons from "~/icons/icons";
 const _dangerCardStyles = ColumnCardStyles.init({
 	effect: undefined,
 	separator: { lineColor: ui.color.DANGER, lineThickness: 1 },
-	containerStyle: ColumnCardStyles.default.containerStyle.extend({
+	containerStyle: ui.style(ColumnCardStyles.default.containerStyle, {
 		borderColor: ui.color.DANGER,
 	}),
 });
@@ -75,7 +75,7 @@ export default (
 
 		<FormSection title="Security" styles={_dangerCardStyles}>
 			<label bold>Password</label>
-			<column align="start" spacing={8} padding={16}>
+			<column align="start" spacing={16} padding={16}>
 				<label wrap>
 					You're using a password to log in to your account. You can update your
 					password here.
@@ -123,6 +123,7 @@ export default (
 				<label>
 					Your language settings will apply after restarting the app.
 				</label>
+				<spacer />
 				<button
 					icon={icons.restart}
 					style={ui.style.BUTTON_SMALL}
@@ -142,7 +143,7 @@ export default (
 		<FormSection rowTitleAfter>
 			<FormSectionDescription>
 				<label bold>Integrations</label>
-				<label wrap>
+				<label wrap padding={{ y: 8 }}>
 					Enable and configure the integrations using this list. You may need to
 					log in to the third party software and have a role that has
 					administrative privileges.

@@ -34,24 +34,27 @@ export class ComboFieldStyles extends ConfigOptions {
 	iconSize?: number;
 
 	/** The style applied to the outer container */
-	containerStyle = ui.style.CELL.extend({
+	containerStyle: ui.CellStyle = ui.style.CELL.extend({
 		grow: 0,
 		shrink: 0,
 		minWidth: 240,
 	});
 
 	/** The style applied to the text field */
-	textFieldStyle = ui.style.TEXTFIELD.extend({
+	textFieldStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend({
 		height: 38,
 		padding: { start: 8, end: 32 },
 	});
 
 	/** The style applied to the overlay container */
-	overlayContainerStyle = ui.style.CELL.extend({
+	overlayContainerStyle: ui.CellStyle = ui.style.CELL_BG.extend({
 		background: ui.color.BACKGROUND,
 		width: "100%",
 		borderRadius: 4,
 	});
+
+	/** The effect applied to the overlay container when shown */
+	overlayEffect = ui.effect.ELEVATE;
 }
 
 /**
@@ -147,7 +150,7 @@ export class ComboField extends ViewComposite.define({
 						layout: { clip: false },
 						position: { gravity: "overlay", top: "100%" },
 						style: this.styles.overlayContainerStyle,
-						effect: ui.effect.ELEVATE,
+						effect: this.styles.overlayEffect,
 					},
 					...content
 				)
