@@ -45,7 +45,7 @@ export class CalendarViewStyles extends ConfigOptions {
 	static default = new CalendarViewStyles();
 
 	/** Style for the grid buttons (dates) */
-	gridButtonStyle: ui.ButtonStyle = ui.style.BUTTON_ICON.extend(
+	gridButtonStyle: UIButton.StyleValue = ui.style.BUTTON_ICON.extend(
 		{
 			fontSize: 12,
 			fontWeight: "normal",
@@ -74,7 +74,7 @@ export class CalendarViewStyles extends ConfigOptions {
 	});
 
 	/** Style for weekday headings */
-	dayHeadingStyle: ui.LabelStyle = ui.style.LABEL.extend({
+	dayHeadingStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		fontSize: 12,
 		bold: true,
 		width: 32,
@@ -83,7 +83,7 @@ export class CalendarViewStyles extends ConfigOptions {
 	});
 
 	/** Style for the year input field */
-	yearInputStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend({
+	yearInputStyle: UITextField.StyleValue = ui.style.TEXTFIELD.extend({
 		textAlign: "center",
 		fontSize: 18,
 		bold: true,
@@ -94,7 +94,7 @@ export class CalendarViewStyles extends ConfigOptions {
 	});
 
 	/** Style for month buttons */
-	monthButtonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend({
+	monthButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend({
 		fontSize: 12,
 		minWidth: 0,
 		width: 74,
@@ -444,21 +444,23 @@ export class CalendarView extends ViewComposite.define({
 		// get data for current month and add it to the grid
 		for (let g of this._getGridInfo(cursor)) {
 			content.push(
-				new (ui.button({
-					label: g.label,
-					style: g.isPreselected
-						? this.styles.gridPreselectedButtonStyle
-						: g.isToday
-						? this.styles.gridTodayButtonStyle
-						: g.isMonth
-						? this.styles.gridButtonStyle
-						: this.styles.gridDimButtonStyle,
-					value: g.value,
-					pressed: g.isSelected,
-					disableKeyboardFocus: true,
-					accessibleRole: "listitem",
-					onPress: "SetDate",
-				}))()
+				ui
+					.button({
+						label: g.label,
+						style: g.isPreselected
+							? this.styles.gridPreselectedButtonStyle
+							: g.isToday
+							? this.styles.gridTodayButtonStyle
+							: g.isMonth
+							? this.styles.gridButtonStyle
+							: this.styles.gridDimButtonStyle,
+						value: g.value,
+						pressed: g.isSelected,
+						disableKeyboardFocus: true,
+						accessibleRole: "listitem",
+						onPress: "SetDate",
+					})
+					.create()
 			);
 		}
 

@@ -6,6 +6,8 @@ import {
 	ManagedObject,
 	StringConvertible,
 	ui,
+	UIButton,
+	UICell,
 	UIStyle,
 	UIToggle,
 	View,
@@ -58,7 +60,7 @@ export class PropertyEditorStyles extends ConfigOptions {
 	toggleType: UIToggle["type"] = "checkbox";
 
 	/** Style for select field buttons, defaults to borderless design to match text input fields */
-	selectFieldButtonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend(
+	selectFieldButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend(
 		{
 			width: "100%",
 			minWidth: 0,
@@ -91,7 +93,7 @@ export class PropertyEditorStyles extends ConfigOptions {
 	);
 
 	/** Style for action cells (containing a label and button), including focus state */
-	actionCellStyle: ui.CellStyle = ui.style.CELL.extend(
+	actionCellStyle: UICell.StyleValue = ui.style.CELL.extend(
 		{
 			padding: { start: 8 },
 			borderThickness: 2,
@@ -289,39 +291,42 @@ class PropertyEditorRow extends ViewComposite.define({
 		let readOnly = this.readOnly || !!item.readOnly;
 
 		if (item.action) {
-			let EditorView = ui.cell(
-				{
-					allowKeyboardFocus: true,
-					style: this.styles.actionCellStyle,
-					layout: { axis: "horizontal" },
-					onClick: "Action",
-					onEnterKeyPress: "Action",
-					onSpacebarPress: "Action",
-				},
-				ui.label({
-					text: $view.string("item.actionLabel").or("item.value"),
-					dim: readOnly,
-					width: "100%",
-				}),
-				ui.button({
-					disableKeyboardFocus: true,
-					icon: ui.icon.MORE,
-					style: ui.style.BUTTON_ICON,
-					position: { end: 2 },
-				})
-			);
-			return new EditorView();
+			return ui
+				.cell(
+					{
+						allowKeyboardFocus: true,
+						style: this.styles.actionCellStyle,
+						layout: { axis: "horizontal" },
+						onClick: "Action",
+						onEnterKeyPress: "Action",
+						onSpacebarPress: "Action",
+					},
+					ui.label({
+						text: $view.string("item.actionLabel").or("item.value"),
+						dim: readOnly,
+						width: "100%",
+					}),
+					ui.button({
+						disableKeyboardFocus: true,
+						icon: ui.icon.MORE,
+						style: ui.style.BUTTON_ICON,
+						position: { end: 2 },
+					})
+				)
+				.create();
 		}
 
 		if (typeof item.value === "boolean") {
-			let editor = new UIToggle(undefined, !!this.item?.value);
-			editor.applyViewPreset({
-				state: $view.boolean("item.value"),
-				position: { left: 8 },
-				disabled: readOnly,
-				type: this.styles.toggleType,
-			});
-			return editor;
+			let toggle = ui
+				.toggle({
+					state: $view.boolean("item.value"),
+					position: { left: 8 },
+					disabled: readOnly,
+					type: this.styles.toggleType,
+				})
+				.create();
+			toggle.state = !!this.item?.value;
+			return toggle;
 		}
 
 		if (item.options) {

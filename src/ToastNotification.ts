@@ -120,7 +120,10 @@ export class ToastNotification extends ViewComposite.define({
 					{
 						name: "ToastNotification",
 						accessibleRole: "alert",
-						style: { width: this.styles.width, maxWidth: "95vw" },
+						style: {
+							width: this.styles.width,
+							maxWidth: (app.renderer?.viewport.width || 400) * 0.95,
+						},
 						layout: { axis: "horizontal" },
 						position: { gravity: "center" },
 						background: this.styles.background,

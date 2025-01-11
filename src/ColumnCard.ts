@@ -1,6 +1,7 @@
 import {
 	ConfigOptions,
 	ui,
+	UICell,
 	UIComponent,
 	UIContainer,
 	ViewComposite,
@@ -28,7 +29,7 @@ export class ColumnCardStyles extends ConfigOptions {
 	effect = ui.effect.SHADOW;
 
 	/** The base style for the column card container */
-	containerStyle: ui.CellStyle = ui.style.CELL_BG.extend({
+	containerStyle: UICell.StyleValue = ui.style.CELL_BG.extend({
 		borderRadius: 16,
 		maxWidth: "100%",
 		grow: 0,
@@ -55,35 +56,29 @@ export const ColumnCard = ViewComposite.define(
 		position: { gravity: "start" } as UIComponent.Position,
 		/** The width of the card, defaults to 320 */
 		width: 320 as string | number | undefined,
-		/** Minimum height of the card, defaults to undefined */
-		minHeight: undefined as string | number | undefined,
-		/** Maximum height of the card, defaults to undefined */
-		maxHeight: undefined as string | number | undefined,
 		/** A set of styles that are applied to this composite, an instance of {@link ColumnCardStyles} */
 		styles: ColumnCardStyles.default,
 	},
-	(values, ...content) =>
+	(view, ...content) =>
 		ui.cell(
 			{
 				name: "ColumnCard",
-				style: ui.style(values.styles.containerStyle, {
-					width: values.width,
-					minHeight: values.minHeight,
-					maxHeight: values.maxHeight,
+				style: ui.style(view.styles.containerStyle, {
+					width: view.width,
 				}),
-				position: values.position,
-				margin: values.margin,
+				position: view.position,
+				margin: view.margin,
 				layout: {
 					distribution: "start",
-					separator: values.styles.separator,
+					separator: view.styles.separator,
 				},
-				effect: values.styles.effect,
+				effect: view.styles.effect,
 			},
 			...content.map((c) =>
-				c.prototype instanceof UIContainer ||
-				c.prototype instanceof ViewComposite
+				c.View.prototype instanceof UIContainer ||
+				c.View.prototype instanceof ViewComposite
 					? c
-					: ui.row({ padding: values.styles.contentPadding }, c)
+					: ui.row({ padding: view.styles.contentPadding }, c)
 			)
 		)
 );

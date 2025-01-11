@@ -3,6 +3,7 @@ import {
 	ConfigOptions,
 	StringConvertible,
 	UIButton,
+	UICell,
 	UIComponent,
 	UIContainer,
 	UIIconResource,
@@ -36,7 +37,7 @@ export class ButtonSwitchStyles extends ConfigOptions {
 	margin: UIComponent.Offsets = 0;
 
 	/** The style applied to each button */
-	switchButtonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend(
+	switchButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend(
 		{
 			padding: { x: 24, y: 4 },
 			borderRadius: 0,
@@ -56,7 +57,7 @@ export class ButtonSwitchStyles extends ConfigOptions {
 	);
 
 	/** The style applied to the outer container */
-	containerStyle: ui.CellStyle = ui.style.CELL.extend({
+	containerStyle: UICell.StyleValue = ui.style.CELL.extend({
 		grow: 0,
 		borderColor: ui.color.TEXT.alpha(0.25),
 		borderThickness: 1,

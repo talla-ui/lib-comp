@@ -3,6 +3,7 @@ import {
 	ManagedObject,
 	ui,
 	UIAnimatedCell,
+	UICell,
 	UIComponent,
 	ViewComposite,
 } from "talla-ui";
@@ -29,7 +30,7 @@ export class ProgressBarStyles extends ConfigOptions {
 	borderRadius = 8;
 
 	/** Cell style for the outer container */
-	containerStyle: ui.CellStyle = ui.style.CELL;
+	containerStyle: UICell.StyleValue = ui.style.CELL;
 }
 
 /**

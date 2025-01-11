@@ -4,7 +4,7 @@
 
 > Style for month buttons.
 
-<pre class="docgen_signature">monthButtonStyle: ui.ButtonStyle;</pre>
+<pre class="docgen_signature">monthButtonStyle: UIButton.StyleValue;</pre>
 
 ## Related
 

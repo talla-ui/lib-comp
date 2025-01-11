@@ -4,7 +4,7 @@
 
 > Style for the current day's grid button.
 
-<pre class="docgen_signature">gridTodayButtonStyle: UIStyle.TypeOrOverrides&lt;UIButton.StyleType&gt;;</pre>
+<pre class="docgen_signature">gridTodayButtonStyle: UIButton.StyleDefinition | UIStyle&lt;UIButton.StyleDefinition&gt;;</pre>
 
 ## Related
 

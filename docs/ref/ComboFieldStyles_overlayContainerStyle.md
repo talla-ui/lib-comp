@@ -4,7 +4,7 @@
 
 > The style applied to the overlay container.
 
-<pre class="docgen_signature">overlayContainerStyle: ui.CellStyle;</pre>
+<pre class="docgen_signature">overlayContainerStyle: UICell.StyleValue;</pre>
 
 ## Related
 

@@ -50,7 +50,7 @@ export class InputFieldsActivity extends Activity {
 	color = ui.color("#07f").alpha(0.8);
 
 	protected createView() {
-		return CategoryScreen.create({
+		return new CategoryScreen({
 			title: this.title,
 			samples: this.samples,
 			current: $activity.bind("samples.activated.view"),

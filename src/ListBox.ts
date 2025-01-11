@@ -31,19 +31,19 @@ export class ListBoxStyles extends ConfigOptions {
 	iconSize?: number;
 
 	/** The style applied to each list cell */
-	listCellStyle: ui.CellStyle = ui.style.CELL.extend({
+	listCellStyle: UICell.StyleValue = ui.style.CELL.extend({
 		css: { outlineOffset: "-2px" },
 	});
 
 	/** The style applied to the selected list cell */
-	selectedListCellStyle: ui.CellStyle = ui.style.CELL.extend({
+	selectedListCellStyle: UICell.StyleValue = ui.style.CELL.extend({
 		background: ui.color.PRIMARY_BG,
 		textColor: ui.color.PRIMARY.text(),
 		css: { outlineOffset: "-2px" },
 	});
 
 	/** The style applied to the outer container */
-	containerStyle: ui.CellStyle = ui.style.CELL.extend({
+	containerStyle: UICell.StyleValue = ui.style.CELL.extend({
 		background: ui.color.BACKGROUND,
 		borderRadius: 4,
 		borderColor: ui.color.TEXT.alpha(0.25),

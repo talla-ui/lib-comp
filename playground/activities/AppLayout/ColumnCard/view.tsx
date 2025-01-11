@@ -37,8 +37,8 @@ export default (
 			<label>Cards in scroll row</label>
 			<ScrollRow margin={-16} padding={16}>
 				<list items={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}>
-					<ColumnCard width={100} minHeight={100}>
-						<label>Card %[item]</label>
+					<ColumnCard width={100}>
+						<label padding={{ y: 32 }}>Card %[item]</label>
 					</ColumnCard>
 					<row spacing={16} padding={{ end: 16 }} />
 				</list>

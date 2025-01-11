@@ -4,7 +4,7 @@
 
 > Style for the container cell that groups the text fields.
 
-<pre class="docgen_signature">containerStyle: ui.CellStyle;</pre>
+<pre class="docgen_signature">containerStyle: UICell.StyleValue;</pre>
 
 ## Related
 

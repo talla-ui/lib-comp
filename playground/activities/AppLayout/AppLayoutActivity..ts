@@ -48,7 +48,7 @@ export class AppLayoutActivity extends Activity {
 	color = ui.color("#b6a").alpha(0.8);
 
 	protected createView() {
-		return CategoryScreen.create({
+		return new CategoryScreen({
 			title: this.title,
 			samples: this.samples,
 			current: $activity.bind("samples.activated.view"),

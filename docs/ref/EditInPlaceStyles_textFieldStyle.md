@@ -4,7 +4,7 @@
 
 > The style applied to the text field.
 
-<pre class="docgen_signature">textFieldStyle: ui.TextFieldStyle;</pre>
+<pre class="docgen_signature">textFieldStyle: UITextField.StyleValue;</pre>
 
 ## Related
 

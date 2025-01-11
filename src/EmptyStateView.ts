@@ -3,7 +3,9 @@ import {
 	ConfigOptions,
 	StringConvertible,
 	ui,
+	UICell,
 	UIIconResource,
+	UILabel,
 	ViewComposite,
 } from "talla-ui";
 
@@ -24,15 +26,15 @@ export class EmptyStateViewStyles extends ConfigOptions {
 	iconColor = ui.color.TEXT.alpha(0.3);
 
 	/** Cell style for the outer container */
-	constainerStyle: ui.CellStyle = ui.style.CELL.extend({ minHeight: 240 });
+	constainerStyle: UICell.StyleValue = ui.style.CELL.extend({ minHeight: 240 });
 	/** Style for the title label */
-	titleStyle: ui.LabelStyle = ui.style.LABEL.extend({
+	titleStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		bold: true,
 		fontSize: 18,
 		padding: 8,
 	});
 	/** Style for the help text label */
-	helpTextStyle: ui.LabelStyle = ui.style.LABEL.extend({
+	helpTextStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		textAlign: "center",
 		opacity: 0.5,
 		lineBreakMode: "pre-wrap",

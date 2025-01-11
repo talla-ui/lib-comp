@@ -9,7 +9,7 @@ import {
 	UIIconResource,
 	UITextField,
 	View,
-	ViewClass,
+	ViewBuilder,
 	ViewComposite,
 	ViewEvent,
 	app,
@@ -34,20 +34,20 @@ export class ComboFieldStyles extends ConfigOptions {
 	iconSize?: number;
 
 	/** The style applied to the outer container */
-	containerStyle: ui.CellStyle = ui.style.CELL.extend({
+	containerStyle: UICell.StyleValue = ui.style.CELL.extend({
 		grow: 0,
 		shrink: 0,
 		minWidth: 240,
 	});
 
 	/** The style applied to the text field */
-	textFieldStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend({
+	textFieldStyle: UITextField.StyleValue = ui.style.TEXTFIELD.extend({
 		height: 38,
 		padding: { start: 8, end: 32 },
 	});
 
 	/** The style applied to the overlay container */
-	overlayContainerStyle: ui.CellStyle = ui.style.CELL_BG.extend({
+	overlayContainerStyle: UICell.StyleValue = ui.style.CELL_BG.extend({
 		background: ui.color.BACKGROUND,
 		width: "100%",
 		borderRadius: 4,
@@ -101,7 +101,7 @@ export class ComboField extends ViewComposite.define({
 	/** UI component accessible label */
 	accessibleLabel: undefined as string | undefined,
 }) {
-	protected defineView(...content: ViewClass[]) {
+	protected defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{
 				style: ui.style(this.styles.containerStyle, { width: this.width }),

@@ -3,11 +3,13 @@ import {
 	$view,
 	ConfigOptions,
 	StringConvertible,
+	UIButton,
+	UICell,
 	UIComponent,
 	UIContainer,
 	UIIconResource,
 	UIStyle,
-	ViewClass,
+	ViewBuilder,
 	ViewComposite,
 	ui,
 } from "talla-ui";
@@ -28,10 +30,10 @@ export class NavContainerStyles extends ConfigOptions {
 	separator?: UIContainer.SeparatorOptions;
 
 	/** Cell style for the outer container */
-	containerStyle: ui.CellStyle = ui.style.CELL.extend({ grow: 0 });
+	containerStyle: UICell.StyleValue = ui.style.CELL.extend({ grow: 0 });
 
 	/** Button style for contained navigation buttons */
-	navButtonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend(
+	navButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend(
 		{
 			textAlign: "start",
 		},
@@ -66,7 +68,7 @@ export class NavColumn extends ViewComposite.define({
 	/** A set of styles that are applied to this composite, an instance of {@link NavContainerStyles} */
 	styles: NavContainerStyles.defaults,
 }) {
-	protected defineView(...content: ViewClass[]) {
+	protected defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{
 				layout: { clip: false },
@@ -157,7 +159,7 @@ export class NavRow extends ViewComposite.define({
 	/** A set of styles that are applied to this composite, an instance of {@link NavContainerStyles} */
 	styles: NavContainerStyles.defaults,
 }) {
-	protected defineView(...content: ViewClass[]) {
+	protected defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{
 				layout: { clip: false },

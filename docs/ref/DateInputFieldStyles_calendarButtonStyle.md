@@ -4,7 +4,7 @@
 
 > Style for the calendar dropdown chevron button, defaults to a default icon button.
 
-<pre class="docgen_signature">calendarButtonStyle: ui.ButtonStyle;</pre>
+<pre class="docgen_signature">calendarButtonStyle: UIButton.StyleValue;</pre>
 
 ## Related
 

@@ -5,6 +5,7 @@ import {
 	ManagedObject,
 	ui,
 	UIButton,
+	UICell,
 	UIIconResource,
 	UIStyle,
 	UITextField,
@@ -42,7 +43,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 	yearPlaceholder = "____";
 
 	/** Style for the date and month input fields */
-	textFieldStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend(
+	textFieldStyle: UITextField.StyleValue = ui.style.TEXTFIELD.extend(
 		{
 			borderThickness: 0,
 			height: 26,
@@ -65,7 +66,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 	yearTextFieldWidth = 46;
 
 	/** Style for the container cell that groups the text fields */
-	containerStyle: ui.CellStyle = ui.style.CELL.extend({
+	containerStyle: UICell.StyleValue = ui.style.CELL.extend({
 		height: 38,
 		borderColor: ui.color.TEXT.alpha(0.2),
 		borderThickness: 1,
@@ -74,7 +75,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 	});
 
 	/** Style for the calendar dropdown chevron button, defaults to a default icon button */
-	calendarButtonStyle: ui.ButtonStyle = ui.style.BUTTON_ICON;
+	calendarButtonStyle: UIButton.StyleValue = ui.style.BUTTON_ICON;
 }
 
 /**
@@ -342,25 +343,26 @@ export class DateInputField extends ViewComposite.define({
 
 	protected async onOpenCalendar() {
 		if (this._calendarOpen) return true;
-		let ModalView = ui.cell(
-			{
-				background: ui.color.BACKGROUND,
-				padding: 8,
-				borderRadius: 8,
-				position: { gravity: "start" },
-				style: { grow: 0 },
-				effect: ui.effect.ELEVATE,
-			},
-			ui.use(CalendarView, {
-				value: this.value,
-				range: this.range,
-				preselected: this.preselected,
-				locale: this.locale,
-				styles: this.calendarViewStyles,
-				readOnly: this.readOnly,
-			})
-		);
-		let view = new ModalView();
+		let view = ui
+			.cell(
+				{
+					background: ui.color.BACKGROUND,
+					padding: 8,
+					borderRadius: 8,
+					position: { gravity: "start" },
+					style: { grow: 0 },
+					effect: ui.effect.ELEVATE,
+				},
+				ui.use(CalendarView, {
+					value: this.value,
+					range: this.range,
+					preselected: this.preselected,
+					locale: this.locale,
+					styles: this.calendarViewStyles,
+					readOnly: this.readOnly,
+				})
+			)
+			.create();
 		let calendarView = view.findViewContent(CalendarView)[0];
 		if (!calendarView) return;
 		app.render(view, {

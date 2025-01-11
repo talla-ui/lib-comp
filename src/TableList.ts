@@ -6,7 +6,7 @@ import {
 	UIColor,
 	UIContainer,
 	UIListView,
-	ViewClass,
+	ViewBuilder,
 	ViewComposite,
 	ui,
 } from "talla-ui";
@@ -31,7 +31,7 @@ export class TableListStyles extends ConfigOptions {
 	rowInset = 8;
 
 	/** Cell style for the container cell */
-	containerStyle?: ui.CellStyle = { grow: 0 };
+	containerStyle?: UICell.StyleValue = { grow: 0 };
 
 	/** Styles for the separator between rows, if any */
 	rowSeparator?: UIContainer.Layout["separator"];
@@ -64,9 +64,12 @@ export class TableList extends ViewComposite.define({
 	/** Render options for the list view */
 	renderOptions: { async: true } as UIListView["renderOptions"],
 }) {
-	protected defineView(headingOrRow?: ViewClass, row?: ViewClass) {
-		let listRow = row || headingOrRow || ui.row();
-		let content: ViewClass[] = [
+	protected defineView(
+		headingOrRowBuilder?: ViewBuilder,
+		rowBuilder?: ViewBuilder
+	) {
+		let listRow = rowBuilder || headingOrRowBuilder || ui.row();
+		let content: ViewBuilder[] = [
 			ui.list(
 				{
 					items: $view.list("items"),
@@ -80,8 +83,8 @@ export class TableList extends ViewComposite.define({
 				ui.spacer()
 			),
 		];
-		if (row && headingOrRow) {
-			content.unshift(headingOrRow);
+		if (rowBuilder && headingOrRowBuilder) {
+			content.unshift(headingOrRowBuilder);
 		}
 		return this.styles.scrollHeight
 			? ui.use(
@@ -117,7 +120,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 		/** True if the row is currently selected */
 		selected: false,
 		/** Style for the containing cell */
-		style: undefined as ui.CellStyle | undefined,
+		style: undefined as UICell.StyleValue | undefined,
 	}
 ) {
 	protected beforeRender() {
@@ -133,7 +136,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 	/** The item bound to this row (undefined for table header) */
 	item?: TItem;
 
-	defineView(...content: ViewClass[]) {
+	defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{
 				hidden: $view.boolean("hidden"),
@@ -173,7 +176,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
  * A table header row composite can be used as the first content preset of a {@link TableList}, to display a header above all table rows.
  */
 export class TableHeader extends TableRow {
-	style: ui.CellStyle = ui.style.CELL.extend({
+	style: UICell.StyleValue = ui.style.CELL.extend({
 		background: ui.color.BACKGROUND.contrast(-0.1),
 		grow: 0,
 		borderColor: ui.color.SEPARATOR,

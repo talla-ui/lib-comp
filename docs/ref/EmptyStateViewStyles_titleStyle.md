@@ -4,7 +4,7 @@
 
 > Style for the title label.
 
-<pre class="docgen_signature">titleStyle: ui.LabelStyle;</pre>
+<pre class="docgen_signature">titleStyle: UILabel.StyleValue;</pre>
 
 ## Related
 

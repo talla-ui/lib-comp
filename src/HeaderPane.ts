@@ -8,7 +8,8 @@ import {
 	UIColor,
 	UIComponent,
 	UIIconResource,
-	ViewClass,
+	UILabel,
+	ViewBuilder,
 	ViewComposite,
 } from "talla-ui";
 
@@ -37,7 +38,7 @@ export class HeaderPaneStyles extends ConfigOptions {
 	minHeight: string | number = 0;
 
 	/** Style for the title label */
-	titleStyle: ui.LabelStyle = ui.style.LABEL.extend({
+	titleStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		bold: true,
 		fontSize: 16,
 	});
@@ -93,10 +94,10 @@ export class HeaderPane extends ViewComposite.define({
 	/** UI component identifier */
 	name: "HeaderPane",
 }) {
-	protected defineView(...content: ViewClass[]) {
-		let toolbar: ViewClass | undefined;
-		if (content[0]?.prototype instanceof HeaderPaneToolbar) {
-			toolbar = content.shift();
+	protected defineView(...content: ViewBuilder[]) {
+		let toolbarBuilder: ViewBuilder | undefined;
+		if (content[0]?.View === HeaderPaneToolbar) {
+			toolbarBuilder = content.shift();
 		}
 		let boundPadding = $viewport
 			.not("col2")
@@ -180,7 +181,7 @@ export class HeaderPane extends ViewComposite.define({
 							style: this.styles.titleStyle,
 						})
 					),
-					...(toolbar ? [ui.spacer(), toolbar] : [ui.spacer()])
+					...(toolbarBuilder ? [ui.spacer(), toolbarBuilder] : [ui.spacer()])
 				)
 			),
 

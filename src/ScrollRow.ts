@@ -1,4 +1,4 @@
-import { ui, UICell, UIRow, ViewClass, ViewComposite } from "talla-ui";
+import { ui, UICell, UIRow, ViewBuilder, ViewComposite } from "talla-ui";
 
 /**
  * View composite with an area that contains horizontally scrolling content
@@ -19,7 +19,7 @@ export class ScrollRow extends ViewComposite.define({
 	/** UI component name */
 	name: "ScrollRow",
 }) {
-	protected defineView(...content: ViewClass[]) {
+	protected defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{
 				style: { width: "100", grow: 0 },

@@ -4,7 +4,7 @@
 
 > The base style for the column card container.
 
-<pre class="docgen_signature">containerStyle: ui.CellStyle;</pre>
+<pre class="docgen_signature">containerStyle: UICell.StyleValue;</pre>
 
 ## Related
 

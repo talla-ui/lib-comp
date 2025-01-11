@@ -4,7 +4,7 @@
 
 > The style applied to each button.
 
-<pre class="docgen_signature">switchButtonStyle: ui.ButtonStyle;</pre>
+<pre class="docgen_signature">switchButtonStyle: UIButton.StyleValue;</pre>
 
 ## Related
 

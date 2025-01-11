@@ -40,10 +40,10 @@ export default (
 			<label>With styles (outer cell)</label>
 			<ScrollArea height={200} cellStyle={ui.style.CELL_BG}>
 				<list items={Array.from({ length: 40 }, (_, i) => i + 1)}>
-					<ColumnCard width={120}>
+					<ColumnCard margin={8} width={120}>
 						<label>Item %[item]</label>
 					</ColumnCard>
-					<row layout={{ wrapContent: true }} padding={16} />
+					<row layout={{ wrapContent: true }} padding={8} spacing={0} />
 				</list>
 			</ScrollArea>
 			<separator margin={16} />

@@ -12,11 +12,6 @@ const app = useWebContext((options) => {
 	options.theme.colors.set("Background", ui.color("#111"));
 	options.focusDecoration = { css: { outline: "2px solid #6af" } };
 	options.insertHistory = "root";
-
-	// make text larger on mobile to avoid zooming in on text input
-	if (window.screen.width < 600) {
-		options.logicalPxScale = 1.15;
-	}
 });
 
 app.i18n = {

@@ -6,7 +6,7 @@ import {
 	ui,
 	UICell,
 	UIContainer,
-	ViewClass,
+	ViewBuilder,
 	ViewComposite,
 	ViewEvent,
 } from "talla-ui";
@@ -63,7 +63,7 @@ export class SidebarSplitView extends ViewComposite.define({
 	/** A set of styles that are applied to this composite, an instance of {@link SidebarSplitViewStyles} */
 	styles: SidebarSplitViewStyles.default,
 }) {
-	protected defineView(...content: ViewClass[]) {
+	protected defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{ name: this.name, style: { shrink: 1 } },
 			ui.row(

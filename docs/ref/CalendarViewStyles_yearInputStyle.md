@@ -4,7 +4,7 @@
 
 > Style for the year input field.
 
-<pre class="docgen_signature">yearInputStyle: ui.TextFieldStyle;</pre>
+<pre class="docgen_signature">yearInputStyle: UITextField.StyleValue;</pre>
 
 ## Related
 

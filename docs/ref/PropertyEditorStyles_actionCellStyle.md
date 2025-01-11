@@ -4,7 +4,7 @@
 
 > Style for action cells (containing a label and button), including focus state.
 
-<pre class="docgen_signature">actionCellStyle: ui.CellStyle;</pre>
+<pre class="docgen_signature">actionCellStyle: UICell.StyleValue;</pre>
 
 ## Related
 

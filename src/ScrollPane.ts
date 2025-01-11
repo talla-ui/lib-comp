@@ -5,8 +5,9 @@ import {
 	StringConvertible,
 	ui,
 	UIIconResource,
+	UILabel,
 	UIScrollContainer,
-	ViewClass,
+	ViewBuilder,
 	ViewComposite,
 	ViewEvent,
 } from "talla-ui";
@@ -31,7 +32,7 @@ export class ScrollPaneStyles extends HeaderPaneStyles {
 	static default = new ScrollPaneStyles();
 
 	/** Style for the page title */
-	pageTitleStyle: ui.LabelStyle = ui.style.LABEL.extend({
+	pageTitleStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		fontSize: 20,
 		bold: true,
 	});
@@ -72,7 +73,7 @@ export class ScrollPane extends ViewComposite.define({
 	/** UI component identifier */
 	name: "ScrollPane",
 }) {
-	protected defineView(...content: ViewClass[]) {
+	protected defineView(...content: ViewBuilder[]) {
 		let boundPadding = $viewport
 			.not("col2")
 			.select(this.styles.paddingNarrow, this.styles.padding);
@@ -81,11 +82,11 @@ export class ScrollPane extends ViewComposite.define({
 			.matches("fixed")
 			.or($view.bind("headerMode").matches("dynamic").and("scrolled"));
 
-		let toolbar: ViewClass | undefined;
-		if (content[0]?.prototype instanceof HeaderPaneToolbar) {
-			toolbar = content.shift();
+		let toolbarBuilder: ViewBuilder | undefined;
+		if (content[0]?.View === HeaderPaneToolbar) {
+			toolbarBuilder = content.shift();
 		}
-		let inner = toolbar ? [toolbar] : [];
+		let inner = toolbarBuilder ? [toolbarBuilder] : [];
 		inner.push(
 			ui.scroll(
 				{

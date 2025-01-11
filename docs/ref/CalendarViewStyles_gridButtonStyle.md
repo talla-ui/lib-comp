@@ -4,7 +4,7 @@
 
 > Style for the grid buttons (dates).
 
-<pre class="docgen_signature">gridButtonStyle: ui.ButtonStyle;</pre>
+<pre class="docgen_signature">gridButtonStyle: UIButton.StyleValue;</pre>
 
 ## Related
 

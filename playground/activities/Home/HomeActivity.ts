@@ -51,6 +51,7 @@ export class HomeActivity extends Activity {
 	}
 
 	setMode(mode: "light" | "dark") {
+		app.log.debug("setMode", mode);
 		let theme = app.theme!.clone();
 		theme.colors.set("Background", ui.color(mode === "dark" ? "#111" : "#fff"));
 		app.theme = theme;

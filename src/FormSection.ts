@@ -1,10 +1,4 @@
-import {
-	$viewport,
-	StringConvertible,
-	ui,
-	ViewClass,
-	ViewComposite,
-} from "talla-ui";
+import { $viewport, StringConvertible, ui, ViewComposite } from "talla-ui";
 import { ColumnCard, ColumnCardStyles } from "./ColumnCard.js";
 
 /**
@@ -63,12 +57,8 @@ export const FormSection = ViewComposite.define(
 				...content,
 			];
 		}
-		let titleColumn: ViewClass[] = content.filter(
-			(c) => c.prototype instanceof FormSectionDescription
-		);
-		content = content.filter(
-			(c) => !(c.prototype instanceof FormSectionDescription)
-		);
+		let titleColumn = content.filter((c) => c.View === FormSectionDescription);
+		content = content.filter((c) => c.View !== FormSectionDescription);
 		return ui.cell(
 			{
 				layout: { clip: false },

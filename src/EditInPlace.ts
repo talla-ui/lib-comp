@@ -2,6 +2,7 @@ import {
 	$view,
 	ConfigOptions,
 	ui,
+	UILabel,
 	UITextField,
 	ViewComposite,
 	ViewEvent,
@@ -18,13 +19,13 @@ export class EditInPlaceStyles extends ConfigOptions {
 	static default = new EditInPlaceStyles();
 
 	/** The style applied to the label */
-	labelStyle: ui.LabelStyle = ui.style.LABEL.extend({
+	labelStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		padding: { x: 8, y: 4 },
 		css: { cursor: "pointer" },
 	});
 
 	/** The style applied to the text field */
-	textFieldStyle: ui.TextFieldStyle = ui.style.TEXTFIELD.extend({
+	textFieldStyle: UITextField.StyleValue = ui.style.TEXTFIELD.extend({
 		maxWidth: "100%",
 		width: "100%",
 		borderRadius: 0,

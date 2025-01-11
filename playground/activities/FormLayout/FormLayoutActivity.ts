@@ -38,7 +38,7 @@ export class FormLayoutActivity extends Activity {
 	color = ui.color("#41b").alpha(0.8);
 
 	protected createView() {
-		return CategoryScreen.create({
+		return new CategoryScreen({
 			title: this.title,
 			samples: this.samples,
 			current: $activity.bind("samples.activated.view"),

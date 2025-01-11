@@ -4,7 +4,7 @@
 
 > Style for the containing cell.
 
-<pre class="docgen_signature">style: ui.CellStyle | <b>undefined</b>;</pre>
+<pre class="docgen_signature">style: UICell.StyleValue | <b>undefined</b>;</pre>
 
 ## Related
 

@@ -49,7 +49,7 @@ export class CalendarSelectFieldStyles extends ConfigOptions {
 	dateLabel?: LazyString = strf("%[value:local|date]");
 
 	/** The style applied to the dropdown button */
-	buttonStyle: ui.ButtonStyle = ui.style.BUTTON_PLAIN.extend(
+	buttonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend(
 		{
 			borderRadius: 6,
 			minWidth: 240,
@@ -168,24 +168,25 @@ export class CalendarSelectField extends ViewComposite.define({
 
 	protected async onOpenCalendar() {
 		if (this._calendarOpen) return true;
-		let ModalView = ui.cell(
-			{
-				background: ui.color.BACKGROUND,
-				padding: 8,
-				borderRadius: 8,
-				position: { gravity: "start" },
-				style: { grow: 0 },
-				effect: ui.effect.ELEVATE,
-			},
-			ui.use(CalendarView, {
-				value: this.value,
-				range: this.range,
-				preselected: this.preselected,
-				locale: this.locale,
-				styles: this.calendarViewStyles,
-			})
-		);
-		let view = new ModalView();
+		let view = ui
+			.cell(
+				{
+					background: ui.color.BACKGROUND,
+					padding: 8,
+					borderRadius: 8,
+					position: { gravity: "start" },
+					style: { grow: 0 },
+					effect: ui.effect.ELEVATE,
+				},
+				ui.use(CalendarView, {
+					value: this.value,
+					range: this.range,
+					preselected: this.preselected,
+					locale: this.locale,
+					styles: this.calendarViewStyles,
+				})
+			)
+			.create();
 		let calendarView = view.findViewContent(CalendarView)[0];
 		if (!calendarView) return;
 		app.render(view, {

@@ -4,7 +4,7 @@
 
 > Cell style for the outer container.
 
-<pre class="docgen_signature">cellStyle: ui.CellStyle | <b>undefined</b>;</pre>
+<pre class="docgen_signature">cellStyle: UICell.StyleValue | <b>undefined</b>;</pre>
 
 ## Related
 
