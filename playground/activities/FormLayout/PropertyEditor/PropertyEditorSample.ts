@@ -33,7 +33,7 @@ export class PropertyEditorSample extends Activity {
 		o({
 			name: "Name",
 			id: "name",
-			value: "",
+			value: "John Doe",
 			icon: icons.person,
 		}),
 		o({

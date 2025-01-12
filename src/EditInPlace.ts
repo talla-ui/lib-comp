@@ -2,6 +2,7 @@ import {
 	$view,
 	bind,
 	ConfigOptions,
+	strf,
 	StringConvertible,
 	ui,
 	UIComponent,
@@ -113,7 +114,7 @@ export class EditInPlace extends ViewComposite.define({
 				onFocusIn: "+StartEdit",
 			},
 
-			// us a cell to vertically align the icon independently of the label
+			// use a cell to vertically align the icon independently of the label
 			ui.cell(
 				{
 					hidden: $view.not("icon"),
@@ -146,10 +147,12 @@ export class EditInPlace extends ViewComposite.define({
 					ui.style(this.styles.labelStyle, {
 						textAlign: this.isNumber ? "end" : "start",
 						padding: { ...padding, start: iconPaddingStart },
+						lineBreakMode: "nowrap",
 					}),
 					ui.style(this.styles.labelStyle, {
 						textAlign: this.isNumber ? "end" : "start",
 						padding,
+						lineBreakMode: "nowrap",
 					})
 				),
 				dim:
@@ -205,6 +208,8 @@ export class EditInPlace extends ViewComposite.define({
 	protected onStartEdit() {
 		if (!this.readOnly) {
 			this.editing = true;
+			let str = strf(this.isNumber ? "%n" : "%s", this.value);
+			this.value = str.replace(/[\r\n]+/g, " ");
 			this.requestFocus();
 		}
 		return true;
