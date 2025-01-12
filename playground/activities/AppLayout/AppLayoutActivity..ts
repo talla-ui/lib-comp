@@ -8,15 +8,16 @@ import {
 	ViewEvent,
 } from "talla-ui";
 import CategoryScreen from "~/views/CategoryScreen";
+import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
 import { ColumnCardSample } from "./ColumnCard/ColumnCardSample";
 import { HeaderPaneSample } from "./HeaderPane/HeaderPaneSample";
+import { LabeledViewSample } from "./LabeledView/LabeledViewSample";
 import { NavContainerSample } from "./NavContainer/NavContainerSample";
 import { ScrollAreaSample } from "./ScrollArea/ScrollAreaSample";
 import { ScrollPaneSample } from "./ScrollPane/ScrollPaneSample";
 import { ScrollRowSample } from "./ScrollRow/ScrollRowSample";
 import { SidebarSplitViewSample } from "./SidebarSplitView/SidebarSplitViewSample";
 import { TableListSample } from "./TableList/TableListSample";
-import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
 
 export class AppLayoutActivity extends Activity {
 	static readonly instance = new AppLayoutActivity();
@@ -32,6 +33,7 @@ export class AppLayoutActivity extends Activity {
 		this.samples = this.attach(
 			new ActivityList().add(
 				new ColumnCardSample(),
+				new LabeledViewSample(),
 				new TableListSample(),
 				new ScrollAreaSample(),
 				new ScrollRowSample(),

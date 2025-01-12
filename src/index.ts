@@ -9,6 +9,7 @@ export * from "./EmptyStateView.js";
 export * from "./FormEntry.js";
 export * from "./FormSection.js";
 export * from "./HeaderPane.js";
+export * from "./LabeledView.js";
 export * from "./ListBox.js";
 export * from "./ModalInputDialog.js";
 export * from "./NavContainer.js";
