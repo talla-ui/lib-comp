@@ -26,13 +26,15 @@ export class EmptyStateViewStyles extends ConfigOptions {
 	iconColor = ui.color.TEXT.alpha(0.3);
 
 	/** Cell style for the outer container */
-	constainerStyle: UICell.StyleValue = ui.style.CELL.extend({ minHeight: 240 });
+	containerStyle: UICell.StyleValue = ui.style.CELL.extend({ minHeight: 240 });
+
 	/** Style for the title label */
 	titleStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		bold: true,
 		fontSize: 18,
 		padding: 8,
 	});
+
 	/** Style for the help text label */
 	helpTextStyle: UILabel.StyleValue = ui.style.LABEL.extend({
 		textAlign: "center",
@@ -65,7 +67,7 @@ export const EmptyStateView = ViewComposite.define(
 	},
 	(values, ...content) =>
 		ui.cell(
-			{ style: values.styles.constainerStyle },
+			{ style: values.styles.containerStyle },
 			ui.column(
 				{ distribute: "center" },
 				ui.spacer({ height: 16 }),
