@@ -7,7 +7,6 @@ export default (
 		<column align="start" spacing={16}>
 			<label>Full width, 50/50</label>
 			<PropertyEditor
-				widths={["50%"]}
 				items={$activity.list("properties")}
 				onChange="PropertiesChanged"
 				styles={{ toggleType: "switch" }}
@@ -29,9 +28,9 @@ export default (
 			<label>Limited width, readonly</label>
 			<column width={320}>
 				<PropertyEditor
-					widths={[undefined, 200]}
 					readOnly
 					items={$activity.list("properties")}
+					styles={{ propertyLabelMaxWidth: 120 }}
 				/>
 			</column>
 		</column>

@@ -84,8 +84,10 @@ export interface SelectFieldOption {
 export class SelectField extends ViewComposite.define({
 	/** The button label, updated automatically upon selection */
 	label: StringConvertible.EMPTY as StringConvertible | undefined,
-	/** The button icon, updated automatically upon selection */
+	/** The button icon, until an option with an icon is selected */
 	icon: undefined as UIIconResource | undefined,
+	/** The button chevron icon, defaults to "down" */
+	chevron: "down" as UIButton["chevron"],
 	/** The width of the button element, defaults to undefined */
 	width: undefined as string | number | undefined,
 	/** A list of available options, as an array of {@link SelectFieldOption} objects */
@@ -103,14 +105,17 @@ export class SelectField extends ViewComposite.define({
 	/** UI component accessible label */
 	accessibleLabel: undefined as string | undefined,
 }) {
+	/** The selected item's icon, if any */
+	protected itemIcon?: UIIconResource = undefined;
+
 	protected defineView() {
 		return ui.button({
 			label: $view.string("label"),
 			disabled: $view.boolean("readOnly"),
-			icon: $view.bind("icon"),
+			icon: $view.bind("itemIcon").or("icon"),
 			iconSize: this.styles.iconSize,
 			iconMargin: this.styles.iconMargin,
-			chevron: "down",
+			chevron: this.chevron,
 			width: this.width,
 			style: this.styles.buttonStyle,
 			name: this.name,
@@ -167,10 +172,7 @@ export class SelectField extends ViewComposite.define({
 
 	private _updateButton() {
 		let item = this.options?.find((item) => item.value === this.value);
-		if (item?.icon) this._itemIcon = this.icon = item.icon;
-		else if (this._itemIcon) this._itemIcon = this.icon = undefined;
+		this.itemIcon = item?.icon;
 		this.label = item?.label;
 	}
-
-	_itemIcon?: UIIconResource;
 }

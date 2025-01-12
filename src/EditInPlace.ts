@@ -164,6 +164,7 @@ export class EditInPlace extends ViewComposite.define({
 			// text field, covering other elements
 			ui.textField({
 				value: $view.bind("value").asString(this.isNumber ? "n" : "s"),
+				disabled: !!this.readOnly,
 				position: { gravity: "cover" },
 				style: bind.either(
 					$view.not("editing").select({ opacity: 0 }),

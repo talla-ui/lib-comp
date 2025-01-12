@@ -46,11 +46,10 @@ export class PropertyEditorSample extends Activity {
 		o({
 			name: "Status",
 			id: "status",
-			icon: icons.person,
 			options: [
 				{ label: "Employed", value: 1 },
 				{ label: "Unemployed", value: 2 },
-				{ label: "Retired", value: 3, icon: ui.icon.MINUS },
+				{ label: "Retired", value: 3 },
 			],
 			value: 0,
 		}),

@@ -113,8 +113,10 @@ export class TableList extends ViewComposite.define({
  */
 export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 	{
-		/** The widths of each column in the row */
+		/** The width of each column in the row */
 		widths: [] as (number | string | undefined)[],
+		/** The maximum width of each column in the row */
+		maxWidths: [] as (number | string | undefined)[],
 		/** True if the row is currently hidden */
 		hidden: false,
 		/** True if the row is currently selected */
@@ -157,8 +159,8 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 				ui.cell(
 					{
 						style: {
-							width: this.widths[i] || 0,
-							maxWidth: this.widths[i] || undefined,
+							width: this.widths[i] ?? 0,
+							maxWidth: this.maxWidths[i] ?? this.widths[i] ?? undefined,
 						},
 						layout: { clip: false, axis: "horizontal", distribution: "fill" },
 						accessibleRole: "cell",

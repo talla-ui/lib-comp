@@ -60,6 +60,15 @@ export class PropertyEditorStyles extends ConfigOptions {
 	/** Default styles that are used when no other styles are specified */
 	static default = new PropertyEditorStyles();
 
+	/** Default width of the property name column, defaults to undefined for even split */
+	propertyLabelWidth?: string | number;
+
+	/** Maximum width of the property name column, defaults to 320 */
+	propertyLabelMaxWidth?: string | number = 320;
+
+	/** Label style for the property name */
+	propertyLabelStyle: UILabel.StyleValue = ui.style.LABEL;
+
 	/** Styles for edit-in-place (text or number) fields, of type {@link EditInPlaceStyles} */
 	editStyles = new EditInPlaceStyles();
 
@@ -153,8 +162,6 @@ export class PropertyEditorStyles extends ConfigOptions {
 export class PropertyEditor extends ViewComposite.define({
 	/** The list of properties to display and edit, as an array or managed list of {@link PropertyEditorItem} objects */
 	items: [] as Iterable<PropertyEditorItem>,
-	/** The widths of the property name and value columns */
-	widths: [] as (number | string | undefined)[],
 	/** True if all properties should be read-only */
 	readOnly: false,
 	/** A set of styles that are applied to this composite, an instance of {@link PropertyEditorStyles} */
@@ -171,7 +178,6 @@ export class PropertyEditor extends ViewComposite.define({
 				name: this.name,
 			},
 			ui.use(PropertyEditorRow, {
-				widths: this.widths,
 				item: $list.bind("item"),
 				readOnly: this.readOnly,
 				styles: this.styles,
@@ -197,18 +203,17 @@ export class PropertyEditor extends ViewComposite.define({
 class PropertyEditorRow extends ViewComposite.define({
 	/** The property item to display and edit */
 	item: undefined as PropertyEditorItem | undefined,
-	/** The widths of the property name and value columns */
-	widths: [] as (number | string | undefined)[],
 	/** True if the property should be read-only */
 	readOnly: false,
-	/** A set of styles that are applied to this composite, an instance of {@link PropertyEditorStyles} */
+	/** A set of styles that are applied to this composite, an instance of {@link PropertyEditorStyles}, passed in by the {@link PropertyEditor} parent */
 	styles: PropertyEditorStyles.default,
 }) {
 	protected defineView() {
 		return ui.use(
 			TableRow,
 			{
-				widths: this.widths,
+				widths: [this.styles.propertyLabelWidth],
+				maxWidths: [this.styles.propertyLabelMaxWidth],
 				style: ui.style.CELL,
 			},
 			ui.cell(
@@ -229,7 +234,12 @@ class PropertyEditorRow extends ViewComposite.define({
 						}
 					),
 				},
-				ui.row(ui.label(bind("item.name"), { bold: true }))
+				ui.row(
+					ui.label({
+						text: bind("item.name"),
+						style: this.styles.propertyLabelStyle,
+					})
+				)
 			),
 			ui.renderView({ view: bind("editor") })
 		);
@@ -309,7 +319,7 @@ class PropertyEditorRow extends ViewComposite.define({
 			return ui
 				.cell(
 					{
-						allowKeyboardFocus: true,
+						allowKeyboardFocus: !readOnly,
 						style: this.styles.actionCellStyle,
 						layout: { axis: "horizontal" },
 						onClick: "Action",
@@ -325,6 +335,7 @@ class PropertyEditorRow extends ViewComposite.define({
 						style: this.styles.actionLabelStyle,
 					}),
 					ui.button({
+						hidden: readOnly,
 						disableKeyboardFocus: true,
 						icon: ui.icon.MORE,
 						style: ui.style.BUTTON_ICON,
@@ -352,15 +363,16 @@ class PropertyEditorRow extends ViewComposite.define({
 				label:
 					item.options.find((a) => a.value === this.item!.value)?.label || "",
 				icon: $view.bind("item.icon"),
+				chevron: readOnly ? undefined : "down",
 				options: $view.bind("item.options"),
 				value: $view.bind("item.value"),
-				readOnly: readOnly,
+				readOnly,
 				styles: this.styles.selectFieldStyles,
 			});
 		}
 
 		return new EditInPlace({
-			readOnly: readOnly,
+			readOnly,
 			isNumber: typeof item.value === "number" || item.number,
 			isPositive: item.positive,
 			isInteger: item.integer,
