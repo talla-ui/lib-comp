@@ -6,8 +6,9 @@ import {
 	ManagedObject,
 	StringConvertible,
 	ui,
-	UIButton,
 	UICell,
+	UIIconResource,
+	UILabel,
 	UIStyle,
 	UIToggle,
 	View,
@@ -15,7 +16,11 @@ import {
 	ViewEvent,
 } from "talla-ui";
 import { EditInPlace, EditInPlaceStyles } from "./EditInPlace.js";
-import { SelectField, SelectFieldStyles } from "./SelectField.js";
+import {
+	SelectField,
+	SelectFieldOption,
+	SelectFieldStyles,
+} from "./SelectField.js";
 import { TableList, TableListStyles, TableRow } from "./TableList.js";
 
 /**
@@ -29,11 +34,13 @@ export type PropertyEditorItem = {
 	/** Current value of the property */
 	value?: unknown;
 	/** List of options, for select fields */
-	options?: Array<{ label: StringConvertible; value: unknown }>;
+	options?: SelectFieldOption[];
 	/** Custom action event name */
 	action?: string;
 	/** Label to be displayed along with the action (if blank, uses value) */
 	actionLabel?: StringConvertible;
+	/** Icon to be displayed in front of the value */
+	icon?: UIIconResource;
 	/** True if the property may not be edited by the user */
 	readOnly?: boolean;
 	/** True if the property value must be a number */
@@ -59,38 +66,40 @@ export class PropertyEditorStyles extends ConfigOptions {
 	/** The type of toggle used for boolean fields, defaults to checkbox */
 	toggleType: UIToggle["type"] = "checkbox";
 
-	/** Style for select field buttons, defaults to borderless design to match text input fields */
-	selectFieldButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend(
-		{
-			width: "100%",
-			minWidth: 0,
-			height: "100%",
-			padding: { x: 8, y: 4 },
-			fontWeight: "normal",
-			textAlign: "start",
-			lineBreakMode: "normal",
-			borderRadius: 0,
-			borderThickness: 2,
-			background: ui.color.BACKGROUND,
-			borderColor: ui.color.CLEAR,
-		},
-		{
-			[UIStyle.STATE_HOVERED]: true,
-			[UIStyle.STATE_DISABLED]: false,
-			[UIStyle.STATE_FOCUSED]: false,
-			background: ui.color.BACKGROUND,
-			borderColor: ui.color.CLEAR,
-		},
-		{
-			[UIStyle.STATE_HOVERED]: true,
-			[UIStyle.STATE_FOCUSED]: true,
-			borderColor: ui.color.PRIMARY,
-		},
-		{
-			[UIStyle.STATE_FOCUSED]: true,
-			borderColor: ui.color.PRIMARY,
-		}
-	);
+	/** Styles for select fields, of type {@link SelectFieldStyles}, defaults to a style with full-width transparent buttons */
+	selectFieldStyles = SelectFieldStyles.init({
+		buttonStyle: ui.style.BUTTON_PLAIN.extend(
+			{
+				width: "100%",
+				minWidth: 0,
+				height: "100%",
+				padding: { x: 8, y: 4 },
+				fontWeight: "normal",
+				textAlign: "start",
+				lineBreakMode: "normal",
+				borderRadius: 0,
+				borderThickness: 2,
+				background: ui.color.BACKGROUND,
+				borderColor: ui.color.CLEAR,
+			},
+			{
+				[UIStyle.STATE_HOVERED]: true,
+				[UIStyle.STATE_DISABLED]: false,
+				[UIStyle.STATE_FOCUSED]: false,
+				background: ui.color.BACKGROUND,
+				borderColor: ui.color.CLEAR,
+			},
+			{
+				[UIStyle.STATE_HOVERED]: true,
+				[UIStyle.STATE_FOCUSED]: true,
+				borderColor: ui.color.PRIMARY,
+			},
+			{
+				[UIStyle.STATE_FOCUSED]: true,
+				borderColor: ui.color.PRIMARY,
+			}
+		),
+	});
 
 	/** Style for action cells (containing a label and button), including focus state */
 	actionCellStyle: UICell.StyleValue = ui.style.CELL.extend(
@@ -108,6 +117,12 @@ export class PropertyEditorStyles extends ConfigOptions {
 			borderThickness: 2,
 		}
 	);
+
+	/** Style for action labels, defaults to theme label style */
+	actionLabelStyle: UILabel.StyleValue = ui.style.LABEL;
+
+	/** Icon size (in pixels or string with unit) for action labels, defaults to 16 */
+	actionLabelIconSize?: string | number = 16;
 
 	/** Style for the containing table list, defaults to solid background with subtle horizontal separators */
 	tableListStyles = TableListStyles.init({
@@ -303,8 +318,11 @@ class PropertyEditorRow extends ViewComposite.define({
 					},
 					ui.label({
 						text: $view.string("item.actionLabel").or("item.value"),
+						icon: $view.bind("item.icon"),
+						iconSize: this.styles.actionLabelIconSize,
 						dim: readOnly,
 						width: "100%",
+						style: this.styles.actionLabelStyle,
 					}),
 					ui.button({
 						disableKeyboardFocus: true,
@@ -333,12 +351,11 @@ class PropertyEditorRow extends ViewComposite.define({
 			return new SelectField({
 				label:
 					item.options.find((a) => a.value === this.item!.value)?.label || "",
+				icon: $view.bind("item.icon"),
 				options: $view.bind("item.options"),
 				value: $view.bind("item.value"),
 				readOnly: readOnly,
-				styles: SelectFieldStyles.init({
-					buttonStyle: this.styles.selectFieldButtonStyle,
-				}),
+				styles: this.styles.selectFieldStyles,
 			});
 		}
 
@@ -348,6 +365,7 @@ class PropertyEditorRow extends ViewComposite.define({
 			isPositive: item.positive,
 			isInteger: item.integer,
 			value: $view.string("item.value"),
+			icon: $view.bind("item.icon"),
 			styles: this.styles.editStyles,
 		});
 	}

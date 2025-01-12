@@ -21,8 +21,8 @@ export class SelectFieldStyles extends ConfigOptions {
 	/** Default styles that are used when no other styles are specified */
 	static default = new SelectFieldStyles();
 
-	/** The size of the button icon, defaults to undefined */
-	iconSize?: number;
+	/** The size of the button icon, defaults to 16 */
+	iconSize?: number | string = 16;
 	/** The margin after the button icon, defaults to undefined */
 	iconMargin?: number;
 
@@ -167,7 +167,10 @@ export class SelectField extends ViewComposite.define({
 
 	private _updateButton() {
 		let item = this.options?.find((item) => item.value === this.value);
-		if (item?.icon) this.icon = item.icon;
+		if (item?.icon) this._itemIcon = this.icon = item.icon;
+		else if (this._itemIcon) this._itemIcon = this.icon = undefined;
 		this.label = item?.label;
 	}
+
+	_itemIcon?: UIIconResource;
 }

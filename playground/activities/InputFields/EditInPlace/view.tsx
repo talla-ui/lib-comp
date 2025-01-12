@@ -1,17 +1,52 @@
 import { $activity, ui } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import { EditInPlace } from "@talla-ui/lib-comp";
+import icons from "~/icons/icons";
 
 export default (
 	<SamplePane>
 		<column align="start" spacing={16}>
-			<label>In-place textfield</label>
+			<label>In-place text field</label>
 			<row>
 				<label bold style={{ shrink: 0 }} onPress="RequestFocusNext">
 					Text:
 				</label>
 				<EditInPlace value="Hello, world!" />
 			</row>
+			<separator margin={16} />
+		</column>
+
+		<column align="start" spacing={16}>
+			<label>Text field with icon/placeholder</label>
+			<column>
+				<row>
+					<label bold width={100} onPress="RequestFocusNext">
+						Quantity:
+					</label>
+					<EditInPlace width={200} isNumber placeholder="Enter quantity" />
+				</row>
+				<row>
+					<label bold width={100} onPress="RequestFocusNext">
+						Days:
+					</label>
+					<EditInPlace
+						width={200}
+						isNumber
+						icon={icons.sun}
+						placeholder="Enter quantity"
+					/>
+				</row>
+				<row>
+					<label bold width={100} onPress="RequestFocusNext">
+						Note:
+					</label>
+					<EditInPlace
+						width={200}
+						placeholder="Enter some text"
+						icon={icons.edit}
+					/>
+				</row>
+			</column>
 			<separator margin={16} />
 		</column>
 

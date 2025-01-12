@@ -9,6 +9,8 @@ import calendar from "./svg/calendar.svg?raw";
 import clock from "./svg/clock.svg?raw";
 import restart from "./svg/restart.svg?raw";
 import code from "./svg/code.svg?raw";
+import edit from "./svg/edit.svg?raw";
+import person from "./svg/person.svg?raw";
 
 export default {
 	loading: ui.icon(loading),
@@ -20,4 +22,6 @@ export default {
 	clock: ui.icon(clock),
 	restart: ui.icon(restart),
 	code: ui.icon(code),
+	edit: ui.icon(edit),
+	person: ui.icon(person),
 };

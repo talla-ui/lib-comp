@@ -1,7 +1,11 @@
 import {
 	$view,
+	bind,
 	ConfigOptions,
+	StringConvertible,
 	ui,
+	UIComponent,
+	UIIconResource,
 	UILabel,
 	UITextField,
 	ViewComposite,
@@ -20,19 +24,27 @@ export class EditInPlaceStyles extends ConfigOptions {
 
 	/** The style applied to the label */
 	labelStyle: UILabel.StyleValue = ui.style.LABEL.extend({
-		padding: { x: 8, y: 4 },
 		css: { cursor: "pointer" },
 	});
 
 	/** The style applied to the text field */
 	textFieldStyle: UITextField.StyleValue = ui.style.TEXTFIELD.extend({
+		background: ui.color.CLEAR,
 		maxWidth: "100%",
 		width: "100%",
 		borderRadius: 0,
 		borderThickness: 0,
-		padding: { x: 8, y: 4 },
 		css: { outlineOffset: "-2px" },
 	});
+
+	/** Size of the icon (in pixels or string with unit), defaults to 16 */
+	iconSize?: number | string = 16;
+
+	/**
+	 * The padding applied to both the label and text field
+	 * - Note that the field height is set using the `height` property, not (only) vertical padding
+	 */
+	padding: UIComponent.Offsets = { x: 8, y: 4 };
 }
 
 /**
@@ -51,6 +63,10 @@ export class EditInPlaceStyles extends ConfigOptions {
 export class EditInPlace extends ViewComposite.define({
 	/** The current value of the edit-in-place field */
 	value: "" as string | number | undefined,
+	/** Placeholder text that's displayed if the value is an empty string */
+	placeholder: StringConvertible.EMPTY,
+	/** An icon to be displayed in front of the field value */
+	icon: undefined as UIIconResource | undefined,
 	/** True if the user should not be able to change the value */
 	readOnly: false,
 	/** True if the field should accept numeric input */
@@ -73,6 +89,20 @@ export class EditInPlace extends ViewComposite.define({
 	accessibleLabel: undefined as string | undefined,
 }) {
 	protected defineView() {
+		// normalize padding with and without icon
+		let paddingStyle = this.styles.padding;
+		if (typeof paddingStyle !== "object") {
+			paddingStyle = { x: paddingStyle, y: paddingStyle };
+		}
+		let padding = {
+			start: paddingStyle.start ?? paddingStyle.left ?? paddingStyle.x,
+			end: paddingStyle.end ?? paddingStyle.right ?? paddingStyle.x,
+			top: paddingStyle.top ?? paddingStyle.y,
+			bottom: paddingStyle.bottom ?? paddingStyle.y,
+		};
+		let iconPaddingStart =
+			typeof padding.start === "number" ? padding.start + 24 : padding.start;
+
 		return ui.cell(
 			{
 				layout: { axis: "horizontal", distribution: "start" },
@@ -82,23 +112,72 @@ export class EditInPlace extends ViewComposite.define({
 				onPress: "StartEdit",
 				onFocusIn: "+StartEdit",
 			},
+
+			// us a cell to vertically align the icon independently of the label
+			ui.cell(
+				{
+					hidden: $view.not("icon"),
+					layout: { axis: "horizontal", distribution: "start" },
+					// move up slightly to visually align the icon with text
+					position: { gravity: "overlay", start: 0, top: 0, bottom: 2 },
+				},
+				ui.label({
+					icon: $view.bind("icon"),
+					text: " ",
+					iconSize: this.styles.iconSize,
+					style: this.styles.labelStyle,
+					padding,
+				})
+			),
+
+			// text label, with value or placeholder
 			ui.label({
-				text: $view.bind("value").asString(this.isNumber ? "n" : "s"),
+				text: $view
+					.not("editing")
+					.and(
+						$view
+							.bind("value")
+							.asString(this.isNumber ? "n" : "s")
+							.or("placeholder")
+					)
+					.else(""),
 				width: "100%",
-				hidden: $view.boolean("editing"),
-				style: ui.style(this.styles.labelStyle, {
-					textAlign: this.isNumber ? "end" : "start",
-				}),
-				dim: !!this.readOnly,
-				allowKeyboardFocus: !this.readOnly,
+				style: $view.boolean("icon").select(
+					ui.style(this.styles.labelStyle, {
+						textAlign: this.isNumber ? "end" : "start",
+						padding: { ...padding, start: iconPaddingStart },
+					}),
+					ui.style(this.styles.labelStyle, {
+						textAlign: this.isNumber ? "end" : "start",
+						padding,
+					})
+				),
+				dim:
+					!!this.readOnly ||
+					$view
+						.bind("value")
+						.asString(this.isNumber ? "n" : "s")
+						.not()
+						.and($view.not("editing")),
 			}),
+
+			// text field, covering other elements
 			ui.textField({
 				value: $view.bind("value").asString(this.isNumber ? "n" : "s"),
-				hidden: $view.not("editing"),
-				position: { gravity: "overlay", top: 0, left: 0, right: 0, bottom: 0 },
-				style: ui.style(this.styles.textFieldStyle, {
-					textAlign: this.isNumber ? "end" : "start",
-				}),
+				position: { gravity: "cover" },
+				style: bind.either(
+					$view.not("editing").select({ opacity: 0 }),
+					$view.boolean("icon").select(
+						ui.style(this.styles.textFieldStyle, {
+							textAlign: this.isNumber ? "end" : "start",
+							padding: { ...padding, start: iconPaddingStart },
+						}),
+						ui.style(this.styles.textFieldStyle, {
+							textAlign: this.isNumber ? "end" : "start",
+							padding,
+						})
+					)
+				),
 				type: this.isNumber ? "decimal" : "text",
 				selectOnFocus: this.isNumber,
 				onFocusOut: "+EndEdit",

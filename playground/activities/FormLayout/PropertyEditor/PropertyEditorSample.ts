@@ -1,7 +1,15 @@
-import { Activity, app, ManagedList, ManagedObject, ViewEvent } from "talla-ui";
+import {
+	Activity,
+	app,
+	ManagedList,
+	ManagedObject,
+	ui,
+	ViewEvent,
+} from "talla-ui";
 import view from "./view";
 import code from "./view?raw";
 import { PropertyEditor, PropertyEditorItem } from "@talla-ui/lib-comp";
+import icons from "~/icons/icons";
 
 function o(obj: PropertyEditorItem) {
 	return Object.assign(new ManagedObject(), obj);
@@ -26,6 +34,7 @@ export class PropertyEditorSample extends Activity {
 			name: "Name",
 			id: "name",
 			value: "",
+			icon: icons.person,
 		}),
 		o({
 			name: "Age",
@@ -37,10 +46,11 @@ export class PropertyEditorSample extends Activity {
 		o({
 			name: "Status",
 			id: "status",
+			icon: icons.person,
 			options: [
 				{ label: "Employed", value: 1 },
 				{ label: "Unemployed", value: 2 },
-				{ label: "Retired", value: 3 },
+				{ label: "Retired", value: 3, icon: ui.icon.MINUS },
 			],
 			value: 0,
 		}),
@@ -54,6 +64,7 @@ export class PropertyEditorSample extends Activity {
 			id: "custom",
 			action: "CustomAction",
 			actionLabel: "Click to count",
+			icon: ui.icon.PLUS,
 			value: { count: 0 },
 		})
 	);
