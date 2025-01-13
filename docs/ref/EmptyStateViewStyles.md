@@ -23,7 +23,7 @@ Objects of this type are passed to [EmptyStateView](EmptyStateView.md) as the `s
     Size of the icon.
 - [<!--{ref:property}-->iconColor](EmptyStateViewStyles_iconColor.md) \
     Color of the icon.
-- [<!--{ref:property}-->constainerStyle](EmptyStateViewStyles_constainerStyle.md) \
+- [<!--{ref:property}-->containerStyle](EmptyStateViewStyles_containerStyle.md) \
     Cell style for the outer container.
 - [<!--{ref:property}-->titleStyle](EmptyStateViewStyles_titleStyle.md) \
     Style for the title label.

@@ -21,3 +21,7 @@ Objects of this type are passed to [EditInPlace](EditInPlace.md) as the `styles`
     The style applied to the label.
 - [<!--{ref:property}-->textFieldStyle](EditInPlaceStyles_textFieldStyle.md) \
     The style applied to the text field.
+- [<!--{ref:property}-->iconSize](EditInPlaceStyles_iconSize.md) \
+    Size of the icon (in pixels or string with unit), defaults to 16.
+- [<!--{ref:property}-->padding](EditInPlaceStyles_padding.md) \
+    The padding applied to both the label and text field.

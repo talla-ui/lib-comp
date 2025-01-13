@@ -2,7 +2,7 @@
 
 # widths
 
-> The widths of each column in the row.
+> The width of each column in the row.
 
 <pre class="docgen_signature">widths: (<b>number</b> | <b>string</b> | <b>undefined</b>)[];</pre>
 

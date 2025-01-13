@@ -25,6 +25,10 @@ The label text is kept in sync with the text field value automatically. The valu
 
 - [<!--{ref:property}-->value](EditInPlace_base_value.md) \
     The current value of the edit-in-place field.
+- [<!--{ref:property}-->placeholder](EditInPlace_base_placeholder.md) \
+    Placeholder text that's displayed if the value is an empty string.
+- [<!--{ref:property}-->icon](EditInPlace_base_icon.md) \
+    An icon to be displayed in front of the field value.
 - [<!--{ref:property}-->readOnly](EditInPlace_base_readOnly.md) \
     True if the user should not be able to change the value.
 - [<!--{ref:property}-->isNumber](EditInPlace_base_isNumber.md) \

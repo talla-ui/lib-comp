@@ -13,7 +13,9 @@ A table header row composite can be used as the first content preset of a [Table
 - [<!--{ref:property}-->item](TableRow_item.md) \
     The item bound to this row (undefined for table header).
 - [<!--{ref:property}-->widths](TableRow_base_widths.md) \
-    The widths of each column in the row.
+    The width of each column in the row.
+- [<!--{ref:property}-->maxWidths](TableRow_base_maxWidths.md) \
+    The maximum width of each column in the row.
 - [<!--{ref:property}-->hidden](TableRow_base_hidden.md) \
     True if the row is currently hidden.
 - [<!--{ref:property}-->selected](TableRow_base_selected.md) \

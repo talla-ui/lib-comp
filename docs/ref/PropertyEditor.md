@@ -31,8 +31,6 @@ Properties are added to the editor composite using a list of objects, which incl
 
 - [<!--{ref:property}-->items](PropertyEditor_base_items.md) \
     The list of properties to display and edit, as an array or managed list of [PropertyEditorItem](PropertyEditorItem.md) objects.
-- [<!--{ref:property}-->widths](PropertyEditor_base_widths.md) \
-    The widths of the property name and value columns.
 - [<!--{ref:property}-->readOnly](PropertyEditor_base_readOnly.md) \
     True if all properties should be read-only.
 - [<!--{ref:property}-->styles](PropertyEditor_base_styles.md) \

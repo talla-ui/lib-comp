@@ -1,10 +1,10 @@
 [class PropertyEditorStyles](PropertyEditorStyles.md)
 
-# selectFieldButtonStyle
+# actionLabelIconSize
 
-> Style for select field buttons, defaults to borderless design to match text input fields.
+> Icon size (in pixels or string with unit) for action labels, defaults to 16.
 
-<pre class="docgen_signature">selectFieldButtonStyle: UIButton.StyleValue;</pre>
+<pre class="docgen_signature">actionLabelIconSize?: <b>string</b> | <b>number</b>;</pre>
 
 ## Related
 

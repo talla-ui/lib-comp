@@ -1,10 +1,10 @@
 [SelectField (base)](SelectField_base.md)
 
-# icon
+# chevron
 
-> The button icon, until an option with an icon is selected.
+> The button chevron icon, defaults to "down".
 
-<pre class="docgen_signature">icon: UIIconResource | <b>undefined</b>;</pre>
+<pre class="docgen_signature">chevron: UIButton[&quot;chevron&quot;];</pre>
 
 ## Related
 

@@ -18,12 +18,19 @@ Options are added using a list of [SelectFieldOption](SelectFieldOption.md) obje
 - `Change` is emitted when the value has changed. The new value is included in the `value` property of the event data.
 - `BeforeSelect` is emitted immediately before opening the menu, to allow updating of menu options in [options](SelectField_base_options.md) (synchronously).
 
+## Instance members
+
+- [<!--{ref:property}-->itemIcon](SelectField_itemIcon.md) <!--{refchip:protected}-->\
+    The selected item's icon, if any.
+
 ## Inherited members
 
 - [<!--{ref:property}-->label](SelectField_base_label.md) \
     The button label, updated automatically upon selection.
 - [<!--{ref:property}-->icon](SelectField_base_icon.md) \
-    The button icon, updated automatically upon selection.
+    The button icon, until an option with an icon is selected.
+- [<!--{ref:property}-->chevron](SelectField_base_chevron.md) \
+    The button chevron icon, defaults to "down".
 - [<!--{ref:property}-->width](SelectField_base_width.md) \
     The width of the button element, defaults to undefined.
 - [<!--{ref:property}-->options](SelectField_base_options.md) \

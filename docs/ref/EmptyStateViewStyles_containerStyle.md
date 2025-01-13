@@ -1,10 +1,10 @@
 [class EmptyStateViewStyles](EmptyStateViewStyles.md)
 
-# constainerStyle
+# containerStyle
 
 > Cell style for the outer container.
 
-<pre class="docgen_signature">constainerStyle: UICell.StyleValue;</pre>
+<pre class="docgen_signature">containerStyle: UICell.StyleValue;</pre>
 
 ## Related
 

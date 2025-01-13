@@ -18,7 +18,7 @@ Objects of this type are passed to [SelectField](SelectField.md) as the `styles`
 ## Instance members
 
 - [<!--{ref:property}-->iconSize](SelectFieldStyles_iconSize.md) \
-    The size of the button icon, defaults to undefined.
+    The size of the button icon, defaults to 16.
 - [<!--{ref:property}-->iconMargin](SelectFieldStyles_iconMargin.md) \
     The margin after the button icon, defaults to undefined.
 - [<!--{ref:property}-->menuOffset](SelectFieldStyles_menuOffset.md) \

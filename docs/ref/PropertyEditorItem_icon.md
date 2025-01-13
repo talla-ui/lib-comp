@@ -1,10 +1,10 @@
 [type PropertyEditorItem](PropertyEditorItem.md)
 
-# options
+# icon
 
-> List of options, for select fields.
+> Icon to be displayed in front of the value.
 
-<pre class="docgen_signature">options?: <a href="SelectFieldOption.md">SelectFieldOption</a>[];</pre>
+<pre class="docgen_signature">icon?: UIIconResource;</pre>
 
 ## Related
 
