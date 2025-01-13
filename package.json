@@ -35,6 +35,7 @@
 		"@talla-ui/test-handler": "next",
 		"@talla-ui/web-handler": "next",
 		"@talla-ui/run-tests-esbuild": "next",
+		"@talla-ui/lib-web-tools": "next",
 		"@talla-ui/lib-comp": "file:.",
 		"@types/node": "^22.0.0",
 		"highlight.js": "^11.10.0",

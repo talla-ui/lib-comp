@@ -6,6 +6,7 @@ import { ViewPatternsActivity } from "./activities/ViewPatterns/ViewPatternsActi
 import highlightCSS from "highlight.js/styles/github-dark.min.css?url";
 import { FormLayoutActivity } from "./activities/FormLayout/FormLayoutActivity";
 import { AppLayoutActivity } from "./activities/AppLayout/AppLayoutActivity.";
+import { showWebTools } from "@talla-ui/lib-web-tools";
 
 const app = useWebContext((options) => {
 	options.importCSS = [highlightCSS];
@@ -40,8 +41,10 @@ app.i18n = {
 };
 
 Binding.debugHandler = (a) => {
-	console.log("BIND", a);
+	app.log.debug("BIND", a);
 };
+
+showWebTools(undefined, true);
 
 app.addActivity(new HomeActivity());
 app.addActivity(new InputFieldsActivity());
