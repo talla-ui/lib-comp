@@ -1,3 +1,5 @@
+[View composites](../index.md)
+
 # class LabeledView
 
 > View composite that encapsulates a title label in front or above an embedded view.
