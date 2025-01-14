@@ -73,7 +73,7 @@ export const toasts = {
 	async danger() {
 		let result = await showToastNotification(
 			{
-				icon: ui.icon("!"),
+				icon: ui.icon("danger", "!"),
 				title: "Oops",
 				message: "The action failed. Please try again",
 				buttonLabel: "Details",

@@ -42,7 +42,7 @@ export class FormEntrySample extends Activity {
 		} else {
 			showToastNotification({
 				message: "Please correct your inputs",
-				icon: ui.icon("!"),
+				icon: ui.icon("error", "!"),
 			});
 		}
 	}

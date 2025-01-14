@@ -62,7 +62,7 @@ export default ViewComposite.define(
 				<render view={$view.bind("current")} />
 				<conditional state={$view.not("current")}>
 					<EmptyStateView
-						icon={icons.art}
+						icon={icons.layout}
 						title={"Select a view"}
 						helpText={"Select a view from the list to see a sample here."}
 					/>

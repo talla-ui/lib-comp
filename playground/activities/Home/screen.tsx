@@ -44,10 +44,10 @@ export default (
 				</label>
 			</row>
 			<ScrollRow>
-				<button icon={icons.world} chevron="next" onPress="GoGitHub">
+				<button icon={icons.link} chevron="next" onPress="GoGitHub">
 					GitHub
 				</button>
-				<button icon={icons.world} chevron="next" onPress="GoWebsite">
+				<button icon={icons.link} chevron="next" onPress="GoWebsite">
 					Tälla framework
 				</button>
 			</ScrollRow>

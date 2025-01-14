@@ -63,10 +63,10 @@ export default (
 				<PageNavButton icon={icons.calendar} pageId="input">
 					Input fields
 				</PageNavButton>
-				<PageNavButton icon={icons.world} pageId="form-layout">
+				<PageNavButton icon={icons.link} pageId="form-layout">
 					Form layout
 				</PageNavButton>
-				<PageNavButton icon={icons.art} pageId="app-layout">
+				<PageNavButton icon={icons.layout} pageId="app-layout">
 					App layout
 				</PageNavButton>
 				<PageNavButton icon={icons.code} pageId="patterns">

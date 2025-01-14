@@ -1,27 +1,73 @@
-import { ui } from "talla-ui";
+import { ui, UIIconResource } from "talla-ui";
+
+const icons: Icons = {} as any;
+export default icons;
+function addIcon(name: string, svg: string) {
+	(icons as any)[name] = ui.icon(name, svg);
+}
 
 import loading from "./svg/loading.svg?raw";
-import world from "./svg/world.svg?raw";
-import sun from "./svg/sun.svg?raw";
-import moon from "./svg/moon.svg?raw";
-import art from "./svg/art.svg?raw";
-import calendar from "./svg/calendar.svg?raw";
-import clock from "./svg/clock.svg?raw";
-import restart from "./svg/restart.svg?raw";
-import code from "./svg/code.svg?raw";
-import edit from "./svg/edit.svg?raw";
-import person from "./svg/person.svg?raw";
+addIcon("loading", loading);
+interface Icons {
+	loading: UIIconResource;
+}
 
-export default {
-	loading: ui.icon(loading),
-	world: ui.icon(world),
-	sun: ui.icon(sun),
-	moon: ui.icon(moon),
-	art: ui.icon(art),
-	calendar: ui.icon(calendar),
-	clock: ui.icon(clock),
-	restart: ui.icon(restart),
-	code: ui.icon(code),
-	edit: ui.icon(edit),
-	person: ui.icon(person),
-};
+import link from "./svg/link.svg?raw";
+addIcon("link", link);
+interface Icons {
+	link: UIIconResource;
+}
+
+import sun from "./svg/sun.svg?raw";
+addIcon("sun", sun);
+interface Icons {
+	sun: UIIconResource;
+}
+
+import moon from "./svg/moon.svg?raw";
+addIcon("moon", moon);
+interface Icons {
+	moon: UIIconResource;
+}
+
+import layout from "./svg/layout.svg?raw";
+addIcon("layout", layout);
+interface Icons {
+	layout: UIIconResource;
+}
+
+import calendar from "./svg/calendar.svg?raw";
+addIcon("calendar", calendar);
+interface Icons {
+	calendar: UIIconResource;
+}
+
+import clock from "./svg/clock.svg?raw";
+addIcon("clock", clock);
+interface Icons {
+	clock: UIIconResource;
+}
+
+import restart from "./svg/restart.svg?raw";
+addIcon("restart", restart);
+interface Icons {
+	restart: UIIconResource;
+}
+
+import code from "./svg/code.svg?raw";
+addIcon("code", code);
+interface Icons {
+	code: UIIconResource;
+}
+
+import edit from "./svg/edit.svg?raw";
+addIcon("edit", edit);
+interface Icons {
+	edit: UIIconResource;
+}
+
+import person from "./svg/person.svg?raw";
+addIcon("person", person);
+interface Icons {
+	person: UIIconResource;
+}

@@ -20,7 +20,7 @@ export class ListBoxSample extends Activity {
 	countriesList = COUNTRIES;
 
 	onCountryChanged(e: ViewEvent) {
-		console.log("Set country: ", e.data.value, e.data.label);
+		app.log.information("Set country: ", e.data.value, e.data.label);
 	}
 }
 
