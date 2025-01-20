@@ -7,8 +7,8 @@ import {
 	UICell,
 	UIIconResource,
 	UIListView,
+	UIListViewEvent,
 	ViewComposite,
-	ViewEvent,
 	ui,
 } from "talla-ui";
 import { ScrollArea } from "./ScrollArea.js";
@@ -166,17 +166,9 @@ export class ListBox extends ViewComposite.define({
 		if (this._selectedValue === value) return;
 		this._deselect();
 		if (value === undefined) return;
-		let content = this.findViewContent(UIListView)[0]?.getContent();
-		if (!content) return;
-		for (let it of content) {
-			if (
-				it instanceof UIListView.ItemControllerView &&
-				it.item.value === value
-			) {
-				this._selectByController(it);
-				break;
-			}
-		}
+		let controller = this._find(value);
+		if (!controller) return;
+		this._select(controller.body as UICell, controller.item);
 	}
 
 	protected async onListRendered() {
@@ -186,35 +178,35 @@ export class ListBox extends ViewComposite.define({
 		return true;
 	}
 
-	protected onItemFocused(e: ViewEvent) {
-		if (this.selectOnFocus) {
-			this._deselect();
-			this._selectByController(e.findDelegate(UIListView.ItemControllerView));
-		}
+	protected onItemFocused(e: UIListViewEvent<ListBoxItem>) {
+		if (this.selectOnFocus) this.onItemSelected(e);
 		return true;
 	}
 
-	protected onItemSelected(e: ViewEvent) {
+	protected onItemSelected(e: UIListViewEvent<ListBoxItem>) {
 		this.requestFocus();
-		let controller = e.findDelegate(UIListView.ItemControllerView);
-		if (controller) {
-			if (this._selectedValue === controller.item.value) return;
-			this._deselect();
-			this._selectByController(controller);
+		let item = e.data.listViewItem;
+		if (this._selectedValue === item) return;
+		this._deselect();
+		this._select(e.source as UICell, item);
+	}
+
+	private _find(value: unknown) {
+		let controllers = this.findViewContent(UIListView.ItemControllerView);
+		for (let c of controllers) {
+			if ((c.item as ListBoxItem).value === value) {
+				return c as UIListView.ItemControllerView<ListBoxItem>;
+			}
 		}
 	}
 
-	private _selectByController(
-		controller?: UIListView.ItemControllerView<ListBoxItem>
-	) {
-		if (controller?.body instanceof UICell) {
-			let { value, label } = controller.item;
-			controller.body.style = this.styles.selectedListCellStyle;
-			this._selectedCell = controller.body;
-			this._selectedValue = value;
-			this.value = value;
-			this.emit("Change", { value: value, label });
-		}
+	private _select(cell: UICell, item: ListBoxItem) {
+		let { value, label } = item;
+		cell.style = this.styles.selectedListCellStyle;
+		this._selectedCell = cell;
+		this._selectedValue = value;
+		this.value = value;
+		this.emit("Change", { value: value, label });
 		return true;
 	}
 

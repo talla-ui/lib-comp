@@ -24,7 +24,7 @@ For detailed documentation for all of the included view composites, refer to the
 
 For information related to development and open source contributions, refer to the main Tälla UI repository on GitHub.
 
-[Tälla UI framework](https://github.com/talla-ui/talla)
+[Tälla UI framework](https://github.com/talla-ui/talla-ui)
 
 ## License
 

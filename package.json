@@ -20,7 +20,7 @@
 		"prebuild": "npm run clean",
 		"build": "tsc && docgen",
 		"watch": "tsc -w",
-		"test": "run-tests-esbuild playground/index.test.ts",
+		"test": "vitest run playground",
 		"check-playground": "tsc -p ./playground/tsconfig.json",
 		"prepublishOnly": "tsc"
 	},
@@ -34,13 +34,13 @@
 		"@talla-ui/docgen": "next",
 		"@talla-ui/test-handler": "next",
 		"@talla-ui/web-handler": "next",
-		"@talla-ui/run-tests-esbuild": "next",
 		"@talla-ui/lib-web-tools": "next",
 		"@talla-ui/lib-comp": "file:.",
 		"@types/node": "^22.0.0",
 		"highlight.js": "^11.10.0",
 		"rimraf": "^6.0.1",
 		"typescript": "5.5",
-		"vite": "^5.3.4"
+		"vite": "^6.0.7",
+		"vitest": "^3.0.2"
 	}
 }
