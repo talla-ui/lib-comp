@@ -53,7 +53,7 @@ export class AppLayoutActivity extends Activity {
 		return new CategoryScreen({
 			title: this.title,
 			samples: this.samples,
-			current: $activity.bind("samples.activated.view"),
+			current: $activity("samples.activated.view"),
 		});
 	}
 

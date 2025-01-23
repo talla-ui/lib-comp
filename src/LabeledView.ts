@@ -24,7 +24,7 @@ export class LabeledViewStyles extends ConfigOptions {
 	static default = new LabeledViewStyles();
 
 	/** Binding that's used to determine if elements should be shown in horizontal layout (when true), defaults to 3-column viewports */
-	horizontalWhen = $viewport.bind("col3");
+	horizontalWhen = $viewport.boolean("col3");
 
 	/** Cell style for the outer container */
 	containerStyle: UICell.StyleValue = ui.style.CELL.extend({ shrink: 1 });
@@ -86,8 +86,8 @@ export class LabeledView extends ViewComposite.define({
 
 			// title label
 			ui.label({
-				text: $view.bind("title"),
-				icon: $view.bind("icon"),
+				text: $view("title"),
+				icon: $view("icon"),
 				iconSize: this.styles.iconSize,
 				iconColor: this.styles.iconColor,
 				iconMargin: this.styles.iconMargin,

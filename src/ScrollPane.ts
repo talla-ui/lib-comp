@@ -1,7 +1,7 @@
 import {
 	$view,
 	$viewport,
-	bind,
+	Binding,
 	StringConvertible,
 	ui,
 	UIIconResource,
@@ -17,7 +17,7 @@ import {
 	HeaderPaneToolbar,
 } from "./HeaderPane.js";
 
-const $scrollPaneView = bind.$on("scrolled");
+const $scrollPaneView = Binding.createFactory("scrolled");
 
 /** Defines the behavior of the header in a {@link ScrollPane} composite view */
 export type ScrollPaneHeaderMode = "fixed" | "dynamic" | "none";
@@ -77,10 +77,9 @@ export class ScrollPane extends ViewComposite.define({
 		let boundPadding = $viewport
 			.not("col2")
 			.select(this.styles.paddingNarrow, this.styles.padding);
-		let boundFixedState = $view
-			.bind("headerMode")
+		let boundFixedState = $view("headerMode")
 			.matches("fixed")
-			.or($view.bind("headerMode").matches("dynamic").and("scrolled"));
+			.or($view("headerMode").matches("dynamic").and("scrolled"));
 
 		let toolbarBuilder: ViewBuilder | undefined;
 		if (content[0]?.View === HeaderPaneToolbar) {
@@ -106,20 +105,13 @@ export class ScrollPane extends ViewComposite.define({
 					},
 					ui.row(
 						{
-							height: $scrollPaneView
-								.bind("title")
-								.or("titleIcon")
-								.select(48, 0),
-							hidden: $scrollPaneView
-								.bind("headerMode")
-								.matches("dynamic")
-								.not(),
+							height: $scrollPaneView("title").or("titleIcon").select(48, 0),
+							hidden: $scrollPaneView("headerMode").matches("dynamic").not(),
 						},
 						ui.animate(
 							{
-								ignoreFirstShow: $scrollPaneView
-									.bind("headerMode")
-									.matches("dynamic"),
+								ignoreFirstShow:
+									$scrollPaneView("headerMode").matches("dynamic"),
 								showAnimation: ui.animation.FADE_IN_DOWN,
 								hideAnimation: $scrollPaneView
 									.boolean("scrolled")
@@ -127,10 +119,9 @@ export class ScrollPane extends ViewComposite.define({
 							},
 							ui.label({
 								text: $scrollPaneView.string("title"),
-								icon: $scrollPaneView.bind("titleIcon"),
+								icon: $scrollPaneView("titleIcon"),
 								iconMargin: 16,
-								hidden: $scrollPaneView
-									.bind("headerMode")
+								hidden: $scrollPaneView("headerMode")
 									.matches("dynamic")
 									.and("scrolled"),
 								style: this.styles.pageTitleStyle,
@@ -145,7 +136,7 @@ export class ScrollPane extends ViewComposite.define({
 		return ui.use(
 			HeaderPane,
 			{
-				showHeader: $view.bind("headerMode").matches("none").not(),
+				showHeader: $view("headerMode").matches("none").not(),
 				backdrop: boundFixedState,
 				styles: this.styles,
 				title: boundFixedState.and("title").else(undefined),

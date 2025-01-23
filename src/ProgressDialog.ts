@@ -20,7 +20,7 @@ const view = ui.cell(
 				padding: { top: 16, bottom: 8 },
 			},
 			ui.label({
-				icon: $activity.bind("icon"),
+				icon: $activity("icon"),
 				iconSize: 40,
 				dim: true,
 			})
@@ -40,9 +40,9 @@ const view = ui.cell(
 			accessibleRole: "status",
 		}),
 		ui.conditional(
-			{ state: $activity.bind("progress").matches(undefined).not() },
+			{ state: $activity("progress").matches(undefined).not() },
 			ui.use(ProgressBar, {
-				progress: $activity.bind("progress"),
+				progress: $activity("progress"),
 				margin: { top: 16, bottom: 8 },
 			})
 		),

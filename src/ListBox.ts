@@ -107,8 +107,8 @@ export class ListBox extends ViewComposite.define({
 		return ui.use(
 			ScrollArea,
 			{
-				height: $view.bind("height"),
-				width: $view.bind("width"),
+				height: $view("height"),
+				width: $view("width"),
 				cellStyle: this.styles.containerStyle,
 				name: this.name,
 			},
@@ -133,7 +133,7 @@ export class ListBox extends ViewComposite.define({
 						},
 						ui.label({
 							text: $list.string("item.label"),
-							icon: $list.bind("item.icon"),
+							icon: $list("item.icon"),
 							iconSize: this.styles.iconSize,
 						})
 					)

@@ -1,6 +1,6 @@
 import {
+	$strf,
 	$view,
-	bind,
 	ConfigOptions,
 	ManagedObject,
 	ui,
@@ -222,7 +222,7 @@ export class CalendarView extends ViewComposite.define({
 			ui.row(
 				{ spacing: 0, height: 32 },
 				ui.button({
-					label: bind.strf(
+					label: $strf(
 						"%s %s",
 						$view.string("monthDisplay"),
 						$view.string("yearDisplay")
@@ -274,7 +274,7 @@ export class CalendarView extends ViewComposite.define({
 						onClick: "PrevYear",
 					}),
 					ui.textField({
-						value: $view.bind("yearDisplay"),
+						value: $view("yearDisplay"),
 						style: this.styles.yearInputStyle,
 						selectOnFocus: true,
 						type: "numeric",

@@ -140,7 +140,7 @@ export class TimeInputField extends ViewComposite.define({
 				ui.spacer(4),
 				ui.label({
 					hidden: $view.not("icon"),
-					icon: $view.bind("icon"),
+					icon: $view("icon"),
 					iconSize: this.styles.iconSize,
 					padding: { end: 4 },
 					onClick: "RequestFocusNext",

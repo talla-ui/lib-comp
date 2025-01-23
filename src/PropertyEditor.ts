@@ -1,7 +1,7 @@
 import {
+	$bind,
 	$list,
 	$view,
-	bind,
 	ConfigOptions,
 	ManagedObject,
 	StringConvertible,
@@ -173,12 +173,12 @@ export class PropertyEditor extends ViewComposite.define({
 		return ui.use(
 			TableList,
 			{
-				items: bind("items"),
+				items: $bind("items"),
 				styles: this.styles.tableListStyles,
 				name: this.name,
 			},
 			ui.use(PropertyEditorRow, {
-				item: $list.bind("item"),
+				item: $list("item"),
 				readOnly: this.readOnly,
 				styles: this.styles,
 			})
@@ -220,7 +220,7 @@ class PropertyEditorRow extends ViewComposite.define({
 				{
 					onClick: "FocusValue",
 					onPress: "FocusValue",
-					style: bind("focused").select(
+					style: $bind("focused").select(
 						{
 							shrink: 1,
 							background: ui.color.PRIMARY_BG,
@@ -236,12 +236,12 @@ class PropertyEditorRow extends ViewComposite.define({
 				},
 				ui.row(
 					ui.label({
-						text: bind("item.name"),
+						text: $bind("item.name"),
 						style: this.styles.propertyLabelStyle,
 					})
 				)
 			),
-			ui.renderView({ view: bind("editor") })
+			ui.renderView({ view: $bind("editor") })
 		);
 	}
 
@@ -328,7 +328,7 @@ class PropertyEditorRow extends ViewComposite.define({
 					},
 					ui.label({
 						text: $view.string("item.actionLabel").or("item.value"),
-						icon: $view.bind("item.icon"),
+						icon: $view("item.icon"),
 						iconSize: this.styles.actionLabelIconSize,
 						dim: readOnly,
 						width: "100%",
@@ -362,10 +362,10 @@ class PropertyEditorRow extends ViewComposite.define({
 			return new SelectField({
 				label:
 					item.options.find((a) => a.value === this.item!.value)?.label || "",
-				icon: $view.bind("item.icon"),
+				icon: $view("item.icon"),
 				chevron: readOnly ? undefined : "down",
-				options: $view.bind("item.options"),
-				value: $view.bind("item.value"),
+				options: $view("item.options"),
+				value: $view("item.value"),
 				readOnly,
 				styles: this.styles.selectFieldStyles,
 			});
@@ -377,7 +377,7 @@ class PropertyEditorRow extends ViewComposite.define({
 			isPositive: item.positive,
 			isInteger: item.integer,
 			value: $view.string("item.value"),
-			icon: $view.bind("item.icon"),
+			icon: $view("item.icon"),
 			styles: this.styles.editStyles,
 		});
 	}

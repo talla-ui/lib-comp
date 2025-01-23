@@ -44,7 +44,7 @@ export default (
 				<DateInputField formField={"date1"} icon={icons.calendar} />
 			</row>
 			<button onClick="SetToday">Set to today</button>
-			<label wrap>Value: {$formContext.bind("values.date1")}</label>
+			<label wrap>Value: {$formContext("values.date1")}</label>
 			<separator margin={16} />
 		</column>
 

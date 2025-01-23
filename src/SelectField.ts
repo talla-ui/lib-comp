@@ -112,7 +112,7 @@ export class SelectField extends ViewComposite.define({
 		return ui.button({
 			label: $view.string("label"),
 			disabled: $view.boolean("readOnly"),
-			icon: $view.bind("itemIcon").or("icon"),
+			icon: $view("itemIcon").or("icon"),
 			iconSize: this.styles.iconSize,
 			iconMargin: this.styles.iconMargin,
 			chevron: this.chevron,

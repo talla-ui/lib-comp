@@ -38,19 +38,15 @@ export default (
 			<label>Bound form field, with preselected week</label>
 			<CalendarView
 				formField="date1"
-				preselected={$activity.bind("preselectedDates")}
+				preselected={$activity("preselectedDates")}
 			/>
-			<label>Selected date: {$formContext.bind("values.date1")}</label>
+			<label>Selected date: {$formContext("values.date1")}</label>
 			<separator margin={16} />
 		</column>
 
 		<column align="start" spacing={16}>
 			<label>Bound form field, range from today</label>
-			<CalendarView
-				formField="date1"
-				preselected={$activity.bind("today")}
-				range
-			/>
+			<CalendarView formField="date1" preselected={$activity("today")} range />
 			<separator margin={16} />
 		</column>
 

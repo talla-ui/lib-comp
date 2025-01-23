@@ -43,7 +43,7 @@ export default ViewComposite.define(
 							<DetailNavButton
 								width="100%"
 								label={$list.string("item.title")}
-								detail={$list.bind("item.title")}
+								detail={$list("item.title")}
 								chevron="next"
 							/>
 							<column
@@ -59,7 +59,7 @@ export default ViewComposite.define(
 				</cell>
 			</ScrollPane>
 			<cell background={ui.color.BACKGROUND} style={{ shrink: 1 }}>
-				<render view={$view.bind("current")} />
+				<render view={$view("current")} />
 				<conditional state={$view.not("current")}>
 					<EmptyStateView
 						icon={icons.layout}

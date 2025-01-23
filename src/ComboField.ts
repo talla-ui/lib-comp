@@ -136,7 +136,7 @@ export class ComboField extends ViewComposite.define({
 				}),
 				ui.button({
 					hidden: $view.not("icon"),
-					icon: $view.bind("icon"),
+					icon: $view("icon"),
 					iconSize: this.styles.iconSize,
 					style: ui.style.BUTTON_ICON,
 					onFocusIn: "OpenOverlayAsync",

@@ -1,4 +1,10 @@
-import { $view, bind, StringConvertible, ui, ViewComposite } from "talla-ui";
+import {
+	$formContext,
+	$view,
+	StringConvertible,
+	ui,
+	ViewComposite,
+} from "talla-ui";
 
 /**
  * View composite for a form entry block
@@ -26,7 +32,7 @@ export const FormEntry = ViewComposite.define(
 	},
 	(values, ...content) => {
 		let errorBinding = values.errorFormField
-			? bind(`formContext.errors.${values.errorFormField}.message`)
+			? $formContext(`errors.${values.errorFormField}.message`)
 			: $view.string("errorText");
 		return ui.column(
 			{

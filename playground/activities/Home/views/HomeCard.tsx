@@ -33,7 +33,7 @@ export default class extends ViewComposite.define({
 	createView() {
 		let view = (
 			<ColumnCard
-				width={$viewport.bind("col2").select(160, 140)}
+				width={$viewport.boolean("col2").select(160, 140)}
 				margin={8}
 				styles={{
 					effect: ui.effect.ELEVATE,
@@ -55,7 +55,7 @@ export default class extends ViewComposite.define({
 				<column align="start" padding={12}>
 					<label
 						style={$viewport
-							.bind("col2")
+							.boolean("col2")
 							.select(_cardTitleStyle, _cardTitleStyleNarrow)}
 					>
 						{this.title}

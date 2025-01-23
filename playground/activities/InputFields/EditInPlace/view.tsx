@@ -79,7 +79,7 @@ export default (
 					<EditInPlace
 						isNumber
 						readOnly
-						value={$activity.bind("total").asString("n")}
+						value={$activity("total").asString("n")}
 					/>
 				</row>
 			</cell>

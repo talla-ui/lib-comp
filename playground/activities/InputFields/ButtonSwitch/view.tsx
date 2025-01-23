@@ -93,7 +93,7 @@ export default (
 			<row>
 				<toggle formField="switch1" type="switch" />
 				<label>
-					State: {$formContext.bind("values.switch1").select("ON", "OFF")}
+					State: {$formContext("values.switch1").select("ON", "OFF")}
 				</label>
 			</row>
 			<separator margin={16} />

@@ -24,13 +24,13 @@ export default (
 			<HeaderPaneToolbar>
 				<button
 					style={ui.style.BUTTON_ICON}
-					pressed={$activity.bind("mode").matches("light")}
+					pressed={$activity("mode").matches("light")}
 					icon={icons.sun}
 					onPress="LightMode"
 				/>
 				<button
 					style={ui.style.BUTTON_ICON}
-					pressed={$activity.bind("mode").matches("dark")}
+					pressed={$activity("mode").matches("dark")}
 					icon={icons.moon}
 					onPress="DarkMode"
 				/>
@@ -59,16 +59,13 @@ export default (
 				</label>
 			</row>
 			<cell margin={{ x: -8 }} layout={{ clip: false }}>
-				<list
-					items={$activity.bind("categories")}
-					renderOptions={{ delayEach: 50 }}
-				>
+				<list items={$activity("categories")} renderOptions={{ delayEach: 50 }}>
 					<animate showAnimation={ui.animation.FADE_IN_DOWN}>
 						<HomeCard
-							color={$list.bind("item.color")}
+							color={$list("item.color")}
 							title={$list.string("item.title")}
 							numSamples={$list.number("item.samples.count")}
-							page={$list.bind("item.navigationPageId")}
+							page={$list("item.navigationPageId")}
 						/>
 					</animate>
 					<row layout={{ wrapContent: true }} spacing={0} />

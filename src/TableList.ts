@@ -127,7 +127,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 ) {
 	protected beforeRender() {
 		if (UIListView.whence(this)) {
-			$list.bind("item").bindTo(this, "item");
+			$list("item").bindTo(this, "item");
 		}
 		let tableList = TableList.whence(this);
 		(this.body as UICell).style = ui.style(this.style, {
@@ -152,7 +152,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 					.else(undefined),
 				layout: { axis: "horizontal", gravity: "center" },
 				style: this.style,
-				padding: $view.bind("styles.rowInset"),
+				padding: $view("styles.rowInset"),
 				accessibleRole: "row",
 			},
 			...content.map((c, i) =>

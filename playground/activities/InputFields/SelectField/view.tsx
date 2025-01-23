@@ -68,7 +68,7 @@ export default (
 				<row>
 					<SelectField
 						label="Select..."
-						options={$activity.bind("selectBoundOptions")}
+						options={$activity("selectBoundOptions")}
 						onChange="ChangeBoundSelect"
 					/>
 				</row>
@@ -77,10 +77,7 @@ export default (
 			<column align="start" spacing={16} padding={{ end: 16 }}>
 				<label>Many options</label>
 				<row>
-					<SelectField
-						value="NL"
-						options={$activity.bind("countryOptionsList")}
-					/>
+					<SelectField value="NL" options={$activity("countryOptionsList")} />
 				</row>
 				<separator margin={16} />
 			</column>

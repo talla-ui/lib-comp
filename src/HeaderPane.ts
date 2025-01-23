@@ -159,8 +159,8 @@ export class HeaderPane extends ViewComposite.define({
 						ui.animate(
 							{ showAnimation: ui.animation.FADE_IN_RIGHT },
 							ui.button({
-								icon: $view.bind("leadingButtonIcon"),
-								accessibleLabel: $view.bind("leadingButtonAccessibleLabel"),
+								icon: $view("leadingButtonIcon"),
+								accessibleLabel: $view("leadingButtonAccessibleLabel"),
 								style: ui.style.BUTTON_ICON,
 								position: { start: -8 },
 								onClick: "HeaderLeadingButtonClick",
@@ -175,7 +175,7 @@ export class HeaderPane extends ViewComposite.define({
 						ui.label({
 							hidden: $view.boolean("title").or("titleIcon").not(),
 							text: $view.string("title"),
-							icon: $view.bind("titleIcon"),
+							icon: $view("titleIcon"),
 							iconMargin: 16,
 							width: "100%",
 							style: this.styles.titleStyle,

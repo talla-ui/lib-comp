@@ -131,7 +131,7 @@ export class CalendarSelectField extends ViewComposite.define({
 		return ui.button({
 			label: $view.string("label"),
 			disabled: $view.boolean("readOnly"),
-			icon: $view.bind("icon"),
+			icon: $view("icon"),
 			iconSize: this.styles.iconSize,
 			chevron: this.styles.chevron,
 			width: this.width,

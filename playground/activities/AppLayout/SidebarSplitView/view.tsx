@@ -87,7 +87,7 @@ export default (
 		<column align="start" spacing={16}>
 			<label>List/detail view (named)</label>
 			<ButtonSwitch
-				value={$activity.bind("switchValue")}
+				value={$activity("switchValue")}
 				buttons={[
 					{ label: "List", value: 1 },
 					{ label: "Detail", value: 2 },
@@ -98,8 +98,8 @@ export default (
 			<cell style={outerCellStyle}>
 				<SidebarSplitView
 					name="ListDetailSample"
-					showContent={$activity.bind("showContent")}
-					showSidebar={$activity.bind("showSidebar")}
+					showContent={$activity("showContent")}
+					showSidebar={$activity("showSidebar")}
 					styles={{ separator: { vertical: true, lineThickness: 1 } }}
 				>
 					<cell>

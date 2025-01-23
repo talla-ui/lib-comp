@@ -72,7 +72,7 @@ export const EmptyStateView = ViewComposite.define(
 				{ distribute: "center" },
 				ui.spacer({ height: 16 }),
 				ui.label({
-					icon: $view.bind("icon").or("styles.icon"),
+					icon: $view("icon").or("styles.icon"),
 					iconColor: values.styles.iconColor,
 					iconSize: values.styles.iconSize,
 				}),

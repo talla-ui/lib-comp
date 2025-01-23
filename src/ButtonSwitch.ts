@@ -14,7 +14,7 @@ import {
 } from "talla-ui";
 import { bindFormField } from "./util.js";
 
-const _boundValue = $view.bind("value");
+const _boundValue = $view("value");
 
 /**
  * Style configuration for a {@link ButtonSwitch} composite

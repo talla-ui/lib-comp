@@ -16,9 +16,9 @@ const textStyle_small = textStyle.override({
 export default (
 	<cell
 		style={$viewport
-			.bind("col3")
+			.boolean("col3")
 			.select({ width: 800, maxWidth: "100%", shrink: 1 }, { shrink: 1 })}
-		position={$viewport.bind("col3").select({ gravity: "end" }, {})}
+		position={$viewport.boolean("col3").select({ gravity: "end" }, {})}
 		effect={ui.effect.ELEVATE}
 	>
 		<ScrollPane
@@ -39,7 +39,7 @@ export default (
 				htmlFormat
 				selectable
 				text={$activity.string("code")}
-				style={$viewport.bind("col2").select(textStyle, textStyle_small)}
+				style={$viewport.boolean("col2").select(textStyle, textStyle_small)}
 				position={{ gravity: "start" }}
 			/>
 		</ScrollPane>

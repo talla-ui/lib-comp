@@ -52,7 +52,7 @@ export default (
 					locale={{ use12HourFormat: true }}
 				/>
 			</row>
-			<label wrap>Value: {$formContext.bind("values.datetime")}</label>
+			<label wrap>Value: {$formContext("values.datetime")}</label>
 			<separator margin={16} />
 		</column>
 
@@ -62,7 +62,7 @@ export default (
 				<DateInputField formField="datetime" locale={dateInputLocale_FR} />
 				<TimeInputField formField="datetime" />
 			</row>
-			<label wrap>Value: {$formContext.bind("values.datetime")}</label>
+			<label wrap>Value: {$formContext("values.datetime")}</label>
 			<separator margin={16} />
 		</column>
 

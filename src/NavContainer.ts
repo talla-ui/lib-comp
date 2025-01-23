@@ -233,15 +233,15 @@ export class PageNavButton extends ViewComposite.define({
 }) {
 	defineView() {
 		return ui.button({
-			icon: $view.bind("icon"),
+			icon: $view("icon"),
 			iconMargin: this.iconMargin,
 			iconSize: this.iconSize,
-			chevron: $view.bind("chevron"),
+			chevron: $view("chevron"),
 			label: $view.string("label"),
 			width: this.width,
-			navigateTo: $view.bind("navigateTo"),
-			pressed: $navigation.bind("matchedPageId").equals($view.bind("pageId")),
-			style: $view.bind("styles.navButtonStyle"),
+			navigateTo: $view("navigateTo"),
+			pressed: $navigation("matchedPageId").equals($view("pageId")),
+			style: $view("styles.navButtonStyle"),
 			onPress: "Navigate",
 			onEnterKeyPress: "Navigate",
 			onArrowUpKeyPress: "RequestFocusPrevious",
@@ -286,15 +286,15 @@ export class DetailNavButton extends ViewComposite.define({
 }) {
 	defineView() {
 		return ui.button({
-			icon: $view.bind("icon"),
+			icon: $view("icon"),
 			iconMargin: this.iconMargin,
 			iconSize: this.iconSize,
-			chevron: $view.bind("chevron"),
+			chevron: $view("chevron"),
 			label: $view.string("label"),
 			width: this.width,
-			navigateTo: $view.bind("navigateTo"),
-			pressed: $navigation.bind("detail").equals($view.bind("detail")),
-			style: $view.bind("styles.navButtonStyle"),
+			navigateTo: $view("navigateTo"),
+			pressed: $navigation("detail").equals($view("detail")),
+			style: $view("styles.navButtonStyle"),
 			onPress: "Navigate",
 			onEnterKeyPress: "Navigate",
 			onArrowUpKeyPress: "RequestFocusPrevious",

@@ -1,6 +1,6 @@
 import {
+	$either,
 	$view,
-	bind,
 	ConfigOptions,
 	strf,
 	StringConvertible,
@@ -123,7 +123,7 @@ export class EditInPlace extends ViewComposite.define({
 					position: { gravity: "overlay", start: 0, top: 0, bottom: 2 },
 				},
 				ui.label({
-					icon: $view.bind("icon"),
+					icon: $view("icon"),
 					text: " ",
 					iconSize: this.styles.iconSize,
 					style: this.styles.labelStyle,
@@ -136,8 +136,7 @@ export class EditInPlace extends ViewComposite.define({
 				text: $view
 					.not("editing")
 					.and(
-						$view
-							.bind("value")
+						$view("value")
 							.asString(this.isNumber ? "n" : "s")
 							.or("placeholder")
 					)
@@ -157,8 +156,7 @@ export class EditInPlace extends ViewComposite.define({
 				),
 				dim:
 					!!this.readOnly ||
-					$view
-						.bind("value")
+					$view("value")
 						.asString(this.isNumber ? "n" : "s")
 						.not()
 						.and($view.not("editing")),
@@ -166,10 +164,10 @@ export class EditInPlace extends ViewComposite.define({
 
 			// text field, covering other elements
 			ui.textField({
-				value: $view.bind("value").asString(this.isNumber ? "n" : "s"),
+				value: $view("value").asString(this.isNumber ? "n" : "s"),
 				disabled: !!this.readOnly,
 				position: { gravity: "cover" },
-				style: bind.either(
+				style: $either(
 					$view.not("editing").select({ opacity: 0 }),
 					$view.boolean("icon").select(
 						ui.style(this.styles.textFieldStyle, {

@@ -56,7 +56,7 @@ export default (
 
 		<column align="start" spacing={16}>
 			<label>Default progress bar</label>
-			<ProgressBar progress={$activity.bind("progress")} />
+			<ProgressBar progress={$activity("progress")} />
 			<separator margin={16} />
 		</column>
 
@@ -73,7 +73,7 @@ export default (
 						borderThickness: 1,
 					}),
 				}}
-				progress={$activity.bind("progress")}
+				progress={$activity("progress")}
 			/>
 			<separator margin={16} />
 		</column>
