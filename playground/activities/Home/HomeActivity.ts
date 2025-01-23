@@ -12,13 +12,17 @@ export class HomeActivity extends Activity {
 		this.setRenderMode("screen", {
 			background: ui.color.BACKGROUND.alpha(0.75),
 		});
-		let mode = app.localData.read("settings", {
-			colorScheme: { isValue: { match: ["light", "dark"] as const } },
-		})[0]?.colorScheme;
-		if (mode) this.setMode(mode);
-		else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-			this.setMode("light");
-		}
+		app.renderer?.schedule(async () => {
+			let mode = (
+				await app.localData.readAsync("settings", {
+					colorScheme: { isValue: { match: ["light", "dark"] as const } },
+				})
+			)[0]?.colorScheme;
+			if (mode) this.setMode(mode);
+			else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+				this.setMode("light");
+			}
+		});
 	}
 
 	categories: Activity[] = [];
@@ -40,14 +44,14 @@ export class HomeActivity extends Activity {
 		this.firstActivation = !this.nActivation++;
 	}
 
-	onLightMode() {
+	async onLightMode() {
 		this.setMode("light");
-		app.localData.write("settings", { colorScheme: "light" });
+		await app.localData.writeAsync("settings", { colorScheme: "light" });
 	}
 
-	onDarkMode() {
+	async onDarkMode() {
 		this.setMode("dark");
-		app.localData.write("settings", { colorScheme: "dark" });
+		await app.localData.writeAsync("settings", { colorScheme: "dark" });
 	}
 
 	setMode(mode: "light" | "dark") {

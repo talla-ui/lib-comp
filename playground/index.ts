@@ -1,4 +1,4 @@
-import { Binding, strf, ui } from "talla-ui";
+import { strf, ui } from "talla-ui";
 import { useWebContext } from "@talla-ui/web-handler";
 import { HomeActivity } from "./activities/Home/HomeActivity";
 import { InputFieldsActivity } from "./activities/InputFields/InputFieldsActivity";
@@ -38,10 +38,6 @@ app.i18n = {
 	getText(text) {
 		return text;
 	},
-};
-
-Binding.debugHandler = (a) => {
-	app.log.debug("BIND", a);
 };
 
 showWebTools(undefined, true);
