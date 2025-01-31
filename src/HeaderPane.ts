@@ -109,7 +109,6 @@ export class HeaderPane extends ViewComposite.define({
 		return ui.cell(
 			{
 				style: {
-					grow: 1,
 					shrink: 1,
 					minWidth: this.styles.minWidth,
 					minHeight: this.styles.minHeight,
@@ -123,11 +122,9 @@ export class HeaderPane extends ViewComposite.define({
 			ui.cell(
 				{
 					hidden: $view.not("showHeader"),
-					style: {
-						height: this.styles.headerHeight,
-						grow: 0,
-						css: { zIndex: "1" },
-					},
+					height: this.styles.headerHeight,
+					grow: false,
+					style: { css: { zIndex: "1" } },
 					layout: { clip: false },
 					textColor: $view.boolean("backdrop").select(textColor),
 				},
@@ -177,7 +174,7 @@ export class HeaderPane extends ViewComposite.define({
 							text: $view.string("title"),
 							icon: $view("titleIcon"),
 							iconMargin: 16,
-							width: "100%",
+							grow: true,
 							style: this.styles.titleStyle,
 						})
 					),

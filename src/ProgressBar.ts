@@ -51,12 +51,11 @@ export class ProgressBar extends ViewComposite.define({
 	protected defineView() {
 		return ui.cell(
 			{
-				style: ui.style(this.styles.containerStyle, {
-					height: this.styles.height,
-					borderRadius: this.styles.borderRadius,
-				}),
+				style: this.styles.containerStyle,
 				margin: this.margin,
 				background: this.styles.backgroundColor,
+				height: this.styles.height,
+				borderRadius: this.styles.borderRadius,
 				effect: ui.effect.INSET,
 			},
 			ui.animatedCell({

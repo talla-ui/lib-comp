@@ -5,7 +5,7 @@ import icons from "~/icons/icons";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>In-place text field</label>
 			<row>
 				<label bold style={{ shrink: 0 }} onPress="RequestFocusNext">
@@ -16,7 +16,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Text field with icon/placeholder</label>
 			<column>
 				<row>
@@ -50,7 +50,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Number, bound to form field</label>
 			<cell
 				padding={{ x: 16 }}

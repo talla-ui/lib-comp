@@ -1,11 +1,11 @@
-import { $activity, $formContext, ui } from "talla-ui";
+import { $activity, $form, ui } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import { SelectField } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Plain SelectField</label>
 			<row>
 				<SelectField
@@ -20,7 +20,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>With icons</label>
 			<row>
 				<SelectField
@@ -34,7 +34,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>With custom styles</label>
 			<row>
 				<SelectField
@@ -55,35 +55,40 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<row layout={{ wrapContent: true }} spacing={0}>
-			<column align="start" spacing={16} padding={{ end: 16 }}>
+		<row wrap spacing={0}>
+			<column spacing={16} padding={{ end: 16 }} grow>
 				<label>Just-in-time options</label>
 				<row>
-					<SelectField label="Select..." onBeforeSelect="OpenJITSelect" />
+					<SelectField label="Select..." onBeforeSelect="OpenJITSelect" grow />
 				</row>
 				<separator margin={16} />
 			</column>
-			<column align="start" spacing={16} padding={{ end: 16 }}>
+			<column spacing={16} padding={{ end: 16 }} grow>
 				<label>Bound options</label>
 				<row>
 					<SelectField
 						label="Select..."
 						options={$activity("selectBoundOptions")}
 						onChange="ChangeBoundSelect"
+						grow
 					/>
 				</row>
 				<separator margin={16} />
 			</column>
-			<column align="start" spacing={16} padding={{ end: 16 }}>
+			<column spacing={16} padding={{ end: 16 }} grow>
 				<label>Many options</label>
 				<row>
-					<SelectField value="NL" options={$activity("countryOptionsList")} />
+					<SelectField
+						value="NL"
+						options={$activity("countryOptionsList")}
+						grow
+					/>
 				</row>
 				<separator margin={16} />
 			</column>
 		</row>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Bound to form field</label>
 			<row>
 				<SelectField
@@ -96,12 +101,12 @@ export default (
 			</row>
 			<row>
 				<toggle formField="select1" type="switch" />
-				<label>Value: {$formContext.string("values.select1")}</label>
+				<label>Value: {$form.string("values.select1")}</label>
 			</row>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Read-only</label>
 			<row>
 				<SelectField

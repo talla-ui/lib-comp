@@ -33,6 +33,10 @@ The date separator and order of input fields (i.e. DMY, MDY, or YMD) can be loca
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->locale](DateInputField_base_locale.md) \
     Localization settings for the date input, an instance of [DateInputLocale](DateInputLocale.md).
+- [<!--{ref:property}-->width](DateInputField_base_width.md) \
+    Width of the date input field, defaults to undefined (auto).
+- [<!--{ref:property}-->grow](DateInputField_base_grow.md) \
+    True if the date input field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](DateInputField_base_styles.md) \
     A set of styles that are applied to this composite, an instance of [DateInputFieldStyles](DateInputFieldStyles.md).
 - [<!--{ref:property}-->calendarViewStyles](DateInputField_base_calendarViewStyles.md) \

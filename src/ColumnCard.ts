@@ -1,4 +1,5 @@
 import {
+	$view,
 	ConfigOptions,
 	ui,
 	UICell,
@@ -63,9 +64,8 @@ export const ColumnCard = ViewComposite.define(
 		ui.cell(
 			{
 				name: "ColumnCard",
-				style: ui.style(view.styles.containerStyle, {
-					width: view.width,
-				}),
+				width: $view("width"),
+				style: view.styles.containerStyle,
 				position: view.position,
 				margin: view.margin,
 				layout: {

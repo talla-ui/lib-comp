@@ -2,7 +2,7 @@
 
 # textFieldStyle
 
-> Style for the date and month input fields.
+> Style for the number input fields.
 
 <pre class="docgen_signature">textFieldStyle: UITextField.StyleValue;</pre>
 

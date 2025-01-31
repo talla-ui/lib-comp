@@ -52,7 +52,7 @@ export default class extends ViewComposite.define({
 					),
 				}}
 			>
-				<column align="start" padding={12}>
+				<column padding={12} width="100%">
 					<label
 						style={$viewport
 							.boolean("col2")

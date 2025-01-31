@@ -4,14 +4,16 @@ import { PropertyEditor } from "@talla-ui/lib-comp";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Full width, 50/50</label>
 			<PropertyEditor
 				items={$activity.list("properties")}
 				onChange="PropertiesChanged"
 				styles={{ toggleType: "switch" }}
 			/>
-			<button onClick="Serialize">View JSON</button>
+			<row>
+				<button onClick="Serialize">View JSON</button>
+			</row>
 			<cell hidden={$activity.not("serialized")}>
 				<textfield
 					readOnly
@@ -24,7 +26,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Limited width, readonly</label>
 			<column width={320}>
 				<PropertyEditor

@@ -90,6 +90,8 @@ export class SelectField extends ViewComposite.define({
 	chevron: "down" as UIButton["chevron"],
 	/** The width of the button element, defaults to undefined */
 	width: undefined as string | number | undefined,
+	/** True if the button should grow to fill the available space, defaults to false */
+	grow: false,
 	/** A list of available options, as an array of {@link SelectFieldOption} objects */
 	options: [] as SelectFieldOption[],
 	/** The current value, one of the values from {@link options} */
@@ -117,6 +119,7 @@ export class SelectField extends ViewComposite.define({
 			iconMargin: this.styles.iconMargin,
 			chevron: this.chevron,
 			width: this.width,
+			grow: this.grow,
 			style: this.styles.buttonStyle,
 			name: this.name,
 			accessibleLabel: this.accessibleLabel,

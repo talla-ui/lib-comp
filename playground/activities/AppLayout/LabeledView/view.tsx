@@ -25,7 +25,7 @@ const cardInputLabeledViewStyles = LabeledViewStyles.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<LabeledView title="Single labeled paragraph">
 				<label wrap>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
@@ -39,7 +39,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Property list</label>
 
 			<column padding={{ y: 8 }}>
@@ -75,7 +75,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>List with other views</label>
 
 			<cell

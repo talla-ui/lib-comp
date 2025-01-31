@@ -5,13 +5,13 @@ import icons from "~/icons/icons";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Simple empty state</label>
 			<EmptyStateView title="Empty state" />
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Empty state with styles, help text and action</label>
 			<EmptyStateView
 				icon={icons.calendar}
@@ -26,7 +26,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Empty state card</label>
 			<ColumnCard>
 				<row padding={{ y: 8, x: 16 }}>

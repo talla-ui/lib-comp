@@ -1,0 +1,12 @@
+[TimeInputField (base)](TimeInputField_base.md)
+
+# grow
+
+> True if the time input field should grow to fill the available space, defaults to false.
+
+<pre class="docgen_signature">grow: <b>boolean</b>;</pre>
+
+## Related
+
+- [<!--{ref:type}-->TimeInputField (base)](TimeInputField_base.md) \
+    Base type for `TimeInputField`.

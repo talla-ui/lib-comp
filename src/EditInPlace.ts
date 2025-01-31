@@ -24,16 +24,12 @@ export class EditInPlaceStyles extends ConfigOptions {
 	static default = new EditInPlaceStyles();
 
 	/** The style applied to the label */
-	labelStyle: UILabel.StyleValue = ui.style.LABEL.extend({
-		css: { cursor: "pointer" },
-	});
+	labelStyle: UILabel.StyleValue = ui.style.LABEL;
 
 	/** The style applied to the text field */
 	textFieldStyle: UITextField.StyleValue = ui.style.TEXTFIELD.extend({
 		background: ui.color.CLEAR,
-		maxWidth: "100%",
 		width: "100%",
-		borderRadius: 0,
 		borderThickness: 0,
 		css: { outlineOffset: "-2px" },
 	});
@@ -79,7 +75,7 @@ export class EditInPlace extends ViewComposite.define({
 	/** The width of the edit-in-place field */
 	width: "100%" as number | string,
 	/** The height of the edit-in-place field */
-	height: 40 as number | string,
+	height: 38 as number | string,
 	/** A form field ID, to add a two-way `FormContext` binding */
 	formField: undefined as string | undefined,
 	/** A set of styles that are applied to this composite, an instance of {@link EditInPlaceStyles} */
@@ -106,7 +102,11 @@ export class EditInPlace extends ViewComposite.define({
 
 		return ui.cell(
 			{
-				layout: { axis: "horizontal", distribution: "start" },
+				layout: {
+					axis: "horizontal",
+					gravity: "center",
+					distribution: "start",
+				},
 				style: { width: this.width, height: this.height, grow: 0, shrink: 1 },
 				name: this.name,
 				accessibleLabel: this.accessibleLabel,
@@ -118,7 +118,8 @@ export class EditInPlace extends ViewComposite.define({
 			ui.cell(
 				{
 					hidden: $view.not("icon"),
-					layout: { axis: "horizontal", distribution: "start" },
+					layout: { axis: "horizontal", gravity: "center" },
+
 					// move up slightly to visually align the icon with text
 					position: { gravity: "overlay", start: 0, top: 0, bottom: 2 },
 				},

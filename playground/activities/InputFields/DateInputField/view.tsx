@@ -1,4 +1,4 @@
-import { $formContext, ui } from "talla-ui";
+import { $form, ui } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import { DateInputField, DateInputLocale } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
@@ -30,7 +30,7 @@ const dateInputLocale_FR = DateInputLocale.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Default DateInputField</label>
 			<row>
 				<DateInputField value={new Date()} />
@@ -38,17 +38,17 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Bound to form field, with icon</label>
 			<row>
 				<DateInputField formField={"date1"} icon={icons.calendar} />
+				<button onClick="SetToday">Set to today</button>
 			</row>
-			<button onClick="SetToday">Set to today</button>
-			<label wrap>Value: {$formContext("values.date1")}</label>
+			<label wrap>Value: {$form("values.date1")}</label>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Localized calendar 🇫🇷</label>
 			<row>
 				<DateInputField formField={"date1"} locale={dateInputLocale_FR} />

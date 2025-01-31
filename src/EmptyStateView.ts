@@ -26,7 +26,9 @@ export class EmptyStateViewStyles extends ConfigOptions {
 	iconColor = ui.color.TEXT.alpha(0.3);
 
 	/** Cell style for the outer container */
-	containerStyle: UICell.StyleValue = ui.style.CELL.extend({ minHeight: 240 });
+	containerStyle: UICell.StyleValue = ui.style.CELL.extend({
+		height: 240,
+	});
 
 	/** Style for the title label */
 	titleStyle: UILabel.StyleValue = ui.style.LABEL.extend({
@@ -69,7 +71,7 @@ export const EmptyStateView = ViewComposite.define(
 		ui.cell(
 			{ style: values.styles.containerStyle },
 			ui.column(
-				{ distribute: "center" },
+				{ align: "center", distribute: "center" },
 				ui.spacer({ height: 16 }),
 				ui.label({
 					icon: $view("icon").or("styles.icon"),

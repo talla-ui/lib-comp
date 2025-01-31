@@ -2,7 +2,7 @@
 
 # rowHeight
 
-> Row height, defaults to 40.
+> Row height, defaults to 38.
 
 <pre class="docgen_signature">rowHeight: <b>number</b>;</pre>
 

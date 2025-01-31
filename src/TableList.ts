@@ -24,8 +24,8 @@ export class TableListStyles extends ConfigOptions {
 	/** Fixed height, for scrollable tables */
 	scrollHeight?: number;
 
-	/** Row height, defaults to 40 */
-	rowHeight = 40;
+	/** Row height, defaults to 38 */
+	rowHeight = 38;
 
 	/** Row padding, defaults to 8 */
 	rowInset = 8;
@@ -163,6 +163,7 @@ export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
 							maxWidth: this.maxWidths[i] ?? this.widths[i] ?? undefined,
 						},
 						layout: { clip: false, axis: "horizontal", distribution: "fill" },
+						position: { gravity: "center" },
 						accessibleRole: "cell",
 					},
 					c

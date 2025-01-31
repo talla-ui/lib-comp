@@ -139,7 +139,7 @@ export class ListBox extends ViewComposite.define({
 					)
 				),
 				ui.cell({
-					style: { grow: 0 },
+					grow: false,
 					accessibleRole: "listbox",
 					accessibleLabel: this.accessibleLabel,
 					allowKeyboardFocus: true,

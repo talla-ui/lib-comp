@@ -30,7 +30,8 @@ export const toasts = {
 	title() {
 		showToastNotification({
 			title: "Success",
-			message: "Action completed.",
+			message:
+				"The action has been completed. You can view details in the details view.",
 		});
 	},
 	async full() {
@@ -91,9 +92,9 @@ export const toasts = {
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Theme default notifications</label>
-			<row layout={{ wrapContent: true }}>
+			<row wrap>
 				<button onClick="ShowToast" value="simple" label="Simple" />
 				<button onClick="ShowToast" value="icon" label="With icon" />
 				<button onClick="ShowToast" value="title" label="Double line" />
@@ -103,18 +104,18 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Custom color</label>
-			<row layout={{ wrapContent: true }}>
+			<row wrap>
 				<button onClick="ShowToast" value="success" label="Success" />
 				<button onClick="ShowToast" value="danger" label="Danger" />
 			</row>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Position</label>
-			<row layout={{ wrapContent: true }}>
+			<row wrap>
 				<button onClick="ShowToast" value="start" label="Start" />
 				<button onClick="ShowToast" value="end" label="End" />
 			</row>

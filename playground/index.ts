@@ -1,4 +1,4 @@
-import { strf, ui } from "talla-ui";
+import { strf } from "talla-ui";
 import { useWebContext } from "@talla-ui/web-handler";
 import { HomeActivity } from "./activities/Home/HomeActivity";
 import { InputFieldsActivity } from "./activities/InputFields/InputFieldsActivity";
@@ -10,7 +10,6 @@ import { showWebTools } from "@talla-ui/lib-web-tools";
 
 const app = useWebContext((options) => {
 	options.importCSS = [highlightCSS];
-	options.theme.colors.set("Background", ui.color("#111"));
 	options.focusDecoration = { css: { outline: "2px solid #6af" } };
 	options.insertHistory = "root";
 });

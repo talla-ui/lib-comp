@@ -17,6 +17,8 @@ A list navigation column composite is a [NavColumn](NavColumn.md) composite with
 
 ## Inherited members
 
+- [<!--{ref:property}-->width](NavColumn_base_width.md) \
+    The width of the outer container, defaults to undefined (auto).
 - [<!--{ref:property}-->margin](NavColumn_base_margin.md) \
     The margin around the outer container, defaults to 0.
 - [<!--{ref:property}-->padding](NavColumn_base_padding.md) \

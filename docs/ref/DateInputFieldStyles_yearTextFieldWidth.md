@@ -2,7 +2,7 @@
 
 # yearTextFieldWidth
 
-> Width for the year input field (overrides with on [textFieldStyle](DateInputFieldStyles_textFieldStyle.md)).
+> Width for the year input field.
 
 <pre class="docgen_signature">yearTextFieldWidth: <b>number</b>;</pre>
 

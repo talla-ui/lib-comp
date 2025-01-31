@@ -5,18 +5,18 @@ import { ColumnCard, ScrollRow } from "@talla-ui/lib-comp";
 export default (
 	<SamplePane>
 		<cell
+			width={300}
 			style={{
-				width: 300,
 				borderColor: ui.color.SEPARATOR,
 				borderThickness: 1,
 			}}
 		>
-			<column align="start">
+			<column>
 				<row padding={8}>
 					<label>Scroll row with buttons</label>
 				</row>
 				<separator margin={0} />
-				<ScrollRow padding={8}>
+				<ScrollRow padding={16}>
 					<button primary>Edit</button>
 					<button>Details</button>
 					<button>Delete</button>
@@ -28,12 +28,12 @@ export default (
 		</cell>
 		<separator margin={32} />
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>With cards (using negative margin)</label>
 			<ScrollRow margin={-16} padding={16}>
 				<list items={$activity.list("countries")}>
 					<ColumnCard width={180} margin={{ bottom: 8, end: 12 }}>
-						<cell background={ui.color.TEXT.alpha(0.1)}>
+						<cell>
 							<row padding={16}>
 								<label>%[item.label]</label>
 								<spacer />

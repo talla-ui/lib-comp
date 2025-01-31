@@ -1,4 +1,4 @@
-import { $formContext, ui } from "talla-ui";
+import { $form, ui } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import {
 	DateInputField,
@@ -34,7 +34,7 @@ const dateInputLocale_FR = DateInputLocale.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Default TimeInputField (24h)</label>
 			<row>
 				<TimeInputField value={new Date()} />
@@ -42,9 +42,9 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Date and time bound to form field, 12h</label>
-			<row layout={{ wrapContent: true }}>
+			<row wrap>
 				<DateInputField formField="datetime" icon={icons.calendar} />
 				<TimeInputField
 					formField="datetime"
@@ -52,17 +52,17 @@ export default (
 					locale={{ use12HourFormat: true }}
 				/>
 			</row>
-			<label wrap>Value: {$formContext("values.datetime")}</label>
+			<label wrap>Value: {$form("values.datetime")}</label>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Localized 🇫🇷</label>
 			<row>
 				<DateInputField formField="datetime" locale={dateInputLocale_FR} />
 				<TimeInputField formField="datetime" />
 			</row>
-			<label wrap>Value: {$formContext("values.datetime")}</label>
+			<label wrap>Value: {$form("values.datetime")}</label>
 			<separator margin={16} />
 		</column>
 

@@ -33,6 +33,8 @@ Options are added using a list of [SelectFieldOption](SelectFieldOption.md) obje
     The button chevron icon, defaults to "down".
 - [<!--{ref:property}-->width](SelectField_base_width.md) \
     The width of the button element, defaults to undefined.
+- [<!--{ref:property}-->grow](SelectField_base_grow.md) \
+    True if the button should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->options](SelectField_base_options.md) \
     A list of available options, as an array of [SelectFieldOption](SelectFieldOption.md) objects.
 - [<!--{ref:property}-->value](SelectField_base_value.md) \

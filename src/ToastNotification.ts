@@ -107,7 +107,6 @@ export class ToastNotification extends ViewComposite.define({
 		return ui
 			.cell(
 				{
-					style: { grow: 0 },
 					layout: { clip: false },
 					position: {
 						bottom: this.styles.bottomInset,
@@ -124,7 +123,7 @@ export class ToastNotification extends ViewComposite.define({
 							width: this.styles.width,
 							maxWidth: (app.renderer?.viewport.width || 400) * 0.95,
 						},
-						layout: { axis: "horizontal" },
+						layout: { axis: "horizontal", gravity: "center" },
 						position: { gravity: "center" },
 						background: this.styles.background,
 						textColor: this.styles.background.text(),
@@ -138,30 +137,31 @@ export class ToastNotification extends ViewComposite.define({
 						hidden: !this.content.icon,
 						style: { shrink: 0 },
 					}),
-					ui.column(
-						{
-							align: "start",
-							distribute: "center",
-							width: "100%",
-							padding: { x: 16, y: 8 },
-						},
-						ui.label({
-							bold: true,
-							wrap: true,
-							hidden: !this.content.title,
-							text: this.content.title,
-						}),
-						ui.label({
-							wrap: true,
-							text: this.content.message,
-						})
+					ui.cell(
+						{ style: { shrink: 1 } },
+						ui.column(
+							{
+								distribute: "center",
+								padding: { x: 16, y: 8 },
+							},
+							ui.label({
+								bold: true,
+								wrap: true,
+								hidden: !this.content.title,
+								text: this.content.title,
+							}),
+							ui.label({
+								wrap: true,
+								text: this.content.message,
+							})
+						)
 					),
 					ui.separator({
 						vertical: true,
 						color: this.styles.background.text().alpha(0.2),
 					}),
 					ui.button({
-						style: ui.style.BUTTON_PLAIN,
+						style: ui.style.BUTTON_PLAIN.override({ shrink: 0 }),
 						label: this.content.buttonLabel,
 						hidden: !this.content.buttonLabel,
 					}),

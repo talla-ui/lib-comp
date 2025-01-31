@@ -4,6 +4,8 @@ import screen from "./screen";
 const GITHUB_URL = "https://github.com/talla-ui";
 const WEBSITE_URL = "https://talla-ui.dev";
 
+type ColorScheme = "light" | "dark";
+
 export class HomeActivity extends Activity {
 	constructor() {
 		super();
@@ -13,15 +15,22 @@ export class HomeActivity extends Activity {
 			background: ui.color.BACKGROUND.alpha(0.75),
 		});
 		app.renderer?.schedule(async () => {
-			let mode = (
-				await app.localData.readAsync("settings", {
-					colorScheme: { isValue: { match: ["light", "dark"] as const } },
-				})
-			)[0]?.colorScheme;
-			if (mode) this.setMode(mode);
-			else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-				this.setMode("light");
-			}
+			let viewport = app.renderer!.viewport;
+			let [settings] = await app.localData.readAsync("settings", {
+				colorScheme: { isValue: { match: ["light", "dark"] as const } },
+			});
+
+			// Set initial color scheme from settings or from viewport
+			if (settings?.colorScheme) this.overrideMode(settings.colorScheme);
+			else this.setMode(viewport.prefersDark ? "dark" : "light");
+
+			// Watch for changes in viewport and update color scheme if needed
+			this.watch(viewport, () => {
+				if (!this.modeOverride) {
+					let mode: ColorScheme = viewport.prefersDark ? "dark" : "light";
+					if (mode !== this.mode) this.setMode(mode);
+				}
+			});
 		});
 	}
 
@@ -30,7 +39,8 @@ export class HomeActivity extends Activity {
 	nActivation = 0;
 	firstActivation = true;
 
-	mode: "light" | "dark" = "dark";
+	mode: ColorScheme = "dark";
+	modeOverride?: ColorScheme = undefined;
 
 	protected async beforeActiveAsync() {
 		this.categories = [...app.activities].filter((a) => a !== this);
@@ -45,21 +55,28 @@ export class HomeActivity extends Activity {
 	}
 
 	async onLightMode() {
-		this.setMode("light");
-		await app.localData.writeAsync("settings", { colorScheme: "light" });
+		await this.overrideMode("light");
 	}
 
 	async onDarkMode() {
-		this.setMode("dark");
-		await app.localData.writeAsync("settings", { colorScheme: "dark" });
+		await this.overrideMode("dark");
 	}
 
-	setMode(mode: "light" | "dark") {
-		app.log.debug("setMode", mode);
+	async overrideMode(mode: ColorScheme) {
+		this.modeOverride = mode;
+		let preferedMode = app.renderer?.viewport.prefersDark ? "dark" : "light";
+		await app.localData.writeAsync(
+			"settings",
+			preferedMode !== mode ? { colorScheme: mode } : {}
+		);
+		this.setMode(mode);
+	}
+
+	setMode(mode: ColorScheme) {
+		this.mode = mode;
 		let theme = app.theme!.clone();
 		theme.colors.set("Background", ui.color(mode === "dark" ? "#111" : "#fff"));
 		app.theme = theme;
-		this.mode = mode;
 	}
 
 	onGoGitHub() {

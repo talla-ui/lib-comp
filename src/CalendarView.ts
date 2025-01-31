@@ -215,8 +215,9 @@ export class CalendarView extends ViewComposite.define({
 		return ui.cell(
 			{
 				background: ui.color.BACKGROUND,
-				style: { width: 224, height: 256, grow: 0, shrink: 0 },
-				position: { gravity: "auto" },
+				width: 224,
+				height: 256,
+				grow: false,
 				layout: { clip: false },
 			},
 			ui.row(
@@ -227,9 +228,8 @@ export class CalendarView extends ViewComposite.define({
 						$view.string("monthDisplay"),
 						$view.string("yearDisplay")
 					),
+					grow: true,
 					style: ui.style.BUTTON_PLAIN.override({
-						width: "100%",
-						shrink: 1,
 						padding: { x: 8, y: 2 },
 						textAlign: "start",
 						minWidth: 0,
@@ -263,7 +263,6 @@ export class CalendarView extends ViewComposite.define({
 				{
 					hidden: $view.not("showMonths"),
 					layout: { clip: false },
-					style: { height: 224 },
 				},
 				ui.spacer(),
 				ui.row(
@@ -289,13 +288,13 @@ export class CalendarView extends ViewComposite.define({
 						onClick: "NextYear",
 					})
 				),
+				ui.spacer(),
 				ui.cell(
 					{
 						layout: {
 							axis: "horizontal",
 							wrapContent: true,
 							clip: false,
-							distribution: "center",
 						},
 					},
 					...this.locale.monthLabels.map((m, i) =>

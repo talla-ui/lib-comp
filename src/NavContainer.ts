@@ -54,13 +54,14 @@ export class NavContainerStyles extends ConfigOptions {
  * Navigation buttons are added as presets of {@link PageNavButton} or {@link DetailNavButton} within the content of this composite. The button that corresponds to the current page or detail path is automatically shown as 'pressed'.
  *
  * @see {@link NavContainerStyles}+
- * @see {@link SidebarNavColumn}+
  * @see {@link ListNavColumn}+
  * @see {@link NavRow}
  * @see {@link PageNavButton}+
  * @see {@link DetailNavButton}+
  */
 export class NavColumn extends ViewComposite.define({
+	/** The width of the outer container, defaults to undefined (auto) */
+	width: undefined as string | number | undefined,
 	/** The margin around the outer container, defaults to 0 */
 	margin: 0 as UIComponent.Offsets,
 	/** The padding around the navigation buttons, defaults to 0 */
@@ -74,12 +75,12 @@ export class NavColumn extends ViewComposite.define({
 				layout: { clip: false },
 				margin: this.margin,
 				padding: this.padding,
+				width: this.width,
 				style: this.styles.containerStyle,
 				name: "NavColumn",
 			},
 			ui.column(
 				{
-					align: "start",
 					spacing: this.styles.spacing,
 					layout: { separator: this.styles.separator },
 				},
@@ -87,21 +88,6 @@ export class NavColumn extends ViewComposite.define({
 			)
 		);
 	}
-}
-
-/**
- * View composite for a sidebar navigation column
- *
- * A sidebar navigation column composite is a {@link NavColumn} composite with predefined {@link styles} to match those of a typical application sidebar, subtly highlighting the currently selected page (or detail view) along the full width of the sidebar.
- */
-export class SidebarNavColumn extends NavColumn {
-	/** Predefined sidebar styles */
-	styles = NavContainerStyles.init({
-		containerStyle: ui.style.CELL,
-		navButtonStyle: ui.style(NavContainerStyles.defaults.navButtonStyle, {
-			width: "100%",
-		}),
-	});
 }
 
 /**
@@ -113,9 +99,7 @@ export class ListNavColumn extends NavColumn {
 	/** Predefined list navigation styles */
 	styles = NavContainerStyles.init({
 		separator: { lineThickness: 1, lineColor: ui.color.SEPARATOR },
-		containerStyle: ui.style.CELL.extend({
-			grow: 0,
-		}),
+		containerStyle: ui.style.CELL.extend({ grow: 0 }),
 		navButtonStyle: ui.style.BUTTON_PLAIN.extend(
 			{
 				borderRadius: 0,
@@ -187,12 +171,14 @@ export class NavRow extends ViewComposite.define({
 export class TabNavRow extends NavRow {
 	/** Predefined tab bar styles */
 	styles = NavContainerStyles.init({
+		spacing: 4,
 		containerStyle: ui.style.CELL.extend({
 			background: ui.color.CONTROL_BASE,
 			borderRadius: 32,
 		}),
 		navButtonStyle: ui.style.BUTTON.extend(
 			{
+				padding: { x: 16, y: 4 },
 				background: ui.color.CLEAR,
 				minWidth: 88,
 				borderRadius: 32,

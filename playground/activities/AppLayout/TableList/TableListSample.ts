@@ -33,6 +33,7 @@ export class TableListSample extends Activity {
 			it.selected = e.source.state;
 		}
 		this.numSelected = e.source.state ? this.selectable.length : 0;
+		this.allSelected = !this.selectable.some((a) => !a.selected);
 	}
 
 	onCountryToggle(e: ViewEvent<UIToggle | TableRow>) {
@@ -46,6 +47,7 @@ export class TableListSample extends Activity {
 				: (TableRow.whence(e.source)?.item as any);
 		item.selected = state;
 		this.numSelected = this.selectable.filter((a) => a.selected).length;
+		this.allSelected = !this.selectable.some((a) => !a.selected);
 	}
 }
 

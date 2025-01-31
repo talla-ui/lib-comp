@@ -42,7 +42,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 	/** The year text field placeholder, defaults to `____` */
 	yearPlaceholder = "____";
 
-	/** Style for the date and month input fields */
+	/** Style for the number input fields */
 	textFieldStyle: UITextField.StyleValue = ui.style.TEXTFIELD.extend(
 		{
 			borderThickness: 0,
@@ -62,7 +62,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 		}
 	);
 
-	/** Width for the year input field (overrides with on {@link textFieldStyle}) */
+	/** Width for the year input field */
 	yearTextFieldWidth = 46;
 
 	/** Style for the container cell that groups the text fields */
@@ -124,6 +124,10 @@ export class DateInputField extends ViewComposite.define({
 	formField: undefined as string | undefined,
 	/** Localization settings for the date input, an instance of {@link DateInputLocale} */
 	locale: DateInputLocale.default,
+	/** Width of the date input field, defaults to undefined (auto) */
+	width: undefined as number | undefined,
+	/** True if the date input field should grow to fill the available space, defaults to false */
+	grow: false,
 	/** A set of styles that are applied to this composite, an instance of {@link DateInputFieldStyles} */
 	styles: DateInputFieldStyles.default,
 	/** Styles for the calendar view, an instance of {@link CalendarViewStyles} */
@@ -156,6 +160,7 @@ export class DateInputField extends ViewComposite.define({
 				onArrowUpKeyPress: "DateUp",
 				onArrowDownKeyPress: "DateDown",
 				onChange: "Validate",
+				onClick: "InputClick", // prevent calendar popup
 				accessibleLabel: this.accessibleLabels[0],
 			}),
 			ui.textField({
@@ -169,6 +174,7 @@ export class DateInputField extends ViewComposite.define({
 				onArrowUpKeyPress: "MonthUp",
 				onArrowDownKeyPress: "MonthDown",
 				onChange: "Validate",
+				onClick: "InputClick", // prevent calendar popup
 				accessibleLabel: this.accessibleLabels[1],
 			}),
 			ui.textField({
@@ -183,6 +189,7 @@ export class DateInputField extends ViewComposite.define({
 				onArrowUpKeyPress: "YearUp",
 				onArrowDownKeyPress: "YearDown",
 				onChange: "Validate",
+				onClick: "InputClick", // prevent calendar popup
 				accessibleLabel: this.accessibleLabels[2],
 			}),
 		];
@@ -191,34 +198,38 @@ export class DateInputField extends ViewComposite.define({
 		} else if (this.locale.dateFormat === "MDY") {
 			dmyFields = [dmyFields[1]!, dmyFields[0]!, dmyFields[2]!];
 		}
-		return ui.row(
-			ui.cell(
-				{
-					name: this.name,
-					layout: { axis: "horizontal", separator: { space: 2 } },
-					position: { gravity: "center" },
-					style: this.styles.containerStyle,
+		return ui.cell(
+			{
+				name: this.name,
+				layout: {
+					axis: "horizontal",
+					gravity: "center",
+					separator: { space: 2 },
 				},
-				ui.spacer(4),
-				ui.label({
-					hidden: $view.not("icon"),
-					icon: $view("icon"),
-					iconSize: this.styles.iconSize,
-					padding: { end: 4 },
-					onClick: "OpenCalendar",
-				}),
-				dmyFields[0]!,
-				ui.label(this.locale.dateSeparator, { bold: true }),
-				dmyFields[1]!,
-				ui.label(this.locale.dateSeparator, { bold: true }),
-				dmyFields[2]!,
-				ui.button({
-					icon: ui.icon.CHEVRON_DOWN,
-					onClick: "OpenCalendar",
-					disabled: $view.boolean("readOnly"),
-					style: this.styles.calendarButtonStyle,
-				})
-			)
+				position: { gravity: "center" },
+				width: this.width,
+				grow: this.grow,
+				style: this.styles.containerStyle,
+				onClick: "OpenCalendar",
+			},
+			ui.spacer(4),
+			ui.label({
+				hidden: $view.not("icon"),
+				icon: $view("icon"),
+				iconSize: this.styles.iconSize,
+				padding: { end: 4 },
+			}),
+			dmyFields[0]!,
+			ui.label(this.locale.dateSeparator, { bold: true }),
+			dmyFields[1]!,
+			ui.label(this.locale.dateSeparator, { bold: true }),
+			dmyFields[2]!,
+			ui.spacer(),
+			ui.button({
+				icon: ui.icon.CHEVRON_DOWN,
+				disabled: $view.boolean("readOnly"),
+				style: this.styles.calendarButtonStyle,
+			})
 		);
 	}
 
@@ -341,7 +352,7 @@ export class DateInputField extends ViewComposite.define({
 		return true;
 	}
 
-	protected async onOpenCalendar() {
+	protected async onOpenCalendar(e: ViewEvent) {
 		if (this._calendarOpen) return true;
 		let view = ui
 			.cell(

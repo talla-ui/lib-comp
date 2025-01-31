@@ -70,7 +70,11 @@ export class PropertyEditorStyles extends ConfigOptions {
 	propertyLabelStyle: UILabel.StyleValue = ui.style.LABEL;
 
 	/** Styles for edit-in-place (text or number) fields, of type {@link EditInPlaceStyles} */
-	editStyles = new EditInPlaceStyles();
+	editStyles = EditInPlaceStyles.init({
+		textFieldStyle: ui.style(EditInPlaceStyles.default.textFieldStyle, {
+			borderRadius: 0,
+		}),
+	});
 
 	/** The type of toggle used for boolean fields, defaults to checkbox */
 	toggleType: UIToggle["type"] = "checkbox";
@@ -82,7 +86,6 @@ export class PropertyEditorStyles extends ConfigOptions {
 				width: "100%",
 				minWidth: 0,
 				height: "100%",
-				padding: { x: 8, y: 4 },
 				fontWeight: "normal",
 				textAlign: "start",
 				lineBreakMode: "normal",
@@ -132,6 +135,9 @@ export class PropertyEditorStyles extends ConfigOptions {
 
 	/** Icon size (in pixels or string with unit) for action labels, defaults to 16 */
 	actionLabelIconSize?: string | number = 16;
+
+	/** Icon for action buttons, defaults to ui.icon.MORE (set to undefined to hide) */
+	actionButtonIcon?: UIIconResource = ui.icon.MORE;
 
 	/** Style for the containing table list, defaults to solid background with subtle horizontal separators */
 	tableListStyles = TableListStyles.init({
@@ -214,7 +220,6 @@ class PropertyEditorRow extends ViewComposite.define({
 			{
 				widths: [this.styles.propertyLabelWidth],
 				maxWidths: [this.styles.propertyLabelMaxWidth],
-				style: ui.style.CELL,
 			},
 			ui.cell(
 				{
@@ -321,7 +326,7 @@ class PropertyEditorRow extends ViewComposite.define({
 					{
 						allowKeyboardFocus: !readOnly,
 						style: this.styles.actionCellStyle,
-						layout: { axis: "horizontal" },
+						layout: { axis: "horizontal", gravity: "center" },
 						onClick: "Action",
 						onEnterKeyPress: "Action",
 						onSpacebarPress: "Action",
@@ -331,13 +336,13 @@ class PropertyEditorRow extends ViewComposite.define({
 						icon: $view("item.icon"),
 						iconSize: this.styles.actionLabelIconSize,
 						dim: readOnly,
-						width: "100%",
+						grow: true,
 						style: this.styles.actionLabelStyle,
 					}),
 					ui.button({
-						hidden: readOnly,
+						hidden: readOnly || !this.styles.actionButtonIcon,
 						disableKeyboardFocus: true,
-						icon: ui.icon.MORE,
+						icon: this.styles.actionButtonIcon,
 						style: ui.style.BUTTON_ICON,
 						position: { end: 2 },
 					})

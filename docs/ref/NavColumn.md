@@ -14,6 +14,8 @@ Navigation buttons are added as presets of [PageNavButton](PageNavButton.md) or 
 
 ## Inherited members
 
+- [<!--{ref:property}-->width](NavColumn_base_width.md) \
+    The width of the outer container, defaults to undefined (auto).
 - [<!--{ref:property}-->margin](NavColumn_base_margin.md) \
     The margin around the outer container, defaults to 0.
 - [<!--{ref:property}-->padding](NavColumn_base_padding.md) \
@@ -25,8 +27,6 @@ Navigation buttons are added as presets of [PageNavButton](PageNavButton.md) or 
 
 - [<!--{ref:class}-->class NavContainerStyles](NavContainerStyles.md) \
     Style configuration for [NavColumn](NavColumn.md) and [NavRow](NavRow.md) composites.
-- [<!--{ref:class}-->class SidebarNavColumn](SidebarNavColumn.md) \
-    View composite for a sidebar navigation column.
 - [<!--{ref:class}-->class ListNavColumn](ListNavColumn.md) \
     View composite for a compact list navigation column.
 - [<!--{ref:class}-->class NavRow](NavRow.md) \

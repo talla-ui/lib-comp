@@ -34,6 +34,7 @@ export class ScrollRow extends ViewComposite.define({
 				},
 				ui.row(
 					{
+						position: { gravity: "start" },
 						padding: this.padding,
 						height: this.height,
 						gravity: this.gravity,

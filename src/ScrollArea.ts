@@ -23,11 +23,10 @@ export const ScrollArea = ViewComposite.define(
 	(values, ...content) =>
 		ui.cell(
 			{
-				style: ui.style(ui.style.CELL, values.cellStyle, {
-					height: values.height,
-					width: values.width,
-					grow: 0,
-				}),
+				style: values.cellStyle,
+				height: values.height,
+				width: values.width,
+				grow: false,
 				name: values.name,
 			},
 			ui.scroll(...content)

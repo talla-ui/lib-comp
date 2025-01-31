@@ -90,6 +90,8 @@ export class ComboField extends ViewComposite.define({
 	icon: undefined as UIIconResource | undefined,
 	/** The width of the combo field */
 	width: undefined as number | undefined,
+	/** True if the combo field should grow to fill the available space, defaults to false */
+	grow: false,
 	/** A set of styles that are applied to this composite, an instance of {@link ComboFieldStyles} */
 	styles: ComboFieldStyles.default,
 	/** True if the overlay should open when the text field gains focus */
@@ -104,7 +106,9 @@ export class ComboField extends ViewComposite.define({
 	protected defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{
-				style: ui.style(this.styles.containerStyle, { width: this.width }),
+				style: this.styles.containerStyle,
+				width: this.width,
+				grow: this.grow,
 				layout: { clip: false },
 				name: this.name,
 				accessibleLabel: this.accessibleLabel,

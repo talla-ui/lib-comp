@@ -1,4 +1,4 @@
-import { $activity, $formContext, ui } from "talla-ui";
+import { $activity, $form, ui } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import { CalendarView, CalendarViewLocale } from "@talla-ui/lib-comp";
 
@@ -40,7 +40,7 @@ export default (
 				formField="date1"
 				preselected={$activity("preselectedDates")}
 			/>
-			<label>Selected date: {$formContext("values.date1")}</label>
+			<label>Selected date: {$form("values.date1")}</label>
 			<separator margin={16} />
 		</column>
 

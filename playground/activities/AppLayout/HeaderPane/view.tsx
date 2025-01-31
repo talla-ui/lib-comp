@@ -10,7 +10,7 @@ const outerCellStyle = ui.style.CELL.extend({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Default header pane</label>
 			<cell style={outerCellStyle}>
 				<HeaderPane title="Title">
@@ -20,7 +20,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Without backdrop, with menu and toolbar</label>
 			<cell style={outerCellStyle}>
 				<HeaderPane title="Title" showMenu backdrop={false}>
@@ -34,7 +34,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>With styles</label>
 			<cell style={outerCellStyle}>
 				<HeaderPane

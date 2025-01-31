@@ -26,9 +26,9 @@ Objects of this type are passed to [DateInputField](DateInputField.md) as the `s
 - [<!--{ref:property}-->yearPlaceholder](DateInputFieldStyles_yearPlaceholder.md) \
     The year text field placeholder, defaults to `____`.
 - [<!--{ref:property}-->textFieldStyle](DateInputFieldStyles_textFieldStyle.md) \
-    Style for the date and month input fields.
+    Style for the number input fields.
 - [<!--{ref:property}-->yearTextFieldWidth](DateInputFieldStyles_yearTextFieldWidth.md) \
-    Width for the year input field (overrides with on [textFieldStyle](DateInputFieldStyles_textFieldStyle.md)).
+    Width for the year input field.
 - [<!--{ref:property}-->containerStyle](DateInputFieldStyles_containerStyle.md) \
     Style for the container cell that groups the text fields.
 - [<!--{ref:property}-->calendarButtonStyle](DateInputFieldStyles_calendarButtonStyle.md) \

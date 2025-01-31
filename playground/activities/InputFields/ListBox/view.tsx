@@ -1,4 +1,4 @@
-import { $activity, $formContext, ui } from "talla-ui";
+import { $activity, $form, ui } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import { ListBox, ListBoxStyles } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
@@ -53,7 +53,7 @@ export default (
 				onChange="+CountryChanged"
 			/>
 			<row>
-				<label>Selected: {$formContext.string("values.country")}</label>
+				<label>Selected: {$form.string("values.country")}</label>
 			</row>
 			<separator margin={16} />
 		</column>

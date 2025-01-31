@@ -1,4 +1,4 @@
-import { $activity, $formContext, ui, UIStyle } from "talla-ui";
+import { $activity, $form, ui, UIStyle } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import { ComboField, ListBox, ListBoxStyles } from "@talla-ui/lib-comp";
 
@@ -20,7 +20,7 @@ const _comboListBoxStyles = ListBoxStyles.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Empty ComboField (does nothing)</label>
 			<row>
 				<ComboField value="Text" />
@@ -28,7 +28,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>ComboField with cell popup and clear</label>
 			<row>
 				<ComboField
@@ -55,12 +55,13 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>ComboField with options list</label>
-			<label bold>Selected: {$formContext.string("values.country")}</label>
+			<label bold>Selected: {$form.string("values.country")}</label>
 			<row>
 				<ComboField
 					icon={ui.icon.SEARCH}
+					styles={{ iconSize: 20 }}
 					formField="countryName"
 					placeholder="Country"
 					openOnFocus

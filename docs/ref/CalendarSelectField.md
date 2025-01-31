@@ -32,6 +32,8 @@ For a more keyboard-friendly option, consider using the DateInputField composite
     A date or array of dates to be pre-selected.
 - [<!--{ref:property}-->width](CalendarSelectField_base_width.md) \
     The width of the dropdown button.
+- [<!--{ref:property}-->grow](CalendarSelectField_base_grow.md) \
+    True if the button should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->icon](CalendarSelectField_base_icon.md) \
     The icon displayed on the dropdown button.
 - [<!--{ref:property}-->readOnly](CalendarSelectField_base_readOnly.md) \

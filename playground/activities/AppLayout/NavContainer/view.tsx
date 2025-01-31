@@ -8,14 +8,13 @@ import {
 	NavRow,
 	PageNavButton,
 	ScrollRow,
-	SidebarNavColumn,
 	TabNavRow,
 } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16} layout={{ clip: true }}>
+		<column spacing={16} layout={{ clip: true }}>
 			<label>Plain nav row</label>
 			<NavRow>
 				<PageNavButton pageId="input">Input fields</PageNavButton>
@@ -32,7 +31,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Tab nav row, in scroll row</label>
 			<ScrollRow padding={{ y: 8 }}>
 				<TabNavRow>
@@ -46,20 +45,9 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
-			<label>Plain nav column</label>
-			<NavColumn>
-				<PageNavButton pageId="input">Input fields</PageNavButton>
-				<PageNavButton pageId="form-layout">Form layout</PageNavButton>
-				<PageNavButton pageId="app-layout">App layout</PageNavButton>
-				<PageNavButton pageId="patterns">View patterns</PageNavButton>
-			</NavColumn>
-			<separator margin={16} />
-		</column>
-
-		<column align="start" spacing={16}>
-			<label>Sidebar nav column, with icons</label>
-			<SidebarNavColumn>
+		<column spacing={16}>
+			<label>Nav column with icons</label>
+			<NavColumn width={200}>
 				<PageNavButton icon={icons.calendar} pageId="input">
 					Input fields
 				</PageNavButton>
@@ -72,17 +60,15 @@ export default (
 				<PageNavButton icon={icons.code} pageId="patterns">
 					View patterns
 				</PageNavButton>
-			</SidebarNavColumn>
+			</NavColumn>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>List nav column in card, with chevrons</label>
 			<ColumnCard>
-				<row padding={{ start: 16, end: 4, y: 8 }}>
-					<label bold>Categories</label>
-					<spacer />
-					<button style={ui.style.BUTTON_ICON} icon={ui.icon.CHEVRON_DOWN} />
+				<row height={38} padding={16}>
+					<label bold>List:</label>
 				</row>
 				<ListNavColumn>
 					<DetailNavButton chevron="next" detail="NavContainer">

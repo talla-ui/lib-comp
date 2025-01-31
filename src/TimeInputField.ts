@@ -107,6 +107,10 @@ export class TimeInputField extends ViewComposite.define({
 	formField: undefined as string | undefined,
 	/** Localization settings for the time input, an instance of {@link TimeInputLocale} */
 	locale: TimeInputLocale.default,
+	/** Width of the time input field, defaults to undefined (auto) */
+	width: undefined as number | undefined,
+	/** True if the time input field should grow to fill the available space, defaults to false */
+	grow: false,
 	/** A set of styles that are applied to this composite, an instance of {@link TimeInputFieldStyles} */
 	styles: TimeInputFieldStyles.default,
 	/** Accessible labels for hour, minute, and AM/PM input fields (in that order) */
@@ -129,64 +133,68 @@ export class TimeInputField extends ViewComposite.define({
 	}
 
 	protected defineView() {
-		return ui.row(
-			ui.cell(
-				{
-					name: this.name,
-					layout: { axis: "horizontal", separator: { space: 2 } },
-					position: { gravity: "center" },
-					style: this.styles.containerStyle,
+		return ui.cell(
+			{
+				name: this.name,
+				layout: {
+					axis: "horizontal",
+					gravity: "center",
+					separator: { space: 2 },
 				},
-				ui.spacer(4),
-				ui.label({
-					hidden: $view.not("icon"),
-					icon: $view("icon"),
-					iconSize: this.styles.iconSize,
-					padding: { end: 4 },
-					onClick: "RequestFocusNext",
-				}),
-				ui.textField({
-					style: this.styles.textFieldStyle,
-					type: "numeric",
-					placeholder: this.styles.timePlaceholder,
-					selectOnFocus: true,
-					disabled: $view.boolean("readOnly"),
-					onInput: "HourInput",
-					onArrowUpKeyPress: "HourUp",
-					onArrowDownKeyPress: "HourDown",
-					onChange: "Validate",
-					accessibleLabel: this.accessibleLabels[0],
-				}),
-				ui.label(this.locale.timeSeparator, { bold: true }),
-				ui.textField({
-					style: this.styles.textFieldStyle,
-					type: "numeric",
-					placeholder: this.styles.timePlaceholder,
-					selectOnFocus: true,
-					disabled: $view.boolean("readOnly"),
-					onInput: "MinuteInput",
-					onBackspaceKeyPress: "MinuteBackspace",
-					onArrowUpKeyPress: "MinuteUp",
-					onArrowDownKeyPress: "MinuteDown",
-					onChange: "Validate",
-					accessibleLabel: this.accessibleLabels[1],
-				}),
-				ui.textField({
-					hidden: !this.locale.use12HourFormat,
-					placeholder: this.styles.ampmPlaceholder,
-					style: this.styles.textFieldStyle,
-					width: this.styles.ampmTextFieldWidth,
-					disabled: $view.boolean("readOnly"),
-					selectOnFocus: true,
-					onInput: "AMPMInput",
-					onBackspaceKeyPress: "AMPMBackspace",
-					onArrowDownKeyPress: "AMPMToggle",
-					onArrowUpKeyPress: "AMPMToggle",
-					onChange: "Validate",
-					accessibleLabel: this.accessibleLabels[2],
-				}),
-				ui.spacer({ width: this.locale.use12HourFormat ? 2 : 4 })
-			)
+				position: { gravity: "center" },
+				width: this.width,
+				grow: this.grow,
+				style: this.styles.containerStyle,
+			},
+			ui.spacer(4),
+			ui.label({
+				hidden: $view.not("icon"),
+				icon: $view("icon"),
+				iconSize: this.styles.iconSize,
+				padding: { end: 4 },
+				onClick: "RequestFocusNext",
+			}),
+			ui.textField({
+				style: this.styles.textFieldStyle,
+				type: "numeric",
+				placeholder: this.styles.timePlaceholder,
+				selectOnFocus: true,
+				disabled: $view.boolean("readOnly"),
+				onInput: "HourInput",
+				onArrowUpKeyPress: "HourUp",
+				onArrowDownKeyPress: "HourDown",
+				onChange: "Validate",
+				accessibleLabel: this.accessibleLabels[0],
+			}),
+			ui.label(this.locale.timeSeparator, { bold: true }),
+			ui.textField({
+				style: this.styles.textFieldStyle,
+				type: "numeric",
+				placeholder: this.styles.timePlaceholder,
+				selectOnFocus: true,
+				disabled: $view.boolean("readOnly"),
+				onInput: "MinuteInput",
+				onBackspaceKeyPress: "MinuteBackspace",
+				onArrowUpKeyPress: "MinuteUp",
+				onArrowDownKeyPress: "MinuteDown",
+				onChange: "Validate",
+				accessibleLabel: this.accessibleLabels[1],
+			}),
+			ui.textField({
+				hidden: !this.locale.use12HourFormat,
+				placeholder: this.styles.ampmPlaceholder,
+				style: this.styles.textFieldStyle,
+				width: this.styles.ampmTextFieldWidth,
+				disabled: $view.boolean("readOnly"),
+				selectOnFocus: true,
+				onInput: "AMPMInput",
+				onBackspaceKeyPress: "AMPMBackspace",
+				onArrowDownKeyPress: "AMPMToggle",
+				onArrowUpKeyPress: "AMPMToggle",
+				onChange: "Validate",
+				accessibleLabel: this.accessibleLabels[2],
+			}),
+			ui.spacer({ width: this.locale.use12HourFormat ? 2 : 4 })
 		);
 	}
 

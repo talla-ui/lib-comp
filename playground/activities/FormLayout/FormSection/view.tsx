@@ -30,26 +30,26 @@ export default (
 			</FormSectionDescription>
 			<column padding={16}>
 				<FormEntry label="Full name">
-					<textfield width="100%" />
+					<textfield />
 				</FormEntry>
 				<FormEntry label="Email address">
-					<textfield type="email" width="100%" />
+					<textfield type="email" />
 				</FormEntry>
 				<FormEntry label="Address (optional)">
-					<textfield width="100%" placeholder="Street address" />
-					<spacer height={2} />
-					<textfield width="100%" />
+					<textfield placeholder="Street address" />
+					<spacer height={8} />
+					<textfield />
 				</FormEntry>
 				<FormEntry>
 					<row>
-						<textfield width="100%" placeholder="City" />
+						<textfield placeholder="City" />
 						<textfield placeholder="Postal code" />
 					</row>
 				</FormEntry>
 			</column>
 			<column padding={16}>
 				<FormEntry label="Company name (optional)">
-					<textfield width="100%" />
+					<textfield />
 				</FormEntry>
 				<FormEntry label="Company size">
 					<SelectField
@@ -91,11 +91,9 @@ export default (
 			<FormSectionDescription>
 				You can receive notifications by email or just see them in the app.
 			</FormSectionDescription>
-			<row padding={16}>
-				<toggle width="100%" type="switch">
-					Receive email notifications
-				</toggle>
-			</row>
+			<column padding={16}>
+				<toggle type="switch">Receive email notifications</toggle>
+			</column>
 		</FormSection>
 
 		<separator margin={16} />

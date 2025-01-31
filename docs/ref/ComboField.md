@@ -37,6 +37,8 @@ The combo field also **handles** the following events from the overlay cell.
     The icon to show in the combo field.
 - [<!--{ref:property}-->width](ComboField_base_width.md) \
     The width of the combo field.
+- [<!--{ref:property}-->grow](ComboField_base_grow.md) \
+    True if the combo field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](ComboField_base_styles.md) \
     A set of styles that are applied to this composite, an instance of [ComboFieldStyles](ComboFieldStyles.md).
 - [<!--{ref:property}-->openOnFocus](ComboField_base_openOnFocus.md) \

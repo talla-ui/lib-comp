@@ -68,7 +68,7 @@ export default (
 							page={$list("item.navigationPageId")}
 						/>
 					</animate>
-					<row layout={{ wrapContent: true }} spacing={0} />
+					<row wrap spacing={0} />
 				</list>
 			</cell>
 			<spacer height={64} />

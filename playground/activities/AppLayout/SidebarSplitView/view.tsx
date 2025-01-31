@@ -10,39 +10,39 @@ const outerCellStyle = ui.style.CELL.extend({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Default split view, with separator</label>
 			<cell style={outerCellStyle}>
 				<SidebarSplitView
 					styles={{ separator: { vertical: true, lineThickness: 1 } }}
 				>
 					<cell>
-						<label>Sidebar</label>
+						<label align="center">Sidebar</label>
 					</cell>
 					<cell>
-						<label>Content</label>
+						<label align="center">Content</label>
 					</cell>
 				</SidebarSplitView>
 			</cell>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>With sidebar shadow</label>
 			<cell style={outerCellStyle}>
 				<SidebarSplitView styles={{ sidebarEffect: ui.effect.SHADOW }}>
 					<cell>
-						<label>Sidebar</label>
+						<label align="center">Sidebar</label>
 					</cell>
 					<cell background={ui.color.BACKGROUND.contrast(-0.05)}>
-						<label>Content</label>
+						<label align="center">Content</label>
 					</cell>
 				</SidebarSplitView>
 			</cell>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>With content shadow, min/max width</label>
 			<cell style={outerCellStyle}>
 				<SidebarSplitView
@@ -55,10 +55,10 @@ export default (
 					}}
 				>
 					<cell>
-						<label>Sidebar</label>
+						<label align="center">Sidebar</label>
 					</cell>
 					<cell>
-						<label>Content</label>
+						<label align="center">Content</label>
 					</cell>
 				</SidebarSplitView>
 			</cell>
@@ -74,17 +74,17 @@ export default (
 					}}
 				>
 					<cell>
-						<label>Sidebar</label>
+						<label align="center">Sidebar</label>
 					</cell>
 					<cell>
-						<label>Content</label>
+						<label align="center">Content</label>
 					</cell>
 				</SidebarSplitView>
 			</cell>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>List/detail view (named)</label>
 			<ButtonSwitch
 				value={$activity("switchValue")}
@@ -102,20 +102,20 @@ export default (
 					showSidebar={$activity("showSidebar")}
 					styles={{ separator: { vertical: true, lineThickness: 1 } }}
 				>
-					<cell>
+					<row align="center" wrap>
 						<label padding={16}>List</label>
 						<button chevron="next" onClick="ShowDetail">
 							Show detail
 						</button>
-					</cell>
-					<cell>
+					</row>
+					<column align="center">
 						<label padding={16}>Detail</label>
 						<button
 							style={ui.style.BUTTON_ICON}
 							icon={ui.icon.CLOSE}
 							onClick="CloseDetail"
 						/>
-					</cell>
+					</column>
 				</SidebarSplitView>
 			</cell>
 			<separator margin={16} />

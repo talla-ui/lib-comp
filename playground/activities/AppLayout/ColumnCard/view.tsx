@@ -11,7 +11,7 @@ import {
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Column card with labels</label>
 			<ColumnCard>
 				<label bold>Card</label>
@@ -22,31 +22,31 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Cards in wrapping row list</label>
 			<list items={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}>
 				<ColumnCard width={100} margin={{ bottom: 8, end: 8 }}>
 					<label>Card %[item]</label>
 				</ColumnCard>
-				<row spacing={0} layout={{ wrapContent: true }} />
+				<row spacing={0} wrap />
 			</list>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Cards in scroll row</label>
 			<ScrollRow margin={-16} padding={16}>
 				<list items={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}>
 					<ColumnCard width={100}>
 						<label padding={{ y: 32 }}>Card %[item]</label>
 					</ColumnCard>
-					<row spacing={16} padding={{ end: 16 }} />
+					<row spacing={16} />
 				</list>
 			</ScrollRow>
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Card with alternative container style</label>
 			<ColumnCard
 				width={280}
@@ -69,7 +69,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Cards with containers and view composites</label>
 
 			<ColumnCard>
@@ -81,9 +81,9 @@ export default (
 
 			<ColumnCard>
 				<label bold>Container</label>
-				<column padding={8}>
+				<row padding={8} align="center">
 					<CalendarView />
-				</column>
+				</row>
 				<row padding={8}>
 					<spacer />
 					<button chevron="next">Continue</button>

@@ -1,4 +1,4 @@
-import { $formContext, ui, UIStyle } from "talla-ui";
+import { $form, ui, UIStyle } from "talla-ui";
 import { ButtonSwitch, ButtonSwitchStyles } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
 import SamplePane from "~/views/SamplePane";
@@ -31,7 +31,7 @@ const _customButtonSwitchStyles = ButtonSwitchStyles.init({
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Plain ButtonSwitch</label>
 			<row>
 				<ButtonSwitch
@@ -47,7 +47,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>With icons</label>
 			<row>
 				<ButtonSwitch
@@ -62,7 +62,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Custom style</label>
 			<row>
 				<ButtonSwitch
@@ -79,7 +79,7 @@ export default (
 			<separator margin={16} />
 		</column>
 
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Bound to form field</label>
 			<row>
 				<ButtonSwitch
@@ -92,9 +92,7 @@ export default (
 			</row>
 			<row>
 				<toggle formField="switch1" type="switch" />
-				<label>
-					State: {$formContext("values.switch1").select("ON", "OFF")}
-				</label>
+				<label>State: {$form("values.switch1").select("ON", "OFF")}</label>
 			</row>
 			<separator margin={16} />
 		</column>

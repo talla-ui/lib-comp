@@ -30,17 +30,12 @@ const dialog = (
 				/>
 			</row>
 		</cell>
-		<column padding={16} align="start">
+		<column padding={16}>
 			<FormEntry label="Email address" errorFormField="email">
-				<textfield type="email" formField="email" width="100%" requestFocus />
+				<textfield type="email" formField="email" requestFocus />
 			</FormEntry>
 			<FormEntry label="Message" errorFormField="message">
-				<textfield
-					formField="message"
-					width="100%"
-					multiline
-					style={{ height: 100 }}
-				/>
+				<textfield formField="message" multiline style={{ height: 100 }} />
 			</FormEntry>
 		</column>
 		<separator />
@@ -100,7 +95,7 @@ export async function openDialog(data: { email: string; message: string }) {
 
 export default (
 	<SamplePane>
-		<column align="start" spacing={16}>
+		<column spacing={16}>
 			<label>Simple input dialog</label>
 			<FormEntry label="Initial email">
 				<textfield formField="email" type="email" />
@@ -108,7 +103,9 @@ export default (
 			<FormEntry label="Initial message">
 				<textfield formField="message" />
 			</FormEntry>
-			<button onClick="OpenDialog">Open</button>
+			<row>
+				<button onClick="OpenDialog">Open</button>
+			</row>
 			<separator margin={16} />
 		</column>
 

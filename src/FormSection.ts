@@ -67,7 +67,7 @@ export const FormSection = ViewComposite.define(
 			ui.row(
 				{
 					spacing: 0,
-					layout: { wrapContent: true },
+					wrap: true,
 					reverse: values.rowTitleAfter ? $viewport.boolean("col4") : false,
 				},
 				ui.cell(

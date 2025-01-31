@@ -97,6 +97,8 @@ export class CalendarSelectField extends ViewComposite.define({
 	preselected: undefined as Date | Date[] | undefined,
 	/** The width of the dropdown button */
 	width: undefined as string | number | undefined,
+	/** True if the button should grow to fill the available space, defaults to false */
+	grow: false,
 	/** The icon displayed on the dropdown button */
 	icon: undefined as UIIconResource | undefined,
 	/** True if the user should not be able to change the value */
@@ -135,6 +137,7 @@ export class CalendarSelectField extends ViewComposite.define({
 			iconSize: this.styles.iconSize,
 			chevron: this.styles.chevron,
 			width: this.width,
+			grow: this.grow,
 			style: this.styles.buttonStyle,
 			name: this.name,
 			accessibleLabel: this.accessibleLabel,
@@ -148,21 +151,24 @@ export class CalendarSelectField extends ViewComposite.define({
 		let key = (e.data.event as any)?.key;
 		if (key === "t" || key === "T") {
 			this.value = new Date();
+			return;
 		}
 		if (!this.value) return;
-		if (key === "-") {
+		if (key === "-" || key === "ArrowDown") {
 			this.value = new Date(
 				this.value.getFullYear(),
 				this.value.getMonth(),
 				this.value.getDate() - 1
 			);
+			return;
 		}
-		if (key === "+") {
+		if (key === "+" || key === "ArrowUp") {
 			this.value = new Date(
 				this.value.getFullYear(),
 				this.value.getMonth(),
 				this.value.getDate() + 1
 			);
+			return;
 		}
 	}
 
@@ -175,7 +181,7 @@ export class CalendarSelectField extends ViewComposite.define({
 					padding: 8,
 					borderRadius: 8,
 					position: { gravity: "start" },
-					style: { grow: 0 },
+					grow: false,
 					effect: ui.effect.ELEVATE,
 				},
 				ui.use(CalendarView, {
