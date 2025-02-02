@@ -1,6 +1,6 @@
 {
 	"name": "@talla-ui/lib-comp",
-	"version": "4.0.0-dev.13",
+	"version": "4.0.0-dev.14",
 	"publishConfig": {
 		"tag": "next"
 	},
