@@ -14,7 +14,7 @@ The header row can be hidden, shown with a distinct background color and effect,
 
 The content area is not scrollable by default. For scrollable 'page' content, consider using a [ScrollPane](ScrollPane.md) composite instead.
 
-Icon buttons can be added to the header row. Standard icon buttons include a back button (which emits the `NavigateBack` event, handled by `Activity`), and a menu button (which emits a `ShowMenu` event). Other icons can be added manually with a [HeaderPaneToolbar](HeaderPaneToolbar.md), and will appear on the far side of the header row.
+Icon buttons can be added to the header row. Standard icon buttons include a back button (which emits the `NavigateBack` event or a custom event configured using the `navigateBack` property), and a menu button (which emits a `ShowMenu` event or a custom event configured using the `showMenu` property). Other icons can be added manually with a [HeaderPaneToolbar](HeaderPaneToolbar.md), and will appear on the far side of the header row.
 
 ## Instance members
 
@@ -36,9 +36,9 @@ Icon buttons can be added to the header row. Standard icon buttons include a bac
 - [<!--{ref:property}-->showHeader](HeaderPane_base_showHeader.md) \
     True if the header should be shown at all.
 - [<!--{ref:property}-->navigateBack](HeaderPane_base_navigateBack.md) \
-    True if a back navigation button should be shown.
+    True if a back navigation button should be shown, or an event to emit when clicked (other than `NavigateBack`).
 - [<!--{ref:property}-->showMenu](HeaderPane_base_showMenu.md) \
-    True if a menu button should be shown (instead of back button).
+    True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`).
 - [<!--{ref:property}-->styles](HeaderPane_base_styles.md) \
     A set of styles that are applied to this composite, an instance of [HeaderPaneStyles](HeaderPaneStyles.md).
 - [<!--{ref:property}-->name](HeaderPane_base_name.md) \

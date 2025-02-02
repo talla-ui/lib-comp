@@ -71,7 +71,7 @@ export class HeaderPaneStyles extends ConfigOptions {
  *
  * The content area is not scrollable by default. For scrollable 'page' content, consider using a {@link ScrollPane} composite instead.
  *
- * Icon buttons can be added to the header row. Standard icon buttons include a back button (which emits the `NavigateBack` event, handled by `Activity`), and a menu button (which emits a `ShowMenu` event). Other icons can be added manually with a {@link HeaderPaneToolbar}, and will appear on the far side of the header row.
+ * Icon buttons can be added to the header row. Standard icon buttons include a back button (which emits the `NavigateBack` event or a custom event configured using the `navigateBack` property), and a menu button (which emits a `ShowMenu` event or a custom event configured using the `showMenu` property). Other icons can be added manually with a {@link HeaderPaneToolbar}, and will appear on the far side of the header row.
  *
  * @see {@link HeaderPaneStyles}+
  * @see {@link HeaderPaneToolbar}
@@ -85,10 +85,10 @@ export class HeaderPane extends ViewComposite.define({
 	backdrop: true,
 	/** True if the header should be shown at all */
 	showHeader: true,
-	/** True if a back navigation button should be shown */
-	navigateBack: false,
-	/** True if a menu button should be shown (instead of back button) */
-	showMenu: false,
+	/** True if a back navigation button should be shown, or an event to emit when clicked (other than `NavigateBack`) */
+	navigateBack: false as boolean | string,
+	/** True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`) */
+	showMenu: false as boolean | string,
 	/** A set of styles that are applied to this composite, an instance of {@link HeaderPaneStyles} */
 	styles: HeaderPaneStyles.default,
 	/** UI component identifier */
@@ -205,8 +205,15 @@ export class HeaderPane extends ViewComposite.define({
 	}
 
 	protected onHeaderLeadingButtonClick() {
-		if (this.navigateBack) this.emit("NavigateBack");
-		if (this.showMenu) this.emit("ShowMenu");
+		if (this.navigateBack) {
+			this.emit(
+				typeof this.navigateBack === "string"
+					? this.navigateBack
+					: "NavigateBack"
+			);
+		} else if (this.showMenu) {
+			this.emit(typeof this.showMenu === "string" ? this.showMenu : "ShowMenu");
+		}
 		return true;
 	}
 
