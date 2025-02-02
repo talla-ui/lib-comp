@@ -62,10 +62,10 @@ export class ScrollPane extends ViewComposite.define({
 	title: StringConvertible.EMPTY,
 	/** The icon displayed next to the title */
 	titleIcon: undefined as UIIconResource | undefined,
-	/** True if a back navigation button should be included in the header */
-	navigateBack: false,
-	/** True if a menu button should be included in the header (instead of back button) */
-	showMenu: false,
+	/** True if a back navigation button should be shown, or an event to emit when clicked (other than `NavigateBack`) */
+	navigateBack: false as boolean | string,
+	/** True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`) */
+	showMenu: false as boolean | string,
 	/** The type of header behavior: none (no header), fixed, or dynamic with scroll; defaults to dynamic */
 	headerMode: "fixed" as ScrollPaneHeaderMode,
 	/** A set of styles that are applied to this composite, an instance of {@link ScrollPaneStyles} */

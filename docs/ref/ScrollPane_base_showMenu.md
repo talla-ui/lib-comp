@@ -2,9 +2,9 @@
 
 # showMenu
 
-> True if a menu button should be included in the header (instead of back button).
+> True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`).
 
-<pre class="docgen_signature">showMenu: <b>boolean</b>;</pre>
+<pre class="docgen_signature">showMenu: <b>boolean</b> | <b>string</b>;</pre>
 
 ## Related
 

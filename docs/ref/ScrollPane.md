@@ -28,9 +28,9 @@ The layout of the element is based on the [HeaderPane](HeaderPane.md) composite.
 - [<!--{ref:property}-->titleIcon](ScrollPane_base_titleIcon.md) \
     The icon displayed next to the title.
 - [<!--{ref:property}-->navigateBack](ScrollPane_base_navigateBack.md) \
-    True if a back navigation button should be included in the header.
+    True if a back navigation button should be shown, or an event to emit when clicked (other than `NavigateBack`).
 - [<!--{ref:property}-->showMenu](ScrollPane_base_showMenu.md) \
-    True if a menu button should be included in the header (instead of back button).
+    True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`).
 - [<!--{ref:property}-->headerMode](ScrollPane_base_headerMode.md) \
     The type of header behavior: none (no header), fixed, or dynamic with scroll; defaults to dynamic.
 - [<!--{ref:property}-->styles](ScrollPane_base_styles.md) \
