@@ -141,8 +141,8 @@ export class ScrollPane extends ViewComposite.define({
 				styles: this.styles,
 				title: boundFixedState.and("title").else(undefined),
 				titleIcon: boundFixedState.and("titleIcon").else(undefined),
-				navigateBack: $view.boolean("navigateBack"),
-				showMenu: $view.boolean("showMenu"),
+				navigateBack: $view("navigateBack"),
+				showMenu: $view("showMenu"),
 			},
 			...inner
 		);
