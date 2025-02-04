@@ -9,6 +9,7 @@ import {
 } from "talla-ui";
 import CategoryScreen from "~/views/CategoryScreen";
 import { EmptyStateViewSample } from "./EmptyStateView/EmptyStateViewSample";
+import { LoadingStateViewSample } from "./LoadingStateView/LoadingStateViewSample";
 import { ModalInputDialogSample } from "./ModalInputDialog/ModalInputDialogSample";
 import { ProgressDialogSample } from "./ProgressDialog/ProgressDialogSample";
 import { ToastNotificationSample } from "./ToastNotification/ToastNotificationSample";
@@ -30,7 +31,8 @@ export class ViewPatternsActivity extends Activity {
 				new EmptyStateViewSample(),
 				new ProgressDialogSample(),
 				new ModalInputDialogSample(),
-				new ToastNotificationSample()
+				new ToastNotificationSample(),
+				new LoadingStateViewSample()
 			),
 			{ delegate: this }
 		);

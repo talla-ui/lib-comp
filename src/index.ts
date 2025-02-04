@@ -11,6 +11,7 @@ export * from "./FormSection.js";
 export * from "./HeaderPane.js";
 export * from "./LabeledView.js";
 export * from "./ListBox.js";
+export * from "./LoadingStateView.js";
 export * from "./ModalInputDialog.js";
 export * from "./NavContainer.js";
 export * from "./ProgressBar.js";
