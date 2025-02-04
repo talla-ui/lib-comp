@@ -45,6 +45,9 @@ export class HeaderPaneStyles extends ConfigOptions {
 
 	/** Height of the header, defaults to 48 */
 	headerHeight = 48;
+	/** Maximum width of the header, defaults to 100% if not set */
+	maxHeaderWidth?: string | number = undefined;
+
 	/** Background color of the header backdrop, defaults to slightly brightened background color */
 	headerBackdropBackground = ui.color.BACKGROUND.brighten(0.15);
 	/** Text color of the header backdrop, if any */
@@ -145,11 +148,17 @@ export class HeaderPane extends ViewComposite.define({
 				),
 
 				// transparent row with toolbar, if any
-				ui.row(
+				ui.cell(
 					{
-						height: this.styles.headerHeight,
 						padding: boundPadding,
+						margin: "auto",
+						style: {
+							height: this.styles.headerHeight,
+							width: "100%",
+							maxWidth: this.styles.maxHeaderWidth,
+						},
 						position: { gravity: "cover" },
+						layout: { axis: "horizontal", gravity: "center" },
 					},
 					ui.conditional(
 						{ state: $view.boolean("leadingButtonIcon") },

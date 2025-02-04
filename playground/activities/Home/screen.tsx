@@ -16,6 +16,7 @@ export default (
 				scrollThreshold: 32,
 				headerHeight: 64,
 				maxInnerWidth: 800,
+				maxHeaderWidth: 800,
 				clip: false,
 				padding: 32,
 				paddingNarrow: 12,

@@ -42,6 +42,8 @@ Objects of this type are passed to [ScrollPane](ScrollPane.md) as the `styles` p
     Style for the title label.
 - [<!--{ref:property}-->headerHeight](HeaderPaneStyles_headerHeight.md) \
     Height of the header, defaults to 48.
+- [<!--{ref:property}-->maxHeaderWidth](HeaderPaneStyles_maxHeaderWidth.md) \
+    Maximum width of the header, defaults to 100% if not set.
 - [<!--{ref:property}-->headerBackdropBackground](HeaderPaneStyles_headerBackdropBackground.md) \
     Background color of the header backdrop, defaults to slightly brightened background color.
 - [<!--{ref:property}-->headerBackdropTextColor](HeaderPaneStyles_headerBackdropTextColor.md) \

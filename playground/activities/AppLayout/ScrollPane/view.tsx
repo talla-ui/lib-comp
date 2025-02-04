@@ -52,6 +52,37 @@ export default (
 		</column>
 
 		<column spacing={16}>
+			<label>Dynamic header, max width</label>
+			<cell style={outerCellStyle}>
+				<ScrollPane
+					title="Title"
+					headerMode="dynamic"
+					navigateBack
+					styles={{ maxInnerWidth: 600, maxHeaderWidth: 600 }}
+				>
+					<HeaderPaneToolbar>
+						<button
+							icon={icons.calendar}
+							iconSize={20}
+							style={ui.style.BUTTON_ICON}
+						/>
+						<button
+							icon={ui.icon.MORE}
+							iconSize={20}
+							style={ui.style.BUTTON_ICON}
+						/>
+					</HeaderPaneToolbar>
+					<list items={Array.from({ length: 40 }, (_, i) => i + 1)}>
+						<row>
+							<label>Line %[item]</label>
+						</row>
+					</list>
+				</ScrollPane>
+			</cell>
+			<separator margin={16} />
+		</column>
+
+		<column spacing={16}>
 			<label>Fixed header with menu button</label>
 			<cell style={outerCellStyle}>
 				<ScrollPane
