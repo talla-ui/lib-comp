@@ -58,6 +58,8 @@ export class EmptyStateViewStyles extends ConfigOptions {
  */
 export const EmptyStateView = ViewComposite.define(
 	{
+		/** True if the empty state view should not be rendered */
+		hidden: false,
 		/** The icon to display (overrides the default icon in styles) */
 		icon: undefined as UIIconResource | undefined,
 		/** The title text to display */
@@ -68,26 +70,29 @@ export const EmptyStateView = ViewComposite.define(
 		styles: EmptyStateViewStyles.default,
 	},
 	(values, ...content) =>
-		ui.cell(
-			{ style: values.styles.containerStyle },
-			ui.column(
-				{ align: "center", distribute: "center" },
-				ui.spacer({ height: 16 }),
-				ui.label({
-					icon: $view("icon").or("styles.icon"),
-					iconColor: values.styles.iconColor,
-					iconSize: values.styles.iconSize,
-				}),
-				ui.label({
-					text: $view.string("title"),
-					style: values.styles.titleStyle,
-				}),
-				ui.label({
-					text: $view.string("helpText"),
-					style: values.styles.helpTextStyle,
-				}),
-				ui.spacer({ height: 32 }),
-				...content
+		ui.conditional(
+			{ state: $view.not("hidden") },
+			ui.cell(
+				{ style: values.styles.containerStyle },
+				ui.column(
+					{ align: "center", distribute: "center" },
+					ui.spacer({ height: 16 }),
+					ui.label({
+						icon: $view("icon").or("styles.icon"),
+						iconColor: values.styles.iconColor,
+						iconSize: values.styles.iconSize,
+					}),
+					ui.label({
+						text: $view.string("title"),
+						style: values.styles.titleStyle,
+					}),
+					ui.label({
+						text: $view.string("helpText"),
+						style: values.styles.helpTextStyle,
+					}),
+					ui.spacer({ height: 32 }),
+					...content
+				)
 			)
 		)
 );

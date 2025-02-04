@@ -10,9 +10,14 @@ export class EmptyStateViewSample extends Activity {
 	}
 
 	sourceCode = code;
+	toggle = true;
 
 	protected createView() {
 		return view.create();
+	}
+
+	protected onToggle() {
+		this.toggle = !this.toggle;
 	}
 }
 

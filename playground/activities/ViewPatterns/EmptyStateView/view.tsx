@@ -1,4 +1,4 @@
-import { ui } from "talla-ui";
+import { $activity, ui } from "talla-ui";
 import SamplePane from "~/views/SamplePane";
 import { ColumnCard, EmptyStateView } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
@@ -8,6 +8,20 @@ export default (
 		<column spacing={16}>
 			<label>Simple empty state</label>
 			<EmptyStateView title="Empty state" />
+			<separator margin={16} />
+		</column>
+
+		<column spacing={16}>
+			<label>Toggled, animated empty state</label>
+			<row>
+				<button onClick="Toggle">Toggle</button>
+			</row>
+			<animate
+				showAnimation={ui.animation.FADE_IN_UP}
+				hideAnimation={ui.animation.FADE_OUT}
+			>
+				<EmptyStateView hidden={$activity.not("toggle")} title="Empty state" />
+			</animate>
 			<separator margin={16} />
 		</column>
 
