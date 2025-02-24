@@ -1,4 +1,4 @@
-import { $viewport, StringConvertible, ui, ViewComposite } from "talla-ui";
+import { $viewport, StringConvertible, ui, UIComponent } from "talla-ui";
 import { ColumnCard, ColumnCardStyles } from "./ColumnCard.js";
 
 /**
@@ -6,7 +6,7 @@ import { ColumnCard, ColumnCardStyles } from "./ColumnCard.js";
  *
  * The form section description is displayed in the title area of the form section — i.e. above the field set on narrow viewports, or beside it on wider viewports. The description may include a title and description text, but may also contain any other content, which is displayed using a column layout.
  */
-export class FormSectionDescription extends ViewComposite.define(
+export class FormSectionDescription extends UIComponent.define(
 	{
 		/** The form section title, displayed in bold */
 		title: undefined as StringConvertible | undefined,
@@ -41,7 +41,7 @@ export class FormSectionDescription extends ViewComposite.define(
  *
  * @class
  */
-export const FormSection = ViewComposite.define(
+export const FormSection = UIComponent.define(
 	{
 		/** The title of the form section, if not using a {@link FormSectionDescription} */
 		title: undefined as StringConvertible | undefined,

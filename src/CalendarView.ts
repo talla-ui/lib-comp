@@ -2,7 +2,7 @@ import {
 	$strf,
 	$view,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	ui,
 	UIButton,
 	UICell,
@@ -10,7 +10,7 @@ import {
 	UIStyle,
 	UITextField,
 	View,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import { bindFormField } from "./util.js";
@@ -155,7 +155,7 @@ type GridButtonInfo = {
  * @see {@link CalendarViewStyles}+
  * @see {@link CalendarViewLocale}+
  */
-export class CalendarView extends ViewComposite.define({
+export class CalendarView extends UIComponent.define({
 	/** The currently selected date */
 	value: undefined as Date | undefined,
 	/** True if the user should not be able to change the value */
@@ -190,7 +190,7 @@ export class CalendarView extends ViewComposite.define({
 	protected showMonths = false;
 
 	protected beforeRender() {
-		ManagedObject.observe(this, ["value"], (_, _p, value) => {
+		ObservedObject.observe(this, ["value"], (_, _p, value) => {
 			if (value instanceof Date) {
 				this.isoValue = toLocalISOString(value) || "";
 				this.cursor = value;

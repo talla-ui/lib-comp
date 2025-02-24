@@ -4,7 +4,7 @@
 
 > The margin around the card, defaults to `{ bottom: 8 }` for use in a grid.
 
-<pre class="docgen_signature">margin: UIComponent.Offsets;</pre>
+<pre class="docgen_signature">margin: UIRenderable.Offsets;</pre>
 
 ## Related
 

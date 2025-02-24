@@ -2,15 +2,15 @@ import {
 	$view,
 	$viewport,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	StringConvertible,
 	ui,
 	UIColor,
-	UIComponent,
+	UIRenderable,
 	UIIconResource,
 	UILabel,
 	ViewBuilder,
-	ViewComposite,
+	UIComponent,
 } from "talla-ui";
 
 /**
@@ -28,9 +28,9 @@ export class HeaderPaneStyles extends ConfigOptions {
 	clip = true;
 
 	/** Padding for the content area, defaults to 16 */
-	padding: UIComponent.Offsets = 16;
+	padding: UIRenderable.Offsets = 16;
 	/** Padding for the content area in narrow viewports, defaults to 16 */
-	paddingNarrow: UIComponent.Offsets = 16;
+	paddingNarrow: UIRenderable.Offsets = 16;
 
 	/** Minimum width of the pane */
 	minWidth: string | number = 0;
@@ -79,7 +79,7 @@ export class HeaderPaneStyles extends ConfigOptions {
  * @see {@link HeaderPaneStyles}+
  * @see {@link HeaderPaneToolbar}
  */
-export class HeaderPane extends ViewComposite.define({
+export class HeaderPane extends UIComponent.define({
 	/** The title of the header pane */
 	title: StringConvertible.EMPTY,
 	/** The icon displayed next to the title */
@@ -207,7 +207,7 @@ export class HeaderPane extends ViewComposite.define({
 		setTimeout(() => {
 			this.paneRendered = true;
 		}, 100);
-		ManagedObject.observe(this, ["navigateBack", "showMenu"], () => {
+		ObservedObject.observe(this, ["navigateBack", "showMenu"], () => {
 			this._updateLeadingButton();
 		});
 		this._updateLeadingButton();
@@ -246,7 +246,7 @@ export class HeaderPane extends ViewComposite.define({
  *
  * @class
  */
-export const HeaderPaneToolbar = ViewComposite.define(
+export const HeaderPaneToolbar = UIComponent.define(
 	{
 		/** Row spacing, defaults to 4 */
 		spacing: 4,

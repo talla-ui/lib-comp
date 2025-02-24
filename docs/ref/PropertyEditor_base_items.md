@@ -2,7 +2,7 @@
 
 # items
 
-> The list of properties to display and edit, as an array or managed list of [PropertyEditorItem](PropertyEditorItem.md) objects.
+> The list of properties to display and edit, as an array or observed list of [PropertyEditorItem](PropertyEditorItem.md) objects.
 
 <pre class="docgen_signature">items: Iterable&lt;<a href="PropertyEditorItem.md">PropertyEditorItem</a>&gt;;</pre>
 

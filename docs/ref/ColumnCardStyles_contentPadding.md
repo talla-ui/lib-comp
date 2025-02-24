@@ -4,7 +4,7 @@
 
 > The padding applied to non-container elements within the card.
 
-<pre class="docgen_signature">contentPadding: UIComponent.Offsets;</pre>
+<pre class="docgen_signature">contentPadding: UIRenderable.Offsets;</pre>
 
 ## Related
 

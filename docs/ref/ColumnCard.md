@@ -4,7 +4,7 @@
 
 > View composite for a column-based card.
 
-<pre class="docgen_signature"><b>const</b> ColumnCard: ViewComposite.DefinedViewComposite&lt;{<br>    margin?: BindingOrValue&lt;UIComponent.Offsets&gt; | <b>undefined</b>;<br>    position?: BindingOrValue&lt;UIComponent.Position&gt; | <b>undefined</b>;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    styles?: ConfigOptions.Arg&lt;<a href="ColumnCardStyles.md">ColumnCardStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    margin: UIComponent.Offsets;<br>    position: UIComponent.Position;<br>    width: <b>string</b> | <b>number</b> | <b>undefined</b>;<br>    styles: <a href="ColumnCardStyles.md">ColumnCardStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> ColumnCard: UIComponent.DefinedUIComponent&lt;{<br>    margin?: BindingOrValue&lt;UIRenderable.Offsets&gt; | <b>undefined</b>;<br>    position?: BindingOrValue&lt;UIRenderable.Position&gt; | <b>undefined</b>;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    styles?: ConfigOptions.Arg&lt;<a href="ColumnCardStyles.md">ColumnCardStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    margin: UIRenderable.Offsets;<br>    position: UIRenderable.Position;<br>    width: <b>string</b> | <b>number</b> | <b>undefined</b>;<br>    styles: <a href="ColumnCardStyles.md">ColumnCardStyles</a>;<br>}&gt;;</pre>
 
 ## Description
 

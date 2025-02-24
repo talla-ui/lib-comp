@@ -4,7 +4,7 @@
 
 > View composite with an area that contains scrolling content.
 
-<pre class="docgen_signature"><b>const</b> ScrollArea: ViewComposite.DefinedViewComposite&lt;{<br>    cellStyle?: BindingOrValue&lt;UICell.StyleValue&gt;;<br>    height?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    name?: BindingOrValue&lt;<b>string</b>&gt; | <b>undefined</b>;<br>}, {<br>    cellStyle: UICell.StyleValue | <b>undefined</b>;<br>    height: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    name: <b>string</b>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> ScrollArea: UIComponent.DefinedUIComponent&lt;{<br>    cellStyle?: BindingOrValue&lt;UICell.StyleValue&gt;;<br>    height?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    name?: BindingOrValue&lt;<b>string</b>&gt; | <b>undefined</b>;<br>}, {<br>    cellStyle: UICell.StyleValue | <b>undefined</b>;<br>    height: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    name: <b>string</b>;<br>}&gt;;</pre>
 
 ## Description
 

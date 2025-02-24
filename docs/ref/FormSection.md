@@ -4,7 +4,7 @@
 
 > View composite for a form section.
 
-<pre class="docgen_signature"><b>const</b> FormSection: ViewComposite.DefinedViewComposite&lt;{<br>    title?: BindingOrValue&lt;StringConvertible | <b>undefined</b>&gt;;<br>    rowTitleAfter?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="ColumnCardStyles.md">ColumnCardStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    title: StringConvertible | <b>undefined</b>;<br>    rowTitleAfter: <b>boolean</b>;<br>    styles: <a href="ColumnCardStyles.md">ColumnCardStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> FormSection: UIComponent.DefinedUIComponent&lt;{<br>    title?: BindingOrValue&lt;StringConvertible | <b>undefined</b>&gt;;<br>    rowTitleAfter?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="ColumnCardStyles.md">ColumnCardStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    title: StringConvertible | <b>undefined</b>;<br>    rowTitleAfter: <b>boolean</b>;<br>    styles: <a href="ColumnCardStyles.md">ColumnCardStyles</a>;<br>}&gt;;</pre>
 
 ## Description
 

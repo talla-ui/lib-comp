@@ -3,14 +3,14 @@ import {
 	app,
 	ConfigOptions,
 	LazyString,
-	ManagedObject,
+	ObservedObject,
 	strf,
 	StringConvertible,
 	ui,
 	UIButton,
 	UIIconResource,
 	UIStyle,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import {
@@ -86,7 +86,7 @@ export class CalendarSelectFieldStyles extends ConfigOptions {
  * @see {@link CalendarViewLocale}
  * @see {@link CalendarViewStyles}
  */
-export class CalendarSelectField extends ViewComposite.define({
+export class CalendarSelectField extends UIComponent.define({
 	/** The current selected date */
 	value: undefined as Date | undefined,
 	/** The label displayed on the dropdown button */
@@ -117,7 +117,7 @@ export class CalendarSelectField extends ViewComposite.define({
 	calendarViewStyles: CalendarViewStyles.default,
 }) {
 	protected beforeRender() {
-		ManagedObject.observe(this, ["value"], (_, _p, value) => {
+		ObservedObject.observe(this, ["value"], (_, _p, value) => {
 			if (value instanceof Date) {
 				this._updateLabel(value);
 				this.emit("Change", { value: this.value });

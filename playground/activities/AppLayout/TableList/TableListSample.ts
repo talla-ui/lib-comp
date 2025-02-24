@@ -1,11 +1,11 @@
-import { Activity, app, ManagedObject, UIToggle, ViewEvent } from "talla-ui";
+import { Activity, app, ObservedObject, UIToggle, ViewEvent } from "talla-ui";
 import view from "./view";
 import code from "./view?raw";
 import COUNTRIES from "~/data/COUNTRIES";
 import { TableRow } from "@talla-ui/lib-comp";
 
 function o(obj: {}) {
-	return Object.assign(new ManagedObject(), obj, { selected: false });
+	return Object.assign(new ObservedObject(), obj, { selected: false });
 }
 
 export class TableListSample extends Activity {

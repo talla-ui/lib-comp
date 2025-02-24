@@ -5,11 +5,11 @@ import {
 	strf,
 	StringConvertible,
 	ui,
-	UIComponent,
+	UIRenderable,
 	UIIconResource,
 	UILabel,
 	UITextField,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import { bindFormField } from "./util.js";
@@ -41,7 +41,7 @@ export class EditInPlaceStyles extends ConfigOptions {
 	 * The padding applied to both the label and text field
 	 * - Note that the field height is set using the `height` property, not (only) vertical padding
 	 */
-	padding: UIComponent.Offsets = { x: 8, y: 4 };
+	padding: UIRenderable.Offsets = { x: 8, y: 4 };
 }
 
 /**
@@ -57,7 +57,7 @@ export class EditInPlaceStyles extends ConfigOptions {
  *
  * @see {@link EditInPlaceStyles}+
  */
-export class EditInPlace extends ViewComposite.define({
+export class EditInPlace extends UIComponent.define({
 	/** The current value of the edit-in-place field */
 	value: "" as string | number | undefined,
 	/** Placeholder text that's displayed if the value is an empty string */

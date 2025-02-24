@@ -2,7 +2,7 @@
 
 > Base type for `ProgressBar`.
 
-<pre class="docgen_signature"><b>const</b> ProgressBar_base: ViewComposite.DefinedViewComposite&lt;{<br>    progress?: BindingOrValue&lt;<b>number</b>&gt; | <b>undefined</b>;<br>    margin?: BindingOrValue&lt;UIComponent.Offsets&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="ProgressBarStyles.md">ProgressBarStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    progress: <b>number</b>;<br>    margin: UIComponent.Offsets;<br>    styles: <a href="ProgressBarStyles.md">ProgressBarStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> ProgressBar_base: UIComponent.DefinedUIComponent&lt;{<br>    progress?: BindingOrValue&lt;<b>number</b>&gt; | <b>undefined</b>;<br>    margin?: BindingOrValue&lt;UIRenderable.Offsets&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="ProgressBarStyles.md">ProgressBarStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    progress: <b>number</b>;<br>    margin: UIRenderable.Offsets;<br>    styles: <a href="ProgressBarStyles.md">ProgressBarStyles</a>;<br>}&gt;;</pre>
 
 ## Instance members
 

@@ -4,7 +4,7 @@
 
 > View composite for a form entry block.
 
-<pre class="docgen_signature"><b>const</b> FormEntry: ViewComposite.DefinedViewComposite&lt;{<br>    label?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    helpText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorFormField?: BindingOrValue&lt;<b>string</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>}, {<br>    label: StringConvertible;<br>    helpText: StringConvertible;<br>    errorText: StringConvertible;<br>    errorFormField: <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> FormEntry: UIComponent.DefinedUIComponent&lt;{<br>    label?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    helpText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorFormField?: BindingOrValue&lt;<b>string</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>}, {<br>    label: StringConvertible;<br>    helpText: StringConvertible;<br>    errorText: StringConvertible;<br>    errorFormField: <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>}&gt;;</pre>
 
 ## Description
 

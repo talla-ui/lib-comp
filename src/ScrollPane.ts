@@ -8,7 +8,7 @@ import {
 	UILabel,
 	UIScrollContainer,
 	ViewBuilder,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import {
@@ -57,7 +57,7 @@ export class ScrollPaneStyles extends HeaderPaneStyles {
  * @see {@link ScrollPaneStyles}+
  * @see {@link ScrollPaneHeaderMode}
  */
-export class ScrollPane extends ViewComposite.define({
+export class ScrollPane extends UIComponent.define({
 	/** The title of the scroll pane */
 	title: StringConvertible.EMPTY,
 	/** The icon displayed next to the title */

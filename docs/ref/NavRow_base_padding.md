@@ -4,7 +4,7 @@
 
 > The padding around the navigation buttons, defaults to 0.
 
-<pre class="docgen_signature">padding: UIComponent.Offsets;</pre>
+<pre class="docgen_signature">padding: UIRenderable.Offsets;</pre>
 
 ## Related
 

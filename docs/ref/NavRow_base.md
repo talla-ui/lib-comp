@@ -2,7 +2,7 @@
 
 > Base type for `NavRow`.
 
-<pre class="docgen_signature"><b>const</b> NavRow_base: ViewComposite.DefinedViewComposite&lt;{<br>    margin?: BindingOrValue&lt;UIComponent.Offsets&gt; | <b>undefined</b>;<br>    padding?: BindingOrValue&lt;UIComponent.Offsets&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="NavContainerStyles.md">NavContainerStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    margin: UIComponent.Offsets;<br>    padding: UIComponent.Offsets;<br>    styles: <a href="NavContainerStyles.md">NavContainerStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> NavRow_base: UIComponent.DefinedUIComponent&lt;{<br>    margin?: BindingOrValue&lt;UIRenderable.Offsets&gt; | <b>undefined</b>;<br>    padding?: BindingOrValue&lt;UIRenderable.Offsets&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="NavContainerStyles.md">NavContainerStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    margin: UIRenderable.Offsets;<br>    padding: UIRenderable.Offsets;<br>    styles: <a href="NavContainerStyles.md">NavContainerStyles</a>;<br>}&gt;;</pre>
 
 ## Instance members
 

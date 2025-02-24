@@ -7,7 +7,7 @@ import {
 	UICell,
 	UIContainer,
 	ViewBuilder,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 
@@ -51,7 +51,7 @@ export class SidebarSplitViewStyles extends ConfigOptions {
  *
  * @see {@link SidebarSplitViewStyles}+
  */
-export class SidebarSplitView extends ViewComposite.define({
+export class SidebarSplitView extends UIComponent.define({
 	/** Unique identifier for the split view, used for storing gutter position */
 	name: undefined as string | undefined,
 	/** True if the sidebar should be visible */

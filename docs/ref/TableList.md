@@ -10,7 +10,7 @@
 
 A table list composite contains multiple table rows, each with a fixed number of columns to form a table grid.
 
-Table rows are automatically created using a preset TableRow view within the table's `UIListView`, based on the elements of a bound array or managed list in [items](TableList_base_items.md). Table rows therefore all have the same number of columns and size.
+Table rows are automatically created using a preset TableRow view within the table's `UIListView`, based on the elements of a bound array or observed list in [items](TableList_base_items.md). Table rows therefore all have the same number of columns and size.
 
 A table list view composite can be preset with a single [TableRow](TableRow.md) constructor, or a [TableHeader](TableHeader.md) and [TableRow](TableRow.md) constructor. Styles may be included, including a fixed height value, which makes the table scrollable within a [ScrollArea](ScrollArea.md) view.
 

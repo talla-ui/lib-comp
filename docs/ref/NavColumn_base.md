@@ -2,7 +2,7 @@
 
 > Base type for `NavColumn`.
 
-<pre class="docgen_signature"><b>const</b> NavColumn_base: ViewComposite.DefinedViewComposite&lt;{<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    margin?: BindingOrValue&lt;UIComponent.Offsets&gt; | <b>undefined</b>;<br>    padding?: BindingOrValue&lt;UIComponent.Offsets&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="NavContainerStyles.md">NavContainerStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    width: <b>string</b> | <b>number</b> | <b>undefined</b>;<br>    margin: UIComponent.Offsets;<br>    padding: UIComponent.Offsets;<br>    styles: <a href="NavContainerStyles.md">NavContainerStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> NavColumn_base: UIComponent.DefinedUIComponent&lt;{<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    margin?: BindingOrValue&lt;UIRenderable.Offsets&gt; | <b>undefined</b>;<br>    padding?: BindingOrValue&lt;UIRenderable.Offsets&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="NavContainerStyles.md">NavContainerStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    width: <b>string</b> | <b>number</b> | <b>undefined</b>;<br>    margin: UIRenderable.Offsets;<br>    padding: UIRenderable.Offsets;<br>    styles: <a href="NavContainerStyles.md">NavContainerStyles</a>;<br>}&gt;;</pre>
 
 ## Instance members
 

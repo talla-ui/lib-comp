@@ -1,16 +1,16 @@
 import {
 	$view,
 	ConfigOptions,
-	ManagedEvent,
+	ObservedEvent,
 	StringConvertible,
 	UICell,
-	UIComponent,
+	UIRenderable,
 	UIConditionalView,
 	UIIconResource,
 	UITextField,
 	View,
 	ViewBuilder,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 	app,
 	ui,
@@ -29,7 +29,7 @@ export class ComboFieldStyles extends ConfigOptions {
 	/** The amount of space between the edge of the text field and the overlay, defaults to [0, 4] */
 	overlayOffset?: number | [number, number] = [0, 4];
 	/** Position of the disclosure icon within the text field, defaults to overlay gravity with a small inset */
-	iconPosition?: UIComponent.Position = { gravity: "overlay", end: 4, top: 3 };
+	iconPosition?: UIRenderable.Position = { gravity: "overlay", end: 4, top: 3 };
 	/** The size of the disclosure icon, if any */
 	iconSize?: number;
 
@@ -79,7 +79,7 @@ export class ComboFieldStyles extends ConfigOptions {
  *
  * @see {@link ComboFieldStyles}+
  */
-export class ComboField extends ViewComposite.define({
+export class ComboField extends UIComponent.define({
 	/** The current value of the combo field */
 	value: StringConvertible.EMPTY,
 	/** A form field ID, to add a two-way `FormContext` binding */
@@ -254,7 +254,7 @@ export class ComboField extends ViewComposite.define({
 	}
 
 	/** Helper function to delegate overlay events manually to be able to filter them */
-	private _delegateOverlayEvent(e: ManagedEvent) {
+	private _delegateOverlayEvent(e: ObservedEvent) {
 		if (e.noPropagation) return;
 		switch (e.name) {
 			case "FocusIn":
@@ -270,7 +270,7 @@ export class ComboField extends ViewComposite.define({
 				setTimeout(() => this.requestFocus(), 10);
 			default:
 				this.delegate(e) ||
-					this.emit(new ManagedEvent(e.name, e.source, e.data, this, e));
+					this.emit(new ObservedEvent(e.name, e.source, e.data, this, e));
 		}
 	}
 

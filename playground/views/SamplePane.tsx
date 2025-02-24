@@ -1,8 +1,8 @@
-import { $activity, $viewport, ViewComposite, ui } from "talla-ui";
+import { $activity, $viewport, UIComponent, ui } from "talla-ui";
 import { HeaderPaneToolbar, ScrollPane } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
 
-export default ViewComposite.define({}, (_, ...content) => (
+export default UIComponent.define({}, (_, ...content) => (
 	<animate
 		showAnimation={$viewport.not("col3").select(ui.animation.FADE_IN_LEFT)}
 	>

@@ -4,11 +4,11 @@ import {
 	StringConvertible,
 	UIButton,
 	UICell,
-	UIComponent,
+	UIRenderable,
 	UIContainer,
 	UIIconResource,
 	UIStyle,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 	ui,
 } from "talla-ui";
@@ -34,7 +34,7 @@ export class ButtonSwitchStyles extends ConfigOptions {
 	/** The alignment of buttons within the switch container, defaults to `start` */
 	align: UIContainer.Layout["distribution"] = "start";
 	/** The margin around the switch container, defaults to 0 */
-	margin: UIComponent.Offsets = 0;
+	margin: UIRenderable.Offsets = 0;
 
 	/** The style applied to each button */
 	switchButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend(
@@ -101,7 +101,7 @@ export type ButtonSwitchItem = {
  * @example
  * {@sample :sample} (see docs in source repository)
  */
-export class ButtonSwitch extends ViewComposite.define({
+export class ButtonSwitch extends UIComponent.define({
 	/** The list of buttons to show, as an array of {@link ButtonSwitchItem} objects */
 	buttons: [] as ButtonSwitchItem[],
 	/** The current value, one of the values from {@link buttons} */

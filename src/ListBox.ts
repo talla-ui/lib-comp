@@ -2,13 +2,13 @@ import {
 	$list,
 	$view,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	StringConvertible,
 	UICell,
 	UIIconResource,
 	UIListView,
 	UIListViewEvent,
-	ViewComposite,
+	UIComponent,
 	ui,
 } from "talla-ui";
 import { ScrollArea } from "./ScrollArea.js";
@@ -83,7 +83,7 @@ export interface ListBoxItem {
  * @see {@link ListBoxItem}+
  * @see {@link ListBoxStyles}+
  */
-export class ListBox extends ViewComposite.define({
+export class ListBox extends UIComponent.define({
 	/** The current value, one of the values from {@link items} */
 	value: undefined as unknown,
 	/** A list of available options, as an array of {@link ListBoxItem} objects */
@@ -150,7 +150,7 @@ export class ListBox extends ViewComposite.define({
 	}
 
 	protected beforeRender() {
-		ManagedObject.observe(this, ["value"], (_, _p, value) => {
+		ObservedObject.observe(this, ["value"], (_, _p, value) => {
 			this.selectItem(value);
 		});
 		bindFormField(this);

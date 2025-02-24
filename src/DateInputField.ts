@@ -2,14 +2,14 @@ import {
 	$view,
 	app,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	ui,
 	UIButton,
 	UICell,
 	UIIconResource,
 	UIStyle,
 	UITextField,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import { bindFormField } from "./util.js";
@@ -109,7 +109,7 @@ export class DateInputLocale extends CalendarViewLocale {
  * @see {@link DateInputLocale}+
  * @see {@link CalendarViewStyles}
  */
-export class DateInputField extends ViewComposite.define({
+export class DateInputField extends UIComponent.define({
 	/** The icon displayed on the date input field */
 	icon: undefined as UIIconResource | undefined,
 	/** The currently selected date */
@@ -138,7 +138,7 @@ export class DateInputField extends ViewComposite.define({
 	name: "DateInputField",
 }) {
 	protected beforeRender() {
-		ManagedObject.observe(this, ["value"], (_, _p, value) => {
+		ObservedObject.observe(this, ["value"], (_, _p, value) => {
 			if (value instanceof Date) this._updateFields(value);
 		});
 		bindFormField(this);

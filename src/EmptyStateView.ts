@@ -6,7 +6,7 @@ import {
 	UICell,
 	UIIconResource,
 	UILabel,
-	ViewComposite,
+	UIComponent,
 } from "talla-ui";
 
 /**
@@ -56,7 +56,7 @@ export class EmptyStateViewStyles extends ConfigOptions {
  *
  * @class
  */
-export const EmptyStateView = ViewComposite.define(
+export const EmptyStateView = UIComponent.define(
 	{
 		/** True if the empty state view should not be rendered */
 		hidden: false,

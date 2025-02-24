@@ -5,7 +5,7 @@ import {
 	useTestContext,
 } from "@talla-ui/test-handler";
 import { beforeEach, expect, test } from "vitest";
-import { ViewComposite } from "talla-ui";
+import { UIComponent } from "talla-ui";
 import { InputFieldsActivity } from "../InputFieldsActivity";
 
 let activity: InputFieldsActivity;
@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 test("ButtonSwitch exists", () => {
-	expect(new ButtonSwitch()).toBeInstanceOf(ViewComposite);
+	expect(new ButtonSwitch()).toBeInstanceOf(UIComponent);
 });
 
 test("Buttons are displayed", async (t) => {

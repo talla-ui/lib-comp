@@ -4,7 +4,7 @@
 
 > The padding applied to both the label and text field.
 
-<pre class="docgen_signature">padding: UIComponent.Offsets;</pre>
+<pre class="docgen_signature">padding: UIRenderable.Offsets;</pre>
 
 ### Notes
 

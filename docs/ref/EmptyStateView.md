@@ -4,7 +4,7 @@
 
 > View composite for an empty state view.
 
-<pre class="docgen_signature"><b>const</b> EmptyStateView: ViewComposite.DefinedViewComposite&lt;{<br>    hidden?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    icon?: BindingOrValue&lt;UIIconResource | <b>undefined</b>&gt;;<br>    title?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    helpText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="EmptyStateViewStyles.md">EmptyStateViewStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    hidden: <b>boolean</b>;<br>    icon: UIIconResource | <b>undefined</b>;<br>    title: StringConvertible;<br>    helpText: StringConvertible;<br>    styles: <a href="EmptyStateViewStyles.md">EmptyStateViewStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> EmptyStateView: UIComponent.DefinedUIComponent&lt;{<br>    hidden?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    icon?: BindingOrValue&lt;UIIconResource | <b>undefined</b>&gt;;<br>    title?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    helpText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="EmptyStateViewStyles.md">EmptyStateViewStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    hidden: <b>boolean</b>;<br>    icon: UIIconResource | <b>undefined</b>;<br>    title: StringConvertible;<br>    helpText: StringConvertible;<br>    styles: <a href="EmptyStateViewStyles.md">EmptyStateViewStyles</a>;<br>}&gt;;</pre>
 
 ## Description
 

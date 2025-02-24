@@ -2,7 +2,7 @@
 
 > Base type for `LoadingStateView`.
 
-<pre class="docgen_signature"><b>const</b> LoadingStateView_base: ViewComposite.DefinedViewComposite&lt;{<br>    text?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    title?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="LoadingStateViewStyles.md">LoadingStateViewStyles</a>&gt; | <b>undefined</b>;<br>    view?: BindingOrValue&lt;View | <b>undefined</b>&gt;;<br>}, {<br>    text: StringConvertible;<br>    title: StringConvertible;<br>    styles: <a href="LoadingStateViewStyles.md">LoadingStateViewStyles</a>;<br>    view: View | <b>undefined</b>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> LoadingStateView_base: UIComponent.DefinedUIComponent&lt;{<br>    text?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    title?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="LoadingStateViewStyles.md">LoadingStateViewStyles</a>&gt; | <b>undefined</b>;<br>    view?: BindingOrValue&lt;View | <b>undefined</b>&gt;;<br>}, {<br>    text: StringConvertible;<br>    title: StringConvertible;<br>    styles: <a href="LoadingStateViewStyles.md">LoadingStateViewStyles</a>;<br>    view: View | <b>undefined</b>;<br>}&gt;;</pre>
 
 ## Instance members
 

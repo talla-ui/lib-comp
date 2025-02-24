@@ -4,7 +4,7 @@ import {
 	StringConvertible,
 	ui,
 	UIIconResource,
-	ViewComposite,
+	UIComponent,
 } from "talla-ui";
 
 /** The (localizable) content of a {@link ToastNotification} message box */
@@ -90,7 +90,7 @@ export async function showToastNotification(
  *
  * @see {@link ToastNotificationStyles}+
  */
-export class ToastNotification extends ViewComposite.define({
+export class ToastNotification extends UIComponent.define({
 	/** The content of the notification, an instance of {@link ToastNotificationOptions} */
 	content: {} as ToastNotificationOptions,
 	/** The styles used for the notification, an instance of {@link ToastNotificationStyles} */

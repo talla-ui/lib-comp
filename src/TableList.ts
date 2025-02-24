@@ -7,7 +7,7 @@ import {
 	UIContainer,
 	UIListView,
 	ViewBuilder,
-	ViewComposite,
+	UIComponent,
 	ui,
 } from "talla-ui";
 import { ScrollArea } from "./ScrollArea.js";
@@ -47,14 +47,14 @@ export class TableListStyles extends ConfigOptions {
  *
  * A table list composite contains multiple table rows, each with a fixed number of columns to form a table grid.
  *
- * Table rows are automatically created using a preset TableRow view within the table's `UIListView`, based on the elements of a bound array or managed list in {@link items}. Table rows therefore all have the same number of columns and size.
+ * Table rows are automatically created using a preset TableRow view within the table's `UIListView`, based on the elements of a bound array or observed list in {@link items}. Table rows therefore all have the same number of columns and size.
  *
  * A table list view composite can be preset with a single {@link TableRow} constructor, or a {@link TableHeader} and {@link TableRow} constructor. Styles may be included, including a fixed height value, which makes the table scrollable within a {@link ScrollArea} view.
  *
  * @see {@link TableListStyles}+
  * @see {@link TableRow}+
  */
-export class TableList extends ViewComposite.define({
+export class TableList extends UIComponent.define({
 	/** The list of items to display in the table */
 	items: undefined as Iterable<unknown> | undefined,
 	/** A set of styles that are applied to this composite, an instance of {@link TableListStyles} */
@@ -111,20 +111,18 @@ export class TableList extends ViewComposite.define({
  *
  * This class is used to define the view content of each row in a {@link TableList}. Content in the table must be preset using constructors of this type.
  */
-export class TableRow<TItem extends any = unknown> extends ViewComposite.define(
-	{
-		/** The width of each column in the row */
-		widths: [] as (number | string | undefined)[],
-		/** The maximum width of each column in the row */
-		maxWidths: [] as (number | string | undefined)[],
-		/** True if the row is currently hidden */
-		hidden: false,
-		/** True if the row is currently selected */
-		selected: false,
-		/** Style for the containing cell */
-		style: undefined as UICell.StyleValue | undefined,
-	}
-) {
+export class TableRow<TItem extends any = unknown> extends UIComponent.define({
+	/** The width of each column in the row */
+	widths: [] as (number | string | undefined)[],
+	/** The maximum width of each column in the row */
+	maxWidths: [] as (number | string | undefined)[],
+	/** True if the row is currently hidden */
+	hidden: false,
+	/** True if the row is currently selected */
+	selected: false,
+	/** Style for the containing cell */
+	style: undefined as UICell.StyleValue | undefined,
+}) {
 	protected beforeRender() {
 		if (UIListView.whence(this)) {
 			$list("item").bindTo(this, "item");

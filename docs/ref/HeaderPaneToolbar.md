@@ -2,7 +2,7 @@
 
 > View composite for a header pane toolbar.
 
-<pre class="docgen_signature"><b>const</b> HeaderPaneToolbar: ViewComposite.DefinedViewComposite&lt;{<br>    spacing?: BindingOrValue&lt;<b>number</b>&gt; | <b>undefined</b>;<br>}, {<br>    spacing: <b>number</b>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> HeaderPaneToolbar: UIComponent.DefinedUIComponent&lt;{<br>    spacing?: BindingOrValue&lt;<b>number</b>&gt; | <b>undefined</b>;<br>}, {<br>    spacing: <b>number</b>;<br>}&gt;;</pre>
 
 ## Description
 

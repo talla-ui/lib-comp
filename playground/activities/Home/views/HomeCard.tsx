@@ -4,7 +4,7 @@ import {
 	ui,
 	UIButton,
 	UIStyle,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import { ColumnCard } from "@talla-ui/lib-comp";
@@ -24,7 +24,7 @@ const _cardDescriptionStyle = ui.style.LABEL.extend({
 	opacity: 0.75,
 });
 
-export default class extends ViewComposite.define({
+export default class extends UIComponent.define({
 	title: StringConvertible.EMPTY,
 	numSamples: 0,
 	color: ui.color.PRIMARY_BG,

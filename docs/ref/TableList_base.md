@@ -2,7 +2,7 @@
 
 > Base type for `TableList`.
 
-<pre class="docgen_signature"><b>const</b> TableList_base: ViewComposite.DefinedViewComposite&lt;{<br>    items?: BindingOrValue&lt;Iterable&lt;<b>unknown</b>&gt; | <b>undefined</b>&gt;;<br>    styles?: ConfigOptions.Arg&lt;<a href="TableListStyles.md">TableListStyles</a>&gt; | <b>undefined</b>;<br>    name?: BindingOrValue&lt;<b>string</b>&gt; | <b>undefined</b>;<br>    renderOptions?: BindingOrValue&lt;UIListView.RenderOptions | <b>undefined</b>&gt;;<br>}, {<br>    items: Iterable&lt;<b>unknown</b>&gt; | <b>undefined</b>;<br>    styles: <a href="TableListStyles.md">TableListStyles</a>;<br>    name: <b>string</b>;<br>    renderOptions: UIListView[&quot;renderOptions&quot;];<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> TableList_base: UIComponent.DefinedUIComponent&lt;{<br>    items?: BindingOrValue&lt;Iterable&lt;<b>unknown</b>&gt; | <b>undefined</b>&gt;;<br>    styles?: ConfigOptions.Arg&lt;<a href="TableListStyles.md">TableListStyles</a>&gt; | <b>undefined</b>;<br>    name?: BindingOrValue&lt;<b>string</b>&gt; | <b>undefined</b>;<br>    renderOptions?: BindingOrValue&lt;UIListView.RenderOptions | <b>undefined</b>&gt;;<br>}, {<br>    items: Iterable&lt;<b>unknown</b>&gt; | <b>undefined</b>;<br>    styles: <a href="TableListStyles.md">TableListStyles</a>;<br>    name: <b>string</b>;<br>    renderOptions: UIListView[&quot;renderOptions&quot;];<br>}&gt;;</pre>
 
 ## Instance members
 

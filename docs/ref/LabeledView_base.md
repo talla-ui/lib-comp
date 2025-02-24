@@ -2,7 +2,7 @@
 
 > Base type for `LabeledView`.
 
-<pre class="docgen_signature"><b>const</b> LabeledView_base: ViewComposite.DefinedViewComposite&lt;{<br>    title?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    icon?: BindingOrValue&lt;UIIconResource | <b>undefined</b>&gt;;<br>    styles?: ConfigOptions.Arg&lt;<a href="LabeledViewStyles.md">LabeledViewStyles</a>&gt; | <b>undefined</b>;<br>    focusOnTitlePress?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>}, {<br>    title: StringConvertible;<br>    icon: UIIconResource | <b>undefined</b>;<br>    styles: <a href="LabeledViewStyles.md">LabeledViewStyles</a>;<br>    focusOnTitlePress: <b>boolean</b>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> LabeledView_base: UIComponent.DefinedUIComponent&lt;{<br>    title?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    icon?: BindingOrValue&lt;UIIconResource | <b>undefined</b>&gt;;<br>    styles?: ConfigOptions.Arg&lt;<a href="LabeledViewStyles.md">LabeledViewStyles</a>&gt; | <b>undefined</b>;<br>    focusOnTitlePress?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>}, {<br>    title: StringConvertible;<br>    icon: UIIconResource | <b>undefined</b>;<br>    styles: <a href="LabeledViewStyles.md">LabeledViewStyles</a>;<br>    focusOnTitlePress: <b>boolean</b>;<br>}&gt;;</pre>
 
 ## Instance members
 

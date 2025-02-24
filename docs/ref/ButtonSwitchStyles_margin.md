@@ -4,7 +4,7 @@
 
 > The margin around the switch container, defaults to 0.
 
-<pre class="docgen_signature">margin: UIComponent.Offsets;</pre>
+<pre class="docgen_signature">margin: UIRenderable.Offsets;</pre>
 
 ## Related
 

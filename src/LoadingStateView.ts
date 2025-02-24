@@ -2,14 +2,14 @@ import {
 	$view,
 	app,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	StringConvertible,
 	ui,
 	UIColor,
-	UIComponent,
+	UIRenderable,
 	UILabel,
 	View,
-	ViewComposite,
+	UIComponent,
 } from "talla-ui";
 
 /**
@@ -46,7 +46,7 @@ export class LoadingStateViewStyles extends ConfigOptions {
 	spacing: number = 16;
 
 	/** Padding around the placeholder view, defaults to 16 */
-	padding?: UIComponent.Offsets = 16;
+	padding?: UIRenderable.Offsets = 16;
 
 	/** Style for the text label */
 	labelStyle: UILabel.StyleValue = ui.style.LABEL.extend({
@@ -70,7 +70,7 @@ export class LoadingStateViewStyles extends ConfigOptions {
  *
  * @class
  */
-export class LoadingStateView extends ViewComposite.define({
+export class LoadingStateView extends UIComponent.define({
 	/** The text to display */
 	text: StringConvertible.EMPTY,
 	/** The title to display */
@@ -127,7 +127,7 @@ export class LoadingStateView extends ViewComposite.define({
 			)
 		);
 		this.placeholder = this.attach(builder.create());
-		ManagedObject.observe(this, ["view"], () => {
+		ObservedObject.observe(this, ["view"], () => {
 			if (!this.view) this.update();
 		});
 		this.update();

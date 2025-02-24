@@ -2,7 +2,7 @@
 
 > Base type for `ToastNotification`.
 
-<pre class="docgen_signature"><b>const</b> ToastNotification_base: ViewComposite.DefinedViewComposite&lt;{<br>    content?: ConfigOptions.Arg&lt;<a href="ToastNotificationOptions.md">ToastNotificationOptions</a>&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="ToastNotificationStyles.md">ToastNotificationStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    content: <a href="ToastNotificationOptions.md">ToastNotificationOptions</a>;<br>    styles: <a href="ToastNotificationStyles.md">ToastNotificationStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> ToastNotification_base: UIComponent.DefinedUIComponent&lt;{<br>    content?: ConfigOptions.Arg&lt;<a href="ToastNotificationOptions.md">ToastNotificationOptions</a>&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="ToastNotificationStyles.md">ToastNotificationStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    content: <a href="ToastNotificationOptions.md">ToastNotificationOptions</a>;<br>    styles: <a href="ToastNotificationStyles.md">ToastNotificationStyles</a>;<br>}&gt;;</pre>
 
 ## Instance members
 

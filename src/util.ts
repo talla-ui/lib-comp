@@ -1,7 +1,7 @@
-import { FormContext, ViewComposite } from "talla-ui";
+import { FormContext, UIComponent } from "talla-ui";
 
 export function bindFormField(
-	composite: ViewComposite & { value: any; formField?: string }
+	composite: UIComponent & { value: any; formField?: string }
 ) {
 	FormContext.listen(
 		composite,

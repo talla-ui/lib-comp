@@ -5,12 +5,12 @@ import {
 	StringConvertible,
 	UIButton,
 	UICell,
-	UIComponent,
+	UIRenderable,
 	UIContainer,
 	UIIconResource,
 	UIStyle,
 	ViewBuilder,
-	ViewComposite,
+	UIComponent,
 	ui,
 } from "talla-ui";
 
@@ -59,13 +59,13 @@ export class NavContainerStyles extends ConfigOptions {
  * @see {@link PageNavButton}+
  * @see {@link DetailNavButton}+
  */
-export class NavColumn extends ViewComposite.define({
+export class NavColumn extends UIComponent.define({
 	/** The width of the outer container, defaults to undefined (auto) */
 	width: undefined as string | number | undefined,
 	/** The margin around the outer container, defaults to 0 */
-	margin: 0 as UIComponent.Offsets,
+	margin: 0 as UIRenderable.Offsets,
 	/** The padding around the navigation buttons, defaults to 0 */
-	padding: 0 as UIComponent.Offsets,
+	padding: 0 as UIRenderable.Offsets,
 	/** A set of styles that are applied to this composite, an instance of {@link NavContainerStyles} */
 	styles: NavContainerStyles.defaults,
 }) {
@@ -135,11 +135,11 @@ export class ListNavColumn extends NavColumn {
  * @see {@link PageNavButton}
  * @see {@link DetailNavButton}
  */
-export class NavRow extends ViewComposite.define({
+export class NavRow extends UIComponent.define({
 	/** The margin around the outer container, defaults to 0 */
-	margin: 0 as UIComponent.Offsets,
+	margin: 0 as UIRenderable.Offsets,
 	/** The padding around the navigation buttons, defaults to 0 */
-	padding: 0 as UIComponent.Offsets,
+	padding: 0 as UIRenderable.Offsets,
 	/** A set of styles that are applied to this composite, an instance of {@link NavContainerStyles} */
 	styles: NavContainerStyles.defaults,
 }) {
@@ -201,7 +201,7 @@ export class TabNavRow extends NavRow {
  *
  * A page navigation button is used within a {@link NavColumn} or {@link NavRow} to represent a specific page ID. The button emits a `Navigate` event when pressed, and the button appears 'pressed' if the current page matches the button's page ID.
  */
-export class PageNavButton extends ViewComposite.define({
+export class PageNavButton extends UIComponent.define({
 	/** The page ID to associate with this button */
 	pageId: undefined as string | undefined,
 	/** The button label */
@@ -254,7 +254,7 @@ export class PageNavButton extends ViewComposite.define({
  *
  * A detail navigation button is used within a {@link NavColumn} or {@link NavRow} to represent a specific navigation detail path. The button emits a `Navigate` event when pressed, and the button appears 'pressed' if the current detail path matches the button's path.
  */
-export class DetailNavButton extends ViewComposite.define({
+export class DetailNavButton extends UIComponent.define({
 	/** The detail path to associate with this button */
 	detail: undefined as string | undefined,
 	/** The button label */

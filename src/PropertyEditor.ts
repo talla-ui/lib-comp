@@ -3,7 +3,7 @@ import {
 	$list,
 	$view,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	StringConvertible,
 	ui,
 	UICell,
@@ -12,7 +12,7 @@ import {
 	UIStyle,
 	UIToggle,
 	View,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import { EditInPlace, EditInPlaceStyles } from "./EditInPlace.js";
@@ -155,18 +155,18 @@ export class PropertyEditorStyles extends ConfigOptions {
  *
  * Properties are added to the editor composite using a list of objects, which include the property ID, name, value, and input or action options.
  *
- * > Note: If properties are added using a managed list (with property items that are described by `ManagedObject` instances), changes can be handled using an event listener on the list itself. When a field value is updated by the user, the property editor emits a change event. Otherwise, changes will have to be handled by listening for the `Change` event from the property editor view.
+ * > Note: If properties are added using a observed list (with property items that are described by `ObservedObject` instances), changes can be handled using an event listener on the list itself. When a field value is updated by the user, the property editor emits a change event. Otherwise, changes will have to be handled by listening for the `Change` event from the property editor view.
  *
  * **Events**
  * - `Change` is emitted when a property value has changed. The updated {@link PropertyEditorItem} and its new value are included in the event data as `item` and `value`, respectively.
  * - Custom action events are emitted with the {@link PropertyEditorItem} and current value included in the event data as `item` and `value`.
- * - Managed object change events are emitted on property items where possible (see above).
+ * - Observed object change events are emitted on property items where possible (see above).
  *
  * @see {@link PropertyEditorStyles}+
  * @see {@link PropertyEditorItem}+
  */
-export class PropertyEditor extends ViewComposite.define({
-	/** The list of properties to display and edit, as an array or managed list of {@link PropertyEditorItem} objects */
+export class PropertyEditor extends UIComponent.define({
+	/** The list of properties to display and edit, as an array or observed list of {@link PropertyEditorItem} objects */
 	items: [] as Iterable<PropertyEditorItem>,
 	/** True if all properties should be read-only */
 	readOnly: false,
@@ -206,7 +206,7 @@ export class PropertyEditor extends ViewComposite.define({
  *
  * This class is used internally by {@link PropertyEditor} to render individual property rows.
  */
-class PropertyEditorRow extends ViewComposite.define({
+class PropertyEditorRow extends UIComponent.define({
 	/** The property item to display and edit */
 	item: undefined as PropertyEditorItem | undefined,
 	/** True if the property should be read-only */
@@ -267,7 +267,7 @@ class PropertyEditorRow extends ViewComposite.define({
 	protected onChange(e: ViewEvent) {
 		if (this.item) {
 			this.item.value = e.data.state ?? e.data.value;
-			if (this.item instanceof ManagedObject) this.item.emitChange();
+			if (this.item instanceof ObservedObject) this.item.emitChange();
 			this.emit("Change", { item: this.item, value: this.item.value });
 		}
 		return true;

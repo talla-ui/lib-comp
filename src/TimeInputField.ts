@@ -1,13 +1,13 @@
 import {
 	$view,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	ui,
 	UICell,
 	UIIconResource,
 	UIStyle,
 	UITextField,
-	ViewComposite,
+	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import { bindFormField } from "./util.js";
@@ -96,7 +96,7 @@ export class TimeInputLocale extends ConfigOptions {
  * @see {@link TimeInputFieldStyles}+
  * @see {@link TimeInputLocale}+
  */
-export class TimeInputField extends ViewComposite.define({
+export class TimeInputField extends UIComponent.define({
 	/** The icon displayed on the time input field */
 	icon: undefined as UIIconResource | undefined,
 	/** The currently selected time (as hours, minutes within a `Date` value) */
@@ -119,7 +119,7 @@ export class TimeInputField extends ViewComposite.define({
 	name: "TimeInputField",
 }) {
 	protected beforeRender() {
-		ManagedObject.observe(this, ["value"], (_, _p, value) => {
+		ObservedObject.observe(this, ["value"], (_, _p, value) => {
 			if (value === this._lastValidated) return;
 			if (value instanceof Date) {
 				this._updateFields(value);

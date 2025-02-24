@@ -3,9 +3,9 @@ import {
 	ConfigOptions,
 	ui,
 	UICell,
-	UIComponent,
+	UIRenderable,
 	UIContainer,
-	ViewComposite,
+	UIComponent,
 } from "talla-ui";
 
 /**
@@ -18,7 +18,7 @@ export class ColumnCardStyles extends ConfigOptions {
 	static default = new ColumnCardStyles();
 
 	/** The padding applied to non-container elements within the card */
-	contentPadding: UIComponent.Offsets = { x: 16, y: 12 };
+	contentPadding: UIRenderable.Offsets = { x: 16, y: 12 };
 
 	/** The separator style between card elements */
 	separator: UIContainer.SeparatorOptions = {
@@ -49,12 +49,12 @@ export class ColumnCardStyles extends ConfigOptions {
  *
  * @class
  */
-export const ColumnCard = ViewComposite.define(
+export const ColumnCard = UIComponent.define(
 	{
 		/** The margin around the card, defaults to `{ bottom: 8 }` for use in a grid */
-		margin: { bottom: 8 } as UIComponent.Offsets,
+		margin: { bottom: 8 } as UIRenderable.Offsets,
 		/** The card position, defaults to `{ gravity: "start" }` for use in a grid */
-		position: { gravity: "start" } as UIComponent.Position,
+		position: { gravity: "start" } as UIRenderable.Position,
 		/** The width of the card, defaults to 320 */
 		width: 320 as string | number | undefined,
 		/** A set of styles that are applied to this composite, an instance of {@link ColumnCardStyles} */
@@ -76,7 +76,7 @@ export const ColumnCard = ViewComposite.define(
 			},
 			...content.map((c) =>
 				c.View.prototype instanceof UIContainer ||
-				c.View.prototype instanceof ViewComposite
+				c.View.prototype instanceof UIComponent
 					? c
 					: ui.row({ padding: view.styles.contentPadding }, c)
 			)

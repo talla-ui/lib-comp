@@ -2,7 +2,7 @@
 
 > Base type for `SidebarSplitView`.
 
-<pre class="docgen_signature"><b>const</b> SidebarSplitView_base: ViewComposite.DefinedViewComposite&lt;{<br>    name?: BindingOrValue&lt;<b>string</b> | <b>undefined</b>&gt;;<br>    showSidebar?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    showContent?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    reverse?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="SidebarSplitViewStyles.md">SidebarSplitViewStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    name: <b>string</b> | <b>undefined</b>;<br>    showSidebar: <b>boolean</b>;<br>    showContent: <b>boolean</b>;<br>    reverse: <b>boolean</b>;<br>    styles: <a href="SidebarSplitViewStyles.md">SidebarSplitViewStyles</a>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> SidebarSplitView_base: UIComponent.DefinedUIComponent&lt;{<br>    name?: BindingOrValue&lt;<b>string</b> | <b>undefined</b>&gt;;<br>    showSidebar?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    showContent?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    reverse?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="SidebarSplitViewStyles.md">SidebarSplitViewStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    name: <b>string</b> | <b>undefined</b>;<br>    showSidebar: <b>boolean</b>;<br>    showContent: <b>boolean</b>;<br>    reverse: <b>boolean</b>;<br>    styles: <a href="SidebarSplitViewStyles.md">SidebarSplitViewStyles</a>;<br>}&gt;;</pre>
 
 ## Instance members
 

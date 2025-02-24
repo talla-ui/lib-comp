@@ -1,4 +1,4 @@
-import { ui, UICell, UIRow, ViewBuilder, ViewComposite } from "talla-ui";
+import { ui, UICell, UIRow, ViewBuilder, UIComponent } from "talla-ui";
 
 /**
  * View composite with an area that contains horizontally scrolling content
@@ -7,7 +7,7 @@ import { ui, UICell, UIRow, ViewBuilder, ViewComposite } from "talla-ui";
  *
  * > Note: For scrolling up and down, you can use a {@link ScrollArea} instead.
  */
-export class ScrollRow extends ViewComposite.define({
+export class ScrollRow extends UIComponent.define({
 	/** Height of the outer container */
 	height: undefined as UIRow["height"],
 	/** Margin for the outer container */

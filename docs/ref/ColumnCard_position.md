@@ -4,7 +4,7 @@
 
 > The card position, defaults to `{ gravity: "start" }` for use in a grid.
 
-<pre class="docgen_signature">position: UIComponent.Position;</pre>
+<pre class="docgen_signature">position: UIRenderable.Position;</pre>
 
 ## Related
 

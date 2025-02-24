@@ -1,11 +1,11 @@
 import {
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	ui,
 	UIAnimatedCell,
 	UICell,
+	UIRenderable,
 	UIComponent,
-	ViewComposite,
 } from "talla-ui";
 
 /**
@@ -40,11 +40,11 @@ export class ProgressBarStyles extends ConfigOptions {
  *
  * @see {@link ProgressBarStyles}+
  */
-export class ProgressBar extends ViewComposite.define({
+export class ProgressBar extends UIComponent.define({
 	/** The current progress value, between 0 and 1 */
 	progress: 0,
 	/** Margin around the outer container, defaults to 0 */
-	margin: 0 as UIComponent.Offsets,
+	margin: 0 as UIRenderable.Offsets,
 	/** A set of styles that are applied to this composite, an instance of {@link ProgressBarStyles} */
 	styles: ProgressBarStyles.default,
 }) {
@@ -74,7 +74,7 @@ export class ProgressBar extends ViewComposite.define({
 
 	protected beforeRender() {
 		this._setWidth();
-		ManagedObject.observe(this, ["progress"], this._setWidth.bind(this));
+		ObservedObject.observe(this, ["progress"], this._setWidth.bind(this));
 	}
 
 	private _setWidth() {

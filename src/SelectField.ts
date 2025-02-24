@@ -1,12 +1,12 @@
 import {
 	$view,
 	ConfigOptions,
-	ManagedObject,
+	ObservedObject,
 	StringConvertible,
 	UIButton,
 	UIIconResource,
 	UIStyle,
-	ViewComposite,
+	UIComponent,
 	app,
 	ui,
 } from "talla-ui";
@@ -81,7 +81,7 @@ export interface SelectFieldOption {
  * @see {@link SelectFieldOption} +
  * @see {@link SelectFieldStyles} +
  */
-export class SelectField extends ViewComposite.define({
+export class SelectField extends UIComponent.define({
 	/** The button label, updated automatically upon selection */
 	label: StringConvertible.EMPTY as StringConvertible | undefined,
 	/** The button icon, until an option with an icon is selected */
@@ -132,7 +132,7 @@ export class SelectField extends ViewComposite.define({
 	protected beforeRender() {
 		bindFormField(this);
 		if (this.value !== undefined) this._updateButton();
-		ManagedObject.observe(this, ["value"], () => this._updateButton());
+		ObservedObject.observe(this, ["value"], () => this._updateButton());
 	}
 
 	protected async onOpenMenu() {

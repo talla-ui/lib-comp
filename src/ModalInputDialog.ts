@@ -1,4 +1,4 @@
-import { Activity, app, ManagedEvent, FormContext } from "talla-ui";
+import { Activity, app, ObservedEvent, FormContext } from "talla-ui";
 
 /**
  * Base activity for a modal input dialog
@@ -26,7 +26,7 @@ export class ModalInputDialog extends Activity {
 	formContext = new FormContext();
 
 	/** Delegates Confirm, Cancel, and EscapeKeyPress events from the view */
-	override delegate(event: ManagedEvent) {
+	override delegate(event: ObservedEvent) {
 		switch (event.name) {
 			case "EscapeKeyPress":
 			case "Cancel":

@@ -1,4 +1,4 @@
-import { UICell, ViewComposite, ui } from "talla-ui";
+import { UICell, UIComponent, ui } from "talla-ui";
 
 /**
  * View composite with an area that contains scrolling content
@@ -9,7 +9,7 @@ import { UICell, ViewComposite, ui } from "talla-ui";
  *
  * @class
  */
-export const ScrollArea = ViewComposite.define(
+export const ScrollArea = UIComponent.define(
 	{
 		/** Cell style for the outer container */
 		cellStyle: undefined as UICell.StyleValue | undefined,

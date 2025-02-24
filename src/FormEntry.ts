@@ -1,4 +1,4 @@
-import { $form, $view, StringConvertible, ui, ViewComposite } from "talla-ui";
+import { $form, $view, StringConvertible, ui, UIComponent } from "talla-ui";
 
 /**
  * View composite for a form entry block
@@ -11,7 +11,7 @@ import { $form, $view, StringConvertible, ui, ViewComposite } from "talla-ui";
  *
  * @class
  */
-export const FormEntry = ViewComposite.define(
+export const FormEntry = UIComponent.define(
 	{
 		/** Text for the field name label */
 		label: StringConvertible.EMPTY,

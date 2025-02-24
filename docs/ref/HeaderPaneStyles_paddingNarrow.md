@@ -4,7 +4,7 @@
 
 > Padding for the content area in narrow viewports, defaults to 16.
 
-<pre class="docgen_signature">paddingNarrow: UIComponent.Offsets;</pre>
+<pre class="docgen_signature">paddingNarrow: UIRenderable.Offsets;</pre>
 
 ## Related
 

@@ -4,7 +4,7 @@
 
 > Padding around the placeholder view, defaults to 16.
 
-<pre class="docgen_signature">padding?: UIComponent.Offsets;</pre>
+<pre class="docgen_signature">padding?: UIRenderable.Offsets;</pre>
 
 ## Related
 

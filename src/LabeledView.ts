@@ -11,7 +11,7 @@ import {
 	UIIconResource,
 	UILabel,
 	ViewBuilder,
-	ViewComposite,
+	UIComponent,
 } from "talla-ui";
 
 /**
@@ -62,7 +62,7 @@ export class LabeledViewStyles extends ConfigOptions {
  *
  * A labeled view composite combines a title label (with an optional icon), and an embedded view. The label can be shown above the view (vertical layout) or to the side (horizontal layout). The layout is bound to the viewport width so that horizontal layout is selected for wider viewports, as configured using {@link LabeledViewStyles}.
  */
-export class LabeledView extends ViewComposite.define({
+export class LabeledView extends UIComponent.define({
 	/** The title label text */
 	title: StringConvertible.EMPTY,
 	/** The title icon, if any */

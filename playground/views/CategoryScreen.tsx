@@ -13,11 +13,11 @@ import {
 	StringConvertible,
 	ui,
 	View,
-	ViewComposite,
+	UIComponent,
 } from "talla-ui";
 import icons from "~/icons/icons";
 
-export default ViewComposite.define(
+export default UIComponent.define(
 	{
 		title: StringConvertible.EMPTY,
 		samples: undefined as Iterable<Activity> | undefined,
