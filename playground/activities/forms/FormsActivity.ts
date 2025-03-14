@@ -11,7 +11,7 @@ import CategoryScreen from "~/components/CategoryScreen";
 import { FormEntrySample } from "./FormEntry/FormEntrySample";
 import { FormSectionSample } from "./FormSection/FormSectionSample";
 import { PropertyEditorSample } from "./PropertyEditor/PropertyEditorSample";
-import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
+import { SourceCodeActivity } from "../source/SourceCodeActivity";
 
 export class FormsActivity extends Activity {
 	static readonly instance = new FormsActivity();

@@ -13,7 +13,7 @@ import { LoadingStateViewSample } from "./LoadingStateView/LoadingStateViewSampl
 import { ModalInputDialogSample } from "./ModalInputDialog/ModalInputDialogSample";
 import { ProgressDialogSample } from "./ProgressDialog/ProgressDialogSample";
 import { ToastNotificationSample } from "./ToastNotification/ToastNotificationSample";
-import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
+import { SourceCodeActivity } from "../source/SourceCodeActivity";
 
 export class PatternsActivity extends Activity {
 	static readonly instance = new PatternsActivity();

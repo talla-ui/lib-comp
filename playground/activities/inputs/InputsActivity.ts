@@ -17,7 +17,7 @@ import { EditInPlaceSample } from "./EditInPlace/EditInPlaceSample";
 import { ListBoxSample } from "./ListBox/ListBoxSample";
 import { SelectFieldSample } from "./SelectField/SelectFieldSample";
 import { TimeInputFieldSample } from "./TimeInputField/TimeInputFieldSample";
-import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
+import { SourceCodeActivity } from "../source/SourceCodeActivity";
 
 export class InputsActivity extends Activity {
 	static readonly instance = new InputsActivity();
