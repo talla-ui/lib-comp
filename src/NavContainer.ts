@@ -178,7 +178,7 @@ export class TabNavRow extends NavRow {
 		}),
 		navButtonStyle: ui.style.BUTTON.extend(
 			{
-				padding: { x: 16, y: 4 },
+				padding: { x: 24, y: 6 },
 				background: ui.color.CLEAR,
 				minWidth: 88,
 				borderRadius: 32,
