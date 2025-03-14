@@ -128,9 +128,12 @@ export class TableRow<TItem extends any = unknown> extends UIComponent.define({
 			$list("item").bindTo(this, "item");
 		}
 		let tableList = TableList.whence(this);
-		(this.body as UICell).style = ui.style(this.style, {
-			height: tableList?.styles.rowHeight,
-		});
+		(this.body as UICell).style = ui.style(
+			{
+				height: tableList?.styles.rowHeight,
+			},
+			this.style
+		);
 	}
 
 	/** The item bound to this row (undefined for table header) */
@@ -148,7 +151,7 @@ export class TableRow<TItem extends any = unknown> extends UIComponent.define({
 					.boolean("selected")
 					.and("styles.selectedTextColor")
 					.else(undefined),
-				layout: { axis: "horizontal", gravity: "center" },
+				layout: { axis: "horizontal", gravity: "stretch" },
 				style: this.style,
 				padding: $view("styles.rowInset"),
 				accessibleRole: "row",
@@ -160,8 +163,13 @@ export class TableRow<TItem extends any = unknown> extends UIComponent.define({
 							width: this.widths[i] ?? 0,
 							maxWidth: this.maxWidths[i] ?? this.widths[i] ?? undefined,
 						},
-						layout: { clip: false, axis: "horizontal", distribution: "fill" },
-						position: { gravity: "center" },
+						layout: {
+							clip: false,
+							axis: "horizontal",
+							gravity: "center",
+							distribution: "fill",
+						},
+						position: { gravity: "stretch" },
 						accessibleRole: "cell",
 					},
 					c

@@ -22,6 +22,37 @@ export default (
 		</column>
 
 		<column spacing={16}>
+			<label>Header with nested columns and rows</label>
+			<TableList items={[1, 2, 3, 4]}>
+				<TableHeader widths={[40, undefined, 80]}>
+					<spacer />
+					<label>Name</label>
+					<label>Number</label>
+					<spacer />
+				</TableHeader>
+				<TableRow style={{ height: 60 }} widths={[40, undefined, 80]}>
+					<label icon={ui.icon.CHECK} />
+					<column>
+						<label bold>Item %[item]</label>
+						<label dim>Description</label>
+					</column>
+					<label>%[item]</label>
+					<row align="end" grow>
+						<button style={ui.style.BUTTON_PLAIN} chevron="next">
+							View{"  "}
+						</button>
+						<button
+							style={ui.style.BUTTON_ICON}
+							icon={ui.icon.MORE}
+							iconSize={20}
+						/>
+					</row>
+				</TableRow>
+			</TableList>
+			<separator margin={16} />
+		</column>
+
+		<column spacing={16}>
 			<label>Scrolling table with styles</label>
 			<TableList
 				items={$activity.list("countries")}

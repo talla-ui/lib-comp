@@ -98,7 +98,7 @@ export class EditInPlace extends UIComponent.define({
 			bottom: paddingStyle.bottom ?? paddingStyle.y,
 		};
 		let iconPaddingStart =
-			typeof padding.start === "number" ? padding.start + 24 : padding.start;
+			typeof padding.start === "number" ? padding.start + 28 : padding.start;
 
 		return ui.cell(
 			{
@@ -121,7 +121,7 @@ export class EditInPlace extends UIComponent.define({
 					layout: { axis: "horizontal", gravity: "center" },
 
 					// move up slightly to visually align the icon with text
-					position: { gravity: "overlay", start: 0, top: 0, bottom: 2 },
+					position: { gravity: "overlay", start: 4, top: 0, bottom: 2 },
 				},
 				ui.label({
 					icon: $view("icon"),

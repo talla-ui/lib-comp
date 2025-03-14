@@ -225,6 +225,7 @@ class PropertyEditorRow extends UIComponent.define({
 				{
 					onClick: "FocusValue",
 					onPress: "FocusValue",
+					position: { gravity: "stretch" },
 					style: $bind("focused").select(
 						{
 							shrink: 1,
