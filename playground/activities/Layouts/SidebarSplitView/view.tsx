@@ -1,5 +1,5 @@
 import { $activity, ui } from "talla-ui";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 import { ButtonSwitch, SidebarSplitView } from "@talla-ui/lib-comp";
 
 const outerCellStyle = ui.style.CELL.extend({

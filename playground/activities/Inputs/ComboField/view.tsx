@@ -1,5 +1,5 @@
 import { $activity, $form, ui, UIStyle } from "talla-ui";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 import { ComboField, ListBox, ListBoxStyles } from "@talla-ui/lib-comp";
 
 const _comboListBoxStyles = ListBoxStyles.init({

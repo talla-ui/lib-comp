@@ -1,5 +1,5 @@
 import { $form, strf, ui } from "talla-ui";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 import { CalendarSelectField, CalendarViewLocale } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
 

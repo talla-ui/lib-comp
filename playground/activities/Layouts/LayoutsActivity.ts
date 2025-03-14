@@ -7,7 +7,7 @@ import {
 	ui,
 	ViewEvent,
 } from "talla-ui";
-import CategoryScreen from "~/views/CategoryScreen";
+import CategoryScreen from "~/components/CategoryScreen";
 import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
 import { ColumnCardSample } from "./ColumnCard/ColumnCardSample";
 import { HeaderPaneSample } from "./HeaderPane/HeaderPaneSample";

@@ -1,7 +1,7 @@
 import { $form, ui, UIStyle } from "talla-ui";
 import { ButtonSwitch, ButtonSwitchStyles } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 
 const _customButtonSwitchStyles = ButtonSwitchStyles.init({
 	align: "center",

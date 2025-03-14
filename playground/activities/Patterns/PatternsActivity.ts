@@ -7,7 +7,7 @@ import {
 	ui,
 	ViewEvent,
 } from "talla-ui";
-import CategoryScreen from "~/views/CategoryScreen";
+import CategoryScreen from "~/components/CategoryScreen";
 import { EmptyStateViewSample } from "./EmptyStateView/EmptyStateViewSample";
 import { LoadingStateViewSample } from "./LoadingStateView/LoadingStateViewSample";
 import { ModalInputDialogSample } from "./ModalInputDialog/ModalInputDialogSample";

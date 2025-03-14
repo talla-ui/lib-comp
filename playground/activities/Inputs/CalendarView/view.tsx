@@ -1,5 +1,5 @@
 import { $activity, $form, ui } from "talla-ui";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 import { CalendarView, CalendarViewLocale } from "@talla-ui/lib-comp";
 
 const calendarViewLocale_FR = CalendarViewLocale.init({

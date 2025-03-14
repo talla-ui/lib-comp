@@ -7,7 +7,7 @@ import {
 	ui,
 	ViewEvent,
 } from "talla-ui";
-import CategoryScreen from "~/views/CategoryScreen";
+import CategoryScreen from "~/components/CategoryScreen";
 import { ButtonSwitchSample } from "./ButtonSwitch/ButtonSwitchSample";
 import { CalendarSelectFieldSample } from "./CalendarSelectField/CalendarSelectFieldSample";
 import { CalendarViewSample } from "./CalendarView/CalendarViewSample";

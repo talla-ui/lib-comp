@@ -1,5 +1,5 @@
 import { ui } from "talla-ui";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 import { FormEntry, SelectField } from "@talla-ui/lib-comp";
 
 export default (

@@ -7,7 +7,7 @@ import {
 	ui,
 	ViewEvent,
 } from "talla-ui";
-import CategoryScreen from "~/views/CategoryScreen";
+import CategoryScreen from "~/components/CategoryScreen";
 import { FormEntrySample } from "./FormEntry/FormEntrySample";
 import { FormSectionSample } from "./FormSection/FormSectionSample";
 import { PropertyEditorSample } from "./PropertyEditor/PropertyEditorSample";

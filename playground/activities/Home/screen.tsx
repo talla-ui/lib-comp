@@ -1,7 +1,7 @@
 import { $activity, $list, $viewport, ui } from "talla-ui";
 import { HeaderPaneToolbar, ScrollPane, ScrollRow } from "@talla-ui/lib-comp";
 import icons from "~/icons/icons";
-import HomeCard from "./views/HomeCard";
+import HomeCard from "~/components/HomeCard";
 
 export default (
 	<animate

@@ -1,5 +1,5 @@
 import { app, strf, ui, FormContext } from "talla-ui";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 import {
 	FormEntry,
 	ModalInputDialog,

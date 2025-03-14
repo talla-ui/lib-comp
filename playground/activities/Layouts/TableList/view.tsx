@@ -1,5 +1,5 @@
 import { $activity, $list, ui } from "talla-ui";
-import SamplePane from "~/views/SamplePane";
+import SamplePane from "~/components/SamplePane";
 import { TableHeader, TableList, TableRow } from "@talla-ui/lib-comp";
 
 export default (
