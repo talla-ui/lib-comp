@@ -96,7 +96,7 @@ export default (
 			</ColumnCard>
 
 			<ColumnCard>
-				<row padding={{ x: 16, y: 8 }}>
+				<row padding={{ x: 16, y: 12 }}>
 					<label bold>Scrolling table</label>
 					<spacer />
 					<button style={ui.style.BUTTON_SMALL} width="auto">
@@ -118,7 +118,7 @@ export default (
 						</label>
 					</TableRow>
 				</TableList>
-				<row align="end" padding={{ x: 16, y: 8 }}>
+				<row align="end" padding={{ x: 16, y: 12 }}>
 					<label dim>Number of items: %[countries.length]</label>
 				</row>
 			</ColumnCard>

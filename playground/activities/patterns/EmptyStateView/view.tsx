@@ -43,7 +43,7 @@ export default (
 		<column spacing={16}>
 			<label>Empty state card</label>
 			<ColumnCard>
-				<row padding={{ y: 8, x: 16 }}>
+				<row padding={{ y: 12, x: 20 }}>
 					<label bold style={{ fontSize: 16 }}>
 						Appointments
 					</label>

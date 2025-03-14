@@ -34,16 +34,14 @@ export default (
 				<list items={$activity.list("countries")}>
 					<ColumnCard width={180} margin={{ bottom: 8, end: 12 }}>
 						<cell>
-							<row padding={16}>
+							<row padding={20}>
 								<label>%[item.label]</label>
 								<spacer />
 								<label bold>%[item.value]</label>
 							</row>
 							<spacer height={60} />
 							<row align="end" padding={8}>
-								<button style={ui.style.BUTTON_SMALL} chevron="next">
-									View
-								</button>
+								<button style={ui.style.BUTTON_PLAIN}>View{"  "}→</button>
 							</row>
 						</cell>
 					</ColumnCard>

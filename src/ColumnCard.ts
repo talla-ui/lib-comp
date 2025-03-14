@@ -18,7 +18,7 @@ export class ColumnCardStyles extends ConfigOptions {
 	static default = new ColumnCardStyles();
 
 	/** The padding applied to non-container elements within the card */
-	contentPadding: UIRenderable.Offsets = { x: 16, y: 12 };
+	contentPadding: UIRenderable.Offsets = { x: 20, y: 16 };
 
 	/** The separator style between card elements */
 	separator: UIContainer.SeparatorOptions = {
