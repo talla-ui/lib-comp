@@ -18,7 +18,7 @@ const dialog = (
 		background={ui.color.BACKGROUND}
 	>
 		<cell effect={ui.effect("DragModal")}>
-			<row padding={16}>
+			<row padding={{ x: 16, y: 12 }}>
 				<label fontSize={16} bold>
 					Compose
 				</label>
@@ -30,19 +30,21 @@ const dialog = (
 				/>
 			</row>
 		</cell>
-		<column padding={16}>
+		<separator margin={0} />
+		<column padding={16} spacing={8}>
 			<FormEntry label="Email address" errorFormField="email">
 				<textfield type="email" formField="email" requestFocus />
 			</FormEntry>
 			<FormEntry label="Message" errorFormField="message">
-				<textfield formField="message" multiline style={{ height: 100 }} />
+				<textfield formField="message" multiline style={{ height: 140 }} />
 			</FormEntry>
 		</column>
-		<separator />
-		<row padding={16} align="end">
-			<button onClick="Cancel">Cancel</button>
+		<row padding={{ x: 16, top: 4, bottom: 20 }}>
 			<button primary onClick="Confirm">
 				Confirm
+			</button>
+			<button style={ui.style.BUTTON_PLAIN} onClick="Cancel">
+				Cancel
 			</button>
 		</row>
 	</cell>

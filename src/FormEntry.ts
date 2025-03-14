@@ -45,7 +45,7 @@ export const FormEntry = UIComponent.define(
 				text: values.label,
 				width: "100%",
 				fontSize: 12,
-				padding: { y: 4 },
+				padding: { y: 6 },
 				onClick: "RequestFocusNext",
 			}),
 			...content,
