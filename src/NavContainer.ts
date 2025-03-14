@@ -105,6 +105,7 @@ export class ListNavColumn extends NavColumn {
 				borderRadius: 0,
 				textAlign: "start",
 				width: "100%",
+				padding: { x: 16, y: 6 },
 			},
 			{
 				[UIStyle.STATE_FOCUSED]: true,

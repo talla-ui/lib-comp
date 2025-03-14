@@ -67,7 +67,7 @@ export default (
 		<column spacing={16}>
 			<label>List nav column in card, with chevrons</label>
 			<ColumnCard>
-				<row padding={{ x: 16, y: 12 }}>
+				<row padding={16}>
 					<label dim icon={icons.layout} iconSize={16}>
 						Layouts
 					</label>
