@@ -8,46 +8,34 @@ import {
 	ViewEvent,
 } from "talla-ui";
 import CategoryScreen from "~/views/CategoryScreen";
-import { ButtonSwitchSample } from "./ButtonSwitch/ButtonSwitchSample";
-import { CalendarSelectFieldSample } from "./CalendarSelectField/CalendarSelectFieldSample";
-import { CalendarViewSample } from "./CalendarView/CalendarViewSample";
-import { ComboFieldSample } from "./ComboField/ComboFieldSample";
-import { DateInputFieldSample } from "./DateInputField/DateInputFieldSample";
-import { EditInPlaceSample } from "./EditInPlace/EditInPlaceSample";
-import { ListBoxSample } from "./ListBox/ListBoxSample";
-import { SelectFieldSample } from "./SelectField/SelectFieldSample";
-import { TimeInputFieldSample } from "./TimeInputField/TimeInputFieldSample";
+import { FormEntrySample } from "./FormEntry/FormEntrySample";
+import { FormSectionSample } from "./FormSection/FormSectionSample";
+import { PropertyEditorSample } from "./PropertyEditor/PropertyEditorSample";
 import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
 
-export class InputFieldsActivity extends Activity {
-	static readonly instance = new InputFieldsActivity();
+export class FormsActivity extends Activity {
+	static readonly instance = new FormsActivity();
 
 	constructor() {
 		super();
-		this.title = "Input fields";
-		this.navigationPageId = "input";
+		this.title = "Forms";
+		this.navigationPageId = "forms";
 		this.setRenderMode("screen", {
 			background: ui.color.BACKGROUND.alpha(0.75),
 			transform: { show: ui.animation.FADE_IN_LEFT },
 		});
 		this.samples = this.attach(
 			new ActivityList().add(
-				new ButtonSwitchSample(),
-				new SelectFieldSample(),
-				new ComboFieldSample(),
-				new ListBoxSample(),
-				new EditInPlaceSample(),
-				new CalendarViewSample(),
-				new CalendarSelectFieldSample(),
-				new DateInputFieldSample(),
-				new TimeInputFieldSample()
+				new FormEntrySample(),
+				new FormSectionSample(),
+				new PropertyEditorSample()
 			),
 			{ delegate: this }
 		);
 	}
 
 	samples: ActivityList;
-	color = ui.color("#07f").alpha(0.8);
+	color = ui.color("#41b").alpha(0.8);
 
 	protected createView() {
 		return new CategoryScreen({

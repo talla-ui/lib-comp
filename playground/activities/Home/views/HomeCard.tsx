@@ -39,7 +39,7 @@ export default class extends UIComponent.define({
 					effect: ui.effect.ELEVATE,
 					containerStyle: ui.style.CELL_BG.extend(
 						{
-							borderRadius: 16,
+							borderRadius: 8,
 							grow: 0,
 							background: this.color,
 							textColor: this.color.text(),
@@ -52,7 +52,7 @@ export default class extends UIComponent.define({
 					),
 				}}
 			>
-				<column padding={12} width="100%">
+				<column padding={16} width="100%">
 					<label
 						style={$viewport
 							.boolean("col2")

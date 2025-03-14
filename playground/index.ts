@@ -1,11 +1,11 @@
 import { strf } from "talla-ui";
 import { useWebContext } from "@talla-ui/web-handler";
 import { HomeActivity } from "./activities/Home/HomeActivity";
-import { InputFieldsActivity } from "./activities/InputFields/InputFieldsActivity";
-import { ViewPatternsActivity } from "./activities/ViewPatterns/ViewPatternsActivity";
+import { InputsActivity } from "./activities/Inputs/InputsActivity";
+import { PatternsActivity } from "./activities/Patterns/PatternsActivity";
 import highlightCSS from "highlight.js/styles/github-dark.min.css?url";
-import { FormLayoutActivity } from "./activities/FormLayout/FormLayoutActivity";
-import { AppLayoutActivity } from "./activities/AppLayout/AppLayoutActivity.";
+import { FormsActivity } from "./activities/Forms/FormsActivity";
+import { LayoutsActivity } from "./activities/Layouts/LayoutsActivity";
 import { showWebTools } from "@talla-ui/lib-web-tools";
 
 const app = useWebContext((options) => {
@@ -42,7 +42,7 @@ app.i18n = {
 showWebTools(undefined, true);
 
 app.addActivity(new HomeActivity());
-app.addActivity(new InputFieldsActivity());
-app.addActivity(new FormLayoutActivity());
-app.addActivity(new AppLayoutActivity());
-app.addActivity(new ViewPatternsActivity());
+app.addActivity(new InputsActivity());
+app.addActivity(new FormsActivity());
+app.addActivity(new LayoutsActivity());
+app.addActivity(new PatternsActivity());

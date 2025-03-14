@@ -17,10 +17,10 @@ export default (
 		<column spacing={16} layout={{ clip: true }}>
 			<label>Plain nav row</label>
 			<NavRow>
-				<PageNavButton pageId="input">Input fields</PageNavButton>
-				<PageNavButton pageId="form-layout">Form layout</PageNavButton>
-				<PageNavButton pageId="app-layout">App layout</PageNavButton>
-				<PageNavButton pageId="patterns">View patterns</PageNavButton>
+				<PageNavButton pageId="inputs">Inputs</PageNavButton>
+				<PageNavButton pageId="forms">Forms</PageNavButton>
+				<PageNavButton pageId="layouts">Layouts</PageNavButton>
+				<PageNavButton pageId="patterns">Patterns</PageNavButton>
 			</NavRow>
 			<separator margin={8} />
 			<NavRow>
@@ -48,17 +48,17 @@ export default (
 		<column spacing={16}>
 			<label>Nav column with icons</label>
 			<NavColumn width={200}>
-				<PageNavButton icon={icons.calendar} pageId="input">
-					Input fields
+				<PageNavButton icon={icons.calendar} pageId="inputs">
+					Inputs
 				</PageNavButton>
-				<PageNavButton icon={icons.link} pageId="form-layout">
-					Form layout
+				<PageNavButton icon={icons.link} pageId="forms">
+					Forms
 				</PageNavButton>
-				<PageNavButton icon={icons.layout} pageId="app-layout">
-					App layout
+				<PageNavButton icon={icons.layout} pageId="layouts">
+					Layouts
 				</PageNavButton>
 				<PageNavButton icon={icons.code} pageId="patterns">
-					View patterns
+					Patterns
 				</PageNavButton>
 			</NavColumn>
 			<separator margin={16} />

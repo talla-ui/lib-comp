@@ -38,7 +38,7 @@ export class LoadingStateViewSample extends Activity {
 
 	sourceCode = code;
 
-	nested = this.attach(new NestedActivity());
+	nested?: NestedActivity = undefined;
 
 	protected createView() {
 		return view.create();
@@ -46,6 +46,9 @@ export class LoadingStateViewSample extends Activity {
 
 	protected async afterActiveAsync() {
 		await super.afterActiveAsync();
+		if (!this.nested || this.nested.isUnlinked()) {
+			this.nested = this.attach(new NestedActivity());
+		}
 		await this.nested.activateAsync();
 	}
 }

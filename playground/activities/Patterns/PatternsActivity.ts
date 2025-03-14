@@ -8,46 +8,38 @@ import {
 	ViewEvent,
 } from "talla-ui";
 import CategoryScreen from "~/views/CategoryScreen";
+import { EmptyStateViewSample } from "./EmptyStateView/EmptyStateViewSample";
+import { LoadingStateViewSample } from "./LoadingStateView/LoadingStateViewSample";
+import { ModalInputDialogSample } from "./ModalInputDialog/ModalInputDialogSample";
+import { ProgressDialogSample } from "./ProgressDialog/ProgressDialogSample";
+import { ToastNotificationSample } from "./ToastNotification/ToastNotificationSample";
 import { SourceCodeActivity } from "../SourceCode/SourceCodeActivity";
-import { ColumnCardSample } from "./ColumnCard/ColumnCardSample";
-import { HeaderPaneSample } from "./HeaderPane/HeaderPaneSample";
-import { LabeledViewSample } from "./LabeledView/LabeledViewSample";
-import { NavContainerSample } from "./NavContainer/NavContainerSample";
-import { ScrollAreaSample } from "./ScrollArea/ScrollAreaSample";
-import { ScrollPaneSample } from "./ScrollPane/ScrollPaneSample";
-import { ScrollRowSample } from "./ScrollRow/ScrollRowSample";
-import { SidebarSplitViewSample } from "./SidebarSplitView/SidebarSplitViewSample";
-import { TableListSample } from "./TableList/TableListSample";
 
-export class AppLayoutActivity extends Activity {
-	static readonly instance = new AppLayoutActivity();
+export class PatternsActivity extends Activity {
+	static readonly instance = new PatternsActivity();
 
 	constructor() {
 		super();
-		this.title = "App layout";
-		this.navigationPageId = "app-layout";
+		this.title = "Patterns";
+		this.navigationPageId = "patterns";
 		this.setRenderMode("screen", {
 			background: ui.color.BACKGROUND.alpha(0.75),
 			transform: { show: ui.animation.FADE_IN_LEFT },
 		});
 		this.samples = this.attach(
 			new ActivityList().add(
-				new ColumnCardSample(),
-				new LabeledViewSample(),
-				new TableListSample(),
-				new ScrollAreaSample(),
-				new ScrollRowSample(),
-				new ScrollPaneSample(),
-				new HeaderPaneSample(),
-				new NavContainerSample(),
-				new SidebarSplitViewSample()
+				new EmptyStateViewSample(),
+				new ProgressDialogSample(),
+				new ModalInputDialogSample(),
+				new ToastNotificationSample(),
+				new LoadingStateViewSample()
 			),
 			{ delegate: this }
 		);
 	}
 
 	samples: ActivityList;
-	color = ui.color("#b6a").alpha(0.8);
+	color = ui.color("#c50").alpha(0.8);
 
 	protected createView() {
 		return new CategoryScreen({

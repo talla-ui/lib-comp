@@ -29,7 +29,11 @@ export default UIComponent.define(
 			showContent={$viewport.boolean("col3").or($view.boolean("current"))}
 			showSidebar={$viewport.boolean("col3").or($view.not("current"))}
 			styles={{
-				contentEffect: ui.effect.SHADOW,
+				separator: {
+					vertical: true,
+					lineThickness: 1,
+					lineColor: ui.color.SEPARATOR,
+				},
 			}}
 		>
 			<ScrollPane
