@@ -11,6 +11,10 @@ import { PatternsActivity } from "./activities/patterns/PatternsActivity";
 const app = useWebContext((options) => {
 	options.importCSS = [highlightCSS];
 	options.focusDecoration = { css: { outline: "2px solid #6af" } };
+	options.controlTextStyle = {
+		fontFamily: "Inter, sans-serif",
+		fontSize: 14,
+	};
 	options.insertHistory = "root";
 });
 

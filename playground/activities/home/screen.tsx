@@ -12,7 +12,7 @@ export default (
 			title="Playground"
 			headerMode="dynamic"
 			styles={{
-				pageTitleStyle: { fontSize: 32, fontWeight: 800 },
+				pageTitleStyle: { fontSize: 32, fontWeight: 700 },
 				scrollThreshold: 32,
 				headerHeight: 64,
 				maxInnerWidth: 800,
