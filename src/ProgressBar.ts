@@ -21,7 +21,7 @@ export class ProgressBarStyles extends ConfigOptions {
 	height = 8;
 
 	/** Background color of the progress bar */
-	backgroundColor = ui.color.CONTROL_BASE;
+	backgroundColor = ui.color.TEXT.alpha(0.1);
 
 	/** Fill color of the progress bar */
 	fillColor = ui.color.PRIMARY;

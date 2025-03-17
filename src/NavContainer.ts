@@ -174,7 +174,7 @@ export class TabNavRow extends NavRow {
 	styles = NavContainerStyles.init({
 		spacing: 4,
 		containerStyle: ui.style.CELL.extend({
-			background: ui.color.CONTROL_BASE,
+			background: ui.color.TEXT.alpha(0.1),
 			borderRadius: 32,
 		}),
 		navButtonStyle: ui.style.BUTTON.extend(

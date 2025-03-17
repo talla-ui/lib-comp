@@ -30,7 +30,6 @@ export const FormEntry = UIComponent.define(
 			: $view.string("errorText");
 		return ui.column(
 			{
-				padding: { bottom: 8 },
 				name: "FormEntry",
 				width: values.width,
 			},
@@ -44,7 +43,7 @@ export const FormEntry = UIComponent.define(
 				hidden: $view.not("label"),
 				text: values.label,
 				width: "100%",
-				fontSize: 12,
+				style: ui.style.LABEL_SMALL,
 				padding: { y: 6 },
 				onClick: "RequestFocusNext",
 			}),
@@ -52,7 +51,7 @@ export const FormEntry = UIComponent.define(
 			ui.label({
 				hidden: $view.not("helpText"),
 				text: $view.string("helpText"),
-				fontSize: 12,
+				style: ui.style.LABEL_SMALL,
 				padding: { top: 8 },
 				dim: true,
 				selectable: true,
@@ -60,9 +59,9 @@ export const FormEntry = UIComponent.define(
 			ui.label({
 				hidden: errorBinding.not(),
 				text: errorBinding,
-				fontSize: 12,
-				padding: { top: 8 },
+				style: ui.style.LABEL_SMALL,
 				color: ui.color.DANGER,
+				padding: { top: 8 },
 				selectable: true,
 			})
 		);
