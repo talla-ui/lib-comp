@@ -8,6 +8,8 @@
 
 A loading state view composite combines an animation and label text, as a placeholder for content that is loading.
 
+The content binding is passed to a <show> (`UIShowView`) instance, so the view needs to be attached to another observed object (e.g. an activity); refer to the `UIShowView` documentation for more information.
+
 ## Inherited members
 
 - [<!--{ref:property}-->text](LoadingStateView_base_text.md) \

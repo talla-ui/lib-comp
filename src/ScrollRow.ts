@@ -31,6 +31,7 @@ export class ScrollRow extends UIComponent.define({
 					name: this.name,
 					horizontalScrollEnabled: true,
 					verticalScrollEnabled: false,
+					layout: { axis: "horizontal" },
 				},
 				ui.row(
 					{
@@ -38,6 +39,7 @@ export class ScrollRow extends UIComponent.define({
 						padding: this.padding,
 						height: this.height,
 						gravity: this.gravity,
+						grow: true,
 					},
 					...content
 				)

@@ -31,7 +31,9 @@ export class EditInPlaceStyles extends ConfigOptions {
 		background: ui.color.CLEAR,
 		width: "100%",
 		borderThickness: 0,
-		css: { outlineOffset: "-2px" },
+		css: {
+			outlineOffset: "-2px",
+		},
 	});
 
 	/** Size of the icon (in pixels or string with unit), defaults to 16 */
@@ -100,6 +102,8 @@ export class EditInPlace extends UIComponent.define({
 		let iconPaddingStart =
 			typeof padding.start === "number" ? padding.start + 28 : padding.start;
 
+		let boundValue = $view("value").asString(this.isNumber ? "%n" : "%s");
+
 		return ui.cell(
 			{
 				layout: {
@@ -134,16 +138,9 @@ export class EditInPlace extends UIComponent.define({
 
 			// text label, with value or placeholder
 			ui.label({
-				text: $view
-					.not("editing")
-					.and(
-						$view("value")
-							.asString(this.isNumber ? "n" : "s")
-							.or("placeholder")
-					)
-					.else(""),
+				text: $view.not("editing").and(boundValue.or("placeholder")).else(""),
 				width: "100%",
-				style: $view.boolean("icon").select(
+				style: $view("icon").select(
 					ui.style(this.styles.labelStyle, {
 						textAlign: this.isNumber ? "end" : "start",
 						padding: { ...padding, start: iconPaddingStart },
@@ -155,22 +152,17 @@ export class EditInPlace extends UIComponent.define({
 						lineBreakMode: "nowrap",
 					})
 				),
-				dim:
-					!!this.readOnly ||
-					$view("value")
-						.asString(this.isNumber ? "n" : "s")
-						.not()
-						.and($view.not("editing")),
+				dim: !!this.readOnly || boundValue.not(),
 			}),
 
 			// text field, covering other elements
 			ui.textField({
-				value: $view("value").asString(this.isNumber ? "n" : "s"),
+				value: boundValue,
 				disabled: !!this.readOnly,
 				position: { gravity: "cover" },
 				style: $either(
 					$view.not("editing").select({ opacity: 0 }),
-					$view.boolean("icon").select(
+					$view("icon").select(
 						ui.style(this.styles.textFieldStyle, {
 							textAlign: this.isNumber ? "end" : "start",
 							padding: { ...padding, start: iconPaddingStart },

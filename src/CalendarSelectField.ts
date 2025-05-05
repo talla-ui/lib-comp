@@ -60,7 +60,6 @@ export class CalendarSelectFieldStyles extends ConfigOptions {
 			borderColor: ui.color.TEXT.alpha(0.25),
 		},
 		{
-			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_HOVERED]: true,
 			background: ui.color.BACKGROUND,
 			borderColor: ui.color.TEXT.alpha(0.5),
@@ -131,8 +130,8 @@ export class CalendarSelectField extends UIComponent.define({
 
 	protected defineView() {
 		return ui.button({
-			label: $view.string("label"),
-			disabled: $view.boolean("readOnly"),
+			label: $view("label"),
+			disabled: $view("readOnly"),
 			icon: $view("icon"),
 			iconSize: this.styles.iconSize,
 			chevron: this.styles.chevron,

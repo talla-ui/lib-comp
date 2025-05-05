@@ -66,6 +66,8 @@ export class LoadingStateViewStyles extends ConfigOptions {
  *
  * A loading state view composite combines an animation and label text, as a placeholder for content that is loading.
  *
+ * The content binding is passed to a <show> (`UIShowView`) instance, so the view needs to be attached to another observed object (e.g. an activity); refer to the `UIShowView` documentation for more information.
+ *
  * @see {@link LoadingStateViewStyles}+
  *
  * @class
@@ -81,7 +83,7 @@ export class LoadingStateView extends UIComponent.define({
 	view: undefined as View | undefined,
 }) {
 	defineView() {
-		return ui.renderView({ view: $view("view").or("placeholder") });
+		return ui.show({ insert: $view("view").or("placeholder") });
 	}
 
 	placeholder?: View = undefined;
@@ -104,7 +106,7 @@ export class LoadingStateView extends UIComponent.define({
 				},
 				ui.label({
 					hidden: $view.not("title"),
-					text: $view.string("title"),
+					text: $view("title"),
 					style: this.styles.titleStyle,
 				}),
 				...this.styles.barWidths.map((width, index) =>
@@ -121,7 +123,7 @@ export class LoadingStateView extends UIComponent.define({
 				),
 				ui.label({
 					hidden: $view.not("text"),
-					text: $view.string("text"),
+					text: $view("text"),
 					style: this.styles.labelStyle,
 				})
 			)

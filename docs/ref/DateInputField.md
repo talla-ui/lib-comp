@@ -25,6 +25,8 @@ The date separator and order of input fields (i.e. DMY, MDY, or YMD) can be loca
     The currently selected date.
 - [<!--{ref:property}-->readOnly](DateInputField_base_readOnly.md) \
     True if the user should not be able to change the value.
+- [<!--{ref:property}-->hideCalendar](DateInputField_base_hideCalendar.md) \
+    True if the calendar dropdown should be hidden.
 - [<!--{ref:property}-->range](DateInputField_base_range.md) \
     True if the calendar is in date range mode, selecting an end date from the preselected date(s).
 - [<!--{ref:property}-->preselected](DateInputField_base_preselected.md) \

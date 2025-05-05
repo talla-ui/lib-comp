@@ -55,7 +55,6 @@ export class DateInputFieldStyles extends ConfigOptions {
 			tabularNums: true,
 		},
 		{
-			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_FOCUSED]: true,
 			borderRadius: 4,
 			background: ui.color.PRIMARY_BG.alpha(0.1),
@@ -67,6 +66,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 
 	/** Style for the container cell that groups the text fields */
 	containerStyle: UICell.StyleValue = ui.style.CELL.extend({
+		background: ui.color.BACKGROUND,
 		height: 38,
 		borderColor: ui.color.TEXT.alpha(0.2),
 		borderThickness: 1,
@@ -116,6 +116,8 @@ export class DateInputField extends UIComponent.define({
 	value: undefined as Date | undefined,
 	/** True if the user should not be able to change the value */
 	readOnly: false,
+	/** True if the calendar dropdown should be hidden */
+	hideCalendar: false,
 	/** True if the calendar is in date range mode, selecting an end date from the preselected date(s) */
 	range: false,
 	/** A date or array of dates to be pre-selected */
@@ -147,14 +149,14 @@ export class DateInputField extends UIComponent.define({
 		}
 	}
 
-	protected defineView() {
+	protected createView() {
 		let dmyFields = [
 			ui.textField({
 				style: this.styles.textFieldStyle,
 				type: "numeric",
 				placeholder: this.styles.datePlaceholder,
 				selectOnFocus: true,
-				disabled: $view.boolean("readOnly"),
+				disabled: $view("readOnly"),
 				onBackspaceKeyPress: "InputBackspace",
 				onInput: "DateInput",
 				onArrowUpKeyPress: "DateUp",
@@ -168,7 +170,7 @@ export class DateInputField extends UIComponent.define({
 				type: "numeric",
 				placeholder: this.styles.monthPlaceholder,
 				selectOnFocus: true,
-				disabled: $view.boolean("readOnly"),
+				disabled: $view("readOnly"),
 				onBackspaceKeyPress: "InputBackspace",
 				onInput: "MonthInput",
 				onArrowUpKeyPress: "MonthUp",
@@ -183,7 +185,7 @@ export class DateInputField extends UIComponent.define({
 				type: "numeric",
 				placeholder: this.styles.yearPlaceholder,
 				selectOnFocus: true,
-				disabled: $view.boolean("readOnly"),
+				disabled: $view("readOnly"),
 				onBackspaceKeyPress: "InputBackspace",
 				onInput: "YearInput",
 				onArrowUpKeyPress: "YearUp",
@@ -198,39 +200,42 @@ export class DateInputField extends UIComponent.define({
 		} else if (this.locale.dateFormat === "MDY") {
 			dmyFields = [dmyFields[1]!, dmyFields[0]!, dmyFields[2]!];
 		}
-		return ui.cell(
-			{
-				name: this.name,
-				layout: {
-					axis: "horizontal",
-					gravity: "center",
-					separator: { space: 2 },
+		return ui
+			.cell(
+				{
+					name: this.name,
+					layout: {
+						axis: "horizontal",
+						gravity: "center",
+						separator: { space: 2 },
+					},
+					position: { gravity: "center" },
+					width: this.width,
+					grow: this.grow,
+					style: this.styles.containerStyle,
+					onClick: "OpenCalendar",
 				},
-				position: { gravity: "center" },
-				width: this.width,
-				grow: this.grow,
-				style: this.styles.containerStyle,
-				onClick: "OpenCalendar",
-			},
-			ui.spacer(4),
-			ui.label({
-				hidden: $view.not("icon"),
-				icon: $view("icon"),
-				iconSize: this.styles.iconSize,
-				padding: { end: 4 },
-			}),
-			dmyFields[0]!,
-			ui.label(this.locale.dateSeparator, { bold: true }),
-			dmyFields[1]!,
-			ui.label(this.locale.dateSeparator, { bold: true }),
-			dmyFields[2]!,
-			ui.spacer(),
-			ui.button({
-				icon: ui.icon.CHEVRON_DOWN,
-				disabled: $view.boolean("readOnly"),
-				style: this.styles.calendarButtonStyle,
-			})
-		);
+				ui.spacer(4),
+				ui.label({
+					hidden: $view.not("icon"),
+					icon: $view("icon"),
+					iconSize: this.styles.iconSize,
+					padding: { end: 4 },
+				}),
+				dmyFields[0]!,
+				ui.label(this.locale.dateSeparator, { bold: true }),
+				dmyFields[1]!,
+				ui.label(this.locale.dateSeparator, { bold: true }),
+				dmyFields[2]!,
+				ui.spacer(),
+				ui.button({
+					hidden: $view("hideCalendar"),
+					icon: ui.icon.CHEVRON_DOWN,
+					disabled: $view("readOnly"),
+					style: this.styles.calendarButtonStyle,
+				})
+			)
+			.create();
 	}
 
 	protected onValidate() {
@@ -353,7 +358,7 @@ export class DateInputField extends UIComponent.define({
 	}
 
 	protected async onOpenCalendar(e: ViewEvent) {
-		if (this._calendarOpen) return true;
+		if (this._calendarOpen || this.hideCalendar) return true;
 		let view = ui
 			.cell(
 				{

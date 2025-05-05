@@ -45,7 +45,6 @@ export class TimeInputFieldStyles extends ConfigOptions {
 			tabularNums: true,
 		},
 		{
-			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_FOCUSED]: true,
 			borderRadius: 4,
 			background: ui.color.PRIMARY_BG.alpha(0.1),
@@ -57,6 +56,7 @@ export class TimeInputFieldStyles extends ConfigOptions {
 
 	/** Style for the container cell that groups the text fields */
 	containerStyle: UICell.StyleValue = ui.style.CELL.extend({
+		background: ui.color.BACKGROUND,
 		height: 38,
 		borderColor: ui.color.TEXT.alpha(0.2),
 		borderThickness: 1,
@@ -74,8 +74,8 @@ export class TimeInputLocale extends ConfigOptions {
 	/** Default locale that is used when no other locale is specified */
 	static default = new TimeInputLocale();
 
-	/** True if 12-hour time format should be used, false for 24-hour format */
-	use12HourFormat = false;
+	/** True if 24-hour time format should be used, false for 12-hour format (defaults to false) */
+	use24HourFormat = false;
 
 	/** The separator used between hours and minutes */
 	timeSeparator = ":";
@@ -132,70 +132,72 @@ export class TimeInputField extends UIComponent.define({
 		}
 	}
 
-	protected defineView() {
-		return ui.cell(
-			{
-				name: this.name,
-				layout: {
-					axis: "horizontal",
-					gravity: "center",
-					separator: { space: 2 },
+	protected createView() {
+		return ui
+			.cell(
+				{
+					name: this.name,
+					layout: {
+						axis: "horizontal",
+						gravity: "center",
+						separator: { space: 2 },
+					},
+					position: { gravity: "center" },
+					width: this.width,
+					grow: this.grow,
+					style: this.styles.containerStyle,
 				},
-				position: { gravity: "center" },
-				width: this.width,
-				grow: this.grow,
-				style: this.styles.containerStyle,
-			},
-			ui.spacer(4),
-			ui.label({
-				hidden: $view.not("icon"),
-				icon: $view("icon"),
-				iconSize: this.styles.iconSize,
-				padding: { end: 4 },
-				onClick: "RequestFocusNext",
-			}),
-			ui.textField({
-				style: this.styles.textFieldStyle,
-				type: "numeric",
-				placeholder: this.styles.timePlaceholder,
-				selectOnFocus: true,
-				disabled: $view.boolean("readOnly"),
-				onInput: "HourInput",
-				onArrowUpKeyPress: "HourUp",
-				onArrowDownKeyPress: "HourDown",
-				onChange: "Validate",
-				accessibleLabel: this.accessibleLabels[0],
-			}),
-			ui.label(this.locale.timeSeparator, { bold: true }),
-			ui.textField({
-				style: this.styles.textFieldStyle,
-				type: "numeric",
-				placeholder: this.styles.timePlaceholder,
-				selectOnFocus: true,
-				disabled: $view.boolean("readOnly"),
-				onInput: "MinuteInput",
-				onBackspaceKeyPress: "MinuteBackspace",
-				onArrowUpKeyPress: "MinuteUp",
-				onArrowDownKeyPress: "MinuteDown",
-				onChange: "Validate",
-				accessibleLabel: this.accessibleLabels[1],
-			}),
-			ui.textField({
-				hidden: !this.locale.use12HourFormat,
-				placeholder: this.styles.ampmPlaceholder,
-				style: this.styles.textFieldStyle,
-				width: this.styles.ampmTextFieldWidth,
-				disabled: $view.boolean("readOnly"),
-				selectOnFocus: true,
-				onInput: "AMPMInput",
-				onBackspaceKeyPress: "AMPMBackspace",
-				onArrowDownKeyPress: "AMPMToggle",
-				onArrowUpKeyPress: "AMPMToggle",
-				onChange: "Validate",
-				accessibleLabel: this.accessibleLabels[2],
-			}),
-			ui.spacer({ width: this.locale.use12HourFormat ? 2 : 4 })
-		);
+				ui.spacer(4),
+				ui.label({
+					hidden: $view.not("icon"),
+					icon: $view("icon"),
+					iconSize: this.styles.iconSize,
+					padding: { end: 4 },
+					onClick: "RequestFocusNext",
+				}),
+				ui.textField({
+					style: this.styles.textFieldStyle,
+					type: "numeric",
+					placeholder: this.styles.timePlaceholder,
+					selectOnFocus: true,
+					disabled: $view("readOnly"),
+					onInput: "HourInput",
+					onArrowUpKeyPress: "HourUp",
+					onArrowDownKeyPress: "HourDown",
+					onChange: "Validate",
+					accessibleLabel: this.accessibleLabels[0],
+				}),
+				ui.label(this.locale.timeSeparator, { bold: true }),
+				ui.textField({
+					style: this.styles.textFieldStyle,
+					type: "numeric",
+					placeholder: this.styles.timePlaceholder,
+					selectOnFocus: true,
+					disabled: $view("readOnly"),
+					onInput: "MinuteInput",
+					onBackspaceKeyPress: "MinuteBackspace",
+					onArrowUpKeyPress: "MinuteUp",
+					onArrowDownKeyPress: "MinuteDown",
+					onChange: "Validate",
+					accessibleLabel: this.accessibleLabels[1],
+				}),
+				ui.textField({
+					hidden: this.locale.use24HourFormat,
+					placeholder: this.styles.ampmPlaceholder,
+					style: this.styles.textFieldStyle,
+					width: this.styles.ampmTextFieldWidth,
+					disabled: $view("readOnly"),
+					selectOnFocus: true,
+					onInput: "AMPMInput",
+					onBackspaceKeyPress: "AMPMBackspace",
+					onArrowDownKeyPress: "AMPMToggle",
+					onArrowUpKeyPress: "AMPMToggle",
+					onChange: "Validate",
+					accessibleLabel: this.accessibleLabels[2],
+				}),
+				ui.spacer({ width: this.locale.use24HourFormat ? 4 : 2 })
+			)
+			.create();
 	}
 
 	protected onValidate() {
@@ -225,9 +227,9 @@ export class TimeInputField extends UIComponent.define({
 
 	protected onHourUp(e: ViewEvent<UITextField>) {
 		if (this.readOnly) return true;
-		let h12 = this.locale.use12HourFormat;
+		let h24 = this.locale.use24HourFormat;
 		let h = (+e.source.value || 0) + 1;
-		if (h > (h12 ? 12 : 23)) h = h12 ? 12 : 23;
+		if (h > (h24 ? 23 : 12)) h = h24 ? 23 : 12;
 		e.source.value = String(h);
 		this._validate();
 		return true;
@@ -235,9 +237,9 @@ export class TimeInputField extends UIComponent.define({
 
 	protected onHourDown(e: ViewEvent<UITextField>) {
 		if (this.readOnly) return true;
-		let h12 = this.locale.use12HourFormat;
+		let h24 = this.locale.use24HourFormat;
 		let h = (+e.source.value || 0) - 1;
-		if (h < (h12 ? 1 : 0)) h = h12 ? 1 : 0;
+		if (h < (h24 ? 0 : 1)) h = h24 ? 0 : 1;
 		e.source.value = String(h);
 		this._validate();
 		return true;
@@ -245,8 +247,8 @@ export class TimeInputField extends UIComponent.define({
 
 	protected onMinuteInput(e: ViewEvent<UITextField>) {
 		if (this.readOnly) return true;
-		let h12 = this.locale.use12HourFormat;
-		if (e.source.value.length > 1 || (h12 && +e.source.value > 5)) {
+		let h24 = this.locale.use24HourFormat;
+		if (e.source.value.length > 1 || (!h24 && +e.source.value > 5)) {
 			e.source.requestFocusNext();
 			this._validate();
 		}
@@ -315,12 +317,12 @@ export class TimeInputField extends UIComponent.define({
 		let [ht, mt, at] = this.findViewContent(UITextField) as UITextFields3;
 		let h = value.getHours();
 		mt.value = String(value.getMinutes());
-		if (this.locale.use12HourFormat) {
-			ht.value = String(h % 12 || 12);
-			at.value = h >= 12 ? "PM" : "AM";
-		} else {
+		if (this.locale.use24HourFormat) {
 			ht.value = String(h);
 			at.value = "";
+		} else {
+			ht.value = String(h % 12 || 12);
+			at.value = h >= 12 ? "PM" : "AM";
 		}
 		this._validate();
 	}
@@ -333,14 +335,14 @@ export class TimeInputField extends UIComponent.define({
 			let hh = parseInt(ht.value) || 0;
 			if (hh > 24) hh = hh > 100 ? Math.floor(hh / 100) : Math.floor(hh / 10);
 			h = Math.max(0, hh % 24);
-			if (this.locale.use12HourFormat) h = h % 12 || 12;
+			if (!this.locale.use24HourFormat) h = h % 12 || 12;
 			ht.value = (h < 10 ? "0" : "") + h;
 		}
 		if (mt.value) {
 			m = Math.max(0, (parseInt(mt.value) || 0) % 60);
 			mt.value = (m < 10 ? "0" : "") + m;
 		}
-		if (this.locale.use12HourFormat && at.value) {
+		if (!this.locale.use24HourFormat && at.value) {
 			let ampm = at.value.toUpperCase();
 			if (ampm !== "AM" && ampm !== "PM") at.value = "AM";
 			h = (h % 12) + (at.value === "PM" ? 12 : 0);

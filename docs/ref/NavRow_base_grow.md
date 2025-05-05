@@ -1,0 +1,12 @@
+[NavRow (base)](NavRow_base.md)
+
+# grow
+
+> True if the container should grow to fill the available space, defaults to false.
+
+<pre class="docgen_signature">grow: <b>boolean</b>;</pre>
+
+## Related
+
+- [<!--{ref:type}-->NavRow (base)](NavRow_base.md) \
+    Base type for `NavRow`.

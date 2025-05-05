@@ -1,12 +1,9 @@
-import { showWebTools } from "@talla-ui/lib-web-tools";
+import { setWebToolsToggleKey, showWebTools } from "@talla-ui/lib-web-tools";
 import { useWebContext } from "@talla-ui/web-handler";
-import highlightCSS from "highlight.js/styles/github-dark.min.css?url";
-import { strf } from "talla-ui";
-import { FormsActivity } from "./activities/forms/FormsActivity";
-import { HomeActivity } from "./activities/home/HomeActivity";
-import { InputsActivity } from "./activities/inputs/InputsActivity";
-import { LayoutsActivity } from "./activities/layouts/LayoutsActivity";
-import { PatternsActivity } from "./activities/patterns/PatternsActivity";
+import highlightCSS from "highlight.js/styles/nord.min.css?url";
+import { UIColor } from "talla-ui";
+import pages from "./activities/pages";
+import { mock_i18n } from "./mock/i18n";
 
 const app = useWebContext((options) => {
 	options.importCSS = [highlightCSS];
@@ -15,38 +12,13 @@ const app = useWebContext((options) => {
 		fontFamily: "Inter, sans-serif",
 		fontSize: 14,
 	};
+	options.darkTheme = options.theme.clone();
+	options.darkTheme.colors.set("Background", new UIColor("#111"));
 	options.insertHistory = "root";
 });
 
-app.i18n = {
-	format(value, type) {
-		switch (type) {
-			case "date":
-				let date = value instanceof Date ? value : new Date(value);
-				return strf(
-					"%02i-%02i-%04i",
-					date.getDate(),
-					date.getMonth() + 1,
-					date.getFullYear()
-				).toString();
-		}
-		return "???";
-	},
-	getAttributes() {
-		return { locale: "test" };
-	},
-	getPlural(n, forms) {
-		return forms[n == 1 ? 0 : 1] || "";
-	},
-	getText(text) {
-		return text;
-	},
-};
+app.i18n = mock_i18n;
+app.activities.add(...pages);
 
-showWebTools(undefined, true);
-
-app.addActivity(new HomeActivity());
-app.addActivity(new InputsActivity());
-app.addActivity(new FormsActivity());
-app.addActivity(new LayoutsActivity());
-app.addActivity(new PatternsActivity());
+// showWebTools(undefined, true);
+setWebToolsToggleKey("C", { ctrl: true, shift: true }, true);

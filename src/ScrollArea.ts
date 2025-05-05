@@ -1,4 +1,4 @@
-import { UICell, UIComponent, ui } from "talla-ui";
+import { UICell, UIComponent, UIRenderable, ui } from "talla-ui";
 
 /**
  * View composite with an area that contains scrolling content
@@ -17,6 +17,10 @@ export const ScrollArea = UIComponent.define(
 		height: undefined as number | string | undefined,
 		/** Width of the outer container */
 		width: undefined as number | string | undefined,
+		/** Padding within the scroll area */
+		padding: undefined as UIRenderable.Offsets | undefined,
+		/** True if horizontal scrolling is enabled */
+		horizontalScrollEnabled: false as boolean,
 		/** UI component name */
 		name: "ScrollArea",
 	},
@@ -29,6 +33,12 @@ export const ScrollArea = UIComponent.define(
 				grow: false,
 				name: values.name,
 			},
-			ui.scroll(...content)
+			ui.scroll(
+				{
+					padding: values.padding,
+					horizontalScrollEnabled: values.horizontalScrollEnabled,
+				},
+				...content
+			)
 		)
 );

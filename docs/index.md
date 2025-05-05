@@ -10,8 +10,14 @@ Refer to the reference information below.
     View composite for a calendar.
 - [<!--{ref:class}-->ColumnCard](ref/ColumnCard.md) \
     View composite for a column-based card.
+- [<!--{ref:class}-->ResponsiveGrid](ref/ResponsiveGrid.md) \
+    A responsive grid that adjusts the width of its items based on the viewport size.
+- [<!--{ref:class}-->ResponsiveRow](ref/ResponsiveRow.md) \
+    A responsive row that changes to vertical layout on small viewports.
 - [<!--{ref:class}-->class ComboField](ref/ComboField.md) \
     View composite for a combo field.
+- [<!--{ref:class}-->class ListComboField](ref/ListComboField.md) \
+    View composite for a combo field that reveals a list box on input.
 - [<!--{ref:class}-->class DateInputField](ref/DateInputField.md) \
     View composite for a date input field.
 - [<!--{ref:class}-->class EditInPlace](ref/EditInPlace.md) \
@@ -28,8 +34,6 @@ Refer to the reference information below.
     View composite that encapsulates a title label in front or above an embedded view.
 - [<!--{ref:class}-->class ListBox](ref/ListBox.md) \
     View composite for a list box.
-- [<!--{ref:class}-->class ModalInputDialog](ref/ModalInputDialog.md) \
-    Base activity for a modal input dialog.
 - [<!--{ref:class}-->class NavColumn](ref/NavColumn.md) \
     View composite for a navigation button column.
 - [<!--{ref:class}-->class NavRow](ref/NavRow.md) \

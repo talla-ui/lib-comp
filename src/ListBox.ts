@@ -113,7 +113,7 @@ export class ListBox extends UIComponent.define({
 				name: this.name,
 			},
 			ui.list(
-				{ items: $view.list("items") },
+				{ items: $view("items") },
 				ui.cell(
 					{
 						accessibleRole: "option",
@@ -132,7 +132,7 @@ export class ListBox extends UIComponent.define({
 							padding: this.styles.rowInset,
 						},
 						ui.label({
-							text: $list.string("item.label"),
+							text: $list("item.label"),
 							icon: $list("item.icon"),
 							iconSize: this.styles.iconSize,
 						})

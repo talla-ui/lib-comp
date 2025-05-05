@@ -6,6 +6,9 @@ import {
 	UIRenderable,
 	UIContainer,
 	UIComponent,
+	app,
+	LazyString,
+	NavigationTarget,
 } from "talla-ui";
 
 /**
@@ -57,6 +60,15 @@ export const ColumnCard = UIComponent.define(
 		position: { gravity: "start" } as UIRenderable.Position,
 		/** The width of the card, defaults to 320 */
 		width: 320 as string | number | undefined,
+		/** Navigation target for the entire card */
+		navigateTo: undefined as
+			| string
+			| LazyString
+			| NavigationTarget
+			| {
+					getNavigationTarget(): NavigationTarget;
+			  }
+			| undefined,
 		/** A set of styles that are applied to this composite, an instance of {@link ColumnCardStyles} */
 		styles: ColumnCardStyles.default,
 	},
@@ -65,7 +77,9 @@ export const ColumnCard = UIComponent.define(
 			{
 				name: "ColumnCard",
 				width: $view("width"),
-				style: view.styles.containerStyle,
+				style: ui.style(view.styles.containerStyle, {
+					cursor: view.navigateTo ? "pointer" : "default",
+				}),
 				position: view.position,
 				margin: view.margin,
 				layout: {
@@ -80,5 +94,12 @@ export const ColumnCard = UIComponent.define(
 					? c
 					: ui.row({ padding: view.styles.contentPadding }, c)
 			)
-		)
+		),
+	(view) => ({
+		Click: () => {
+			if (view.navigateTo) {
+				app.navigate(view.navigateTo);
+			}
+		},
+	})
 );

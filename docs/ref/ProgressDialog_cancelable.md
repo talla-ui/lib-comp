@@ -2,7 +2,7 @@
 
 # cancelable
 
-> True if the dialog can be cancelled.
+> True if the dialog can be canceled.
 
 <pre class="docgen_signature">cancelable: <b>boolean</b>;</pre>
 

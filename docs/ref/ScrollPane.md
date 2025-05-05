@@ -31,6 +31,14 @@ The layout of the element is based on the [HeaderPane](HeaderPane.md) composite.
     True if a back navigation button should be shown, or an event to emit when clicked (other than `NavigateBack`).
 - [<!--{ref:property}-->showMenu](ScrollPane_base_showMenu.md) \
     True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`).
+- [<!--{ref:property}-->titleClick](ScrollPane_base_titleClick.md) \
+    True if the title (and icon) should be clickable, or an event to emit when clicked (other than `TitleClick`).
+- [<!--{ref:property}-->hideToolbar](ScrollPane_base_hideToolbar.md) \
+    True if the toolbar should be hidden.
+- [<!--{ref:property}-->hideNavbar](ScrollPane_base_hideNavbar.md) \
+    True if the navbar should be hidden.
+- [<!--{ref:property}-->restoreScroll](ScrollPane_base_restoreScroll.md) \
+    True to save and restore the scroll position when re-rendered (in memory only; requires name to be set).
 - [<!--{ref:property}-->headerMode](ScrollPane_base_headerMode.md) \
     The type of header behavior: none (no header), fixed, or dynamic with scroll; defaults to dynamic.
 - [<!--{ref:property}-->styles](ScrollPane_base_styles.md) \

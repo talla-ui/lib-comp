@@ -4,7 +4,7 @@
 
 > Binding that's used to determine if elements should be shown in horizontal layout (when true), defaults to 3-column viewports.
 
-<pre class="docgen_signature">horizontalWhen: Binding&lt;<b>boolean</b>&gt;;</pre>
+<pre class="docgen_signature">horizontalWhen: Binding&lt;<b>any</b>&gt;;</pre>
 
 ## Related
 

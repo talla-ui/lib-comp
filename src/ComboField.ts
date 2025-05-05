@@ -5,7 +5,6 @@ import {
 	StringConvertible,
 	UICell,
 	UIRenderable,
-	UIConditionalView,
 	UIIconResource,
 	UITextField,
 	View,
@@ -14,6 +13,8 @@ import {
 	ViewEvent,
 	app,
 	ui,
+	UIShowView,
+	$either,
 } from "talla-ui";
 import { bindFormField } from "./util.js";
 
@@ -114,8 +115,8 @@ export class ComboField extends UIComponent.define({
 				accessibleLabel: this.accessibleLabel,
 			},
 			ui.textField({
-				value: $view.string("value"),
-				placeholder: $view.string("placeholder"),
+				value: $view("value"),
+				placeholder: $view("placeholder"),
 				width: "100%",
 				style: this.styles.textFieldStyle,
 				onFocusIn: "OpenOverlayFocus",
@@ -131,7 +132,7 @@ export class ComboField extends UIComponent.define({
 					position: this.styles.iconPosition,
 				},
 				ui.button({
-					hidden: $view.not("value").or($view.not("showClearButton")),
+					hidden: $either($view.not("value"), $view.not("showClearButton")),
 					icon: ui.icon.CLOSE,
 					iconSize: this.styles.iconSize,
 					style: ui.style.BUTTON_ICON,
@@ -147,8 +148,8 @@ export class ComboField extends UIComponent.define({
 					disableKeyboardFocus: true,
 				})
 			),
-			ui.conditional(
-				{}, // never gets rendered along with the above
+			ui.show(
+				{ when: false }, // never gets rendered along with the above
 				ui.cell(
 					{
 						layout: { clip: false },
@@ -227,6 +228,13 @@ export class ComboField extends UIComponent.define({
 		this._closeOverlay(0);
 	}
 
+	protected onEnterKeyPress() {
+		if (this._overlay) {
+			this._closeOverlay(0);
+			return true;
+		}
+	}
+
 	private _setValue(value: string) {
 		this.value = value;
 		this.emit("Change", { value });
@@ -236,12 +244,11 @@ export class ComboField extends UIComponent.define({
 		if (this._overlay) return;
 		this.emit("OpenOverlay", { value: this.value });
 		let clone = this.createView() as UICell;
-		let overlayView = this.attach(
-			clone.content.last() as UIConditionalView,
-			(e) => this._delegateOverlayEvent(e)
+		let overlayView = this.attach(clone.content.last() as UIShowView, (e) =>
+			this._delegateOverlayEvent(e)
 		);
 		this._overlay = overlayView;
-		overlayView.state = true;
+		overlayView.when = true;
 		app.render(overlayView, {
 			mode: "overlay",
 			ref: (this.body as UICell).lastRenderOutput,

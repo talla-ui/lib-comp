@@ -1,14 +1,18 @@
 import {
+	$either,
+	$neither,
 	$view,
 	$viewport,
+	app,
 	Binding,
 	StringConvertible,
 	ui,
+	UIColor,
+	UIComponent,
 	UIIconResource,
 	UILabel,
 	UIScrollContainer,
 	ViewBuilder,
-	UIComponent,
 	ViewEvent,
 } from "talla-ui";
 import {
@@ -16,6 +20,10 @@ import {
 	HeaderPaneStyles,
 	HeaderPaneToolbar,
 } from "./HeaderPane.js";
+import { NavRow } from "./NavContainer.js";
+
+// Place to remember scroll positions:
+const scrollPositions = new Map<string, number>();
 
 const $scrollPaneView = Binding.createFactory("scrolled");
 
@@ -36,6 +44,16 @@ export class ScrollPaneStyles extends HeaderPaneStyles {
 		fontSize: 20,
 		bold: true,
 	});
+
+	/** Title icon margin for the page title, defaults to 16 */
+	pageTitleIconMargin: number = 16;
+	/** Title icon size for the page title, defaults to 24 */
+	pageTitleIconSize: number = 24;
+	/** Title icon color for the page title, defaults to text color */
+	pageTitleIconColor?: UIColor;
+
+	/** Height of the page title row, defaults to 48; when increased drastically, remember to increase the scroll threshold as well */
+	pageTitleRowHeight: number = 48;
 
 	/** Maximum width of the inner content */
 	maxInnerWidth = 1024;
@@ -66,6 +84,14 @@ export class ScrollPane extends UIComponent.define({
 	navigateBack: false as boolean | string,
 	/** True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`) */
 	showMenu: false as boolean | string,
+	/** True if the title (and icon) should be clickable, or an event to emit when clicked (other than `TitleClick`) */
+	titleClick: false as boolean | string,
+	/** True if the toolbar should be hidden */
+	hideToolbar: false,
+	/** True if the navbar should be hidden */
+	hideNavbar: false,
+	/** True to save and restore the scroll position when re-rendered (in memory only; requires name to be set) */
+	restoreScroll: false,
 	/** The type of header behavior: none (no header), fixed, or dynamic with scroll; defaults to dynamic */
 	headerMode: "fixed" as ScrollPaneHeaderMode,
 	/** A set of styles that are applied to this composite, an instance of {@link ScrollPaneStyles} */
@@ -77,21 +103,52 @@ export class ScrollPane extends UIComponent.define({
 		let boundPadding = $viewport
 			.not("col2")
 			.select(this.styles.paddingNarrow, this.styles.padding);
-		let boundFixedState = $view("headerMode")
-			.matches("fixed")
-			.or($view("headerMode").matches("dynamic").and("scrolled"));
+		let boundFixedState = $either(
+			$view("headerMode").matches("fixed"),
+			$view("headerMode").matches("dynamic").and("scrolled")
+		);
 
 		let toolbarBuilder: ViewBuilder | undefined;
-		if (content[0]?.View === HeaderPaneToolbar) {
-			toolbarBuilder = content.shift();
+		let navbarBuilder: ViewBuilder | undefined;
+		let inner: ViewBuilder[] = [];
+		for (let item of content) {
+			if (item?.View === HeaderPaneToolbar) {
+				toolbarBuilder = item;
+			} else if (item?.View === NavRow) {
+				navbarBuilder = item;
+			} else {
+				inner.push(item);
+			}
 		}
-		let inner = toolbarBuilder ? [toolbarBuilder] : [];
-		inner.push(
+
+		return ui.use(
+			HeaderPane,
+			{
+				showHeader: $view("headerMode").matchesNone("none"),
+				backdrop: boundFixedState,
+				styles: this.styles,
+				title: boundFixedState.and("title").else(undefined),
+				titleIcon: boundFixedState.and("titleIcon").else(undefined),
+				navigateBack: $view("navigateBack"),
+				showMenu: $view("showMenu"),
+				titleClick: $view("titleClick"),
+				hideToolbar: $view("hideToolbar"),
+				hideNavbar: $view("hideNavbar"),
+			},
+			...([navbarBuilder, toolbarBuilder].filter(Boolean) as ViewBuilder[]),
 			ui.scroll(
 				{
 					topThreshold: this.styles.scrollThreshold,
 					onBeforeRender: "PaneScrollRender",
+					onRendered: "PaneScrollRendered",
 				},
+				ui.cell({
+					position: { gravity: "overlay", bottom: "100%", start: 0, end: 0 },
+					height: "100%",
+					background: $view("headerMode")
+						.matches("fixed")
+						.select(this.styles.headerBackdropBackground),
+				}),
 				ui.cell(
 					{
 						style: {
@@ -105,46 +162,35 @@ export class ScrollPane extends UIComponent.define({
 					},
 					ui.row(
 						{
-							height: $scrollPaneView("title").or("titleIcon").select(48, 0),
-							hidden: $scrollPaneView("headerMode").matches("dynamic").not(),
+							height: $scrollPaneView("title")
+								.or("titleIcon")
+								.select(this.styles.pageTitleRowHeight, 0),
+							hidden: $scrollPaneView("headerMode").matchesNone("dynamic"),
 						},
-						ui.animate(
+						ui.show(
 							{
-								ignoreFirstShow:
+								when: $neither(
+									$scrollPaneView("headerMode").matchesNone("dynamic"),
+									$scrollPaneView("scrolled")
+								),
+								ignoreFirstShowAnimation:
 									$scrollPaneView("headerMode").matches("dynamic"),
 								showAnimation: ui.animation.FADE_IN_DOWN,
-								hideAnimation: $scrollPaneView
-									.boolean("scrolled")
-									.select(ui.animation.FADE_OUT_UP),
+								hideAnimation: ui.animation.FADE_OUT_UP,
 							},
 							ui.label({
-								text: $scrollPaneView.string("title"),
+								text: $scrollPaneView("title"),
 								icon: $scrollPaneView("titleIcon"),
-								iconMargin: 16,
-								hidden: $scrollPaneView("headerMode")
-									.matches("dynamic")
-									.and("scrolled"),
+								iconMargin: this.styles.pageTitleIconMargin,
+								iconSize: this.styles.pageTitleIconSize,
+								iconColor: this.styles.pageTitleIconColor,
 								style: this.styles.pageTitleStyle,
 							})
 						)
 					),
-					...content
+					...inner
 				)
 			)
-		);
-
-		return ui.use(
-			HeaderPane,
-			{
-				showHeader: $view("headerMode").matches("none").not(),
-				backdrop: boundFixedState,
-				styles: this.styles,
-				title: boundFixedState.and("title").else(undefined),
-				titleIcon: boundFixedState.and("titleIcon").else(undefined),
-				navigateBack: $view("navigateBack"),
-				showMenu: $view("showMenu"),
-			},
-			...inner
 		);
 	}
 
@@ -156,13 +202,28 @@ export class ScrollPane extends UIComponent.define({
 		return true;
 	}
 
+	protected onPaneScrollRendered(e: ViewEvent<UIScrollContainer>) {
+		if (this.restoreScroll && this.name) {
+			app.renderer?.schedule(() => {
+				e.source.scrollTo(scrollPositions.get(this.name) ?? 0);
+			}, true);
+		}
+		return true;
+	}
+
 	protected onScroll(e: UIScrollContainer.ScrollEvent) {
 		if (e.source === this._mainScroll) this.scrolled = !e.data.atTop;
+		if (this.restoreScroll && this.name) {
+			scrollPositions.set(this.name, e.data.yOffset);
+		}
 		return true;
 	}
 
 	protected onScrollEnd(e: UIScrollContainer.ScrollEvent) {
 		if (e.source === this._mainScroll) this.scrolled = !e.data.atTop;
+		if (this.restoreScroll && this.name) {
+			scrollPositions.set(this.name, e.data.yOffset);
+		}
 		return true;
 	}
 

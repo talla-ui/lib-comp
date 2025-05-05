@@ -73,37 +73,42 @@ export class SidebarSplitView extends UIComponent.define({
 					reverse: this.reverse,
 					layout: { separator: this.styles.separator },
 				},
-				ui.cell(
-					{
-						hidden: $view.not("showSidebar"),
-						effect: this.styles.sidebarEffect,
-					},
-					content[0] || ui.cell(),
-					ui.cell({
-						hidden: $view.boolean("showSidebar").and("showContent").not(),
-						position: this.reverse
-							? { gravity: "overlay", top: 0, start: 0, bottom: 0 }
-							: { gravity: "overlay", top: 0, end: 0, bottom: 0 },
-						style: {
-							width: this.styles.gutterWidth,
-							css: { cursor: "col-resize" },
+				ui.show(
+					{ when: $view("showSidebar") },
+					ui.cell(
+						{
+							effect: this.styles.sidebarEffect,
+							onBeforeRender: "BeforeSidebarRender",
 						},
-						effect: ui.effect("DragRelative"),
-					})
+						content[0] || ui.cell(),
+						ui.cell({
+							hidden: $view("showSidebar").and("showContent").not(),
+							position: this.reverse
+								? { gravity: "overlay", top: 0, start: 0, bottom: 0 }
+								: { gravity: "overlay", top: 0, end: 0, bottom: 0 },
+							style: {
+								width: this.styles.gutterWidth,
+								cursor: "col-resize",
+							},
+							effect: ui.effect("DragRelative"),
+						})
+					)
 				),
-				ui.cell(
-					{
-						style: { width: "100%", shrink: 1 },
-						hidden: $view.not("showContent"),
-						effect: this.styles.contentEffect,
-					},
-					content[1] || ui.cell()
+				ui.show(
+					{ when: $view("showContent") },
+					ui.cell(
+						{
+							style: { width: "100%", shrink: 1 },
+							effect: this.styles.contentEffect,
+						},
+						content[1] || ui.cell()
+					)
 				)
 			)
 		);
 	}
 
-	protected beforeRender() {
+	protected onBeforeSidebarRender() {
 		if (this.name) {
 			app.renderer?.schedule(async () => {
 				let [r, _err] = await app.localData.readAsync(
@@ -133,8 +138,9 @@ export class SidebarSplitView extends UIComponent.define({
 	/** Set the width of the sidebar */
 	setWidth(width: string | number) {
 		let body = this.body as UICell;
-		if (body) {
-			let cell1 = body.findViewContent(UICell)[0] as UICell;
+		let cells = body?.findViewContent(UICell);
+		if (cells?.length > 1) {
+			let cell1 = cells[0] as UICell;
 			cell1.style = { width: 10, minWidth: width, grow: 1, shrink: 0 };
 		}
 

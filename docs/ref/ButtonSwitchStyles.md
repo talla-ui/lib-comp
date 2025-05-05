@@ -21,6 +21,8 @@ Objects of this type are passed to [ButtonSwitch](ButtonSwitch.md) as the `style
     The size of all button icons, defaults to 24.
 - [<!--{ref:property}-->iconMargin](ButtonSwitchStyles_iconMargin.md) \
     The margin after all button icons, defaults to 16.
+- [<!--{ref:property}-->iconColor](ButtonSwitchStyles_iconColor.md) \
+    The color of all button icons, defaults to undefined.
 - [<!--{ref:property}-->spacing](ButtonSwitchStyles_spacing.md) \
     The amount of space inserted between buttons, defaults to 0.
 - [<!--{ref:property}-->align](ButtonSwitchStyles_align.md) \

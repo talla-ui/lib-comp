@@ -24,7 +24,7 @@ export class LabeledViewStyles extends ConfigOptions {
 	static default = new LabeledViewStyles();
 
 	/** Binding that's used to determine if elements should be shown in horizontal layout (when true), defaults to 3-column viewports */
-	horizontalWhen = $viewport.boolean("col3");
+	horizontalWhen = $viewport("col3");
 
 	/** Cell style for the outer container */
 	containerStyle: UICell.StyleValue = ui.style.CELL.extend({ shrink: 1 });

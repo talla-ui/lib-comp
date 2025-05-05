@@ -68,16 +68,17 @@ export const FormSection = UIComponent.define(
 				{
 					spacing: 0,
 					wrap: true,
-					reverse: values.rowTitleAfter ? $viewport.boolean("col4") : false,
+					reverse: values.rowTitleAfter ? $viewport("col4") : false,
 				},
 				ui.cell(
 					{
 						layout: { clip: false, distribution: "start" },
 						position: { gravity: "start" },
 						margin: values.rowTitleAfter
-							? $viewport
-									.boolean("col4")
-									.select({ start: 16, bottom: 16 }, { bottom: 16 })
+							? $viewport("col4").select(
+									{ start: 16, bottom: 16 },
+									{ bottom: 16 }
+							  )
 							: { end: 16, bottom: 16 },
 						style: $viewport
 							.not("col4")

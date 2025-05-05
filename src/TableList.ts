@@ -9,6 +9,7 @@ import {
 	ViewBuilder,
 	UIComponent,
 	ui,
+	Binding,
 } from "talla-ui";
 import { ScrollArea } from "./ScrollArea.js";
 
@@ -72,7 +73,7 @@ export class TableList extends UIComponent.define({
 		let content: ViewBuilder[] = [
 			ui.list(
 				{
-					items: $view.list("items"),
+					items: $view("items"),
 					renderOptions: this.renderOptions,
 				},
 				listRow,
@@ -116,6 +117,8 @@ export class TableRow<TItem extends any = unknown> extends UIComponent.define({
 	widths: [] as (number | string | undefined)[],
 	/** The maximum width of each column in the row */
 	maxWidths: [] as (number | string | undefined)[],
+	/** An array with true/false values or bindings indicating whether each column should be hidden */
+	hideColumns: [] as Array<boolean | Binding<boolean> | undefined>,
 	/** True if the row is currently hidden */
 	hidden: false,
 	/** True if the row is currently selected */
@@ -142,13 +145,11 @@ export class TableRow<TItem extends any = unknown> extends UIComponent.define({
 	defineView(...content: ViewBuilder[]) {
 		return ui.cell(
 			{
-				hidden: $view.boolean("hidden"),
-				background: $view
-					.boolean("selected")
+				hidden: $view("hidden"),
+				background: $view("selected")
 					.and("styles.selectedBackground")
 					.else(undefined),
-				textColor: $view
-					.boolean("selected")
+				textColor: $view("selected")
 					.and("styles.selectedTextColor")
 					.else(undefined),
 				layout: { axis: "horizontal", gravity: "stretch" },
@@ -159,6 +160,7 @@ export class TableRow<TItem extends any = unknown> extends UIComponent.define({
 			...content.map((c, i) =>
 				ui.cell(
 					{
+						hidden: this.hideColumns[i],
 						style: {
 							width: this.widths[i] ?? 0,
 							maxWidth: this.maxWidths[i] ?? this.widths[i] ?? undefined,

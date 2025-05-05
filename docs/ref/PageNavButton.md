@@ -21,14 +21,12 @@ A page navigation button is used within a [NavColumn](NavColumn.md) or [NavRow](
 
 - [<!--{ref:property}-->pageId](PageNavButton_base_pageId.md) \
     The page ID to associate with this button.
+- [<!--{ref:property}-->pressed](PageNavButton_base_pressed.md) \
+    True to show the button as pressed all the time.
 - [<!--{ref:property}-->label](PageNavButton_base_label.md) \
     The button label.
 - [<!--{ref:property}-->icon](PageNavButton_base_icon.md) \
     The button icon, if any.
-- [<!--{ref:property}-->iconMargin](PageNavButton_base_iconMargin.md) \
-    The margin between the button icon and label, defaults to 16.
-- [<!--{ref:property}-->iconSize](PageNavButton_base_iconSize.md) \
-    The button icon size, defaults to 20.
 - [<!--{ref:property}-->chevron](PageNavButton_base_chevron.md) \
     The button chevron, if any.
 - [<!--{ref:property}-->width](PageNavButton_base_width.md) \

@@ -49,10 +49,9 @@ export class CalendarViewStyles extends ConfigOptions {
 		{
 			fontSize: 12,
 			fontWeight: "normal",
-			borderRadius: 16,
+			borderRadius: 0,
 		},
 		{
-			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_PRESSED]: true,
 			background: ui.color.PRIMARY_BG,
 			textColor: ui.color.PRIMARY_BG.text(),
@@ -211,103 +210,103 @@ export class CalendarView extends UIComponent.define({
 		}
 	}
 
-	protected defineView() {
-		return ui.cell(
-			{
-				background: ui.color.BACKGROUND,
-				width: 224,
-				height: 256,
-				grow: false,
-				layout: { clip: false },
-			},
-			ui.row(
-				{ spacing: 0, height: 32 },
-				ui.button({
-					label: $strf(
-						"%s %s",
-						$view.string("monthDisplay"),
-						$view.string("yearDisplay")
-					),
-					grow: true,
-					style: ui.style.BUTTON_PLAIN.override({
-						padding: { x: 8, y: 2 },
-						textAlign: "start",
-						minWidth: 0,
-						bold: true,
-					}),
-					onClick: "ShowMonths",
-				}),
-				ui.button({
-					hidden: $view.boolean("showMonths"),
-					icon: ui.icon.CHEVRON_BACK,
-					style: ui.style.BUTTON_ICON,
-					onClick: "PrevMonth",
-				}),
-				ui.button({
-					hidden: $view.boolean("showMonths"),
-					icon: ui.icon.CHEVRON_NEXT,
-					style: ui.style.BUTTON_ICON,
-					onClick: "NextMonth",
-				})
-			),
-			ui.cell({
-				hidden: $view.boolean("showMonths"),
-				accessibleRole: "list",
-				allowKeyboardFocus: true,
-				layout: { axis: "horizontal", wrapContent: true },
-				position: { gravity: "center" },
-				onBeforeRender: "GridRendering",
-				onEnterKeyPress: "GridEnterKeyPress",
-			}),
-			ui.cell(
+	protected createView() {
+		// Note that this is a createView method, not a defineView method
+		// because the locale might be set after the view is created
+		return ui
+			.cell(
 				{
-					hidden: $view.not("showMonths"),
+					background: ui.color.BACKGROUND,
+					width: 224,
+					height: 256,
+					grow: false,
 					layout: { clip: false },
 				},
-				ui.spacer(),
 				ui.row(
-					{ align: "center" },
+					{ spacing: 0, height: 32 },
 					ui.button({
+						label: $strf("%s %s", $view("monthDisplay"), $view("yearDisplay")),
+						grow: true,
+						style: ui.style.BUTTON_PLAIN.override({
+							padding: { x: 8, y: 2 },
+							textAlign: "start",
+							minWidth: 0,
+							bold: true,
+						}),
+						onClick: "ShowMonths",
+					}),
+					ui.button({
+						hidden: $view("showMonths"),
 						icon: ui.icon.CHEVRON_BACK,
 						style: ui.style.BUTTON_ICON,
-						onClick: "PrevYear",
-					}),
-					ui.textField({
-						value: $view("yearDisplay"),
-						style: this.styles.yearInputStyle,
-						selectOnFocus: true,
-						type: "numeric",
-						onChange: "SetYear",
-						onArrowDownKeyPress: "NextYear",
-						onArrowUpKeyPress: "PrevYear",
-						onEnterKeyPress: "ShowMonths",
+						onClick: "PrevMonth",
 					}),
 					ui.button({
+						hidden: $view("showMonths"),
 						icon: ui.icon.CHEVRON_NEXT,
 						style: ui.style.BUTTON_ICON,
-						onClick: "NextYear",
+						onClick: "NextMonth",
 					})
 				),
-				ui.spacer(),
+				ui.cell({
+					hidden: $view("showMonths"),
+					accessibleRole: "list",
+					allowKeyboardFocus: true,
+					layout: { axis: "horizontal", wrapContent: true },
+					position: { gravity: "center" },
+					onBeforeRender: "GridRendering",
+					onEnterKeyPress: "GridEnterKeyPress",
+				}),
 				ui.cell(
 					{
-						layout: {
-							axis: "horizontal",
-							wrapContent: true,
-							clip: false,
-						},
+						hidden: $view.not("showMonths"),
+						layout: { clip: false },
 					},
-					...this.locale.monthLabels.map((m, i) =>
+					ui.spacer(),
+					ui.row(
+						{ align: "center" },
 						ui.button({
-							label: m,
-							value: String(i),
-							style: this.styles.monthButtonStyle,
-							onClick: "SetMonth",
+							icon: ui.icon.CHEVRON_BACK,
+							style: ui.style.BUTTON_ICON,
+							onClick: "PrevYear",
+						}),
+						ui.textField({
+							value: $view("yearDisplay"),
+							style: this.styles.yearInputStyle,
+							selectOnFocus: true,
+							type: "numeric",
+							onChange: "SetYear",
+							onArrowDownKeyPress: "NextYear",
+							onArrowUpKeyPress: "PrevYear",
+							onEnterKeyPress: "ShowMonths",
+						}),
+						ui.button({
+							icon: ui.icon.CHEVRON_NEXT,
+							style: ui.style.BUTTON_ICON,
+							onClick: "NextYear",
 						})
+					),
+					ui.spacer(),
+					ui.cell(
+						{
+							layout: {
+								axis: "horizontal",
+								wrapContent: true,
+								clip: false,
+							},
+						},
+						...this.locale.monthLabels.map((m, i) =>
+							ui.button({
+								label: m,
+								value: String(i),
+								style: this.styles.monthButtonStyle,
+								onClick: "SetMonth",
+							})
+						)
 					)
 				)
 			)
-		);
+			.create();
 	}
 
 	requestFocus() {

@@ -41,7 +41,6 @@ export class SelectFieldStyles extends ConfigOptions {
 			borderColor: ui.color.TEXT.alpha(0.25),
 		},
 		{
-			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_HOVERED]: true,
 			background: ui.color.BACKGROUND,
 			borderColor: ui.color.TEXT.alpha(0.5),
@@ -112,8 +111,8 @@ export class SelectField extends UIComponent.define({
 
 	protected defineView() {
 		return ui.button({
-			label: $view.string("label"),
-			disabled: $view.boolean("readOnly"),
+			label: $view("label"),
+			disabled: $view("readOnly"),
 			icon: $view("itemIcon").or("icon"),
 			iconSize: this.styles.iconSize,
 			iconMargin: this.styles.iconMargin,
@@ -149,7 +148,7 @@ export class SelectField extends UIComponent.define({
 			!!this.options?.length &&
 			(await app.showModalMenuAsync(
 				{
-					width: this.width,
+					width: this.width || "100%",
 					items: this.options.map((item, index) => ({
 						key: "" + index,
 						text: item.label,

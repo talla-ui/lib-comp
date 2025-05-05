@@ -70,8 +70,8 @@ export const EmptyStateView = UIComponent.define(
 		styles: EmptyStateViewStyles.default,
 	},
 	(values, ...content) =>
-		ui.conditional(
-			{ state: $view.not("hidden") },
+		ui.show(
+			{ when: $view.not("hidden") },
 			ui.cell(
 				{ style: values.styles.containerStyle },
 				ui.column(
@@ -83,11 +83,11 @@ export const EmptyStateView = UIComponent.define(
 						iconSize: values.styles.iconSize,
 					}),
 					ui.label({
-						text: $view.string("title"),
+						text: $view("title"),
 						style: values.styles.titleStyle,
 					}),
 					ui.label({
-						text: $view.string("helpText"),
+						text: $view("helpText"),
 						style: values.styles.helpTextStyle,
 					}),
 					ui.spacer({ height: 32 }),

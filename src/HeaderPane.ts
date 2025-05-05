@@ -11,7 +11,10 @@ import {
 	UILabel,
 	ViewBuilder,
 	UIComponent,
+	UICell,
+	ViewEvent,
 } from "talla-ui";
+import { NavRow } from "./NavContainer";
 
 /**
  * Style configuration for a {@link HeaderPane} composite
@@ -43,6 +46,13 @@ export class HeaderPaneStyles extends ConfigOptions {
 		fontSize: 16,
 	});
 
+	/** Title icon margin, defaults to 16 */
+	titleIconMargin: number = 16;
+	/** Title icon size, defaults to 24 */
+	titleIconSize: number = 24;
+	/** Title icon color, defaults to text color */
+	titleIconColor?: UIColor;
+
 	/** Height of the header, defaults to 48 */
 	headerHeight = 48;
 	/** Maximum width of the header, defaults to 100% if not set */
@@ -54,6 +64,8 @@ export class HeaderPaneStyles extends ConfigOptions {
 	headerBackdropTextColor?: UIColor;
 	/** Visual effect for the header backdrop, defaults to shadow */
 	headerBackdropEffect = ui.effect.SHADOW;
+	/** Cell style for the header as a whole */
+	headerStyle?: UICell.StyleValue;
 
 	/** Icon for the back button */
 	backButtonIcon = ui.icon.CHEVRON_BACK;
@@ -63,6 +75,9 @@ export class HeaderPaneStyles extends ConfigOptions {
 	menuButtonIcon = ui.icon.MENU;
 	/** Accessible label for the menu button */
 	menuButtonAccessibleLabel?: StringConvertible;
+
+	/** True if the navbar should be centered, defaults to false */
+	centerNavbar = false;
 }
 
 /**
@@ -86,12 +101,18 @@ export class HeaderPane extends UIComponent.define({
 	titleIcon: undefined as UIIconResource | undefined,
 	/** True if the header should include a solid backdrop and effect */
 	backdrop: true,
+	/** True if the toolbar should be hidden */
+	hideToolbar: false,
+	/** True if the navbar should be hidden */
+	hideNavbar: false,
 	/** True if the header should be shown at all */
 	showHeader: true,
 	/** True if a back navigation button should be shown, or an event to emit when clicked (other than `NavigateBack`) */
 	navigateBack: false as boolean | string,
 	/** True if a menu button should be shown (instead of back button), or an event to emit when clicked (other than `ShowMenu`) */
 	showMenu: false as boolean | string,
+	/** True if the title (and icon) should be clickable, or an event to emit when clicked (other than `TitleClick`) */
+	titleClick: false as boolean | string,
 	/** A set of styles that are applied to this composite, an instance of {@link HeaderPaneStyles} */
 	styles: HeaderPaneStyles.default,
 	/** UI component identifier */
@@ -99,9 +120,41 @@ export class HeaderPane extends UIComponent.define({
 }) {
 	protected defineView(...content: ViewBuilder[]) {
 		let toolbarBuilder: ViewBuilder | undefined;
-		if (content[0]?.View === HeaderPaneToolbar) {
-			toolbarBuilder = content.shift();
+		let navbarBuilder: ViewBuilder | undefined;
+		let inner: ViewBuilder[] = [];
+		for (let item of content) {
+			if (item?.View === HeaderPaneToolbar) {
+				toolbarBuilder = item;
+			} else if (item?.View === NavRow) {
+				navbarBuilder = item;
+			} else {
+				inner.push(item);
+			}
 		}
+
+		function makeSection(
+			distribution: "start" | "center" | "end",
+			content: ViewBuilder[],
+			properties?: ui.PresetType<typeof UICell>
+		) {
+			return ui.cell(
+				{
+					style: {
+						width: "100%",
+						shrink: 1,
+					},
+					layout: {
+						axis: "horizontal",
+						gravity: "center",
+						distribution,
+						clip: false,
+					},
+					...properties,
+				},
+				...content
+			);
+		}
+
 		let boundPadding = $viewport
 			.not("col2")
 			.select(this.styles.paddingNarrow, this.styles.padding);
@@ -113,6 +166,8 @@ export class HeaderPane extends UIComponent.define({
 			{
 				style: {
 					shrink: 1,
+					maxHeight: "100%",
+					maxWidth: "100%",
 					minWidth: this.styles.minWidth,
 					minHeight: this.styles.minHeight,
 					background: this.styles.background,
@@ -127,20 +182,20 @@ export class HeaderPane extends UIComponent.define({
 					hidden: $view.not("showHeader"),
 					height: this.styles.headerHeight,
 					grow: false,
-					style: { css: { zIndex: "1" } },
+					style: ui.style(this.styles.headerStyle, { css: { zIndex: "1" } }),
 					layout: { clip: false },
-					textColor: $view.boolean("backdrop").select(textColor),
+					textColor: $view("backdrop").select(textColor),
 				},
 
 				// backdrop with shadow, if shown
-				ui.animate(
+				ui.show(
 					{
-						ignoreFirstShow: $view.not("paneRendered"),
+						when: $view("backdrop"),
+						ignoreFirstShowAnimation: $view.not("paneRendered"),
 						showAnimation: ui.animation.FADE_IN_DOWN,
 						hideAnimation: ui.animation.FADE_OUT_UP,
 					},
 					ui.cell({
-						hidden: $view.not("backdrop"),
 						background: this.styles.headerBackdropBackground,
 						position: { gravity: "cover" },
 						effect: this.styles.headerBackdropEffect,
@@ -151,48 +206,70 @@ export class HeaderPane extends UIComponent.define({
 				ui.cell(
 					{
 						padding: boundPadding,
-						margin: "auto",
+						margin: "auto", // center horz when limited width
 						style: {
 							height: this.styles.headerHeight,
 							width: "100%",
 							maxWidth: this.styles.maxHeaderWidth,
 						},
 						position: { gravity: "cover" },
-						layout: { axis: "horizontal", gravity: "center" },
+						layout: { axis: "horizontal", separator: { space: 16 } },
 					},
-					ui.conditional(
-						{ state: $view.boolean("leadingButtonIcon") },
-						ui.animate(
-							{ showAnimation: ui.animation.FADE_IN_RIGHT },
-							ui.button({
-								icon: $view("leadingButtonIcon"),
-								accessibleLabel: $view("leadingButtonAccessibleLabel"),
-								style: ui.style.BUTTON_ICON,
-								position: { start: -8 },
-								onClick: "HeaderLeadingButtonClick",
-							})
-						)
-					),
-					ui.animate(
+					makeSection(
+						"start",
+						[
+							ui.show(
+								{
+									when: $view("leadingButtonIcon"),
+									showAnimation: ui.animation.FADE_IN_RIGHT,
+								},
+								ui.button({
+									icon: $view("leadingButtonIcon"),
+									accessibleLabel: $view("leadingButtonAccessibleLabel"),
+									style: ui.style.BUTTON_ICON,
+									position: { start: -8 },
+									onClick: "HeaderLeadingButtonClick",
+								})
+							),
+							ui.show(
+								{
+									when: $view("title").or("titleIcon"),
+									ignoreFirstShowAnimation: $view.not("paneRendered"),
+									showAnimation: ui.animation.FADE_IN_UP,
+								},
+								ui.label({
+									text: $view("title"),
+									icon: $view("titleIcon"),
+									iconMargin: this.styles.titleIconMargin,
+									iconSize: this.styles.titleIconSize,
+									iconColor: this.styles.titleIconColor,
+									style: ui.style(
+										this.styles.titleStyle,
+										this.titleClick ? { cursor: "pointer" } : undefined
+									),
+									onClick: "TitleClick",
+								})
+							),
+						],
 						{
-							ignoreFirstShow: $view.not("paneRendered"),
-							showAnimation: ui.animation.FADE_IN_UP,
-						},
-						ui.label({
-							hidden: $view.boolean("title").or("titleIcon").not(),
-							text: $view.string("title"),
-							icon: $view("titleIcon"),
-							iconMargin: 16,
-							grow: true,
-							style: this.styles.titleStyle,
-						})
+							width: this.styles.centerNavbar ? "100%" : "auto",
+						}
 					),
-					...(toolbarBuilder ? [ui.spacer(), toolbarBuilder] : [ui.spacer()])
+					makeSection(
+						this.styles.centerNavbar ? "center" : "start",
+						navbarBuilder ? [navbarBuilder] : [],
+						{
+							hidden: $view("hideNavbar"),
+						}
+					),
+					makeSection("end", toolbarBuilder ? [toolbarBuilder] : [], {
+						hidden: $view("hideToolbar"),
+					})
 				)
 			),
 
 			// -- inner content below the header area
-			...content
+			...inner
 		);
 	}
 
@@ -211,6 +288,11 @@ export class HeaderPane extends UIComponent.define({
 			this._updateLeadingButton();
 		});
 		this._updateLeadingButton();
+	}
+
+	protected onTitleClick(e: ViewEvent) {
+		if (typeof this.titleClick === "string") this.emit(this.titleClick);
+		else return !this.titleClick;
 	}
 
 	protected onHeaderLeadingButtonClick() {

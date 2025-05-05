@@ -14,6 +14,7 @@ import {
 	View,
 	UIComponent,
 	ViewEvent,
+	UIColor,
 } from "talla-ui";
 import { EditInPlace, EditInPlaceStyles } from "./EditInPlace.js";
 import {
@@ -71,8 +72,17 @@ export class PropertyEditorStyles extends ConfigOptions {
 
 	/** Styles for edit-in-place (text or number) fields, of type {@link EditInPlaceStyles} */
 	editStyles = EditInPlaceStyles.init({
-		textFieldStyle: ui.style(EditInPlaceStyles.default.textFieldStyle, {
+		labelStyle: ui.style.LABEL.extend({
+			borderThickness: 2,
+			borderColor: ui.color.CLEAR,
+		}),
+		textFieldStyle: ui.style.TEXTFIELD.extend({
+			width: "100%",
+			height: "100%",
+			background: ui.color.CLEAR,
 			borderRadius: 0,
+			borderThickness: 2,
+			borderColor: ui.color.PRIMARY,
 		}),
 	});
 
@@ -96,19 +106,13 @@ export class PropertyEditorStyles extends ConfigOptions {
 			},
 			{
 				[UIStyle.STATE_HOVERED]: true,
-				[UIStyle.STATE_DISABLED]: false,
-				[UIStyle.STATE_FOCUSED]: false,
 				background: ui.color.BACKGROUND,
 				borderColor: ui.color.CLEAR,
 			},
 			{
-				[UIStyle.STATE_HOVERED]: true,
 				[UIStyle.STATE_FOCUSED]: true,
 				borderColor: ui.color.PRIMARY,
-			},
-			{
-				[UIStyle.STATE_FOCUSED]: true,
-				borderColor: ui.color.PRIMARY,
+				css: { outline: "none" },
 			}
 		),
 	});
@@ -121,12 +125,13 @@ export class PropertyEditorStyles extends ConfigOptions {
 			borderColor: ui.color.CLEAR,
 			grow: 1,
 			shrink: 1,
-			css: { cursor: "pointer" },
+			cursor: "pointer",
 		},
 		{
 			[UIStyle.STATE_FOCUSED]: true,
 			borderColor: ui.color.PRIMARY,
 			borderThickness: 2,
+			css: { outline: "none" },
 		}
 	);
 
@@ -136,8 +141,17 @@ export class PropertyEditorStyles extends ConfigOptions {
 	/** Icon size (in pixels or string with unit) for action labels, defaults to 16 */
 	actionLabelIconSize?: string | number = 16;
 
+	/** Icon color for action labels, defaults to ui.color.TEXT */
+	actionLabelIconColor?: UIColor = ui.color.TEXT;
+
 	/** Icon for action buttons, defaults to ui.icon.MORE (set to undefined to hide) */
 	actionButtonIcon?: UIIconResource = ui.icon.MORE;
+
+	/** Icon size (in pixels or string with unit) for action buttons, defaults to 16 */
+	actionButtonIconSize?: string | number = 16;
+
+	/** Icon color for action buttons, defaults to ui.color.TEXT */
+	actionButtonIconColor?: UIColor = ui.color.TEXT;
 
 	/** Style for the containing table list, defaults to solid background with subtle horizontal separators */
 	tableListStyles = TableListStyles.init({
@@ -158,6 +172,7 @@ export class PropertyEditorStyles extends ConfigOptions {
  * > Note: If properties are added using a observed list (with property items that are described by `ObservedObject` instances), changes can be handled using an event listener on the list itself. When a field value is updated by the user, the property editor emits a change event. Otherwise, changes will have to be handled by listening for the `Change` event from the property editor view.
  *
  * **Events**
+ * - `Rendered` is emitted when the property editor has been rendered. The event data includes the list of {@link PropertyEditorItem} objects that are being edited as `items`.
  * - `Change` is emitted when a property value has changed. The updated {@link PropertyEditorItem} and its new value are included in the event data as `item` and `value`, respectively.
  * - Custom action events are emitted with the {@link PropertyEditorItem} and current value included in the event data as `item` and `value`.
  * - Observed object change events are emitted on property items where possible (see above).
@@ -189,6 +204,10 @@ export class PropertyEditor extends UIComponent.define({
 				styles: this.styles,
 			})
 		);
+	}
+
+	protected beforeRender(): void {
+		this.emit("Rendered", { items: this.items });
 	}
 
 	/** Returns a plain object with all property values as described by {@link items} */
@@ -247,7 +266,7 @@ class PropertyEditorRow extends UIComponent.define({
 					})
 				)
 			),
-			ui.renderView({ view: $bind("editor") })
+			ui.show({ insert: $bind("editor") })
 		);
 	}
 
@@ -313,6 +332,7 @@ class PropertyEditorRow extends UIComponent.define({
 		let eventName = item?.action;
 		if (!item || !eventName || this.readOnly || item.readOnly) return;
 		this.emit(eventName, { item, value: item.value });
+		this.emit("Change", { item, value: item.value });
 		return true;
 	}
 
@@ -333,9 +353,10 @@ class PropertyEditorRow extends UIComponent.define({
 						onSpacebarPress: "Action",
 					},
 					ui.label({
-						text: $view.string("item.actionLabel").or("item.value"),
+						text: $view("item.actionLabel").or("item.value"),
 						icon: $view("item.icon"),
 						iconSize: this.styles.actionLabelIconSize,
+						iconColor: this.styles.actionLabelIconColor,
 						dim: readOnly,
 						grow: true,
 						style: this.styles.actionLabelStyle,
@@ -344,6 +365,8 @@ class PropertyEditorRow extends UIComponent.define({
 						hidden: readOnly || !this.styles.actionButtonIcon,
 						disableKeyboardFocus: true,
 						icon: this.styles.actionButtonIcon,
+						iconSize: this.styles.actionButtonIconSize,
+						iconColor: this.styles.actionButtonIconColor,
 						style: ui.style.BUTTON_ICON,
 						position: { end: 2 },
 					})
@@ -354,7 +377,7 @@ class PropertyEditorRow extends UIComponent.define({
 		if (typeof item.value === "boolean") {
 			let toggle = ui
 				.toggle({
-					state: $view.boolean("item.value"),
+					state: $view("item.value"),
 					position: { left: 8 },
 					disabled: readOnly,
 					type: this.styles.toggleType,
@@ -382,7 +405,7 @@ class PropertyEditorRow extends UIComponent.define({
 			isNumber: typeof item.value === "number" || item.number,
 			isPositive: item.positive,
 			isInteger: item.integer,
-			value: $view.string("item.value"),
+			value: $view("item.value"),
 			icon: $view("item.icon"),
 			styles: this.styles.editStyles,
 		});

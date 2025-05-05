@@ -1,4 +1,11 @@
-import { $form, $view, StringConvertible, ui, UIComponent } from "talla-ui";
+import {
+	$form,
+	$view,
+	StringConvertible,
+	ui,
+	UIComponent,
+	UIRenderable,
+} from "talla-ui";
 
 /**
  * View composite for a form entry block
@@ -23,15 +30,18 @@ export const FormEntry = UIComponent.define(
 		errorFormField: undefined as string | undefined,
 		/** The width of the container that groups all elements */
 		width: undefined as number | string | undefined,
+		/** Padding around the container that groups all elements */
+		padding: undefined as UIRenderable.Offsets | undefined,
 	},
 	(values, ...content) => {
 		let errorBinding = values.errorFormField
 			? $form(`errors.${values.errorFormField}.message`)
-			: $view.string("errorText");
+			: $view("errorText");
 		return ui.column(
 			{
 				name: "FormEntry",
 				width: values.width,
+				padding: values.padding,
 			},
 			ui.cell({
 				hidden: errorBinding.not(),
@@ -50,10 +60,11 @@ export const FormEntry = UIComponent.define(
 			...content,
 			ui.label({
 				hidden: $view.not("helpText"),
-				text: $view.string("helpText"),
+				text: $view("helpText"),
 				style: ui.style.LABEL_SMALL,
 				padding: { top: 8 },
 				dim: true,
+				wrap: true,
 				selectable: true,
 			}),
 			ui.label({

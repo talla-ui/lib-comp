@@ -25,3 +25,7 @@ Objects of this type are passed to [NavColumn](NavColumn.md) and [NavRow](NavRow
     Cell style for the outer container.
 - [<!--{ref:property}-->navButtonStyle](NavContainerStyles_navButtonStyle.md) \
     Button style for contained navigation buttons.
+- [<!--{ref:property}-->iconMargin](NavContainerStyles_iconMargin.md) \
+    The margin between button icons and labels, defaults to 12.
+- [<!--{ref:property}-->iconSize](NavContainerStyles_iconSize.md) \
+    The button icon size, defaults to 20.

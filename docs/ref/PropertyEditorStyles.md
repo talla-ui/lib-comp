@@ -35,7 +35,13 @@ Objects of this type are passed to [PropertyEditor](PropertyEditor.md) as the `s
     Style for action labels, defaults to theme label style.
 - [<!--{ref:property}-->actionLabelIconSize](PropertyEditorStyles_actionLabelIconSize.md) \
     Icon size (in pixels or string with unit) for action labels, defaults to 16.
+- [<!--{ref:property}-->actionLabelIconColor](PropertyEditorStyles_actionLabelIconColor.md) \
+    Icon color for action labels, defaults to ui.color.TEXT.
 - [<!--{ref:property}-->actionButtonIcon](PropertyEditorStyles_actionButtonIcon.md) \
     Icon for action buttons, defaults to ui.icon.MORE (set to undefined to hide).
+- [<!--{ref:property}-->actionButtonIconSize](PropertyEditorStyles_actionButtonIconSize.md) \
+    Icon size (in pixels or string with unit) for action buttons, defaults to 16.
+- [<!--{ref:property}-->actionButtonIconColor](PropertyEditorStyles_actionButtonIconColor.md) \
+    Icon color for action buttons, defaults to ui.color.TEXT.
 - [<!--{ref:property}-->tableListStyles](PropertyEditorStyles_tableListStyles.md) \
     Style for the containing table list, defaults to solid background with subtle horizontal separators.

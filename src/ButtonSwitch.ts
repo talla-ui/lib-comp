@@ -11,6 +11,7 @@ import {
 	UIComponent,
 	ViewEvent,
 	ui,
+	UIColor,
 } from "talla-ui";
 import { bindFormField } from "./util.js";
 
@@ -29,6 +30,8 @@ export class ButtonSwitchStyles extends ConfigOptions {
 	iconSize = 24;
 	/** The margin after all button icons, defaults to 16 */
 	iconMargin = 16;
+	/** The color of all button icons, defaults to undefined */
+	iconColor?: UIColor;
 	/** The amount of space inserted between buttons, defaults to 0 */
 	spacing: string | number = 0;
 	/** The alignment of buttons within the switch container, defaults to `start` */
@@ -44,12 +47,10 @@ export class ButtonSwitchStyles extends ConfigOptions {
 			css: { transition: "background 0.2s, color 0.2s" },
 		},
 		{
-			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_HOVERED]: true,
 			background: ui.color.TEXT.alpha(0.05),
 		},
 		{
-			[UIStyle.STATE_DISABLED]: false,
 			[UIStyle.STATE_PRESSED]: true,
 			background: ui.color.PRIMARY_BG,
 			textColor: ui.color.PRIMARY.text(),
@@ -137,6 +138,7 @@ export class ButtonSwitch extends UIComponent.define({
 						icon: b.icon,
 						iconSize: this.styles.iconSize,
 						iconMargin: this.styles.iconMargin,
+						iconColor: this.styles.iconColor,
 						style: this.styles.switchButtonStyle,
 						disableKeyboardFocus: true,
 						pressed: b.default

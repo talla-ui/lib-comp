@@ -12,6 +12,7 @@ import {
 	ViewBuilder,
 	UIComponent,
 	ui,
+	$either,
 } from "talla-ui";
 
 /**
@@ -33,18 +34,169 @@ export class NavContainerStyles extends ConfigOptions {
 	containerStyle: UICell.StyleValue = ui.style.CELL.extend({ grow: 0 });
 
 	/** Button style for contained navigation buttons */
-	navButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend(
-		{
-			textAlign: "start",
-		},
-		{
-			[UIStyle.STATE_DISABLED]: false,
-			[UIStyle.STATE_PRESSED]: true,
-			background: ui.color.PRIMARY.alpha(0.1),
-			textColor: ui.color.PRIMARY,
-		}
-	);
+	navButtonStyle: UIButton.StyleValue = ui.style.BUTTON_PLAIN.extend({
+		textAlign: "start",
+	});
+
+	/** The margin between button icons and labels, defaults to 12 */
+	iconMargin = 12;
+	/** The button icon size, defaults to 20 */
+	iconSize = 20;
+
+	// predefined styles
+
+	static PLAIN = NavContainerStyles.init({
+		navButtonStyle: ui.style.BUTTON_TEXT.extend(
+			{
+				padding: { x: 8, y: 6 },
+				opacity: 0.5,
+			},
+			{
+				[UIStyle.STATE_HOVERED]: true,
+				opacity: 0.8,
+			},
+			{
+				[UIStyle.STATE_PRESSED]: true,
+				opacity: 1,
+			}
+		),
+	});
+
+	static UNDERLINE = NavContainerStyles.init({
+		navButtonStyle: ui.style.BUTTON_TEXT.extend(
+			{
+				padding: { x: 8, y: 6 },
+				opacity: 0.5,
+			},
+			{
+				[UIStyle.STATE_HOVERED]: true,
+				opacity: 0.8,
+			},
+			{
+				[UIStyle.STATE_PRESSED]: true,
+				borderThickness: { y: 4 },
+				borderColor: { bottom: ui.color.PRIMARY },
+				opacity: 1,
+			}
+		),
+	});
+
+	static TAB_BAR = NavContainerStyles.init({
+		spacing: 4,
+		containerStyle: ui.style.CELL.extend({
+			background: ui.color.TEXT.alpha(0.1),
+			borderRadius: 32,
+			padding: 3,
+		}),
+		navButtonStyle: ui.style.BUTTON.extend(
+			{
+				padding: { x: 24, y: 4 },
+				background: ui.color.CLEAR,
+				minWidth: 88,
+				borderRadius: 32,
+				lineHeight: 1.75,
+				textColor: ui.color.TEXT.alpha(0.5),
+			},
+			{
+				[UIStyle.STATE_PRESSED]: true,
+				background: ui.color.fg(ui.color.BACKGROUND, ui.color.PRIMARY),
+				borderColor: ui.color.TEXT.alpha(0.2),
+				textColor: ui.color.fg(ui.color.TEXT, ui.color.PRIMARY.text()),
+			}
+		),
+	});
+
+	static LIST_COLUMN = NavContainerStyles.init({
+		separator: { lineThickness: 1, lineColor: ui.color.SEPARATOR },
+		navButtonStyle: ui.style.BUTTON_PLAIN.extend(
+			{
+				textAlign: "start",
+				borderRadius: 0,
+			},
+			{
+				[UIStyle.STATE_FOCUSED]: true,
+				[UIStyle.STATE_PRESSED]: false,
+				background: ui.color.BACKGROUND.contrast(-0.1),
+			},
+			{
+				[UIStyle.STATE_PRESSED]: true,
+				background: ui.color.PRIMARY_BG,
+				textColor: ui.color.PRIMARY_BG.text(),
+			}
+		),
+	});
+
+	static LIST_SIDEBAR = NavContainerStyles.init({
+		spacing: 4,
+		iconSize: 24,
+		iconMargin: 20,
+		navButtonStyle: ui.style.BUTTON_PLAIN.extend(
+			{
+				lineBreakMode: "clip",
+				textAlign: "start",
+				borderRadius: 8,
+				padding: { x: 12, y: 8 },
+				textColor: ui.color.TEXT.alpha(0.5),
+			},
+			{
+				[UIStyle.STATE_HOVERED]: true,
+				background: ui.color.CLEAR,
+				textColor: ui.color.TEXT.alpha(0.8),
+			},
+			{
+				[UIStyle.STATE_PRESSED]: true,
+				background: ui.color.TEXT.alpha(0.1),
+				textColor: ui.color.TEXT,
+			}
+		),
+	});
+
+	static LIST_SIDEBAR_REVERSE = NavContainerStyles.init({
+		...NavContainerStyles.LIST_SIDEBAR,
+		navButtonStyle: (
+			NavContainerStyles.LIST_SIDEBAR
+				.navButtonStyle as UIStyle<UIButton.StyleDefinition>
+		)
+			.extend(
+				{
+					[UIStyle.STATE_HOVERED]: true,
+					background: ui.color.BACKGROUND.alpha(0.1),
+				},
+				{
+					[UIStyle.STATE_PRESSED]: true,
+					background: ui.color.BACKGROUND.alpha(0.2),
+				}
+			)
+			.override({
+				textColor: ui.color.BACKGROUND,
+			}),
+	});
+
+	static LIST_SIDEBAR_DARK = NavContainerStyles.init({
+		...NavContainerStyles.LIST_SIDEBAR,
+		navButtonStyle: (
+			NavContainerStyles.LIST_SIDEBAR
+				.navButtonStyle as UIStyle<UIButton.StyleDefinition>
+		)
+			.extend(
+				{
+					[UIStyle.STATE_HOVERED]: true,
+					background: ui.color.BLACK.alpha(0.1),
+				},
+				{
+					[UIStyle.STATE_PRESSED]: true,
+					background: ui.color.BLACK.alpha(0.2),
+				}
+			)
+			.override({
+				textColor: ui.color.WHITE,
+			}),
+	});
 }
+
+// ----------------------------------------------------------------------------
+// Navigation column
+// ----------------------------------------------------------------------------
 
 /**
  * View composite for a navigation button column
@@ -54,7 +206,6 @@ export class NavContainerStyles extends ConfigOptions {
  * Navigation buttons are added as presets of {@link PageNavButton} or {@link DetailNavButton} within the content of this composite. The button that corresponds to the current page or detail path is automatically shown as 'pressed'.
  *
  * @see {@link NavContainerStyles}+
- * @see {@link ListNavColumn}+
  * @see {@link NavRow}
  * @see {@link PageNavButton}+
  * @see {@link DetailNavButton}+
@@ -64,8 +215,8 @@ export class NavColumn extends UIComponent.define({
 	width: undefined as string | number | undefined,
 	/** The margin around the outer container, defaults to 0 */
 	margin: 0 as UIRenderable.Offsets,
-	/** The padding around the navigation buttons, defaults to 0 */
-	padding: 0 as UIRenderable.Offsets,
+	/** True if the container should grow to fill the available space, defaults to false */
+	grow: false,
 	/** A set of styles that are applied to this composite, an instance of {@link NavContainerStyles} */
 	styles: NavContainerStyles.defaults,
 }) {
@@ -74,13 +225,14 @@ export class NavColumn extends UIComponent.define({
 			{
 				layout: { clip: false },
 				margin: this.margin,
-				padding: this.padding,
 				width: this.width,
 				style: this.styles.containerStyle,
 				name: "NavColumn",
+				grow: this.grow,
 			},
 			ui.column(
 				{
+					grow: true,
 					spacing: this.styles.spacing,
 					layout: { separator: this.styles.separator },
 				},
@@ -90,38 +242,9 @@ export class NavColumn extends UIComponent.define({
 	}
 }
 
-/**
- * View composite for a compact list navigation column
- *
- * A list navigation column composite is a {@link NavColumn} composite with predefined {@link styles} to match those of a typical (compact) navigation list, with separators between each option. The current navigation button is highlighted using the primary background color along the full width of the list.
- */
-export class ListNavColumn extends NavColumn {
-	/** Predefined list navigation styles */
-	styles = NavContainerStyles.init({
-		separator: { lineThickness: 1, lineColor: ui.color.SEPARATOR },
-		containerStyle: ui.style.CELL.extend({ grow: 0 }),
-		navButtonStyle: ui.style.BUTTON_PLAIN.extend(
-			{
-				borderRadius: 0,
-				textAlign: "start",
-				width: "100%",
-				padding: { x: 16, y: 6 },
-			},
-			{
-				[UIStyle.STATE_FOCUSED]: true,
-				[UIStyle.STATE_PRESSED]: false,
-				[UIStyle.STATE_DISABLED]: false,
-				background: ui.color.PRIMARY_BG.alpha(0.1),
-			},
-			{
-				[UIStyle.STATE_PRESSED]: true,
-				[UIStyle.STATE_DISABLED]: false,
-				background: ui.color.PRIMARY_BG,
-				textColor: ui.color.PRIMARY_BG.text(),
-			}
-		),
-	});
-}
+// ----------------------------------------------------------------------------
+// Navigation row
+// ----------------------------------------------------------------------------
 
 /**
  * View composite for a navigation button row
@@ -131,7 +254,6 @@ export class ListNavColumn extends NavColumn {
  * Navigation buttons are added as presets of {@link PageNavButton} or {@link DetailNavButton} within the content of this composite. The button that corresponds to the current page or detail path is automatically shown as 'pressed'.
  *
  * @see {@link NavContainerStyles}
- * @see {@link TabNavRow}+
  * @see {@link NavColumn}
  * @see {@link PageNavButton}
  * @see {@link DetailNavButton}
@@ -139,8 +261,8 @@ export class ListNavColumn extends NavColumn {
 export class NavRow extends UIComponent.define({
 	/** The margin around the outer container, defaults to 0 */
 	margin: 0 as UIRenderable.Offsets,
-	/** The padding around the navigation buttons, defaults to 0 */
-	padding: 0 as UIRenderable.Offsets,
+	/** True if the container should grow to fill the available space, defaults to false */
+	grow: false,
 	/** A set of styles that are applied to this composite, an instance of {@link NavContainerStyles} */
 	styles: NavContainerStyles.defaults,
 }) {
@@ -149,9 +271,9 @@ export class NavRow extends UIComponent.define({
 			{
 				layout: { clip: false },
 				margin: this.margin,
-				padding: this.padding,
 				style: this.styles.containerStyle,
 				name: "NavRow",
+				grow: this.grow,
 			},
 			ui.row(
 				{
@@ -164,38 +286,9 @@ export class NavRow extends UIComponent.define({
 	}
 }
 
-/**
- * View composite for a tab navigation row
- *
- * A tab navigation row composite is a {@link NavRow} composite with predefined {@link styles} to match those of a typical tab bar. The tab bar has a rounded appearance and subtle background color. The current navigation button is highlighted with a contrasting background and text color.
- */
-export class TabNavRow extends NavRow {
-	/** Predefined tab bar styles */
-	styles = NavContainerStyles.init({
-		spacing: 4,
-		containerStyle: ui.style.CELL.extend({
-			background: ui.color.TEXT.alpha(0.1),
-			borderRadius: 32,
-		}),
-		navButtonStyle: ui.style.BUTTON.extend(
-			{
-				padding: { x: 24, y: 6 },
-				background: ui.color.CLEAR,
-				minWidth: 88,
-				borderRadius: 32,
-				lineHeight: 1.75,
-				textColor: ui.color.TEXT.alpha(0.65),
-			},
-			{
-				[UIStyle.STATE_DISABLED]: false,
-				[UIStyle.STATE_PRESSED]: true,
-				background: ui.color.fg(ui.color.BACKGROUND, ui.color.PRIMARY),
-				borderColor: ui.color.TEXT.alpha(0.2),
-				textColor: ui.color.fg(ui.color.TEXT, ui.color.PRIMARY.text()),
-			}
-		),
-	});
-}
+// ----------------------------------------------------------------------------
+// Navigation buttons
+// ----------------------------------------------------------------------------
 
 /**
  * View composite that encapsulates a page navigation button
@@ -205,14 +298,12 @@ export class TabNavRow extends NavRow {
 export class PageNavButton extends UIComponent.define({
 	/** The page ID to associate with this button */
 	pageId: undefined as string | undefined,
+	/** True to show the button as pressed all the time */
+	pressed: false,
 	/** The button label */
 	label: StringConvertible.EMPTY,
 	/** The button icon, if any */
 	icon: undefined as UIIconResource | undefined,
-	/** The margin between the button icon and label, defaults to 16 */
-	iconMargin: 16,
-	/** The button icon size, defaults to 20 */
-	iconSize: 20,
 	/** The button chevron, if any */
 	chevron: undefined as "up" | "down" | "next" | "back" | undefined,
 	/** The button width, if different from the width defined in {@link NavContainerStyles.navButtonStyle} */
@@ -221,13 +312,16 @@ export class PageNavButton extends UIComponent.define({
 	defineView() {
 		return ui.button({
 			icon: $view("icon"),
-			iconMargin: this.iconMargin,
-			iconSize: this.iconSize,
+			iconMargin: $view("styles.iconMargin"),
+			iconSize: $view("styles.iconSize"),
 			chevron: $view("chevron"),
-			label: $view.string("label"),
+			label: $view("label"),
 			width: this.width,
 			navigateTo: $view("navigateTo"),
-			pressed: $navigation("matchedPageId").equals($view("pageId")),
+			pressed: $either(
+				$view("pressed"),
+				$navigation("matchedPageId").equals($view("pageId"))
+			),
 			style: $view("styles.navButtonStyle"),
 			onPress: "Navigate",
 			onEnterKeyPress: "Navigate",
@@ -235,6 +329,7 @@ export class PageNavButton extends UIComponent.define({
 			onArrowDownKeyPress: "RequestFocusNext",
 			onArrowLeftKeyPress: "RequestFocusPrevious",
 			onArrowRightKeyPress: "RequestFocusNext",
+			accessibleRole: "option",
 		});
 	}
 
@@ -258,14 +353,12 @@ export class PageNavButton extends UIComponent.define({
 export class DetailNavButton extends UIComponent.define({
 	/** The detail path to associate with this button */
 	detail: undefined as string | undefined,
+	/** True to show the button as pressed all the time */
+	pressed: false,
 	/** The button label */
 	label: StringConvertible.EMPTY,
 	/** The button icon, if any */
 	icon: undefined as UIIconResource | undefined,
-	/** The margin between the button icon and label, defaults to 16 */
-	iconMargin: 16,
-	/** The button icon size, defaults to 20 */
-	iconSize: 20,
 	/** The button chevron, if any */
 	chevron: undefined as "up" | "down" | "next" | "back" | undefined,
 	/** The button width, if different from the width defined in {@link NavContainerStyles.navButtonStyle} */
@@ -274,13 +367,16 @@ export class DetailNavButton extends UIComponent.define({
 	defineView() {
 		return ui.button({
 			icon: $view("icon"),
-			iconMargin: this.iconMargin,
-			iconSize: this.iconSize,
+			iconMargin: $view("styles.iconMargin"),
+			iconSize: $view("styles.iconSize"),
 			chevron: $view("chevron"),
-			label: $view.string("label"),
+			label: $view("label"),
 			width: this.width,
 			navigateTo: $view("navigateTo"),
-			pressed: $navigation("detail").equals($view("detail")),
+			pressed: $either(
+				$view("pressed"),
+				$navigation("detail").equals($view("detail"))
+			),
 			style: $view("styles.navButtonStyle"),
 			onPress: "Navigate",
 			onEnterKeyPress: "Navigate",
@@ -288,6 +384,7 @@ export class DetailNavButton extends UIComponent.define({
 			onArrowDownKeyPress: "RequestFocusNext",
 			onArrowLeftKeyPress: "RequestFocusPrevious",
 			onArrowRightKeyPress: "RequestFocusNext",
+			accessibleRole: "option",
 		});
 	}
 
@@ -298,6 +395,52 @@ export class DetailNavButton extends UIComponent.define({
 
 	/** Button navigation target, bound to button itself */
 	protected navigateTo?: { detail?: string } = undefined;
+
+	/** This property is set from JSX content, if any; copied to {@link label} */
+	protected declare text?: any;
+}
+
+/**
+ * View composite that encapsulates a value-backed navigation button
+ *
+ * A value-backed navigation button is used within a {@link NavColumn} or {@link NavRow} to represent a specific bound value. The button emits a regular `Click` event when pressed, which includes the button's value, and the button appears 'pressed' if the current value matches the button's value.
+ */
+export class ValueNavButton extends UIComponent.define({
+	/** The value to compare against the current value (should be bound) */
+	match: undefined as string | undefined,
+	/** The value to associate with this button */
+	value: undefined as string | undefined,
+	/** The button label */
+	label: StringConvertible.EMPTY,
+	/** The button icon, if any */
+	icon: undefined as UIIconResource | undefined,
+	/** The button chevron, if any */
+	chevron: undefined as "up" | "down" | "next" | "back" | undefined,
+	/** The button width, if different from the width defined in {@link NavContainerStyles.navButtonStyle} */
+	width: undefined as string | number | undefined,
+}) {
+	defineView() {
+		return ui.button({
+			icon: $view("icon"),
+			iconMargin: $view("styles.iconMargin"),
+			iconSize: $view("styles.iconSize"),
+			chevron: $view("chevron"),
+			label: $view("label"),
+			width: this.width,
+			value: $view("value"),
+			pressed: $either($view("match").equals($view("value"))),
+			style: $view("styles.navButtonStyle"),
+			onArrowUpKeyPress: "RequestFocusPrevious",
+			onArrowDownKeyPress: "RequestFocusNext",
+			onArrowLeftKeyPress: "RequestFocusPrevious",
+			onArrowRightKeyPress: "RequestFocusNext",
+			accessibleRole: "option",
+		});
+	}
+
+	protected beforeRender() {
+		if (this.text) this.label = this.text;
+	}
 
 	/** This property is set from JSX content, if any; copied to {@link label} */
 	protected declare text?: any;

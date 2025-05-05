@@ -4,7 +4,7 @@
 
 > View composite for a form entry block.
 
-<pre class="docgen_signature"><b>const</b> FormEntry: UIComponent.DefinedUIComponent&lt;{<br>    label?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    helpText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorFormField?: BindingOrValue&lt;<b>string</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>}, {<br>    label: StringConvertible;<br>    helpText: StringConvertible;<br>    errorText: StringConvertible;<br>    errorFormField: <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>}&gt;;</pre>
+<pre class="docgen_signature"><b>const</b> FormEntry: UIComponent.DefinedUIComponent&lt;{<br>    label?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    helpText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorFormField?: BindingOrValue&lt;<b>string</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    padding?: BindingOrValue&lt;UIRenderable.Offsets | <b>undefined</b>&gt;;<br>}, {<br>    label: StringConvertible;<br>    helpText: StringConvertible;<br>    errorText: StringConvertible;<br>    errorFormField: <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    padding: UIRenderable.Offsets | <b>undefined</b>;<br>}&gt;;</pre>
 
 ## Description
 
@@ -26,3 +26,5 @@ The contained form field can be of any type, including built-in components (i.e.
     A form field ID, to bind the error text to a `FormContext` field validation error.
 - [<!--{ref:property}-->width](FormEntry_width.md) \
     The width of the container that groups all elements.
+- [<!--{ref:property}-->padding](FormEntry_padding.md) \
+    Padding around the container that groups all elements.

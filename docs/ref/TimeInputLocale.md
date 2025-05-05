@@ -17,7 +17,7 @@ Objects of this type are passed to [TimeInputField](TimeInputField.md) as the `l
 
 ## Instance members
 
-- [<!--{ref:property}-->use12HourFormat](TimeInputLocale_use12HourFormat.md) \
-    True if 12-hour time format should be used, false for 24-hour format.
+- [<!--{ref:property}-->use24HourFormat](TimeInputLocale_use24HourFormat.md) \
+    True if 24-hour time format should be used, false for 12-hour format (defaults to false).
 - [<!--{ref:property}-->timeSeparator](TimeInputLocale_timeSeparator.md) \
     The separator used between hours and minutes.
