@@ -36,7 +36,7 @@ function toLocalISOString(d?: Date | any): string | undefined {
 }
 
 /**
- * Style configuration for a {@link CalendarView} composite
+ * Style configuration for a {@link CalendarView} component
  *
  * Objects of this type are passed to {@link CalendarView} as the `styles` preset property.
  */
@@ -101,7 +101,7 @@ export class CalendarViewStyles extends ConfigOptions {
 }
 
 /**
- * Localization configuration for a {@link CalendarView} composite
+ * Localization configuration for a {@link CalendarView} component
  *
  * Objects of this type are passed to {@link CalendarView} as the `locale` preset property.
  */
@@ -141,9 +141,9 @@ type GridButtonInfo = {
 };
 
 /**
- * View composite for a calendar
+ * Component for a calendar view
  *
- * A calendar view composite displays a monthly calendar, allowing the user to select a single date or a date range. The view composite is optimized for both keyboard and mouse or touch input.
+ * A calendar view component displays a monthly calendar, allowing the user to select a single date or a date range. The component is optimized for both keyboard and mouse or touch input.
  *
  * The calendar can be localized to start weeks on different days, and to translate the labels for days and months.
  *
@@ -169,7 +169,7 @@ export class CalendarView extends UIComponent.define({
 	height: 256,
 	/** A form field ID, to add a two-way `FormContext` binding */
 	formField: undefined as string | undefined,
-	/** A set of styles that are applied to this composite, an instance of {@link CalendarViewStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link CalendarViewStyles} */
 	styles: CalendarViewStyles.default,
 	/** Localization settings for the calendar, an instance of {@link CalendarViewLocale} */
 	locale: CalendarViewLocale.default,

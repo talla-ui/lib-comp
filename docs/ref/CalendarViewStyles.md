@@ -2,7 +2,7 @@
 
 # class CalendarViewStyles
 
-> Style configuration for a [CalendarView](CalendarView.md) composite.
+> Style configuration for a [CalendarView](CalendarView.md) component.
 
 <pre class="docgen_signature"><b>class</b> CalendarViewStyles <b>extends</b> ConfigOptions;</pre>
 

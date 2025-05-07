@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class PropertyEditor](PropertyEditor.md) \
-    View composite for a property editor.
+    Component for a property editor.

@@ -2,7 +2,7 @@
 
 # class PageNavButton
 
-> View composite that encapsulates a page navigation button.
+> Component that encapsulates a page navigation button.
 
 <pre class="docgen_signature"><b>class</b> PageNavButton <b>extends</b> <a href="PageNavButton_base.md">PageNavButton_base</a>;</pre>
 

@@ -2,7 +2,7 @@
 
 # class ProgressBarStyles
 
-> Style configuration for a [ProgressBar](ProgressBar.md) composite.
+> Style configuration for a [ProgressBar](ProgressBar.md) component.
 
 <pre class="docgen_signature"><b>class</b> ProgressBarStyles <b>extends</b> ConfigOptions;</pre>
 

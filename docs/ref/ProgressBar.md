@@ -1,8 +1,8 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class ProgressBar
 
-> View composite for a progress bar.
+> Component for a progress bar.
 
 <pre class="docgen_signature"><b>class</b> ProgressBar <b>extends</b> <a href="ProgressBar_base.md">ProgressBar_base</a>;</pre>
 
@@ -17,9 +17,9 @@ A progress bar displays the completion progress of a task as a rectangular bar t
 - [<!--{ref:property}-->margin](ProgressBar_base_margin.md) \
     Margin around the outer container, defaults to 0.
 - [<!--{ref:property}-->styles](ProgressBar_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ProgressBarStyles](ProgressBarStyles.md).
+    A set of styles that are applied to this component, an instance of [ProgressBarStyles](ProgressBarStyles.md).
 
 ## Related
 
 - [<!--{ref:class}-->class ProgressBarStyles](ProgressBarStyles.md) \
-    Style configuration for a [ProgressBar](ProgressBar.md) composite.
+    Style configuration for a [ProgressBar](ProgressBar.md) component.

@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->ColumnCard](ColumnCard.md) \
-    View composite for a column-based card.
+    Component for a column-based card.

@@ -2,7 +2,7 @@
 
 # class DateInputFieldStyles
 
-> Style configuration for a [DateInputField](DateInputField.md) composite.
+> Style configuration for a [DateInputField](DateInputField.md) component.
 
 <pre class="docgen_signature"><b>class</b> DateInputFieldStyles <b>extends</b> ConfigOptions;</pre>
 

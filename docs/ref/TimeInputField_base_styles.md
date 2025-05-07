@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [TimeInputFieldStyles](TimeInputFieldStyles.md).
+> A set of styles that are applied to this component, an instance of [TimeInputFieldStyles](TimeInputFieldStyles.md).
 
 <pre class="docgen_signature">styles: <a href="TimeInputFieldStyles.md">TimeInputFieldStyles</a>;</pre>
 

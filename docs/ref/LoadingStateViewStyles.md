@@ -2,7 +2,7 @@
 
 # class LoadingStateViewStyles
 
-> Style configuration for an [LoadingStateView](LoadingStateView.md) composite.
+> Style configuration for an [LoadingStateView](LoadingStateView.md) component.
 
 <pre class="docgen_signature"><b>class</b> LoadingStateViewStyles <b>extends</b> ConfigOptions;</pre>
 

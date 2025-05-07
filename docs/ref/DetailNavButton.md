@@ -2,7 +2,7 @@
 
 # class DetailNavButton
 
-> View composite that encapsulates a detail navigation button.
+> Component that encapsulates a detail navigation button.
 
 <pre class="docgen_signature"><b>class</b> DetailNavButton <b>extends</b> <a href="DetailNavButton_base.md">DetailNavButton_base</a>;</pre>
 

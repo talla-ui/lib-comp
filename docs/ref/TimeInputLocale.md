@@ -2,7 +2,7 @@
 
 # class TimeInputLocale
 
-> Localization configuration for a [TimeInputField](TimeInputField.md) composite.
+> Localization configuration for a [TimeInputField](TimeInputField.md) component.
 
 <pre class="docgen_signature"><b>class</b> TimeInputLocale <b>extends</b> ConfigOptions;</pre>
 

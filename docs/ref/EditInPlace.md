@@ -1,14 +1,14 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class EditInPlace
 
-> View composite for an edit-in-place field.
+> Component for an edit-in-place field.
 
 <pre class="docgen_signature"><b>class</b> EditInPlace <b>extends</b> <a href="EditInPlace_base.md">EditInPlace_base</a>;</pre>
 
 ## Description
 
-An edit-in-place composite contains both a plain label and a text field, swapping between them as needed. The text field is displayed when the composite receives input focus, and the label is displayed otherwise.
+An edit-in-place component contains both a plain label and a text field, swapping between them as needed. The text field is displayed when the component receives input focus, and the label is displayed otherwise.
 
 The label text is kept in sync with the text field value automatically. The value can also be set programmatically at any time.
 
@@ -44,7 +44,7 @@ The label text is kept in sync with the text field value automatically. The valu
 - [<!--{ref:property}-->formField](EditInPlace_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](EditInPlace_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [EditInPlaceStyles](EditInPlaceStyles.md).
+    A set of styles that are applied to this component, an instance of [EditInPlaceStyles](EditInPlaceStyles.md).
 - [<!--{ref:property}-->name](EditInPlace_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](EditInPlace_base_accessibleLabel.md) \
@@ -53,4 +53,4 @@ The label text is kept in sync with the text field value automatically. The valu
 ## Related
 
 - [<!--{ref:class}-->class EditInPlaceStyles](EditInPlaceStyles.md) \
-    Style configuration for an [EditInPlace](EditInPlace.md) composite.
+    Style configuration for an [EditInPlace](EditInPlace.md) component.

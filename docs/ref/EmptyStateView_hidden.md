@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->EmptyStateView](EmptyStateView.md) \
-    View composite for an empty state view.
+    Component for an empty state view.

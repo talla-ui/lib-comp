@@ -1,12 +1,12 @@
 # class TableHeader
 
-> A table row composite with specific styles for a table header.
+> A table row component with specific styles for a table header.
 
 <pre class="docgen_signature"><b>class</b> TableHeader <b>extends</b> <a href="TableRow.md">TableRow</a>;</pre>
 
 ## Description
 
-A table header row composite can be used as the first content preset of a [TableList](TableList.md), to display a header above all table rows.
+A table header row component can be used as the first content preset of a [TableList](TableList.md), to display a header above all table rows.
 
 ## Inherited members
 

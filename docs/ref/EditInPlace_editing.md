@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class EditInPlace](EditInPlace.md) \
-    View composite for an edit-in-place field.
+    Component for an edit-in-place field.

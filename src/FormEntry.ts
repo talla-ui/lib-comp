@@ -8,13 +8,13 @@ import {
 } from "talla-ui";
 
 /**
- * View composite for a form entry block
+ * Component for a form entry block
  *
- * A form entry composite groups together a form input field and several labels for field names, help text, and/or error messages.
+ * A form entry component groups together a form input field and several labels for field names, help text, and/or error messages.
  *
- * The contained form field can be of any type, including built-in components (i.e. text field, toggle) and view composites such as {@link ButtonSwitch}, {@link SelectField}, and {@link DateInputField}.
+ * The contained form field can be of any type, including built-in components (i.e. text field, toggle) and UI components such as {@link ButtonSwitch}, {@link SelectField}, and {@link DateInputField}.
  *
- * **Events** — All events from the contained form field and labels are delegated by this view composite.
+ * **Events** — All events from the contained form field and labels are delegated by this component.
  *
  * @class
  */

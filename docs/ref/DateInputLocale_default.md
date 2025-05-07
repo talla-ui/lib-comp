@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class DateInputLocale](DateInputLocale.md) \
-    Localization configuration for a [DateInputField](DateInputField.md) composite.
+    Localization configuration for a [DateInputField](DateInputField.md) component.

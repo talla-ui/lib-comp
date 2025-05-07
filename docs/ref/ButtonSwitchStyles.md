@@ -2,7 +2,7 @@
 
 # class ButtonSwitchStyles
 
-> Style configuration for a [ButtonSwitch](ButtonSwitch.md) composite.
+> Style configuration for a [ButtonSwitch](ButtonSwitch.md) component.
 
 <pre class="docgen_signature"><b>class</b> ButtonSwitchStyles <b>extends</b> ConfigOptions;</pre>
 

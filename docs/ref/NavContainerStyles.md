@@ -2,13 +2,13 @@
 
 # class NavContainerStyles
 
-> Style configuration for [NavColumn](NavColumn.md) and [NavRow](NavRow.md) composites.
+> Style configuration for [NavColumn](NavColumn.md) and [NavRow](NavRow.md) components.
 
 <pre class="docgen_signature"><b>class</b> NavContainerStyles <b>extends</b> ConfigOptions;</pre>
 
 ## Description
 
-Objects of this type are passed to [NavColumn](NavColumn.md) and [NavRow](NavRow.md) composites as the `styles` preset property.
+Objects of this type are passed to [NavColumn](NavColumn.md) and [NavRow](NavRow.md) components as the `styles` preset property.
 
 ## Static members
 

@@ -1,14 +1,14 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class LabeledView
 
-> View composite that encapsulates a title label in front or above an embedded view.
+> Component that encapsulates a title label in front or above an embedded view.
 
 <pre class="docgen_signature"><b>class</b> LabeledView <b>extends</b> <a href="LabeledView_base.md">LabeledView_base</a>;</pre>
 
 ## Description
 
-A labeled view composite combines a title label (with an optional icon), and an embedded view. The label can be shown above the view (vertical layout) or to the side (horizontal layout). The layout is bound to the viewport width so that horizontal layout is selected for wider viewports, as configured using [LabeledViewStyles](LabeledViewStyles.md).
+A labeled view component combines a title label (with an optional icon), and an embedded view. The label can be shown above the view (vertical layout) or to the side (horizontal layout). The layout is bound to the viewport width so that horizontal layout is selected for wider viewports, as configured using [LabeledViewStyles](LabeledViewStyles.md).
 
 ## Inherited members
 

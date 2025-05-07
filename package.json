@@ -4,7 +4,7 @@
 	"publishConfig": {
 		"tag": "next"
 	},
-	"description": "Advanced view composites for use with the Tälla UI framework",
+	"description": "Advanced UI components for use with the Tälla UI framework",
 	"author": "Jelmer Cormont",
 	"license": "MIT",
 	"type": "module",

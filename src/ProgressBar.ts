@@ -9,7 +9,7 @@ import {
 } from "talla-ui";
 
 /**
- * Style configuration for a {@link ProgressBar} composite
+ * Style configuration for a {@link ProgressBar} component
  *
  * Objects of this type are passed to {@link ProgressBar} as the `styles` preset property.
  */
@@ -34,7 +34,7 @@ export class ProgressBarStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a progress bar
+ * Component for a progress bar
  *
  * A progress bar displays the completion progress of a task as a rectangular bar that fills from start to end.
  *
@@ -45,7 +45,7 @@ export class ProgressBar extends UIComponent.define({
 	progress: 0,
 	/** Margin around the outer container, defaults to 0 */
 	margin: 0 as UIRenderable.Offsets,
-	/** A set of styles that are applied to this composite, an instance of {@link ProgressBarStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link ProgressBarStyles} */
 	styles: ProgressBarStyles.default,
 }) {
 	protected defineView() {

@@ -2,7 +2,7 @@
 
 # class SidebarSplitViewStyles
 
-> Style configuration for a [SidebarSplitView](SidebarSplitView.md) composite.
+> Style configuration for a [SidebarSplitView](SidebarSplitView.md) component.
 
 <pre class="docgen_signature"><b>class</b> SidebarSplitViewStyles <b>extends</b> ConfigOptions;</pre>
 

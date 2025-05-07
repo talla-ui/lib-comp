@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->FormEntry](FormEntry.md) \
-    View composite for a form entry block.
+    Component for a form entry block.

@@ -11,6 +11,6 @@
 - [<!--{ref:property}-->title](LoadingStateView_base_title.md) \
     The title to display.
 - [<!--{ref:property}-->styles](LoadingStateView_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [LoadingStateViewStyles](LoadingStateViewStyles.md).
+    A set of styles that are applied to this component, an instance of [LoadingStateViewStyles](LoadingStateViewStyles.md).
 - [<!--{ref:property}-->view](LoadingStateView_base_view.md) \
     The (bound) content view to display, hiding the loading state view when defined.

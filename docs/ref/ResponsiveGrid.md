@@ -1,8 +1,8 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # ResponsiveGrid
 
-> A responsive grid that adjusts the width of its items based on the viewport size.
+> A responsive grid component that adjusts the width of its items based on the viewport size.
 
 <pre class="docgen_signature"><b>const</b> ResponsiveGrid: UIComponent.DefinedUIComponent&lt;{<br>    gap?: BindingOrValue&lt;<b>number</b>&gt; | <b>undefined</b>;<br>    maxItemWidth?: BindingOrValue&lt;<b>number</b>&gt; | <b>undefined</b>;<br>    itemWidths?: BindingOrValue&lt;(<b>string</b> | <b>number</b>)[]&gt; | <b>undefined</b>;<br>    listItems?: BindingOrValue&lt;Iterable&lt;<b>any</b>&gt; | <b>undefined</b>&gt;;<br>    listFirstIndex?: BindingOrValue&lt;<b>number</b> | <b>undefined</b>&gt;;<br>    listMaxItems?: BindingOrValue&lt;<b>number</b> | <b>undefined</b>&gt;;<br>    listRenderOptions?: BindingOrValue&lt;UIListView.RenderOptions | <b>undefined</b>&gt;;<br>}, {<br>    gap: <b>number</b>;<br>    maxItemWidth: <b>number</b>;<br>    itemWidths: (<b>string</b> | <b>number</b>)[];<br>    listItems: Iterable&lt;<b>any</b>&gt; | <b>undefined</b>;<br>    listFirstIndex: <b>number</b> | <b>undefined</b>;<br>    listMaxItems: <b>number</b> | <b>undefined</b>;<br>    listRenderOptions: UIListView.RenderOptions | <b>undefined</b>;<br>}&gt;;</pre>
 

@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class PropertyEditorStyles](PropertyEditorStyles.md) \
-    Style configuration for a [PropertyEditor](PropertyEditor.md) composite.
+    Style configuration for a [PropertyEditor](PropertyEditor.md) component.

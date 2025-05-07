@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class TimeInputFieldStyles](TimeInputFieldStyles.md) \
-    Style configuration for a [TimeInputField](TimeInputField.md) composite.
+    Style configuration for a [TimeInputField](TimeInputField.md) component.

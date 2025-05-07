@@ -2,7 +2,7 @@
 
 # class TableRow
 
-> View composite for a table row.
+> Component for a table row.
 
 <pre class="docgen_signature"><b>class</b> TableRow&lt;TItem <b>extends</b> <b>any</b> = <b>unknown</b>&gt; <b>extends</b> <a href="TableRow_base.md">TableRow_base</a>;</pre>
 

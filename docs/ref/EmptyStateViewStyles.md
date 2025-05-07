@@ -2,7 +2,7 @@
 
 # class EmptyStateViewStyles
 
-> Style configuration for an [EmptyStateView](EmptyStateView.md) composite.
+> Style configuration for an [EmptyStateView](EmptyStateView.md) component.
 
 <pre class="docgen_signature"><b>class</b> EmptyStateViewStyles <b>extends</b> ConfigOptions;</pre>
 

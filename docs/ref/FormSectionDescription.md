@@ -2,7 +2,7 @@
 
 # class FormSectionDescription
 
-> View composite that can be used as a part of a [FormSection](FormSection.md).
+> Component that can be used as a part of a [FormSection](FormSection.md).
 
 <pre class="docgen_signature"><b>class</b> FormSectionDescription <b>extends</b> <a href="FormSectionDescription_base.md">FormSectionDescription_base</a>;</pre>
 

@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [ListBoxStyles](ListBoxStyles.md).
+> A set of styles that are applied to this component, an instance of [ListBoxStyles](ListBoxStyles.md).
 
 <pre class="docgen_signature">styles: <a href="ListBoxStyles.md">ListBoxStyles</a>;</pre>
 

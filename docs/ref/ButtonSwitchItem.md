@@ -2,7 +2,7 @@
 
 # type ButtonSwitchItem
 
-> An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) composite.
+> An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) component.
 
 <pre class="docgen_signature"><b>type</b> ButtonSwitchItem = {<br>    default?: <b>boolean</b>;<br>    value?: <b>unknown</b>;<br>    label?: StringConvertible;<br>    icon?: UIIconResource;<br>};</pre>
 

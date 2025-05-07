@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class LabeledViewStyles](LabeledViewStyles.md) \
-    Style configuration for an [LabeledView](LabeledView.md) composite.
+    Style configuration for an [LabeledView](LabeledView.md) component.

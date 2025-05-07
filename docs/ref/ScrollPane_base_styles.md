@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [ScrollPaneStyles](ScrollPaneStyles.md).
+> A set of styles that are applied to this component, an instance of [ScrollPaneStyles](ScrollPaneStyles.md).
 
 <pre class="docgen_signature">styles: <a href="ScrollPaneStyles.md">ScrollPaneStyles</a>;</pre>
 

@@ -1,8 +1,8 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class CalendarSelectField
 
-> View composite for a calendar select field.
+> Component for a calendar select field.
 
 <pre class="docgen_signature"><b>class</b> CalendarSelectField <b>extends</b> <a href="CalendarSelectField_base.md">CalendarSelectField_base</a>;</pre>
 
@@ -15,7 +15,7 @@ The calendar overlay view can be localized in the same way as a standalone calen
 > **Note**\
 > The button label is formatted using the `I18nProvider` in `app.i18n` by default. You must define the i18n provider for this to work, or change the date label format using [CalendarSelectFieldStyles.dateLabel](CalendarSelectFieldStyles_dateLabel.md).
 
-For a more keyboard-friendly option, consider using the DateInputField composite instead.
+For a more keyboard-friendly option, consider using the DateInputField component instead.
 
 **Events**
 - `Change` is emitted when the selected date has changed. The new date is included in the `value` property of the event data.
@@ -47,15 +47,15 @@ For a more keyboard-friendly option, consider using the DateInputField composite
 - [<!--{ref:property}-->locale](CalendarSelectField_base_locale.md) \
     Localization settings for the calendar, an instance of [CalendarViewLocale](CalendarViewLocale.md).
 - [<!--{ref:property}-->styles](CalendarSelectField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [CalendarSelectFieldStyles](CalendarSelectFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [CalendarSelectFieldStyles](CalendarSelectFieldStyles.md).
 - [<!--{ref:property}-->calendarViewStyles](CalendarSelectField_base_calendarViewStyles.md) \
     Styles for the calendar view, an instance of [CalendarViewStyles](CalendarViewStyles.md).
 
 ## Related
 
 - [<!--{ref:class}-->class CalendarSelectFieldStyles](CalendarSelectFieldStyles.md) \
-    Style configuration for a [CalendarSelectField](CalendarSelectField.md) composite.
+    Style configuration for a [CalendarSelectField](CalendarSelectField.md) component.
 - [<!--{ref:class}-->class CalendarViewLocale](CalendarViewLocale.md) \
-    Localization configuration for a [CalendarView](CalendarView.md) composite.
+    Localization configuration for a [CalendarView](CalendarView.md) component.
 - [<!--{ref:class}-->class CalendarViewStyles](CalendarViewStyles.md) \
-    Style configuration for a [CalendarView](CalendarView.md) composite.
+    Style configuration for a [CalendarView](CalendarView.md) component.

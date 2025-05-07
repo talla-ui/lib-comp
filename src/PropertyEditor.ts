@@ -53,7 +53,7 @@ export type PropertyEditorItem = {
 };
 
 /**
- * Style configuration for a {@link PropertyEditor} composite
+ * Style configuration for a {@link PropertyEditor} component
  *
  * Objects of this type are passed to {@link PropertyEditor} as the `styles` preset property.
  */
@@ -161,13 +161,13 @@ export class PropertyEditorStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a property editor
+ * Component for a property editor
  *
- * A property editor composite displays a two-column table with property labels and input fields, allowing the user to inspect and edit several values using a keyboard-friendly grid.
+ * A property editor component displays a two-column table with property labels and input fields, allowing the user to inspect and edit several values using a keyboard-friendly grid.
  *
  * Property values may include text, numbers, booleans, and other values that may be selected from a list of options. Alternatively, a custom action event may be specified that is emitted when the user clicks a button next to a label that shows the current value.
  *
- * Properties are added to the editor composite using a list of objects, which include the property ID, name, value, and input or action options.
+ * Properties are added to the editor component using a list of objects, which include the property ID, name, value, and input or action options.
  *
  * > Note: If properties are added using a observed list (with property items that are described by `ObservedObject` instances), changes can be handled using an event listener on the list itself. When a field value is updated by the user, the property editor emits a change event. Otherwise, changes will have to be handled by listening for the `Change` event from the property editor view.
  *
@@ -185,7 +185,7 @@ export class PropertyEditor extends UIComponent.define({
 	items: [] as Iterable<PropertyEditorItem>,
 	/** True if all properties should be read-only */
 	readOnly: false,
-	/** A set of styles that are applied to this composite, an instance of {@link PropertyEditorStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link PropertyEditorStyles} */
 	styles: PropertyEditorStyles.default,
 	/** UI component identifier */
 	name: "PropertyEditor",
@@ -221,7 +221,7 @@ export class PropertyEditor extends UIComponent.define({
 }
 
 /**
- * View composite for a property editor row
+ * Component for a property editor row
  *
  * This class is used internally by {@link PropertyEditor} to render individual property rows.
  */
@@ -230,7 +230,7 @@ class PropertyEditorRow extends UIComponent.define({
 	item: undefined as PropertyEditorItem | undefined,
 	/** True if the property should be read-only */
 	readOnly: false,
-	/** A set of styles that are applied to this composite, an instance of {@link PropertyEditorStyles}, passed in by the {@link PropertyEditor} parent */
+	/** A set of styles that are applied to this component, an instance of {@link PropertyEditorStyles}, passed in by the {@link PropertyEditor} parent */
 	styles: PropertyEditorStyles.default,
 }) {
 	protected defineView() {

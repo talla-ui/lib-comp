@@ -19,7 +19,7 @@
 - [<!--{ref:property}-->formField](ListBox_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](ListBox_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ListBoxStyles](ListBoxStyles.md).
+    A set of styles that are applied to this component, an instance of [ListBoxStyles](ListBoxStyles.md).
 - [<!--{ref:property}-->name](ListBox_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](ListBox_base_accessibleLabel.md) \

@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class DateInputFieldStyles](DateInputFieldStyles.md) \
-    Style configuration for a [DateInputField](DateInputField.md) composite.
+    Style configuration for a [DateInputField](DateInputField.md) component.

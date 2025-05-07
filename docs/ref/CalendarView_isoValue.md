@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class CalendarView](CalendarView.md) \
-    View composite for a calendar.
+    Component for a calendar view.

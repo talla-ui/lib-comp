@@ -1,4 +1,4 @@
-# View composites
+# UI components
 
 Refer to the reference information below.
 

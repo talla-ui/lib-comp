@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ToastNotificationStyles](ToastNotificationStyles.md) \
-    Style configuration for a [ToastNotification](ToastNotification.md) composite.
+    Style configuration for a [ToastNotification](ToastNotification.md) component.

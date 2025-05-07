@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:type}-->type ButtonSwitchItem](ButtonSwitchItem.md) \
-    An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) composite.
+    An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) component.

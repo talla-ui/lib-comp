@@ -1,16 +1,16 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class NavColumn
 
-> View composite for a navigation button column.
+> Component for a navigation button column.
 
 <pre class="docgen_signature"><b>class</b> NavColumn <b>extends</b> <a href="NavColumn_base.md">NavColumn_base</a>;</pre>
 
 ## Description
 
-A navigation column composite displays several navigation buttons in a vertical layout, allowing the user to navigate between different pages or (detail) items by pressing one of the buttons.
+A navigation column component displays several navigation buttons in a vertical layout, allowing the user to navigate between different pages or (detail) items by pressing one of the buttons.
 
-Navigation buttons are added as presets of [PageNavButton](PageNavButton.md) or [DetailNavButton](DetailNavButton.md) within the content of this composite. The button that corresponds to the current page or detail path is automatically shown as 'pressed'.
+Navigation buttons are added as presets of [PageNavButton](PageNavButton.md) or [DetailNavButton](DetailNavButton.md) within the content of this component. The button that corresponds to the current page or detail path is automatically shown as 'pressed'.
 
 ## Inherited members
 
@@ -21,15 +21,15 @@ Navigation buttons are added as presets of [PageNavButton](PageNavButton.md) or 
 - [<!--{ref:property}-->grow](NavColumn_base_grow.md) \
     True if the container should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](NavColumn_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [NavContainerStyles](NavContainerStyles.md).
+    A set of styles that are applied to this component, an instance of [NavContainerStyles](NavContainerStyles.md).
 
 ## Related
 
 - [<!--{ref:class}-->class NavContainerStyles](NavContainerStyles.md) \
-    Style configuration for [NavColumn](NavColumn.md) and [NavRow](NavRow.md) composites.
+    Style configuration for [NavColumn](NavColumn.md) and [NavRow](NavRow.md) components.
 - [<!--{ref:class}-->class NavRow](NavRow.md) \
-    View composite for a navigation button row.
+    Component for a navigation button row.
 - [<!--{ref:class}-->class PageNavButton](PageNavButton.md) \
-    View composite that encapsulates a page navigation button.
+    Component that encapsulates a page navigation button.
 - [<!--{ref:class}-->class DetailNavButton](DetailNavButton.md) \
-    View composite that encapsulates a detail navigation button.
+    Component that encapsulates a detail navigation button.

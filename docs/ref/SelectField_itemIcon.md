@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class SelectField](SelectField.md) \
-    View composite for a select field.
+    Component for a select field.

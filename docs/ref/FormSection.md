@@ -1,8 +1,8 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # FormSection
 
-> View composite for a form section.
+> Component for a form section.
 
 <pre class="docgen_signature"><b>const</b> FormSection: UIComponent.DefinedUIComponent&lt;{<br>    title?: BindingOrValue&lt;StringConvertible | <b>undefined</b>&gt;;<br>    rowTitleAfter?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    styles?: ConfigOptions.Arg&lt;<a href="ColumnCardStyles.md">ColumnCardStyles</a>&gt; | <b>undefined</b>;<br>}, {<br>    title: StringConvertible | <b>undefined</b>;<br>    rowTitleAfter: <b>boolean</b>;<br>    styles: <a href="ColumnCardStyles.md">ColumnCardStyles</a>;<br>}&gt;;</pre>
 
@@ -15,7 +15,7 @@ On narrow viewports, a title and description is displayed above the field set ca
 **Content**
 - If a title is specified as a property, it is displayed in the title area;
 - If a [FormSectionDescription](FormSectionDescription.md) is preset as content of the form section, it is displayed in the title area instead.
-- Any other content is added to the [ColumnCard](ColumnCard.md), separated using a horizontal divider. Containers and view composites do not receive any padding, but individual input components do.
+- Any other content is added to the [ColumnCard](ColumnCard.md), separated using a horizontal divider. Containers and UI components do not receive any padding, but individual input components do.
 
 ## Instance members
 
@@ -29,4 +29,4 @@ On narrow viewports, a title and description is displayed above the field set ca
 ## Related
 
 - [<!--{ref:class}-->class FormSectionDescription](FormSectionDescription.md) \
-    View composite that can be used as a part of a [FormSection](FormSection.md).
+    Component that can be used as a part of a [FormSection](FormSection.md).

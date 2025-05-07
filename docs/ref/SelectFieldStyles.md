@@ -2,7 +2,7 @@
 
 # class SelectFieldStyles
 
-> Style configuration for a [SelectField](SelectField.md) composite.
+> Style configuration for a [SelectField](SelectField.md) component.
 
 <pre class="docgen_signature"><b>class</b> SelectFieldStyles <b>extends</b> ConfigOptions;</pre>
 

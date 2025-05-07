@@ -19,7 +19,7 @@
 - [<!--{ref:property}-->grow](ComboField_base_grow.md) \
     True if the combo field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](ComboField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ComboFieldStyles](ComboFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [ComboFieldStyles](ComboFieldStyles.md).
 - [<!--{ref:property}-->openOnFocus](ComboField_base_openOnFocus.md) \
     True if the overlay should open when the text field gains focus.
 - [<!--{ref:property}-->showClearButton](ComboField_base_showClearButton.md) \

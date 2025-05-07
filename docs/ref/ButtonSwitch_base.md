@@ -13,7 +13,7 @@
 - [<!--{ref:property}-->formField](ButtonSwitch_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](ButtonSwitch_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ButtonSwitchStyles](ButtonSwitchStyles.md).
+    A set of styles that are applied to this component, an instance of [ButtonSwitchStyles](ButtonSwitchStyles.md).
 - [<!--{ref:property}-->name](ButtonSwitch_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](ButtonSwitch_base_accessibleLabel.md) \

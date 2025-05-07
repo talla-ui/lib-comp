@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ListBoxStyles](ListBoxStyles.md) \
-    Style configuration for a [ListBox](ListBox.md) composite.
+    Style configuration for a [ListBox](ListBox.md) component.

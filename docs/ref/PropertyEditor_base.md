@@ -11,6 +11,6 @@
 - [<!--{ref:property}-->readOnly](PropertyEditor_base_readOnly.md) \
     True if all properties should be read-only.
 - [<!--{ref:property}-->styles](PropertyEditor_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [PropertyEditorStyles](PropertyEditorStyles.md).
+    A set of styles that are applied to this component, an instance of [PropertyEditorStyles](PropertyEditorStyles.md).
 - [<!--{ref:property}-->name](PropertyEditor_base_name.md) \
     UI component identifier.

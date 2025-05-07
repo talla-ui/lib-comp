@@ -12,7 +12,7 @@ import {
 } from "talla-ui";
 
 /**
- * Style configuration for a {@link SidebarSplitView} composite
+ * Style configuration for a {@link SidebarSplitView} component
  *
  * Objects of this type are passed to {@link SidebarSplitView} as the `styles` preset property.
  */
@@ -43,11 +43,11 @@ export class SidebarSplitViewStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a sidebar split view
+ * Component for a sidebar split view
  *
- * A sidebar split view composite displays two content areas, separated by a vertical gutter that can be moved by the user. Optionally, the position of the gutter can be stored in application settings.
+ * A sidebar split view component displays two content areas, separated by a vertical gutter that can be moved by the user. Optionally, the position of the gutter can be stored in application settings.
  *
- * Both content areas can be hidden using individual boolean properties, which allows the composite to be used for responsive list/detail views.
+ * Both content areas can be hidden using individual boolean properties, which allows the component to be used for responsive list/detail views.
  *
  * @see {@link SidebarSplitViewStyles}+
  */
@@ -60,7 +60,7 @@ export class SidebarSplitView extends UIComponent.define({
 	showContent: true,
 	/** True if the sidebar should be placed on the opposite side */
 	reverse: false,
-	/** A set of styles that are applied to this composite, an instance of {@link SidebarSplitViewStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link SidebarSplitViewStyles} */
 	styles: SidebarSplitViewStyles.default,
 }) {
 	protected defineView(...content: ViewBuilder[]) {

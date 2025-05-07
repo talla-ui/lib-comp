@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->HeaderPaneToolbar](HeaderPaneToolbar.md) \
-    View composite for a header pane toolbar.
+    Component for a header pane toolbar.

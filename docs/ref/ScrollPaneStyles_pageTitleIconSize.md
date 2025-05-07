@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ScrollPaneStyles](ScrollPaneStyles.md) \
-    Style configuration for a [ScrollPane](ScrollPane.md) composite.
+    Style configuration for a [ScrollPane](ScrollPane.md) component.

@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [HeaderPaneStyles](HeaderPaneStyles.md).
+> A set of styles that are applied to this component, an instance of [HeaderPaneStyles](HeaderPaneStyles.md).
 
 <pre class="docgen_signature">styles: <a href="HeaderPaneStyles.md">HeaderPaneStyles</a>;</pre>
 

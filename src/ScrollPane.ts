@@ -27,11 +27,11 @@ const scrollPositions = new Map<string, number>();
 
 const $scrollPaneView = Binding.createFactory("scrolled");
 
-/** Defines the behavior of the header in a {@link ScrollPane} composite view */
+/** Defines the behavior of the header in a {@link ScrollPane} component */
 export type ScrollPaneHeaderMode = "fixed" | "dynamic" | "none";
 
 /**
- * Style configuration for a {@link ScrollPane} composite
+ * Style configuration for a {@link ScrollPane} component
  *
  * Objects of this type are passed to {@link ScrollPane} as the `styles` preset property.
  */
@@ -62,15 +62,15 @@ export class ScrollPaneStyles extends HeaderPaneStyles {
 }
 
 /**
- * View composite for a scroll pane
+ * Component for a scroll pane
  *
- * A scroll pane composite provides a complete 'page' layout solution, which includes a heading with title, icon buttons, and a _scrollable_ content area.
+ * A scroll pane component provides a complete 'page' layout solution, which includes a heading with title, icon buttons, and a _scrollable_ content area.
  *
  * Within a scroll pane, the inline title disappears and a distinct top row appears instead when the user scrolls up. The inline title appears again when the user scrolls back to the top of the content area.
  *
  * Icon buttons can be added to the header row, in the same way as for {@link HeaderPane} — which does the same, but without scrollable content.
  *
- * The layout of the element is based on the {@link HeaderPane} composite. The scroll pane composite adds logic for scrolling, and alternating between fixed and inline headers.
+ * The layout of the element is based on the {@link HeaderPane} component. The scroll pane component adds logic for scrolling, and alternating between fixed and inline headers.
  *
  * @see {@link ScrollPaneStyles}+
  * @see {@link ScrollPaneHeaderMode}
@@ -94,7 +94,7 @@ export class ScrollPane extends UIComponent.define({
 	restoreScroll: false,
 	/** The type of header behavior: none (no header), fixed, or dynamic with scroll; defaults to dynamic */
 	headerMode: "fixed" as ScrollPaneHeaderMode,
-	/** A set of styles that are applied to this composite, an instance of {@link ScrollPaneStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link ScrollPaneStyles} */
 	styles: ScrollPaneStyles.default,
 	/** UI component identifier */
 	name: "ScrollPane",

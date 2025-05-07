@@ -1,8 +1,8 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # ResponsiveRow
 
-> A responsive row that changes to vertical layout on small viewports.
+> A responsive row component that changes to vertical layout on small viewports.
 
 <pre class="docgen_signature"><b>const</b> ResponsiveRow: UIComponent.DefinedUIComponent&lt;{<br>    breakpoint?: BindingOrValue&lt;&quot;col2&quot; | &quot;col3&quot; | &quot;col4&quot; | &quot;col5&quot;&gt; | <b>undefined</b>;<br>    grow?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    reverse?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    axis?: BindingOrValue&lt;&quot;&quot; | &quot;horizontal&quot; | &quot;vertical&quot; | <b>undefined</b>&gt;;<br>    columnGravity?: BindingOrValue&lt;&quot;&quot; | &quot;center&quot; | &quot;end&quot; | &quot;start&quot; | &quot;stretch&quot; | &quot;baseline&quot; | <b>undefined</b>&gt;;<br>    rowGravity?: BindingOrValue&lt;&quot;&quot; | &quot;center&quot; | &quot;end&quot; | &quot;start&quot; | &quot;stretch&quot; | &quot;baseline&quot; | <b>undefined</b>&gt;;<br>    rowAlign?: BindingOrValue&lt;&quot;&quot; | &quot;center&quot; | &quot;end&quot; | &quot;start&quot; | &quot;stretch&quot; | &quot;baseline&quot; | <b>undefined</b>&gt;;<br>    spacing?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    padding?: BindingOrValue&lt;UIRenderable.Offsets | <b>undefined</b>&gt;;<br>    name?: BindingOrValue&lt;<b>string</b>&gt; | <b>undefined</b>;<br>}, {<br>    breakpoint: &quot;col2&quot; | &quot;col3&quot; | &quot;col4&quot; | &quot;col5&quot;;<br>    grow: <b>boolean</b>;<br>    reverse: <b>boolean</b>;<br>    axis: UIContainer.Layout[&quot;axis&quot;];<br>    columnGravity: UIContainer.Layout[&quot;gravity&quot;];<br>    rowGravity: UIContainer.Layout[&quot;gravity&quot;];<br>    rowAlign: UIContainer.Layout[&quot;gravity&quot;];<br>    spacing: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    padding: UIRenderable.Decoration[&quot;padding&quot;];<br>    name: <b>string</b>;<br>}&gt;;</pre>
 

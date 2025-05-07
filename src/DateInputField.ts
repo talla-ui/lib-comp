@@ -22,7 +22,7 @@ import {
 type UITextFields3 = [UITextField, UITextField, UITextField];
 
 /**
- * Style configuration for a {@link DateInputField} composite
+ * Style configuration for a {@link DateInputField} component
  *
  * Objects of this type are passed to {@link DateInputField} as the `styles` preset property.
  */
@@ -79,7 +79,7 @@ export class DateInputFieldStyles extends ConfigOptions {
 }
 
 /**
- * Localization configuration for a {@link DateInputField} composite
+ * Localization configuration for a {@link DateInputField} component
  *
  * Objects of this type are passed to {@link DateInputField} as the `locale` preset property.
  */
@@ -94,11 +94,11 @@ export class DateInputLocale extends CalendarViewLocale {
 }
 
 /**
- * View composite for a date input field
+ * Component for a date input field
  *
- * A date input field composite groups together a series of text fields for year, month, and date input, and a button that discloses a modal calendar view overlay when pressed.
+ * A date input field component groups together a series of text fields for year, month, and date input, and a button that discloses a modal calendar view overlay when pressed.
  *
- * The date input field composite is a more text-focused alternative to the CalendarSelectField composite.
+ * The date input field component is a more text-focused alternative to the CalendarSelectField component.
  *
  * The date separator and order of input fields (i.e. DMY, MDY, or YMD) can be localized. The calendar overlay view can also be localized in the same way as a standalone calendar view.
  *
@@ -130,7 +130,7 @@ export class DateInputField extends UIComponent.define({
 	width: undefined as number | undefined,
 	/** True if the date input field should grow to fill the available space, defaults to false */
 	grow: false,
-	/** A set of styles that are applied to this composite, an instance of {@link DateInputFieldStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link DateInputFieldStyles} */
 	styles: DateInputFieldStyles.default,
 	/** Styles for the calendar view, an instance of {@link CalendarViewStyles} */
 	calendarViewStyles: CalendarViewStyles.default,
@@ -472,7 +472,7 @@ export class DateInputField extends UIComponent.define({
 		let fields = this.findViewContent(UITextField);
 		if (this.locale.dateFormat === "YMD") fields.reverse();
 		return this.locale.dateFormat === "MDY"
-			? [fields[1], fields[0], fields[2]]
+			? [fields[1]!, fields[0]!, fields[2]!]
 			: (fields as any);
 	}
 }

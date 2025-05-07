@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class SidebarSplitViewStyles](SidebarSplitViewStyles.md) \
-    Style configuration for a [SidebarSplitView](SidebarSplitView.md) composite.
+    Style configuration for a [SidebarSplitView](SidebarSplitView.md) component.

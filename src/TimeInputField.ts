@@ -15,7 +15,7 @@ import { bindFormField } from "./util.js";
 type UITextFields3 = [UITextField, UITextField, UITextField];
 
 /**
- * Style configuration for a {@link TimeInputField} composite
+ * Style configuration for a {@link TimeInputField} component
  *
  * Objects of this type are passed to {@link TimeInputField} as the `styles` preset property.
  */
@@ -66,7 +66,7 @@ export class TimeInputFieldStyles extends ConfigOptions {
 }
 
 /**
- * Localization configuration for a {@link TimeInputField} composite
+ * Localization configuration for a {@link TimeInputField} component
  *
  * Objects of this type are passed to {@link TimeInputField} as the `locale` preset property.
  */
@@ -82,11 +82,11 @@ export class TimeInputLocale extends ConfigOptions {
 }
 
 /**
- * View composite for a time input field
+ * Component for a time input field
  *
- * A time input field composite groups together a series of text fields for time-of-day input.
+ * A time input field component groups together a series of text fields for time-of-day input.
  *
- * This composite can be combined with a DateInputField composite for a complete date/time input option (i.e. year, month, date, hours, and minutes), when bound to the same `Date` value.
+ * This component can be combined with a DateInputField component for a complete date/time input option (i.e. year, month, date, hours, and minutes), when bound to the same `Date` value.
  *
  * The time input field can be localized to display 24-hour or 12-hour time.
  *
@@ -111,7 +111,7 @@ export class TimeInputField extends UIComponent.define({
 	width: undefined as number | undefined,
 	/** True if the time input field should grow to fill the available space, defaults to false */
 	grow: false,
-	/** A set of styles that are applied to this composite, an instance of {@link TimeInputFieldStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link TimeInputFieldStyles} */
 	styles: TimeInputFieldStyles.default,
 	/** Accessible labels for hour, minute, and AM/PM input fields (in that order) */
 	accessibleLabels: [] as string[],

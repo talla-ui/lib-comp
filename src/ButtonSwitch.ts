@@ -18,7 +18,7 @@ import { bindFormField } from "./util.js";
 const _boundValue = $view("value");
 
 /**
- * Style configuration for a {@link ButtonSwitch} composite
+ * Style configuration for a {@link ButtonSwitch} component
  *
  * Objects of this type are passed to {@link ButtonSwitch} as the `styles` preset property.
  */
@@ -68,7 +68,7 @@ export class ButtonSwitchStyles extends ConfigOptions {
 }
 
 /**
- * An object that describes a button that's displayed within a {@link ButtonSwitch} composite
+ * An object that describes a button that's displayed within a {@link ButtonSwitch} component
  *
  * Objects of this type are passed to {@link ButtonSwitch} as the `buttons` preset property.
 
@@ -86,15 +86,15 @@ export type ButtonSwitchItem = {
 };
 
 /**
- * View composite that represents a button switch
+ * Component that represents a button switch
  *
- * A button switch composite contains multiple buttons in a row, within a cell that visually groups the buttons together. The button switch has a value, which is reflected by the 'pressed' state of one of the buttons.
+ * A button switch component contains multiple buttons in a row, within a cell that visually groups the buttons together. The button switch has a value, which is reflected by the 'pressed' state of one of the buttons.
  *
  * The current value of the button switch can be set programmatically using {@link value}, and by the user.
  *
  * Buttons are added using a preset list of {@link ButtonSwitchItem} objects, each containing a value, a label and/or icon.
  *
- * The button switch composite emits a `Change` event after its value has changed. The new value is included in the `value` property of the event data.
+ * The button switch component emits a `Change` event after its value has changed. The new value is included in the `value` property of the event data.
  *
  * @see {@link ButtonSwitchItem}+
  * @see {@link ButtonSwitchStyles}+
@@ -109,7 +109,7 @@ export class ButtonSwitch extends UIComponent.define({
 	value: undefined as unknown,
 	/** A form field ID, to add a two-way `FormContext` binding */
 	formField: undefined as string | undefined,
-	/** A set of styles that are applied to this composite, an instance of {@link ButtonSwitchStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link ButtonSwitchStyles} */
 	styles: ButtonSwitchStyles.default,
 	/** UI component identifier */
 	name: "ButtonSwitch",

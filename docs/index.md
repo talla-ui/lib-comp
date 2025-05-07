@@ -1,62 +1,62 @@
-# View composites
+# UI components
 
 Refer to the reference information below.
 
 - [<!--{ref:class}-->class ButtonSwitch](ref/ButtonSwitch.md) \
-    View composite that represents a button switch.
+    Component that represents a button switch.
 - [<!--{ref:class}-->class CalendarSelectField](ref/CalendarSelectField.md) \
-    View composite for a calendar select field.
+    Component for a calendar select field.
 - [<!--{ref:class}-->class CalendarView](ref/CalendarView.md) \
-    View composite for a calendar.
+    Component for a calendar view.
 - [<!--{ref:class}-->ColumnCard](ref/ColumnCard.md) \
-    View composite for a column-based card.
+    Component for a column-based card.
 - [<!--{ref:class}-->ResponsiveGrid](ref/ResponsiveGrid.md) \
-    A responsive grid that adjusts the width of its items based on the viewport size.
+    A responsive grid component that adjusts the width of its items based on the viewport size.
 - [<!--{ref:class}-->ResponsiveRow](ref/ResponsiveRow.md) \
-    A responsive row that changes to vertical layout on small viewports.
+    A responsive row component that changes to vertical layout on small viewports.
 - [<!--{ref:class}-->class ComboField](ref/ComboField.md) \
-    View composite for a combo field.
+    Component for a combo field.
 - [<!--{ref:class}-->class ListComboField](ref/ListComboField.md) \
-    View composite for a combo field that reveals a list box on input.
+    Component for a combo field that reveals a list box on input.
 - [<!--{ref:class}-->class DateInputField](ref/DateInputField.md) \
-    View composite for a date input field.
+    Component for a date input field.
 - [<!--{ref:class}-->class EditInPlace](ref/EditInPlace.md) \
-    View composite for an edit-in-place field.
+    Component for an edit-in-place field.
 - [<!--{ref:class}-->EmptyStateView](ref/EmptyStateView.md) \
-    View composite for an empty state view.
+    Component for an empty state view.
 - [<!--{ref:class}-->FormEntry](ref/FormEntry.md) \
-    View composite for a form entry block.
+    Component for a form entry block.
 - [<!--{ref:class}-->FormSection](ref/FormSection.md) \
-    View composite for a form section.
+    Component for a form section.
 - [<!--{ref:class}-->class HeaderPane](ref/HeaderPane.md) \
-    View composite for a header pane.
+    Component for a header pane.
 - [<!--{ref:class}-->class LabeledView](ref/LabeledView.md) \
-    View composite that encapsulates a title label in front or above an embedded view.
+    Component that encapsulates a title label in front or above an embedded view.
 - [<!--{ref:class}-->class ListBox](ref/ListBox.md) \
-    View composite for a list box.
+    Component for a list box.
 - [<!--{ref:class}-->class NavColumn](ref/NavColumn.md) \
-    View composite for a navigation button column.
+    Component for a navigation button column.
 - [<!--{ref:class}-->class NavRow](ref/NavRow.md) \
-    View composite for a navigation button row.
+    Component for a navigation button row.
 - [<!--{ref:class}-->class ProgressBar](ref/ProgressBar.md) \
-    View composite for a progress bar.
+    Component for a progress bar.
 - [<!--{ref:class}-->class ProgressDialog](ref/ProgressDialog.md) \
     Activity class for displaying a progress dialog.
 - [<!--{ref:class}-->class PropertyEditor](ref/PropertyEditor.md) \
-    View composite for a property editor.
+    Component for a property editor.
 - [<!--{ref:class}-->ScrollArea](ref/ScrollArea.md) \
-    View composite with an area that contains scrolling content.
+    Component with an area that contains scrolling content.
 - [<!--{ref:class}-->class ScrollPane](ref/ScrollPane.md) \
-    View composite for a scroll pane.
+    Component for a scroll pane.
 - [<!--{ref:class}-->class ScrollRow](ref/ScrollRow.md) \
-    View composite with an area that contains horizontally scrolling content.
+    Component with an area that contains horizontally scrolling content.
 - [<!--{ref:class}-->class SelectField](ref/SelectField.md) \
-    View composite for a select field.
+    Component for a select field.
 - [<!--{ref:class}-->class SidebarSplitView](ref/SidebarSplitView.md) \
-    View composite for a sidebar split view.
+    Component for a sidebar split view.
 - [<!--{ref:class}-->class TableList](ref/TableList.md) \
-    View composite for a table list.
+    Component for a table list.
 - [<!--{ref:class}-->class TimeInputField](ref/TimeInputField.md) \
-    View composite for a time input field.
+    Component for a time input field.
 - [<!--{ref:class}-->class ToastNotification](ref/ToastNotification.md) \
-    View composite that represents a popup 'toast' notification.
+    Component that represents a popup 'toast' notification.

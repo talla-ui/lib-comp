@@ -1,16 +1,16 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class DateInputField
 
-> View composite for a date input field.
+> Component for a date input field.
 
 <pre class="docgen_signature"><b>class</b> DateInputField <b>extends</b> <a href="DateInputField_base.md">DateInputField_base</a>;</pre>
 
 ## Description
 
-A date input field composite groups together a series of text fields for year, month, and date input, and a button that discloses a modal calendar view overlay when pressed.
+A date input field component groups together a series of text fields for year, month, and date input, and a button that discloses a modal calendar view overlay when pressed.
 
-The date input field composite is a more text-focused alternative to the CalendarSelectField composite.
+The date input field component is a more text-focused alternative to the CalendarSelectField component.
 
 The date separator and order of input fields (i.e. DMY, MDY, or YMD) can be localized. The calendar overlay view can also be localized in the same way as a standalone calendar view.
 
@@ -40,7 +40,7 @@ The date separator and order of input fields (i.e. DMY, MDY, or YMD) can be loca
 - [<!--{ref:property}-->grow](DateInputField_base_grow.md) \
     True if the date input field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](DateInputField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [DateInputFieldStyles](DateInputFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [DateInputFieldStyles](DateInputFieldStyles.md).
 - [<!--{ref:property}-->calendarViewStyles](DateInputField_base_calendarViewStyles.md) \
     Styles for the calendar view, an instance of [CalendarViewStyles](CalendarViewStyles.md).
 - [<!--{ref:property}-->accessibleLabels](DateInputField_base_accessibleLabels.md) \
@@ -51,8 +51,8 @@ The date separator and order of input fields (i.e. DMY, MDY, or YMD) can be loca
 ## Related
 
 - [<!--{ref:class}-->class DateInputFieldStyles](DateInputFieldStyles.md) \
-    Style configuration for a [DateInputField](DateInputField.md) composite.
+    Style configuration for a [DateInputField](DateInputField.md) component.
 - [<!--{ref:class}-->class DateInputLocale](DateInputLocale.md) \
-    Localization configuration for a [DateInputField](DateInputField.md) composite.
+    Localization configuration for a [DateInputField](DateInputField.md) component.
 - [<!--{ref:class}-->class CalendarViewStyles](CalendarViewStyles.md) \
-    Style configuration for a [CalendarView](CalendarView.md) composite.
+    Style configuration for a [CalendarView](CalendarView.md) component.

@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class SidebarSplitView](SidebarSplitView.md) \
-    View composite for a sidebar split view.
+    Component for a sidebar split view.

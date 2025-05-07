@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class TableListStyles](TableListStyles.md) \
-    Style configuration for a [TableList](TableList.md) composite.
+    Style configuration for a [TableList](TableList.md) component.

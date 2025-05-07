@@ -1,9 +1,9 @@
 import { UICell, UIComponent, UIRenderable, ui } from "talla-ui";
 
 /**
- * View composite with an area that contains scrolling content
+ * Component with an area that contains scrolling content
  *
- * A scroll area composite provides a way to constrain content to a containing cell, allowing the user to scroll content up and down.
+ * A scroll area component provides a way to constrain content to a containing cell, allowing the user to scroll content up and down.
  *
  * > Note: For scrolling left and right, you can use a {@link ScrollRow} instead.
  *

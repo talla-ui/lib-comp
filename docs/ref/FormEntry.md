@@ -1,18 +1,18 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # FormEntry
 
-> View composite for a form entry block.
+> Component for a form entry block.
 
 <pre class="docgen_signature"><b>const</b> FormEntry: UIComponent.DefinedUIComponent&lt;{<br>    label?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    helpText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorText?: BindingOrValue&lt;StringConvertible&gt; | <b>undefined</b>;<br>    errorFormField?: BindingOrValue&lt;<b>string</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    padding?: BindingOrValue&lt;UIRenderable.Offsets | <b>undefined</b>&gt;;<br>}, {<br>    label: StringConvertible;<br>    helpText: StringConvertible;<br>    errorText: StringConvertible;<br>    errorFormField: <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    padding: UIRenderable.Offsets | <b>undefined</b>;<br>}&gt;;</pre>
 
 ## Description
 
-A form entry composite groups together a form input field and several labels for field names, help text, and/or error messages.
+A form entry component groups together a form input field and several labels for field names, help text, and/or error messages.
 
-The contained form field can be of any type, including built-in components (i.e. text field, toggle) and view composites such as [ButtonSwitch](ButtonSwitch.md), [SelectField](SelectField.md), and [DateInputField](DateInputField.md).
+The contained form field can be of any type, including built-in components (i.e. text field, toggle) and UI components such as [ButtonSwitch](ButtonSwitch.md), [SelectField](SelectField.md), and [DateInputField](DateInputField.md).
 
-**Events** — All events from the contained form field and labels are delegated by this view composite.
+**Events** — All events from the contained form field and labels are delegated by this component.
 
 ## Instance members
 

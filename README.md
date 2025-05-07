@@ -1,10 +1,10 @@
-# View composites library
+# Tälla UI component library
 
-This package contains a library providing a selection of Tälla UI view composites. These can be used directly from the NPM package, or copy-pasted into your own application to reduce dependencies and to enable further customization.
+This package contains a library providing a selection of Tälla UI components. These can be used directly from the NPM package, or copy-pasted into your own application to reduce dependencies and to enable further customization.
 
 ## Playground
 
-To see all view composites in action, you'll need Git, Node.js and NPM. Follow these steps:
+To see all components in action, you'll need Git, Node.js and NPM. Follow these steps:
 
 - Clone the repository to your machine
 - Run `npm install` to install all dependencies from NPM
@@ -14,7 +14,7 @@ To see all view composites in action, you'll need Git, Node.js and NPM. Follow t
 
 ## Documentation
 
-For detailed documentation for all of the included view composites, refer to the `docs` folder:
+For detailed documentation for all of the included components, refer to the `docs` folder:
 
 [Documentation](./docs/index.md)
 
@@ -24,7 +24,7 @@ For detailed documentation for all of the included view composites, refer to the
 
 For information related to development and open source contributions, refer to the main Tälla UI repository on GitHub.
 
-[Tälla UI framework](https://github.com/talla-ui/talla-ui)
+[Tälla UI](https://github.com/talla-ui/talla-ui)
 
 ## License
 

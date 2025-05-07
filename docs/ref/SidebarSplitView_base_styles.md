@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [SidebarSplitViewStyles](SidebarSplitViewStyles.md).
+> A set of styles that are applied to this component, an instance of [SidebarSplitViewStyles](SidebarSplitViewStyles.md).
 
 <pre class="docgen_signature">styles: <a href="SidebarSplitViewStyles.md">SidebarSplitViewStyles</a>;</pre>
 

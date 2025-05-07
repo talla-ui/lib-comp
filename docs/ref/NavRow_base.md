@@ -11,4 +11,4 @@
 - [<!--{ref:property}-->grow](NavRow_base_grow.md) \
     True if the container should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](NavRow_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [NavContainerStyles](NavContainerStyles.md).
+    A set of styles that are applied to this component, an instance of [NavContainerStyles](NavContainerStyles.md).

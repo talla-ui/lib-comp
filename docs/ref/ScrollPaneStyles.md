@@ -2,7 +2,7 @@
 
 # class ScrollPaneStyles
 
-> Style configuration for a [ScrollPane](ScrollPane.md) composite.
+> Style configuration for a [ScrollPane](ScrollPane.md) component.
 
 <pre class="docgen_signature"><b>class</b> ScrollPaneStyles <b>extends</b> <a href="HeaderPaneStyles.md">HeaderPaneStyles</a>;</pre>
 

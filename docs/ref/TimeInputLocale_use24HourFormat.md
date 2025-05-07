@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class TimeInputLocale](TimeInputLocale.md) \
-    Localization configuration for a [TimeInputField](TimeInputField.md) composite.
+    Localization configuration for a [TimeInputField](TimeInputField.md) component.

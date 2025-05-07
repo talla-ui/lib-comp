@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->FormSection](FormSection.md) \
-    View composite for a form section.
+    Component for a form section.

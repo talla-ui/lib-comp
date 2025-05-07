@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [EditInPlaceStyles](EditInPlaceStyles.md).
+> A set of styles that are applied to this component, an instance of [EditInPlaceStyles](EditInPlaceStyles.md).
 
 <pre class="docgen_signature">styles: <a href="EditInPlaceStyles.md">EditInPlaceStyles</a>;</pre>
 

@@ -13,7 +13,7 @@ import {
 import { bindFormField } from "./util.js";
 
 /**
- * Style configuration for a {@link SelectField} composite
+ * Style configuration for a {@link SelectField} component
  *
  * Objects of this type are passed to {@link SelectField} as the `styles` preset property.
  */
@@ -49,7 +49,7 @@ export class SelectFieldStyles extends ConfigOptions {
 }
 
 /**
- * An object that describes a button that's displayed within a {@link ButtonSwitch} composite
+ * An object that describes a button that's displayed within a {@link ButtonSwitch} component
  *
  * Objects of this type are passed to {@link SelectField} as the `options` preset property.
 
@@ -65,9 +65,9 @@ export interface SelectFieldOption {
 }
 
 /**
- * View composite for a select field
+ * Component for a select field
  *
- * A select field composite displays a dropdown button which reflects a chosen value (or a placeholder) and reveals a menu when pressed.
+ * A select field component displays a dropdown button which reflects a chosen value (or a placeholder) and reveals a menu when pressed.
  *
  * The current value of the select field can be set programmatically using {@link value}, and by the user.
  *
@@ -99,7 +99,7 @@ export class SelectField extends UIComponent.define({
 	readOnly: false,
 	/** A form field ID, to add a two-way `FormContext` binding */
 	formField: undefined as string | undefined,
-	/** A set of styles that are applied to this composite, an instance of {@link SelectFieldStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link SelectFieldStyles} */
 	styles: SelectFieldStyles.default,
 	/** UI component identifier */
 	name: "SelectField",

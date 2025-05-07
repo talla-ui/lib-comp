@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [TableListStyles](TableListStyles.md).
+> A set of styles that are applied to this component, an instance of [TableListStyles](TableListStyles.md).
 
 <pre class="docgen_signature">styles: <a href="TableListStyles.md">TableListStyles</a>;</pre>
 

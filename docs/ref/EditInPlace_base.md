@@ -27,7 +27,7 @@
 - [<!--{ref:property}-->formField](EditInPlace_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](EditInPlace_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [EditInPlaceStyles](EditInPlaceStyles.md).
+    A set of styles that are applied to this component, an instance of [EditInPlaceStyles](EditInPlaceStyles.md).
 - [<!--{ref:property}-->name](EditInPlace_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](EditInPlace_base_accessibleLabel.md) \

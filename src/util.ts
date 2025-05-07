@@ -1,13 +1,13 @@
 import { FormContext, UIComponent } from "talla-ui";
 
 export function bindFormField(
-	composite: UIComponent & { value: any; formField?: string }
+	component: UIComponent & { value: any; formField?: string }
 ) {
 	FormContext.listen(
-		composite,
+		component,
 		(v) => {
-			composite.value = v;
+			component.value = v;
 		},
-		() => composite.value
+		() => component.value
 	);
 }

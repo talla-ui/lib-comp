@@ -25,6 +25,6 @@
 - [<!--{ref:property}-->headerMode](ScrollPane_base_headerMode.md) \
     The type of header behavior: none (no header), fixed, or dynamic with scroll; defaults to dynamic.
 - [<!--{ref:property}-->styles](ScrollPane_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ScrollPaneStyles](ScrollPaneStyles.md).
+    A set of styles that are applied to this component, an instance of [ScrollPaneStyles](ScrollPaneStyles.md).
 - [<!--{ref:property}-->name](ScrollPane_base_name.md) \
     UI component identifier.

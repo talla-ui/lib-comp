@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class LoadingStateViewStyles](LoadingStateViewStyles.md) \
-    Style configuration for an [LoadingStateView](LoadingStateView.md) composite.
+    Style configuration for an [LoadingStateView](LoadingStateView.md) component.

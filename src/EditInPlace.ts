@@ -15,7 +15,7 @@ import {
 import { bindFormField } from "./util.js";
 
 /**
- * Style configuration for an {@link EditInPlace} composite
+ * Style configuration for an {@link EditInPlace} component
  *
  * Objects of this type are passed to {@link EditInPlace} as the `styles` preset property.
  */
@@ -47,9 +47,9 @@ export class EditInPlaceStyles extends ConfigOptions {
 }
 
 /**
- * View composite for an edit-in-place field
+ * Component for an edit-in-place field
  *
- * An edit-in-place composite contains both a plain label and a text field, swapping between them as needed. The text field is displayed when the composite receives input focus, and the label is displayed otherwise.
+ * An edit-in-place component contains both a plain label and a text field, swapping between them as needed. The text field is displayed when the component receives input focus, and the label is displayed otherwise.
  *
  * The label text is kept in sync with the text field value automatically. The value can also be set programmatically at any time.
  *
@@ -80,7 +80,7 @@ export class EditInPlace extends UIComponent.define({
 	height: 38 as number | string,
 	/** A form field ID, to add a two-way `FormContext` binding */
 	formField: undefined as string | undefined,
-	/** A set of styles that are applied to this composite, an instance of {@link EditInPlaceStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link EditInPlaceStyles} */
 	styles: EditInPlaceStyles.default,
 	/** UI component identifier */
 	name: "EditInPlace",

@@ -2,7 +2,7 @@
 
 # class TimeInputFieldStyles
 
-> Style configuration for a [TimeInputField](TimeInputField.md) composite.
+> Style configuration for a [TimeInputField](TimeInputField.md) component.
 
 <pre class="docgen_signature"><b>class</b> TimeInputFieldStyles <b>extends</b> ConfigOptions;</pre>
 

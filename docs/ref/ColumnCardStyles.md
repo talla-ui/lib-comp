@@ -2,7 +2,7 @@
 
 # class ColumnCardStyles
 
-> Style configuration for a [ColumnCard](ColumnCard.md) composite.
+> Style configuration for a [ColumnCard](ColumnCard.md) component.
 
 <pre class="docgen_signature"><b>class</b> ColumnCardStyles <b>extends</b> ConfigOptions;</pre>
 

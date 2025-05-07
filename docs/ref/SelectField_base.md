@@ -25,7 +25,7 @@
 - [<!--{ref:property}-->formField](SelectField_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](SelectField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [SelectFieldStyles](SelectFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [SelectFieldStyles](SelectFieldStyles.md).
 - [<!--{ref:property}-->name](SelectField_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](SelectField_base_accessibleLabel.md) \

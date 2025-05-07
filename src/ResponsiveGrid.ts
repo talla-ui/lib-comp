@@ -41,7 +41,7 @@ function wrapItem(p: any, ...it: ViewBuilder[]) {
 }
 
 /**
- * A responsive grid that adjusts the width of its items based on the viewport size.
+ * A responsive grid component that adjusts the width of its items based on the viewport size.
  *
  * The grid will automatically adjust the width of its items based on the viewport size, using the `itemWidths` property to determine the width of each item at different viewport sizes. Items are therefore displayed in rows of 1, 2, or 3 columns (or more, for wider viewports), with a gap between each item.
  *

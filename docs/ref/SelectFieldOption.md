@@ -2,7 +2,7 @@
 
 # interface SelectFieldOption
 
-> An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) composite.
+> An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) component.
 
 <pre class="docgen_signature"><b>interface</b> SelectFieldOption;</pre>
 

@@ -2,7 +2,7 @@
 
 # class EditInPlaceStyles
 
-> Style configuration for an [EditInPlace](EditInPlace.md) composite.
+> Style configuration for an [EditInPlace](EditInPlace.md) component.
 
 <pre class="docgen_signature"><b>class</b> EditInPlaceStyles <b>extends</b> ConfigOptions;</pre>
 

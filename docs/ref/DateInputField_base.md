@@ -27,7 +27,7 @@
 - [<!--{ref:property}-->grow](DateInputField_base_grow.md) \
     True if the date input field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](DateInputField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [DateInputFieldStyles](DateInputFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [DateInputFieldStyles](DateInputFieldStyles.md).
 - [<!--{ref:property}-->calendarViewStyles](DateInputField_base_calendarViewStyles.md) \
     Styles for the calendar view, an instance of [CalendarViewStyles](CalendarViewStyles.md).
 - [<!--{ref:property}-->accessibleLabels](DateInputField_base_accessibleLabels.md) \

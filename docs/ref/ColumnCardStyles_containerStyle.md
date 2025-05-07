@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ColumnCardStyles](ColumnCardStyles.md) \
-    Style configuration for a [ColumnCard](ColumnCard.md) composite.
+    Style configuration for a [ColumnCard](ColumnCard.md) component.

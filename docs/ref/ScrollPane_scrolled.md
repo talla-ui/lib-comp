@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ScrollPane](ScrollPane.md) \
-    View composite for a scroll pane.
+    Component for a scroll pane.

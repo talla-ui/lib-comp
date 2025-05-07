@@ -31,6 +31,6 @@
 - [<!--{ref:property}-->locale](CalendarSelectField_base_locale.md) \
     Localization settings for the calendar, an instance of [CalendarViewLocale](CalendarViewLocale.md).
 - [<!--{ref:property}-->styles](CalendarSelectField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [CalendarSelectFieldStyles](CalendarSelectFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [CalendarSelectFieldStyles](CalendarSelectFieldStyles.md).
 - [<!--{ref:property}-->calendarViewStyles](CalendarSelectField_base_calendarViewStyles.md) \
     Styles for the calendar view, an instance of [CalendarViewStyles](CalendarViewStyles.md).

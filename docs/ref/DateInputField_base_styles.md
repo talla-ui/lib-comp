@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [DateInputFieldStyles](DateInputFieldStyles.md).
+> A set of styles that are applied to this component, an instance of [DateInputFieldStyles](DateInputFieldStyles.md).
 
 <pre class="docgen_signature">styles: <a href="DateInputFieldStyles.md">DateInputFieldStyles</a>;</pre>
 

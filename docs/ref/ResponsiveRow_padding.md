@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->ResponsiveRow](ResponsiveRow.md) \
-    A responsive row that changes to vertical layout on small viewports.
+    A responsive row component that changes to vertical layout on small viewports.

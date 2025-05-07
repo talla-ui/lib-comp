@@ -15,4 +15,4 @@
 - [<!--{ref:property}-->reverse](SidebarSplitView_base_reverse.md) \
     True if the sidebar should be placed on the opposite side.
 - [<!--{ref:property}-->styles](SidebarSplitView_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [SidebarSplitViewStyles](SidebarSplitViewStyles.md).
+    A set of styles that are applied to this component, an instance of [SidebarSplitViewStyles](SidebarSplitViewStyles.md).

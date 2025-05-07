@@ -2,7 +2,7 @@
 
 # class DateInputLocale
 
-> Localization configuration for a [DateInputField](DateInputField.md) composite.
+> Localization configuration for a [DateInputField](DateInputField.md) component.
 
 <pre class="docgen_signature"><b>class</b> DateInputLocale <b>extends</b> <a href="CalendarViewLocale.md">CalendarViewLocale</a>;</pre>
 

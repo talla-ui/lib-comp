@@ -22,7 +22,7 @@ export class ToastNotificationOptions extends ConfigOptions {
 }
 
 /**
- * Style configuration for a {@link ToastNotification} composite
+ * Style configuration for a {@link ToastNotification} component
  *
  * Objects of this type are passed to the {@link showToastNotification()} method.
  */
@@ -80,9 +80,9 @@ export async function showToastNotification(
 }
 
 /**
- * View composite that represents a popup 'toast' notification
+ * Component that represents a popup 'toast' notification
  *
- * A toast notification consists of a small message box that pops up at the bottom of the viewport. This view composite represents the contents of the messages box.
+ * A toast notification consists of a small message box that pops up at the bottom of the viewport. This component represents the contents of the messages box.
  *
  * Toast notifications are meant to be created using the {@link showToastNotification()} function. This method creates and displays a notification overlay, and waits for user input or a specified timeout before removing it.
  *

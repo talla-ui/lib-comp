@@ -21,7 +21,7 @@
 - [<!--{ref:property}-->grow](TimeInputField_base_grow.md) \
     True if the time input field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](TimeInputField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [TimeInputFieldStyles](TimeInputFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [TimeInputFieldStyles](TimeInputFieldStyles.md).
 - [<!--{ref:property}-->accessibleLabels](TimeInputField_base_accessibleLabels.md) \
     Accessible labels for hour, minute, and AM/PM input fields (in that order).
 - [<!--{ref:property}-->name](TimeInputField_base_name.md) \

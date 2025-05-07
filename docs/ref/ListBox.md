@@ -1,14 +1,14 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class ListBox
 
-> View composite for a list box.
+> Component for a list box.
 
 <pre class="docgen_signature"><b>class</b> ListBox <b>extends</b> <a href="ListBox_base.md">ListBox_base</a>;</pre>
 
 ## Description
 
-A list box composite arranges a list of options within a scrollable cell, allowing the user to select one of the options.
+A list box component arranges a list of options within a scrollable cell, allowing the user to select one of the options.
 
 The currently selected list box option can also be set programmatically using its value.
 
@@ -41,7 +41,7 @@ List box options are added using a list of objects, each containing a value, a l
 - [<!--{ref:property}-->formField](ListBox_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](ListBox_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ListBoxStyles](ListBoxStyles.md).
+    A set of styles that are applied to this component, an instance of [ListBoxStyles](ListBoxStyles.md).
 - [<!--{ref:property}-->name](ListBox_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](ListBox_base_accessibleLabel.md) \
@@ -52,4 +52,4 @@ List box options are added using a list of objects, each containing a value, a l
 - [<!--{ref:interface}-->interface ListBoxItem](ListBoxItem.md) \
     An object that describes an item in a [ListBox](ListBox.md).
 - [<!--{ref:class}-->class ListBoxStyles](ListBoxStyles.md) \
-    Style configuration for a [ListBox](ListBox.md) composite.
+    Style configuration for a [ListBox](ListBox.md) component.

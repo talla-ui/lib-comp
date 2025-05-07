@@ -21,7 +21,7 @@ import {
 import { bindFormField } from "./util.js";
 
 /**
- * Style configuration for a {@link CalendarSelectField} composite
+ * Style configuration for a {@link CalendarSelectField} component
  *
  * Objects of this type are passed to {@link CalendarSelectField} as the `styles` preset property.
  */
@@ -68,7 +68,7 @@ export class CalendarSelectFieldStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a calendar select field
+ * Component for a calendar select field
  *
  * A calendar select field consists of a dropdown button that discloses a modal calendar view overlay when pressed, allowing the user to select a date.
  *
@@ -76,7 +76,7 @@ export class CalendarSelectFieldStyles extends ConfigOptions {
  *
  * > Note: The button label is formatted using the `I18nProvider` in `app.i18n` by default. You must define the i18n provider for this to work, or change the date label format using {@link CalendarSelectFieldStyles.dateLabel}.
  *
- * For a more keyboard-friendly option, consider using the DateInputField composite instead.
+ * For a more keyboard-friendly option, consider using the DateInputField component instead.
  *
  * **Events**
  * - `Change` is emitted when the selected date has changed. The new date is included in the `value` property of the event data.
@@ -110,7 +110,7 @@ export class CalendarSelectField extends UIComponent.define({
 	accessibleLabel: undefined as string | undefined,
 	/** Localization settings for the calendar, an instance of {@link CalendarViewLocale} */
 	locale: CalendarViewLocale.default,
-	/** A set of styles that are applied to this composite, an instance of {@link CalendarSelectFieldStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link CalendarSelectFieldStyles} */
 	styles: CalendarSelectFieldStyles.default,
 	/** Styles for the calendar view, an instance of {@link CalendarViewStyles} */
 	calendarViewStyles: CalendarViewStyles.default,

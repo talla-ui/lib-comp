@@ -13,7 +13,7 @@ import {
 } from "talla-ui";
 
 /**
- * Style configuration for an {@link LoadingStateView} composite
+ * Style configuration for an {@link LoadingStateView} component
  *
  * Objects of this type are passed to {@link LoadingStateView} as the `styles` preset property.
  */
@@ -62,9 +62,9 @@ export class LoadingStateViewStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a renderer that displays a loading state placeholder while the bound content view is undefined
+ * Component for a renderer that displays a loading state placeholder while the bound content view is undefined
  *
- * A loading state view composite combines an animation and label text, as a placeholder for content that is loading.
+ * A loading state view component combines an animation and label text, as a placeholder for content that is loading.
  *
  * The content binding is passed to a <show> (`UIShowView`) instance, so the view needs to be attached to another observed object (e.g. an activity); refer to the `UIShowView` documentation for more information.
  *
@@ -77,7 +77,7 @@ export class LoadingStateView extends UIComponent.define({
 	text: StringConvertible.EMPTY,
 	/** The title to display */
 	title: StringConvertible.EMPTY,
-	/** A set of styles that are applied to this composite, an instance of {@link LoadingStateViewStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link LoadingStateViewStyles} */
 	styles: LoadingStateViewStyles.default,
 	/** The (bound) content view to display, hiding the loading state view when defined */
 	view: undefined as View | undefined,

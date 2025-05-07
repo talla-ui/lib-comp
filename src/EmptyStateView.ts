@@ -10,7 +10,7 @@ import {
 } from "talla-ui";
 
 /**
- * Style configuration for an {@link EmptyStateView} composite
+ * Style configuration for an {@link EmptyStateView} component
  *
  * Objects of this type are passed to {@link EmptyStateView} as the `styles` preset property.
  */
@@ -46,9 +46,9 @@ export class EmptyStateViewStyles extends ConfigOptions {
 }
 
 /**
- * View composite for an empty state view
+ * Component for an empty state view
  *
- * An empty state view composite combines a title label, an icon, and help text (all optional), as a placeholder for content that is missing or has yet to be created.
+ * An empty state view component combines a title label, an icon, and help text (all optional), as a placeholder for content that is missing or has yet to be created.
  *
  * The 'search' icon is used by default if no icon is specified. Additional content may be added to the empty state view, such as a button to allow the user to add an item in the current context.
  *
@@ -66,7 +66,7 @@ export const EmptyStateView = UIComponent.define(
 		title: StringConvertible.EMPTY,
 		/** The help text to display */
 		helpText: StringConvertible.EMPTY,
-		/** A set of styles that are applied to this composite, an instance of {@link EmptyStateViewStyles} */
+		/** A set of styles that are applied to this component, an instance of {@link EmptyStateViewStyles} */
 		styles: EmptyStateViewStyles.default,
 	},
 	(values, ...content) =>

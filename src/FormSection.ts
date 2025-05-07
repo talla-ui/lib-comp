@@ -2,7 +2,7 @@ import { $viewport, StringConvertible, ui, UIComponent } from "talla-ui";
 import { ColumnCard, ColumnCardStyles } from "./ColumnCard.js";
 
 /**
- * View composite that can be used as a part of a {@link FormSection}
+ * Component that can be used as a part of a {@link FormSection}
  *
  * The form section description is displayed in the title area of the form section — i.e. above the field set on narrow viewports, or beside it on wider viewports. The description may include a title and description text, but may also contain any other content, which is displayed using a column layout.
  */
@@ -26,7 +26,7 @@ export class FormSectionDescription extends UIComponent.define(
 ) {}
 
 /**
- * View composite for a form section
+ * Component for a form section
  *
  * A form section displays a visual grouping of a form field set (i.e. a {@link ColumnCard} with one or more content areas) along with a description that appears either at the top or on the side — depending on the current viewport width.
  *
@@ -35,7 +35,7 @@ export class FormSectionDescription extends UIComponent.define(
  * **Content**
  * - If a title is specified as a property, it is displayed in the title area;
  * - If a {@link FormSectionDescription} is preset as content of the form section, it is displayed in the title area instead.
- * - Any other content is added to the {@link ColumnCard}, separated using a horizontal divider. Containers and view composites do not receive any padding, but individual input components do.
+ * - Any other content is added to the {@link ColumnCard}, separated using a horizontal divider. Containers and UI components do not receive any padding, but individual input components do.
  *
  * @see {@link FormSectionDescription}+
  *

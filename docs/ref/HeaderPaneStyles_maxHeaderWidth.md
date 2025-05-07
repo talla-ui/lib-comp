@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class HeaderPaneStyles](HeaderPaneStyles.md) \
-    Style configuration for a [HeaderPane](HeaderPane.md) composite.
+    Style configuration for a [HeaderPane](HeaderPane.md) component.

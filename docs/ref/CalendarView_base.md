@@ -21,7 +21,7 @@
 - [<!--{ref:property}-->formField](CalendarView_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](CalendarView_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [CalendarViewStyles](CalendarViewStyles.md).
+    A set of styles that are applied to this component, an instance of [CalendarViewStyles](CalendarViewStyles.md).
 - [<!--{ref:property}-->locale](CalendarView_base_locale.md) \
     Localization settings for the calendar, an instance of [CalendarViewLocale](CalendarViewLocale.md).
 - [<!--{ref:property}-->name](CalendarView_base_name.md) \

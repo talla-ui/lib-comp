@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [CalendarViewStyles](CalendarViewStyles.md).
+> A set of styles that are applied to this component, an instance of [CalendarViewStyles](CalendarViewStyles.md).
 
 <pre class="docgen_signature">styles: <a href="CalendarViewStyles.md">CalendarViewStyles</a>;</pre>
 

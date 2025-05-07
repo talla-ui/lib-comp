@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ComboFieldStyles](ComboFieldStyles.md) \
-    Style configuration for a [ComboField](ComboField.md) composite.
+    Style configuration for a [ComboField](ComboField.md) component.

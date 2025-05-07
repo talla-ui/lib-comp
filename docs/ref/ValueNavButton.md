@@ -1,6 +1,6 @@
 # class ValueNavButton
 
-> View composite that encapsulates a value-backed navigation button.
+> Component that encapsulates a value-backed navigation button.
 
 <pre class="docgen_signature"><b>class</b> ValueNavButton <b>extends</b> <a href="ValueNavButton_base.md">ValueNavButton_base</a>;</pre>
 

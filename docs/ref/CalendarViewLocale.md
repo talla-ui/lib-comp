@@ -2,7 +2,7 @@
 
 # class CalendarViewLocale
 
-> Localization configuration for a [CalendarView](CalendarView.md) composite.
+> Localization configuration for a [CalendarView](CalendarView.md) component.
 
 <pre class="docgen_signature"><b>class</b> CalendarViewLocale <b>extends</b> ConfigOptions;</pre>
 

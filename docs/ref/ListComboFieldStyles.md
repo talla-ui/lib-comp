@@ -1,6 +1,6 @@
 # class ListComboFieldStyles
 
-> Style configuration for a [ListComboField](ListComboField.md) composite.
+> Style configuration for a [ListComboField](ListComboField.md) component.
 
 <pre class="docgen_signature"><b>class</b> ListComboFieldStyles <b>extends</b> <a href="ComboFieldStyles.md">ComboFieldStyles</a>;</pre>
 

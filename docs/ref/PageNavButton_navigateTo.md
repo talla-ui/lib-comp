@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class PageNavButton](PageNavButton.md) \
-    View composite that encapsulates a page navigation button.
+    Component that encapsulates a page navigation button.

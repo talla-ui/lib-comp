@@ -1,14 +1,14 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class ListComboField
 
-> View composite for a combo field that reveals a list box on input.
+> Component for a combo field that reveals a list box on input.
 
 <pre class="docgen_signature"><b>class</b> ListComboField <b>extends</b> <a href="ListComboField_base.md">ListComboField_base</a>;</pre>
 
 ## Description
 
-A combo field composite consists of a text field, an optional disclosure button, and an overlay cell that appears when the user interacts with the combo field. The `ListComboField` class populates the cell with a [ListBox](ListBox.md) composite, presenting a filtered set of options.
+A combo field component consists of a text field, an optional disclosure button, and an overlay cell that appears when the user interacts with the combo field. The `ListComboField` class populates the cell with a [ListBox](ListBox.md) component, presenting a filtered set of options.
 
 To use the list combo field, ensure that the `Filter` event is handled to update the `items` list.
 
@@ -34,7 +34,7 @@ To use the list combo field, ensure that the `Filter` event is handled to update
 - [<!--{ref:property}-->grow](ListComboField_base_grow.md) \
     True if the combo field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](ListComboField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ListComboFieldStyles](ListComboFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [ListComboFieldStyles](ListComboFieldStyles.md).
 - [<!--{ref:property}-->name](ListComboField_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](ListComboField_base_accessibleLabel.md) \

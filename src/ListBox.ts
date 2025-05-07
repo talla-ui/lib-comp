@@ -15,7 +15,7 @@ import { ScrollArea } from "./ScrollArea.js";
 import { bindFormField } from "./util.js";
 
 /**
- * Style configuration for a {@link ListBox} composite
+ * Style configuration for a {@link ListBox} component
  *
  * Objects of this type are passed to {@link ListBox} as the `styles` preset property.
  */
@@ -66,9 +66,9 @@ export interface ListBoxItem {
 }
 
 /**
- * View composite for a list box
+ * Component for a list box
  *
- * A list box composite arranges a list of options within a scrollable cell, allowing the user to select one of the options.
+ * A list box component arranges a list of options within a scrollable cell, allowing the user to select one of the options.
  *
  * The currently selected list box option can also be set programmatically using its value.
  *
@@ -96,7 +96,7 @@ export class ListBox extends UIComponent.define({
 	selectOnFocus: false,
 	/** A form field ID, to add a two-way `FormContext` binding */
 	formField: undefined as string | undefined,
-	/** A set of styles that are applied to this composite, an instance of {@link ListBoxStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link ListBoxStyles} */
 	styles: ListBoxStyles.default,
 	/** UI component identifier */
 	name: "ListBox",

@@ -17,7 +17,7 @@ import {
 import { NavRow } from "./NavContainer";
 
 /**
- * Style configuration for a {@link HeaderPane} composite
+ * Style configuration for a {@link HeaderPane} component
  *
  * Objects of this type are passed to {@link HeaderPane} as the `styles` preset property.
  */
@@ -81,13 +81,13 @@ export class HeaderPaneStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a header pane
+ * Component for a header pane
  *
- * A header pane composite provides a complete 'screen' layout solution, including a header row and content area.
+ * A header pane component provides a complete 'screen' layout solution, including a header row and content area.
  *
  * The header row can be hidden, shown with a distinct background color and effect, or shown without any background at all.
  *
- * The content area is not scrollable by default. For scrollable 'page' content, consider using a {@link ScrollPane} composite instead.
+ * The content area is not scrollable by default. For scrollable 'page' content, consider using a {@link ScrollPane} component instead.
  *
  * Icon buttons can be added to the header row. Standard icon buttons include a back button (which emits the `NavigateBack` event or a custom event configured using the `navigateBack` property), and a menu button (which emits a `ShowMenu` event or a custom event configured using the `showMenu` property). Other icons can be added manually with a {@link HeaderPaneToolbar}, and will appear on the far side of the header row.
  *
@@ -113,7 +113,7 @@ export class HeaderPane extends UIComponent.define({
 	showMenu: false as boolean | string,
 	/** True if the title (and icon) should be clickable, or an event to emit when clicked (other than `TitleClick`) */
 	titleClick: false as boolean | string,
-	/** A set of styles that are applied to this composite, an instance of {@link HeaderPaneStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link HeaderPaneStyles} */
 	styles: HeaderPaneStyles.default,
 	/** UI component identifier */
 	name: "HeaderPane",
@@ -322,9 +322,9 @@ export class HeaderPane extends UIComponent.define({
 }
 
 /**
- * View composite for a header pane toolbar
+ * Component for a header pane toolbar
  *
- * This composite is used to add additional buttons or controls to the opposite side of the header in a {@link HeaderPane}.
+ * This component is used to add additional buttons or controls to the opposite side of the header in a {@link HeaderPane}.
  *
  * @class
  */

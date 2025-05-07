@@ -1,4 +1,4 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class ProgressDialog
 

@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class TableRow](TableRow.md) \
-    View composite for a table row.
+    Component for a table row.

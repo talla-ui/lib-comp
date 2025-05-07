@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ProgressBarStyles](ProgressBarStyles.md) \
-    Style configuration for a [ProgressBar](ProgressBar.md) composite.
+    Style configuration for a [ProgressBar](ProgressBar.md) component.

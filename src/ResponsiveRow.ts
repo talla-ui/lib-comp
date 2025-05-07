@@ -9,7 +9,7 @@ import {
 } from "talla-ui";
 
 /**
- * A responsive row that changes to vertical layout on small viewports.
+ * A responsive row component that changes to vertical layout on small viewports.
  *
  * The row will automatically adjust its layout based on the viewport size, based on the defined breakpoint.
  *

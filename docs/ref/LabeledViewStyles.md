@@ -1,6 +1,6 @@
 # class LabeledViewStyles
 
-> Style configuration for an [LabeledView](LabeledView.md) composite.
+> Style configuration for an [LabeledView](LabeledView.md) component.
 
 <pre class="docgen_signature"><b>class</b> LabeledViewStyles <b>extends</b> ConfigOptions;</pre>
 

@@ -12,7 +12,7 @@ import {
 } from "talla-ui";
 
 /**
- * Style configuration for a {@link ColumnCard} composite
+ * Style configuration for a {@link ColumnCard} component
  *
  * Objects of this type are passed to {@link ColumnCard} as the `styles` preset property.
  */
@@ -42,11 +42,11 @@ export class ColumnCardStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a column-based card
+ * Component for a column-based card
  *
- * A column card composite groups together any number of elements as a column within a visually distinct 'card' view.
+ * A column card component groups together any number of elements as a column within a visually distinct 'card' view.
  *
- * The column card composite automatically inserts separators between view elements, and adds padding around any views that are not containers or view composites themselves.
+ * The column card component automatically inserts separators between view elements, and adds padding around any views that are not containers or UI components themselves.
  *
  * @see {@link ColumnCardStyles}+
  *
@@ -69,7 +69,7 @@ export const ColumnCard = UIComponent.define(
 					getNavigationTarget(): NavigationTarget;
 			  }
 			| undefined,
-		/** A set of styles that are applied to this composite, an instance of {@link ColumnCardStyles} */
+		/** A set of styles that are applied to this component, an instance of {@link ColumnCardStyles} */
 		styles: ColumnCardStyles.default,
 	},
 	(view, ...content) =>

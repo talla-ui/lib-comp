@@ -2,7 +2,7 @@
 
 # styles
 
-> A set of styles that are applied to this composite, an instance of [ComboFieldStyles](ComboFieldStyles.md).
+> A set of styles that are applied to this component, an instance of [ComboFieldStyles](ComboFieldStyles.md).
 
 <pre class="docgen_signature">styles: <a href="ComboFieldStyles.md">ComboFieldStyles</a>;</pre>
 

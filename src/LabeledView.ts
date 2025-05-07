@@ -15,7 +15,7 @@ import {
 } from "talla-ui";
 
 /**
- * Style configuration for an {@link LabeledView} composite
+ * Style configuration for an {@link LabeledView} component
  *
  * Objects of this type are passed to {@link LabeledView} as the `styles` preset property.
  */
@@ -58,9 +58,9 @@ export class LabeledViewStyles extends ConfigOptions {
 }
 
 /**
- * View composite that encapsulates a title label in front or above an embedded view
+ * Component that encapsulates a title label in front or above an embedded view
  *
- * A labeled view composite combines a title label (with an optional icon), and an embedded view. The label can be shown above the view (vertical layout) or to the side (horizontal layout). The layout is bound to the viewport width so that horizontal layout is selected for wider viewports, as configured using {@link LabeledViewStyles}.
+ * A labeled view component combines a title label (with an optional icon), and an embedded view. The label can be shown above the view (vertical layout) or to the side (horizontal layout). The layout is bound to the viewport width so that horizontal layout is selected for wider viewports, as configured using {@link LabeledViewStyles}.
  */
 export class LabeledView extends UIComponent.define({
 	/** The title label text */

@@ -19,7 +19,7 @@ import {
 import { bindFormField } from "./util.js";
 
 /**
- * Style configuration for a {@link ComboField} composite
+ * Style configuration for a {@link ComboField} component
  *
  * Objects of this type are passed to {@link ComboField} as the `styles` preset property.
  */
@@ -59,13 +59,13 @@ export class ComboFieldStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a combo field
+ * Component for a combo field
  *
- * A combo field composite consists of a text field, an optional disclosure button, and an overlay cell that appears when the user interacts with the combo field. The overlay is initially hidden, and disappears automatically when the text field is no longer focused.
+ * A combo field component consists of a text field, an optional disclosure button, and an overlay cell that appears when the user interacts with the combo field. The overlay is initially hidden, and disappears automatically when the text field is no longer focused.
  *
  * The overlay content is preset on the combo field, and instantiated when needed. Events emitted by the overlay content are handled by the combo field, and may be used to set the combo field value, or close the overlay.
  *
- * Typically, the overlay cell presents a list of options, which gets filtered as the user types in the text field. A list box composite works well for this, emitting a suitable change event that sets the combo field value in turn.
+ * Typically, the overlay cell presents a list of options, which gets filtered as the user types in the text field. A list box component works well for this, emitting a suitable change event that sets the combo field value in turn.
  *
  * **Events**
  * - `Change` is emitted when the value has changed. The new value is included in the `value` property of the event data.
@@ -93,7 +93,7 @@ export class ComboField extends UIComponent.define({
 	width: undefined as number | undefined,
 	/** True if the combo field should grow to fill the available space, defaults to false */
 	grow: false,
-	/** A set of styles that are applied to this composite, an instance of {@link ComboFieldStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link ComboFieldStyles} */
 	styles: ComboFieldStyles.default,
 	/** True if the overlay should open when the text field gains focus */
 	openOnFocus: false,

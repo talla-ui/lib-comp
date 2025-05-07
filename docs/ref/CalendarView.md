@@ -1,14 +1,14 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class CalendarView
 
-> View composite for a calendar.
+> Component for a calendar view.
 
 <pre class="docgen_signature"><b>class</b> CalendarView <b>extends</b> <a href="CalendarView_base.md">CalendarView_base</a>;</pre>
 
 ## Description
 
-A calendar view composite displays a monthly calendar, allowing the user to select a single date or a date range. The view composite is optimized for both keyboard and mouse or touch input.
+A calendar view component displays a monthly calendar, allowing the user to select a single date or a date range. The component is optimized for both keyboard and mouse or touch input.
 
 The calendar can be localized to start weeks on different days, and to translate the labels for days and months.
 
@@ -46,7 +46,7 @@ The calendar can be localized to start weeks on different days, and to translate
 - [<!--{ref:property}-->formField](CalendarView_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](CalendarView_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [CalendarViewStyles](CalendarViewStyles.md).
+    A set of styles that are applied to this component, an instance of [CalendarViewStyles](CalendarViewStyles.md).
 - [<!--{ref:property}-->locale](CalendarView_base_locale.md) \
     Localization settings for the calendar, an instance of [CalendarViewLocale](CalendarViewLocale.md).
 - [<!--{ref:property}-->name](CalendarView_base_name.md) \
@@ -55,6 +55,6 @@ The calendar can be localized to start weeks on different days, and to translate
 ## Related
 
 - [<!--{ref:class}-->class CalendarViewStyles](CalendarViewStyles.md) \
-    Style configuration for a [CalendarView](CalendarView.md) composite.
+    Style configuration for a [CalendarView](CalendarView.md) component.
 - [<!--{ref:class}-->class CalendarViewLocale](CalendarViewLocale.md) \
-    Localization configuration for a [CalendarView](CalendarView.md) composite.
+    Localization configuration for a [CalendarView](CalendarView.md) component.

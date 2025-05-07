@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class CalendarSelectFieldStyles](CalendarSelectFieldStyles.md) \
-    Style configuration for a [CalendarSelectField](CalendarSelectField.md) composite.
+    Style configuration for a [CalendarSelectField](CalendarSelectField.md) component.

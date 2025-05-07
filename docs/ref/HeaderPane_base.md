@@ -25,6 +25,6 @@
 - [<!--{ref:property}-->titleClick](HeaderPane_base_titleClick.md) \
     True if the title (and icon) should be clickable, or an event to emit when clicked (other than `TitleClick`).
 - [<!--{ref:property}-->styles](HeaderPane_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [HeaderPaneStyles](HeaderPaneStyles.md).
+    A set of styles that are applied to this component, an instance of [HeaderPaneStyles](HeaderPaneStyles.md).
 - [<!--{ref:property}-->name](HeaderPane_base_name.md) \
     UI component identifier.

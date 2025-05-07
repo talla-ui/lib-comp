@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ButtonSwitchStyles](ButtonSwitchStyles.md) \
-    Style configuration for a [ButtonSwitch](ButtonSwitch.md) composite.
+    Style configuration for a [ButtonSwitch](ButtonSwitch.md) component.

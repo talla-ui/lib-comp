@@ -10,7 +10,7 @@ import { ComboField, ComboFieldStyles } from "./ComboField.js";
 import { ListBox, ListBoxItem, ListBoxStyles } from "./ListBox.js";
 
 /**
- * Style configuration for a {@link ListComboField} composite
+ * Style configuration for a {@link ListComboField} component
  *
  * Objects of this type are passed to {@link ListComboField} as the `styles` preset property.
  */
@@ -41,9 +41,9 @@ export class ListComboFieldStyles extends ComboFieldStyles {
 }
 
 /**
- * View composite for a combo field that reveals a list box on input
+ * Component for a combo field that reveals a list box on input
  *
- * A combo field composite consists of a text field, an optional disclosure button, and an overlay cell that appears when the user interacts with the combo field. The `ListComboField` class populates the cell with a {@link ListBox} composite, presenting a filtered set of options.
+ * A combo field component consists of a text field, an optional disclosure button, and an overlay cell that appears when the user interacts with the combo field. The `ListComboField` class populates the cell with a {@link ListBox} component, presenting a filtered set of options.
  *
  * To use the list combo field, ensure that the `Filter` event is handled to update the `items` list.
  *
@@ -67,7 +67,7 @@ export class ListComboField extends UIComponent.define({
 	width: undefined as number | undefined,
 	/** True if the combo field should grow to fill the available space, defaults to false */
 	grow: false,
-	/** A set of styles that are applied to this composite, an instance of {@link ListComboFieldStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link ListComboFieldStyles} */
 	styles: ListComboFieldStyles.default,
 	/** UI component identifier */
 	name: "ListComboField",

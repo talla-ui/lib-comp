@@ -1,18 +1,18 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class HeaderPane
 
-> View composite for a header pane.
+> Component for a header pane.
 
 <pre class="docgen_signature"><b>class</b> HeaderPane <b>extends</b> <a href="HeaderPane_base.md">HeaderPane_base</a>;</pre>
 
 ## Description
 
-A header pane composite provides a complete 'screen' layout solution, including a header row and content area.
+A header pane component provides a complete 'screen' layout solution, including a header row and content area.
 
 The header row can be hidden, shown with a distinct background color and effect, or shown without any background at all.
 
-The content area is not scrollable by default. For scrollable 'page' content, consider using a [ScrollPane](ScrollPane.md) composite instead.
+The content area is not scrollable by default. For scrollable 'page' content, consider using a [ScrollPane](ScrollPane.md) component instead.
 
 Icon buttons can be added to the header row. Standard icon buttons include a back button (which emits the `NavigateBack` event or a custom event configured using the `navigateBack` property), and a menu button (which emits a `ShowMenu` event or a custom event configured using the `showMenu` property). Other icons can be added manually with a [HeaderPaneToolbar](HeaderPaneToolbar.md), and will appear on the far side of the header row.
 
@@ -46,13 +46,13 @@ Icon buttons can be added to the header row. Standard icon buttons include a bac
 - [<!--{ref:property}-->titleClick](HeaderPane_base_titleClick.md) \
     True if the title (and icon) should be clickable, or an event to emit when clicked (other than `TitleClick`).
 - [<!--{ref:property}-->styles](HeaderPane_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [HeaderPaneStyles](HeaderPaneStyles.md).
+    A set of styles that are applied to this component, an instance of [HeaderPaneStyles](HeaderPaneStyles.md).
 - [<!--{ref:property}-->name](HeaderPane_base_name.md) \
     UI component identifier.
 
 ## Related
 
 - [<!--{ref:class}-->class HeaderPaneStyles](HeaderPaneStyles.md) \
-    Style configuration for a [HeaderPane](HeaderPane.md) composite.
+    Style configuration for a [HeaderPane](HeaderPane.md) component.
 - [<!--{ref:class}-->HeaderPaneToolbar](HeaderPaneToolbar.md) \
-    View composite for a header pane toolbar.
+    Component for a header pane toolbar.

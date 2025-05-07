@@ -21,7 +21,7 @@
 - [<!--{ref:property}-->grow](ListComboField_base_grow.md) \
     True if the combo field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](ListComboField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ListComboFieldStyles](ListComboFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [ListComboFieldStyles](ListComboFieldStyles.md).
 - [<!--{ref:property}-->name](ListComboField_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](ListComboField_base_accessibleLabel.md) \

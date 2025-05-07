@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ValueNavButton](ValueNavButton.md) \
-    View composite that encapsulates a value-backed navigation button.
+    Component that encapsulates a value-backed navigation button.

@@ -14,7 +14,7 @@ import {
 import { ScrollArea } from "./ScrollArea.js";
 
 /**
- * Style configuration for a {@link TableList} composite
+ * Style configuration for a {@link TableList} component
  *
  * Objects of this type are passed to {@link TableList} as the `styles` preset property.
  */
@@ -44,13 +44,13 @@ export class TableListStyles extends ConfigOptions {
 }
 
 /**
- * View composite for a table list
+ * Component for a table list
  *
- * A table list composite contains multiple table rows, each with a fixed number of columns to form a table grid.
+ * A table list component contains multiple table rows, each with a fixed number of columns to form a table grid.
  *
  * Table rows are automatically created using a preset TableRow view within the table's `UIListView`, based on the elements of a bound array or observed list in {@link items}. Table rows therefore all have the same number of columns and size.
  *
- * A table list view composite can be preset with a single {@link TableRow} constructor, or a {@link TableHeader} and {@link TableRow} constructor. Styles may be included, including a fixed height value, which makes the table scrollable within a {@link ScrollArea} view.
+ * A table list component can be preset with a single {@link TableRow} constructor, or a {@link TableHeader} and {@link TableRow} constructor. Styles may be included, including a fixed height value, which makes the table scrollable within a {@link ScrollArea} view.
  *
  * @see {@link TableListStyles}+
  * @see {@link TableRow}+
@@ -58,7 +58,7 @@ export class TableListStyles extends ConfigOptions {
 export class TableList extends UIComponent.define({
 	/** The list of items to display in the table */
 	items: undefined as Iterable<unknown> | undefined,
-	/** A set of styles that are applied to this composite, an instance of {@link TableListStyles} */
+	/** A set of styles that are applied to this component, an instance of {@link TableListStyles} */
 	styles: TableListStyles.defaults,
 	/** UI component identifier */
 	name: "TableList",
@@ -108,7 +108,7 @@ export class TableList extends UIComponent.define({
 }
 
 /**
- * View composite for a table row
+ * Component for a table row
  *
  * This class is used to define the view content of each row in a {@link TableList}. Content in the table must be preset using constructors of this type.
  */
@@ -182,9 +182,9 @@ export class TableRow<TItem extends any = unknown> extends UIComponent.define({
 }
 
 /**
- * A table row composite with specific styles for a table header
+ * A table row component with specific styles for a table header
  *
- * A table header row composite can be used as the first content preset of a {@link TableList}, to display a header above all table rows.
+ * A table header row component can be used as the first content preset of a {@link TableList}, to display a header above all table rows.
  */
 export class TableHeader extends TableRow {
 	style: UICell.StyleValue = ui.style.CELL.extend({

@@ -2,7 +2,7 @@
 
 # class ListBoxStyles
 
-> Style configuration for a [ListBox](ListBox.md) composite.
+> Style configuration for a [ListBox](ListBox.md) component.
 
 <pre class="docgen_signature"><b>class</b> ListBoxStyles <b>extends</b> ConfigOptions;</pre>
 

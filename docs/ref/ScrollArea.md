@@ -1,14 +1,14 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # ScrollArea
 
-> View composite with an area that contains scrolling content.
+> Component with an area that contains scrolling content.
 
 <pre class="docgen_signature"><b>const</b> ScrollArea: UIComponent.DefinedUIComponent&lt;{<br>    cellStyle?: BindingOrValue&lt;UICell.StyleValue&gt;;<br>    height?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    width?: BindingOrValue&lt;<b>string</b> | <b>number</b> | <b>undefined</b>&gt;;<br>    padding?: BindingOrValue&lt;UIRenderable.Offsets | <b>undefined</b>&gt;;<br>    horizontalScrollEnabled?: BindingOrValue&lt;<b>boolean</b>&gt; | <b>undefined</b>;<br>    name?: BindingOrValue&lt;<b>string</b>&gt; | <b>undefined</b>;<br>}, {<br>    cellStyle: UICell.StyleValue | <b>undefined</b>;<br>    height: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    width: <b>number</b> | <b>string</b> | <b>undefined</b>;<br>    padding: UIRenderable.Offsets | <b>undefined</b>;<br>    horizontalScrollEnabled: <b>boolean</b>;<br>    name: <b>string</b>;<br>}&gt;;</pre>
 
 ## Description
 
-A scroll area composite provides a way to constrain content to a containing cell, allowing the user to scroll content up and down.
+A scroll area component provides a way to constrain content to a containing cell, allowing the user to scroll content up and down.
 
 > **Note**\
 > For scrolling left and right, you can use a [ScrollRow](ScrollRow.md) instead.

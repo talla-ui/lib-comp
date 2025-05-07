@@ -9,7 +9,7 @@
 - [<!--{ref:property}-->items](TableList_base_items.md) \
     The list of items to display in the table.
 - [<!--{ref:property}-->styles](TableList_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [TableListStyles](TableListStyles.md).
+    A set of styles that are applied to this component, an instance of [TableListStyles](TableListStyles.md).
 - [<!--{ref:property}-->name](TableList_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->renderOptions](TableList_base_renderOptions.md) \

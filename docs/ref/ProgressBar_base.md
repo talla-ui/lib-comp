@@ -11,4 +11,4 @@
 - [<!--{ref:property}-->margin](ProgressBar_base_margin.md) \
     Margin around the outer container, defaults to 0.
 - [<!--{ref:property}-->styles](ProgressBar_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [ProgressBarStyles](ProgressBarStyles.md).
+    A set of styles that are applied to this component, an instance of [ProgressBarStyles](ProgressBarStyles.md).

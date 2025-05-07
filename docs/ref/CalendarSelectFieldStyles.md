@@ -2,7 +2,7 @@
 
 # class CalendarSelectFieldStyles
 
-> Style configuration for a [CalendarSelectField](CalendarSelectField.md) composite.
+> Style configuration for a [CalendarSelectField](CalendarSelectField.md) component.
 
 <pre class="docgen_signature"><b>class</b> CalendarSelectFieldStyles <b>extends</b> ConfigOptions;</pre>
 

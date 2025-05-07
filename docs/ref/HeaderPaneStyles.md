@@ -2,7 +2,7 @@
 
 # class HeaderPaneStyles
 
-> Style configuration for a [HeaderPane](HeaderPane.md) composite.
+> Style configuration for a [HeaderPane](HeaderPane.md) component.
 
 <pre class="docgen_signature"><b>class</b> HeaderPaneStyles <b>extends</b> ConfigOptions;</pre>
 

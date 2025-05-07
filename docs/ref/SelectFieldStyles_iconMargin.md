@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class SelectFieldStyles](SelectFieldStyles.md) \
-    Style configuration for a [SelectField](SelectField.md) composite.
+    Style configuration for a [SelectField](SelectField.md) component.

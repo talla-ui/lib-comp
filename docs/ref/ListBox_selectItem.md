@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class ListBox](ListBox.md) \
-    View composite for a list box.
+    Component for a list box.

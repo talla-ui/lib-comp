@@ -2,7 +2,7 @@
 
 # class ComboFieldStyles
 
-> Style configuration for a [ComboField](ComboField.md) composite.
+> Style configuration for a [ComboField](ComboField.md) component.
 
 <pre class="docgen_signature"><b>class</b> ComboFieldStyles <b>extends</b> ConfigOptions;</pre>
 

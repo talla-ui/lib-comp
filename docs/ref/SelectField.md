@@ -1,14 +1,14 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class SelectField
 
-> View composite for a select field.
+> Component for a select field.
 
 <pre class="docgen_signature"><b>class</b> SelectField <b>extends</b> <a href="SelectField_base.md">SelectField_base</a>;</pre>
 
 ## Description
 
-A select field composite displays a dropdown button which reflects a chosen value (or a placeholder) and reveals a menu when pressed.
+A select field component displays a dropdown button which reflects a chosen value (or a placeholder) and reveals a menu when pressed.
 
 The current value of the select field can be set programmatically using [value](SelectField_base_value.md), and by the user.
 
@@ -44,7 +44,7 @@ Options are added using a list of [SelectFieldOption](SelectFieldOption.md) obje
 - [<!--{ref:property}-->formField](SelectField_base_formField.md) \
     A form field ID, to add a two-way `FormContext` binding.
 - [<!--{ref:property}-->styles](SelectField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [SelectFieldStyles](SelectFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [SelectFieldStyles](SelectFieldStyles.md).
 - [<!--{ref:property}-->name](SelectField_base_name.md) \
     UI component identifier.
 - [<!--{ref:property}-->accessibleLabel](SelectField_base_accessibleLabel.md) \
@@ -53,6 +53,6 @@ Options are added using a list of [SelectFieldOption](SelectFieldOption.md) obje
 ## Related
 
 - [<!--{ref:interface}-->interface SelectFieldOption](SelectFieldOption.md) \
-    An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) composite.
+    An object that describes a button that's displayed within a [ButtonSwitch](ButtonSwitch.md) component.
 - [<!--{ref:class}-->class SelectFieldStyles](SelectFieldStyles.md) \
-    Style configuration for a [SelectField](SelectField.md) composite.
+    Style configuration for a [SelectField](SelectField.md) component.

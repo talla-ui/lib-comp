@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class NavContainerStyles](NavContainerStyles.md) \
-    Style configuration for [NavColumn](NavColumn.md) and [NavRow](NavRow.md) composites.
+    Style configuration for [NavColumn](NavColumn.md) and [NavRow](NavRow.md) components.

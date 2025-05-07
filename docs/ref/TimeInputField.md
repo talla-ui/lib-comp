@@ -1,16 +1,16 @@
-[View composites](../index.md)
+[UI components](../index.md)
 
 # class TimeInputField
 
-> View composite for a time input field.
+> Component for a time input field.
 
 <pre class="docgen_signature"><b>class</b> TimeInputField <b>extends</b> <a href="TimeInputField_base.md">TimeInputField_base</a>;</pre>
 
 ## Description
 
-A time input field composite groups together a series of text fields for time-of-day input.
+A time input field component groups together a series of text fields for time-of-day input.
 
-This composite can be combined with a DateInputField composite for a complete date/time input option (i.e. year, month, date, hours, and minutes), when bound to the same `Date` value.
+This component can be combined with a DateInputField component for a complete date/time input option (i.e. year, month, date, hours, and minutes), when bound to the same `Date` value.
 
 The time input field can be localized to display 24-hour or 12-hour time.
 
@@ -34,7 +34,7 @@ The time input field can be localized to display 24-hour or 12-hour time.
 - [<!--{ref:property}-->grow](TimeInputField_base_grow.md) \
     True if the time input field should grow to fill the available space, defaults to false.
 - [<!--{ref:property}-->styles](TimeInputField_base_styles.md) \
-    A set of styles that are applied to this composite, an instance of [TimeInputFieldStyles](TimeInputFieldStyles.md).
+    A set of styles that are applied to this component, an instance of [TimeInputFieldStyles](TimeInputFieldStyles.md).
 - [<!--{ref:property}-->accessibleLabels](TimeInputField_base_accessibleLabels.md) \
     Accessible labels for hour, minute, and AM/PM input fields (in that order).
 - [<!--{ref:property}-->name](TimeInputField_base_name.md) \
@@ -43,6 +43,6 @@ The time input field can be localized to display 24-hour or 12-hour time.
 ## Related
 
 - [<!--{ref:class}-->class TimeInputFieldStyles](TimeInputFieldStyles.md) \
-    Style configuration for a [TimeInputField](TimeInputField.md) composite.
+    Style configuration for a [TimeInputField](TimeInputField.md) component.
 - [<!--{ref:class}-->class TimeInputLocale](TimeInputLocale.md) \
-    Localization configuration for a [TimeInputField](TimeInputField.md) composite.
+    Localization configuration for a [TimeInputField](TimeInputField.md) component.

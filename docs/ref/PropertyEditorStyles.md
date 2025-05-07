@@ -2,7 +2,7 @@
 
 # class PropertyEditorStyles
 
-> Style configuration for a [PropertyEditor](PropertyEditor.md) composite.
+> Style configuration for a [PropertyEditor](PropertyEditor.md) component.
 
 <pre class="docgen_signature"><b>class</b> PropertyEditorStyles <b>extends</b> ConfigOptions;</pre>
 

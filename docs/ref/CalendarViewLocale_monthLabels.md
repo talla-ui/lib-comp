@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class CalendarViewLocale](CalendarViewLocale.md) \
-    Localization configuration for a [CalendarView](CalendarView.md) composite.
+    Localization configuration for a [CalendarView](CalendarView.md) component.

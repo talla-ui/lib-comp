@@ -2,7 +2,7 @@
 
 # class TableListStyles
 
-> Style configuration for a [TableList](TableList.md) composite.
+> Style configuration for a [TableList](TableList.md) component.
 
 <pre class="docgen_signature"><b>class</b> TableListStyles <b>extends</b> ConfigOptions;</pre>
 

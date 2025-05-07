@@ -9,4 +9,4 @@
 ## Related
 
 - [<!--{ref:class}-->class DetailNavButton](DetailNavButton.md) \
-    View composite that encapsulates a detail navigation button.
+    Component that encapsulates a detail navigation button.
