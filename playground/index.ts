@@ -20,5 +20,5 @@ const app = useWebContext((options) => {
 app.i18n = mock_i18n;
 app.activities.add(...pages);
 
-// showWebTools(undefined, true);
+showWebTools(undefined, true);
 setWebToolsToggleKey("C", { ctrl: true, shift: true }, true);
