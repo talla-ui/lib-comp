@@ -4,7 +4,11 @@ This package contains a library providing a selection of Tälla UI components. T
 
 ## Playground
 
-To see all components in action, you'll need Git, Node.js and NPM. Follow these steps:
+To see all components in action, check out the playground app on GitHub pages:
+
+[Playground (GitHub)](https://talla-ui.github.io/lib-comp)
+
+To run the playground on your machine, you'll need Git, Node.js and NPM. Follow these steps:
 
 - Clone the repository to your machine
 - Run `npm install` to install all dependencies from NPM
@@ -16,9 +20,7 @@ To see all components in action, you'll need Git, Node.js and NPM. Follow these 
 
 For detailed documentation for all of the included components, refer to the `docs` folder:
 
-[Documentation](./docs/index.md)
-
-> **Tip:** If you're reading this in your editor, head to the repository on GitHub to view the docs in your browser instead.
+[Documentation (GitHub)](https://github.com/talla-ui/lib-comp/blob/main/docs/index.md)
 
 ## Development
 
