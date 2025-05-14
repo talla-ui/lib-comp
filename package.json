@@ -20,7 +20,7 @@
 		"prebuild": "npm run clean",
 		"build": "tsc && docgen",
 		"watch": "tsc -w",
-		"build-playground": "vite build",
+		"build-playground": "vite build --base=/lib-comp/",
 		"check-playground": "tsc -p ./playground/tsconfig.json",
 		"prepublishOnly": "tsc"
 	},
