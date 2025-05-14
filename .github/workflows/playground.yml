@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 20
       - uses: actions/configure-pages@v4
+      - run: npm ci
       - run: npm run build
       - run: npm run build-playground
       - uses: actions/upload-pages-artifact@v3

@@ -31,12 +31,12 @@
 		"talla-ui": "next"
 	},
 	"devDependencies": {
-		"@talla-ui/docgen": "next",
-		"@talla-ui/web-handler": "next",
-		"@talla-ui/util": "next",
-		"@talla-ui/lib-web-tools": "next",
-		"@talla-ui/lib-comp": "file:.",
 		"@phosphor-icons/core": "^2.0.0",
+		"@talla-ui/docgen": "next",
+		"@talla-ui/lib-comp": "file:.",
+		"@talla-ui/lib-web-tools": "next",
+		"@talla-ui/util": "next",
+		"@talla-ui/web-handler": "next",
 		"@types/node": "^22.0.0",
 		"highlight.js": "^11.10.0",
 		"rimraf": "^6.0.1",
