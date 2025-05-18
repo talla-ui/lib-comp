@@ -49,19 +49,20 @@ export default (
 			</cell>
 
 			{/* Random image, shrinks to fit */}
-			<cell
-				hidden={$viewport.not("col2")}
-				width="60%"
-				background={ui.color.GRAY}
-			>
-				<animatedcell opacity={0} animationDuration={500}>
+			<show when={$viewport("col2")}>
+				<animatedcell
+					opacity={0}
+					animationDuration={500}
+					width="60%"
+					background={ui.color.GRAY}
+				>
 					<image
 						url="https://picsum.photos/1200/800"
 						height="100%"
 						onLoad="ImageLoaded"
 					/>
 				</animatedcell>
-			</cell>
+			</show>
 		</row>
 
 		{/* Back button (sample page navigation) */}

@@ -71,7 +71,7 @@ export const EmptyStateView = UIComponent.define(
 	},
 	(values, ...content) =>
 		ui.show(
-			{ when: $view.not("hidden") },
+			{ unless: $view("hidden") },
 			ui.cell(
 				{ style: values.styles.containerStyle },
 				ui.column(
